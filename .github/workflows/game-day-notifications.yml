@@ -1,0 +1,24 @@
+name: Game Day Push Reminders
+on:
+  schedule:
+    # UTC windows covering Thursday, Sunday and Monday NFL kickoffs including international games.
+    - cron: '*/5 11-23 * * 0'
+    - cron: '*/5 0-4 * * 1'
+    - cron: '*/5 18-23 * * 1,4'
+    - cron: '*/5 0-4 * * 2,5'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Send one-hour kickoff notification to opted-in subscribers
+        env:
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+        run: python scripts/send-kickoff-alerts.py
