@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Avengers Pregame League HQ",
+  "short_name": "League HQ",
+  "description": "Avengers Pregame fantasy football league headquarters",
+  "start_url": "./index.html#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2f63e0",
+  "theme_color": "#ffd400",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
