@@ -28,6 +28,23 @@ jobs:
           test -f index.html
           test -f manifest.webmanifest
           test -f service-worker.js
+      - name: Generate mobile app icons
+        run: |
+          python -m pip install --quiet cairosvg
+          python - <<'PY'
+          import cairosvg, json
+          from pathlib import Path
+          for size in (180, 192, 512):
+              cairosvg.svg2png(url='icons/icon.svg', write_to=f'icons/icon-{size}.png', output_width=size, output_height=size)
+          path=Path('manifest.webmanifest')
+          manifest=json.loads(path.read_text())
+          manifest['icons']=[
+              {'src':'./icons/icon-192.png','sizes':'192x192','type':'image/png','purpose':'any maskable'},
+              {'src':'./icons/icon-512.png','sizes':'512x512','type':'image/png','purpose':'any maskable'}]
+          path.write_text(json.dumps(manifest,indent=2))
+          html=Path('index.html')
+          html.write_text(html.read_text().replace('href="./icons/icon.svg" type="image/svg+xml"','href="./icons/icon-180.png"'))
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload website
