@@ -1,8 +1,8 @@
 /* Avengers Pregame: browser-only live read sync. No Google or Sleeper credentials stored. */
 (function(){
 'use strict';
-var sheet='1qxUqKvW88U4uyzW3KI8aW3BquSRmJ-uJYISKcFdLg9E',league='1395849826633019392';
-var gids={pickem:1800752985,survivor:1117568756,records:2080123001,awards:1922344021,accuracy:2080123004};
+var sheet='1ThSVhAsQrSrFgq7MlCNmOqqAg4nz3FN27lJkb06jJYg',league='1395849826633019392';
+var gids={pickem:2018081380,survivor:920000002,records:920000004,awards:920000003,accuracy:920000005};
 var names={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'};
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=String(txt);return e}
 function safe(s){return String(s==null?'':s)}
