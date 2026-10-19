@@ -47,7 +47,7 @@ jobs:
           assert 'hp-quick-nav' not in home, 'Redundant quick navigation returned'
           assert 'class="hp-stories"' not in home, 'Duplicate storylines cards returned'
           assert all(home.count(f'href="#{item}"') == 1 for item in ('pickem','survivor','standings','league-schedule')), 'Duplicate homepage navigation target'
-          assert 'href="#awards"' in home and 'href="#award-guide"' in home, 'Distinct awards destinations missing'
+          assert 'href="#awards"' in home and 'href="#award-guide"' not in home, 'Awards navigation must be consolidated'
           assert html.count('class="hp-stat"') == 4, 'Snapshot must contain four cards'
           assert 'id="league-hq-snapshot-contrast"' in html, 'Missing snapshot contrast stylesheet'
           assert 'id="season-award-race"' in html and 'class="award-weekly-history"' in html, 'Missing award season race'
@@ -59,7 +59,10 @@ jobs:
           sync=Path('live-sync.js').read_text()
           assert "if(id==='awards')" in sync and 'live-awards-details' in sync, 'Live feed can hide season award race'
           assert 'src="./live-sync.js?v=mobile-awards-v36"' in html, 'Stale live sync cache key'
-          assert 'href="./awards-race.css?v=3"' in html, 'Stale awards style cache key'
+          assert 'href="./awards-race.css?v=4"' in html, 'Stale awards style cache key'
+          assert 'src="./awards-race.js?v=3"' in html, 'Stale awards graph script cache key'
+          assert 'id="award-guide"' not in html, 'Redundant award guide page remains'
+          assert html.count('class="award-race-description"') == 13, 'Award explanations not embedded in all graphs'
           assert 'live-award-context' in Path('live-sync.js').read_text(), 'Long award descriptions still laid out inline'
           assert '.page .row .right{white-space:normal' in Path('awards-race.css').read_text(), 'Live row wrapping guard missing'
           import json
