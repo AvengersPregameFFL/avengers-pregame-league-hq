@@ -63,3 +63,6 @@
 .page .panel{min-width:0;max-width:100%;overflow-wrap:anywhere}
 @media(max-width:540px){#awards .award-weekly-history .row,#records .live-sync-body .row,#pickem .live-sync-body .row,#survivor .live-sync-body .row{flex-direction:column;align-items:stretch;gap:5px}
 #awards .award-weekly-history .row .right,#records .live-sync-body .row .right,#pickem .live-sync-body .row .right,#survivor .live-sync-body .row .right{text-align:left}}
+
+#awards .award-race-description{font:800 14px/1.45 Archivo,Arial,sans-serif;color:#14111f;margin:12px 0 4px;overflow-wrap:anywhere}
+#awards .award-race-criteria{font:600 12px/1.4 Archivo,Arial,sans-serif;color:#65566a;margin:0 0 13px;overflow-wrap:anywhere}
