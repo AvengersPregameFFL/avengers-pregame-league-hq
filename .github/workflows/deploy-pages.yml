@@ -48,6 +48,12 @@ jobs:
           assert 'class="hp-stories"' not in home, 'Duplicate storylines cards returned'
           assert all(home.count(f'href="#{item}"') == 1 for item in ('pickem','survivor','standings','league-schedule')), 'Duplicate homepage navigation target'
           assert 'href="#awards"' in home and 'href="#award-guide"' in home, 'Distinct awards destinations missing'
+          assert html.count('class="hp-stat"') == 4, 'Snapshot must contain four cards'
+          assert 'id="league-hq-snapshot-contrast"' in html, 'Missing snapshot contrast stylesheet'
+          import json
+          manifest=json.loads(Path('manifest.webmanifest').read_text())
+          assert manifest.get('display') == 'standalone', 'App manifest not installable'
+          assert manifest.get('start_url') and manifest.get('icons'), 'App manifest missing start URL or icons'
           PY
       - name: Generate mobile app icons
         run: |
