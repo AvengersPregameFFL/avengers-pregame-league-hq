@@ -47,8 +47,7 @@ return {coach:coach,weeks:results.data[award][coach].slice().sort(function(a,b){
 }).sort(function(a,b){return b.weeks.length-a.weeks.length||a.coach.localeCompare(b.coach)});
 var max=entries.length?entries[0].weeks.length:0,total=entries.reduce(function(n,r){return n+r.weeks.length},0),leaders=entries.filter(function(x){return x.weeks.length===max});
 var card=element('article','award-race-card'),head=element('div','award-race-card-header'),title=element('h3','',award);
-var countLabel=element('span','award-race-total',total+' '+(total===1?'WIN':'WINS'));
-head.appendChild(title);head.appendChild(countLabel);card.appendChild(head);
+head.appendChild(title);card.appendChild(head);
 var definition=awardDefinitions[award];if(definition){card.appendChild(element('p','award-race-description',definition.description));card.appendChild(element('p','award-race-criteria',definition.rule));}
 var leadText=entries.length?'LEADING: '+leaders.map(function(p){return displayName(p.coach)}).join(' + ')+' · '+max+' '+(max===1?'WIN':'WINS'):'NO CONFIRMED WEEKLY WINNER';
 card.appendChild(element('p','award-race-leader',leadText));
