@@ -74,5 +74,11 @@ if(results.duplicates.length)statusText+=' · CHECK DUPLICATE WINNERS';
 status.textContent=statusText;
 }
 render();
+var historyButton=document.getElementById('award-history-button');
+var historyDrawer=document.getElementById('award-history');
+if(historyButton&&historyDrawer)historyButton.addEventListener('click',function(){
+  historyDrawer.open=true;
+  historyDrawer.scrollIntoView({behavior:'smooth',block:'start'});
+});
 if('MutationObserver' in window){new MutationObserver(render).observe(history,{childList:true,subtree:true,characterData:true});}
 })();

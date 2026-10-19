@@ -11,7 +11,17 @@ function fmt(n){return Number(n||0).toFixed(2)}
 function csv(t){var out=[],row=[],v='',quoted=false;for(var i=0;i<t.length;i++){var c=t[i];if(c==='"'){if(quoted&&t[i+1]==='"'){v+='"';i++}else quoted=!quoted}else if(c===','&&!quoted){row.push(v);v=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&t[i+1]==='\n')i++;row.push(v);if(row.some(Boolean))out.push(row);row=[];v=''}else v+=c}row.push(v);if(row.some(Boolean))out.push(row);return out}
 function sheetRows(gid){var url='https://docs.google.com/spreadsheets/d/'+sheet+'/gviz/tq?tqx=out:csv&gid='+gid+'&cache='+Math.floor(Date.now()/300000);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sheet access '+r.status);return r.text()}).then(function(t){if(/^\s*</.test(t)||!t.includes(','))throw Error('Sheet is not publicly readable');return csv(t)})}
 function status(id,message,ok){var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');h.insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
-function replace(id,node){var sec=document.getElementById(id);if(!sec)return;var old=sec.querySelector('.live-sync-body');if(old)old.remove();var wrap=el('div','live-sync-body');wrap.appendChild(node);var st=document.getElementById('sync-'+id);st.insertAdjacentElement('afterend',wrap);Array.from(sec.children).forEach(function(child){if(child!==wrap&&child!==st&&child.classList&&!child.classList.contains('back')&&child.tagName!=='H1')child.classList.add('sync-old-hidden')})}
+function replace(id,node){var sec=document.getElementById(id);if(!sec)return;
+if(id==='awards'){
+  /* Live sheet is supplementary: do not replace or hide the season graphs or weekly history. */
+  var oldAwards=sec.querySelector('.live-awards-details');if(oldAwards)oldAwards.remove();
+  var drawer=el('details','live-awards-details');
+  drawer.appendChild(el('summary','','LIVE AWARD DEFINITIONS & CURRENT STATUS ↓'));
+  drawer.appendChild(node);sec.appendChild(drawer);
+  sec.querySelectorAll('.award-race-section,.award-history-drawer').forEach(function(part){part.classList.remove('sync-old-hidden')});
+  return;
+}
+var old=sec.querySelector('.live-sync-body');if(old)old.remove();var wrap=el('div','live-sync-body');wrap.appendChild(node);var st=document.getElementById('sync-'+id);st.insertAdjacentElement('afterend',wrap);Array.from(sec.children).forEach(function(child){if(child!==wrap&&child!==st&&child.classList&&!child.classList.contains('back')&&child.tagName!=='H1')child.classList.add('sync-old-hidden')})}
 function panel(title){var p=el('div','panel');if(title)p.appendChild(el('h2','',title));return p}
 function row(left,right,small){var r=el('div','row'),l=el('div'),rr=el('div','right');l.appendChild(el('strong','',left));if(small)l.appendChild(el('small','',small));rr.textContent=right;r.appendChild(l);r.appendChild(rr);return r}
 function sleep(path){return fetch('https://api.sleeper.app/v1'+path,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sleeper '+r.status);return r.json()})}

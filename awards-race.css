@@ -7,7 +7,7 @@
 #awards .award-race-masthead .award-race-disclaimer{color:#e2d2eb;font-size:12px}
 #awards .award-race-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 2px 13px;flex-wrap:wrap}
 #awards .award-race-toolbar span{font:800 12px Archivo,Arial,sans-serif;color:#fff}
-#awards .award-race-toolbar a{font:20px Bangers,Impact,sans-serif;color:#ffd400;text-decoration:underline}
+#awards .award-race-toolbar button{border:0;background:transparent;padding:6px 0;cursor:pointer;font:20px Bangers,Impact,sans-serif;color:#ffd400;text-decoration:underline;text-underline-offset:3px}
 #awards .award-race-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 #awards .award-race-card{min-width:0;padding:16px;background:#fffaf0;color:#14111f;border:4px solid #14111f;box-shadow:5px 5px 0 #14111f}
 #awards .award-race-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:10px;border-bottom:3px solid #14111f}
@@ -33,3 +33,9 @@
 #awards .award-weekly-history>.panel{margin:0 0 15px}
 @media(max-width:760px){#awards .award-race-grid{grid-template-columns:1fr}#awards .award-race-card{padding:14px}#awards .award-race-toolbar{align-items:flex-start}}
 @media(prefers-reduced-motion:no-preference){#awards .award-race-fill{transition:width .35s ease}}
+
+#awards .live-awards-details{margin:25px 0;background:#fffaf0;color:#14111f;border:3px solid #14111f;box-shadow:4px 4px #14111f}
+#awards .live-awards-details>summary{padding:16px;background:#ffd400;cursor:pointer;list-style:none;font:25px/1 Bangers,Impact,sans-serif}
+#awards .live-awards-details>summary::-webkit-details-marker{display:none}
+#awards .live-awards-details>div{padding:14px}
+#awards .live-awards-details .panel{margin-bottom:14px}

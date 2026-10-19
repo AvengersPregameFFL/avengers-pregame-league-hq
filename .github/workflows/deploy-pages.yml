@@ -54,6 +54,11 @@ jobs:
           assert Path('awards-race.js').is_file() and Path('awards-race.css').is_file(), 'Missing season award graph assets'
           assert '14,000,605 Outcomes' in Path('awards-race.js').read_text(), 'Missing situational awards'
           assert 'Week 1</h2>' in html and 'Week 5</h2>' in html, 'Award history accidentally removed'
+          assert 'id="award-history-button"' in html, 'Missing weekly receipts control'
+          assert html.count('class="award-race-card"') == 13, 'Missing pre-rendered awards bar graphs'
+          sync=Path('live-sync.js').read_text()
+          assert "if(id==='awards')" in sync and 'live-awards-details' in sync, 'Live feed can hide season award race'
+          assert 'src="./live-sync.js?v=awards-race-visible-20261019"' in html, 'Stale live sync cache key'
           import json
           manifest=json.loads(Path('manifest.webmanifest').read_text())
           assert manifest.get('display') == 'standalone', 'App manifest not installable'
