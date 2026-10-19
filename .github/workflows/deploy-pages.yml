@@ -42,13 +42,13 @@ jobs:
               assert 'href="../index.html#home"' in page, f'Missing homepage return: {slug}'
           assert Path('stories/story-style.css').is_file(), 'Missing shared editorial styles'
           assert 'id="hp-story-track"' not in html, 'Old oversized homepage carousel still present'
-          home=html.split('<section class="page home" id="home">',1)[1].split('</section>',1)[0]
+          home=html.split('<section class="page home" id="home">',1)[1].split('<div class="footer">',1)[0]
           assert home.count('class="hp-menu"') == 1, 'Expected one consolidated League HQ navigation'
           assert 'hp-quick-nav' not in home, 'Redundant quick navigation returned'
           assert 'class="hp-stories"' not in home, 'Duplicate storylines cards returned'
           assert all(home.count(f'href="#{item}"') == 1 for item in ('pickem','standings')), 'Duplicate homepage navigation target'
-          assert home.count('href="#league-schedule"') == 2, 'Schedule menu and swipeable scoreboard link must both exist'
-          assert 'id="home-score-track"' in home, 'Missing swipeable homepage scoreboard'
+          assert home.count('href="#league-schedule"') == 2, 'Schedule menu and scoreboard link must both exist'
+          assert 'id="home-score-track"' in home, 'Missing homepage scoreboard'
           assert home.count('href="#survivor"') == 2, 'Survivor menu and snapshot shortcut should both be available'
           assert 'href="#awards"' in home and 'href="#award-guide"' not in home, 'Awards navigation must be consolidated'
           assert html.count('class="hp-stat hp-stat-link"') == 4, 'Snapshot must contain four clickable cards'
