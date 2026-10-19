@@ -42,6 +42,12 @@ jobs:
               assert 'href="../index.html#home"' in page, f'Missing homepage return: {slug}'
           assert Path('stories/story-style.css').is_file(), 'Missing shared editorial styles'
           assert 'id="hp-story-track"' not in html, 'Old oversized homepage carousel still present'
+          home=html.split('<section class="page home" id="home">',1)[1].split('</section>',1)[0]
+          assert home.count('class="hp-menu"') == 1, 'Expected one consolidated League HQ navigation'
+          assert 'hp-quick-nav' not in home, 'Redundant quick navigation returned'
+          assert 'class="hp-stories"' not in home, 'Duplicate storylines cards returned'
+          assert all(home.count(f'href="#{item}"') == 1 for item in ('pickem','survivor','standings','league-schedule')), 'Duplicate homepage navigation target'
+          assert 'href="#awards"' in home and 'href="#award-guide"' in home, 'Distinct awards destinations missing'
           PY
       - name: Generate mobile app icons
         run: |
