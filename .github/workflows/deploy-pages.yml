@@ -11,13 +11,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: league-hq-release-v2
+  cancel-in-progress: false
 
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: league-hq-live
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +28,15 @@ jobs:
           test -f index.html
           test -f manifest.webmanifest
           test -f service-worker.js
+      - name: Validate four-story homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('index.html').read_text()
+          assert 'data-story-slide="3"' in html, 'Missing fourth headline navigation'
+          assert 'SHE COULD, SO SHE DID.' in html, 'Missing Allysa article'
+          assert html.count('<article class="hp-story-slide') >= 5, 'Not enough story slides'
+          PY
       - name: Generate mobile app icons
         run: |
           python -m pip install --quiet cairosvg
