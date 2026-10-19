@@ -39,3 +39,27 @@
 #awards .live-awards-details>summary::-webkit-details-marker{display:none}
 #awards .live-awards-details>div{padding:14px}
 #awards .live-awards-details .panel{margin-bottom:14px}
+
+/* Keep long award descriptions fully inside their mobile cards. */
+#awards .live-awards-details{min-width:0;max-width:100%;overflow-wrap:anywhere}
+#awards .live-awards-details>div{min-width:0;max-width:100%}
+#awards .live-award-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+#awards .live-award-card{min-width:0;max-width:100%;margin:0!important;padding:16px!important;overflow-wrap:anywhere}
+#awards .live-award-card h2{max-width:100%;overflow-wrap:anywhere;line-height:1.05}
+#awards .live-award-description{margin:10px 0 16px;line-height:1.5;overflow-wrap:anywhere}
+#awards .live-award-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;min-width:0}
+#awards .live-award-winner{display:flex;flex-direction:column;gap:5px;flex:1 1 170px;min-width:0;overflow-wrap:anywhere}
+#awards .live-award-field{display:block;color:#65546b;font:800 10px/1.2 Archivo,Arial,sans-serif;letter-spacing:.09em}
+#awards .live-award-winner-name{display:block;color:#14111f;font:900 clamp(18px,3.3vw,22px)/1.2 Archivo,Arial,sans-serif;overflow-wrap:anywhere}
+#awards .live-award-frequency{display:inline-block;max-width:100%;padding:6px 9px;background:#ffd400;color:#14111f;border:2px solid #14111f;font:900 12px/1.2 Archivo,Arial,sans-serif;overflow-wrap:anywhere}
+#awards .live-award-context{max-width:100%;min-width:0;margin-top:14px;padding:12px;border-left:5px solid #b61931;background:#f5ecf1;overflow-wrap:anywhere}
+#awards .live-award-context p{margin:6px 0 0;line-height:1.5;overflow-wrap:anywhere;white-space:normal}
+@media(max-width:540px){#awards .live-awards-details>div{padding:10px}#awards .live-award-card{padding:13px!important}#awards .live-award-meta{gap:9px}#awards .live-award-frequency{font-size:11px}}
+/* Shared protection for Pick'em, Survivor, Records, and the saved award history. */
+.page .row{min-width:0;max-width:100%}
+.page .row>div{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.page .row .right{white-space:normal;overflow-wrap:anywhere;word-break:normal}
+.page .row small,.page .row strong{overflow-wrap:anywhere}
+.page .panel{min-width:0;max-width:100%;overflow-wrap:anywhere}
+@media(max-width:540px){#awards .award-weekly-history .row,#records .live-sync-body .row,#pickem .live-sync-body .row,#survivor .live-sync-body .row{flex-direction:column;align-items:stretch;gap:5px}
+#awards .award-weekly-history .row .right,#records .live-sync-body .row .right,#pickem .live-sync-body .row .right,#survivor .live-sync-body .row .right{text-align:left}}

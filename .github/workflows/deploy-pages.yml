@@ -58,7 +58,10 @@ jobs:
           assert html.count('class="award-race-card"') == 13, 'Missing pre-rendered awards bar graphs'
           sync=Path('live-sync.js').read_text()
           assert "if(id==='awards')" in sync and 'live-awards-details' in sync, 'Live feed can hide season award race'
-          assert 'src="./live-sync.js?v=awards-race-visible-20261019"' in html, 'Stale live sync cache key'
+          assert 'src="./live-sync.js?v=mobile-awards-v36"' in html, 'Stale live sync cache key'
+          assert 'href="./awards-race.css?v=3"' in html, 'Stale awards style cache key'
+          assert 'live-award-context' in Path('live-sync.js').read_text(), 'Long award descriptions still laid out inline'
+          assert '.page .row .right{white-space:normal' in Path('awards-race.css').read_text(), 'Live row wrapping guard missing'
           import json
           manifest=json.loads(Path('manifest.webmanifest').read_text())
           assert manifest.get('display') == 'standalone', 'App manifest not installable'
