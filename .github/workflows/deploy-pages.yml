@@ -33,9 +33,10 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           html=Path('index.html').read_text()
-          assert 'data-story-slide="3"' in html, 'Missing fourth headline navigation'
-          assert 'SHE COULD, SO SHE DID.' in html, 'Missing Allysa article'
-          assert html.count('<article class="hp-story-slide') >= 5, 'Not enough story slides'
+          assert all(f'href="#story-{slug}"' in html for slug in ('travis','jugs','nick','allysa')), 'Missing story links'
+          assert html.count('<section class="page headline-page"') == 4, 'Expected four standalone story pages'
+          assert html.count('<article class="hp-story-slide') == 4, 'Expected four complete articles'
+          assert 'id="hp-story-track"' not in html, 'Old oversized homepage carousel still present'
           PY
       - name: Generate mobile app icons
         run: |
