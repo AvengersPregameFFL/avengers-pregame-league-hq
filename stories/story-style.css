@@ -199,3 +199,36 @@ body{min-height:100vh}
 .headline-page .headline-article-footer{margin-bottom:38px}
 .headline-page .hp-story-slide *{max-width:100%}
 @media(max-width:600px){.headline-page{padding-top:12px!important}.headline-page .hp-story-week{font-size:clamp(35px,10vw,54px)}.headline-page .hp-story-sub{font-size:17px}}
+
+/* PREGAME BUGLE — permanent shared newspaper design for all articles, including archives. */
+body{background:#3065db!important;background-image:radial-gradient(rgba(255,255,255,.25) 1.7px,transparent 1.7px)!important;background-size:17px 17px!important;color:#171512!important}
+.wrap{max-width:900px!important;padding:22px 13px 70px!important}
+.header{background:#ffd400!important;border:3px solid #171512!important;box-shadow:4px 4px #171512!important;padding:11px 14px!important;margin-bottom:18px!important}
+.header .brand{color:#171512!important;font:900 clamp(18px,4vw,25px)/1.15 Bangers,Impact,sans-serif!important}
+.header .sub{color:#171512!important;font-weight:800!important}
+.header-actions a,.headline-page .headline-back{color:#171512!important;background:#f5eedc!important;border:2px solid #171512!important;padding:9px 11px!important;font:800 12px/1.2 Archivo,Arial,sans-serif!important}
+.headline-page{display:block!important;padding:0!important}
+.bugle-paper{background:#f1ead7!important;border:6px double #171512!important;box-shadow:7px 7px 0 #171512!important;padding:clamp(15px,4vw,32px)!important;margin-bottom:22px!important;color:#171512!important}
+.bugle-paper .bugle-overline{display:flex;justify-content:space-between;gap:8px;border-bottom:2px solid #171512;padding-bottom:9px;color:#171512;font:700 11px/1.35 Georgia,'Times New Roman',serif;letter-spacing:.05em}
+.bugle-paper .bugle-masthead{text-align:center;color:#171512;font:900 clamp(35px,9vw,72px)/1 Georgia,'Times New Roman',serif;letter-spacing:-.07em;margin:17px 0 14px;border-bottom:5px double #171512;padding-bottom:13px}
+.bugle-paper .bugle-dateline{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-bottom:2px solid #171512;padding-bottom:12px;margin-bottom:17px;color:#171512;font:700 11px/1.35 Georgia,'Times New Roman',serif}
+.bugle-paper .headline-back{display:inline-block!important;margin:0 0 17px!important}
+.bugle-paper .hp-story-slide,.bugle-paper .hp-story-slide[class*="hp-story-"]{background:transparent!important;color:#171512!important;border:0!important;box-shadow:none!important;border-radius:0!important;min-height:0!important;max-width:100%!important;padding:0!important;margin:0!important;font-family:Georgia,'Times New Roman',serif!important}
+.bugle-paper .hp-story-kicker{background:transparent!important;color:#9b2630!important;border:0!important;padding:0 0 9px!important;letter-spacing:.09em!important;font:700 11px/1.3 Georgia,'Times New Roman',serif!important}
+.bugle-paper .hp-story-head{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important}
+.bugle-paper .hp-story-week{font:900 clamp(31px,7.2vw,58px)/1.05 Georgia,'Times New Roman',serif!important;letter-spacing:-.045em!important;color:#171512!important;text-shadow:none!important;transform:none!important;overflow-wrap:anywhere}
+.bugle-paper .hp-story-sub{font:700 clamp(14px,3vw,20px)/1.25 Georgia,'Times New Roman',serif!important;letter-spacing:0!important;color:#5a4d3f!important;margin:10px 0 13px!important}
+.bugle-paper .hp-story-big{background:transparent!important;color:#8d2028!important;border-top:4px double #171512!important;border-bottom:4px double #171512!important;box-shadow:none!important;border-radius:0!important;font:900 clamp(20px,4.7vw,31px)/1.15 Georgia,'Times New Roman',serif!important;padding:12px 0!important;margin:15px 0!important;transform:none!important;text-shadow:none!important}
+.bugle-paper .hp-story-slide p,.bugle-paper .hp-story-slide li{color:#171512!important;font:normal clamp(16px,3.2vw,19px)/1.62 Georgia,'Times New Roman',serif!important}
+.bugle-paper .hp-story-slide strong{color:#171512!important}
+.bugle-paper .hp-story-slide p{margin:12px 0!important}
+.bugle-paper .hp-story-finisher{border-top:2px solid #171512!important;padding-top:12px!important;font-weight:bold!important}
+.bugle-paper .hp-story-link{display:inline-block!important;background:#f1ead7!important;border:2px solid #171512!important;color:#171512!important;padding:10px 12px!important;margin-top:13px!important;box-shadow:none!important;font:700 13px/1.3 Georgia,'Times New Roman',serif!important}
+.bugle-paper .hp-story-slide details,.bugle-paper .hp-story-slide [class*="panel"],.bugle-paper .hp-story-slide [class*="stat"]{background:transparent!important;color:#171512!important;border-color:#797161!important;box-shadow:none!important}
+.bugle-paper .hp-story-slide details summary{color:#171512!important;cursor:pointer}
+.bugle-paper .headline-article-footer{border-top:5px double #171512!important;padding-top:15px!important;margin:23px 0 0!important}
+.bugle-paper .headline-article-footer a{background:#f1ead7!important;color:#171512!important;border:2px solid #171512!important;box-shadow:none!important;font:700 12px/1.3 Georgia,'Times New Roman',serif!important}
+.bugle-paper .bugle-footer-note{text-align:center;border-top:2px solid #171512;padding-top:12px;margin-top:20px;font:700 11px/1.35 Georgia,'Times New Roman',serif;letter-spacing:.07em}
+.footer{color:#171512!important;background:#ffd400!important;border:2px solid #171512!important;padding:12px!important;text-align:center!important;font:700 12px/1.4 Archivo,Arial,sans-serif!important}
+.footer a{color:#171512!important;text-decoration:underline!important}
+@media(max-width:550px){.bugle-paper{padding:14px!important}.bugle-paper .bugle-overline,.bugle-paper .bugle-dateline{font-size:9px!important}.bugle-paper .hp-story-week{font-size:clamp(30px,7.5vw,44px)!important}.bugle-paper .hp-story-slide p{font-size:16px!important}.bugle-paper .headline-article-footer a{font-size:11px!important}}
