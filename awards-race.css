@@ -1,0 +1,35 @@
+/* Avengers Pregame: season award title races. Never affect the homepage. */
+#awards .award-race-section{margin:25px 0 34px}
+#awards .award-race-masthead{padding:20px clamp(15px,4vw,28px);background:linear-gradient(133deg,#15101e 0%,#292039 100%);color:#fffaf0;border:4px solid #11101b;box-shadow:6px 6px 0 #ffd400}
+#awards .award-race-kicker{font:800 12px/1.2 Archivo,Arial,sans-serif;color:#ffd400;letter-spacing:.12em}
+#awards .award-race-masthead h2{color:#ffd400;font:clamp(39px,8vw,58px)/1 Bangers,Impact,sans-serif;letter-spacing:.04em;margin:9px 0}
+#awards .award-race-masthead p{font:500 14px/1.55 Archivo,Arial,sans-serif;color:#fffaf0;max-width:760px;margin:11px 0 0}
+#awards .award-race-masthead .award-race-disclaimer{color:#e2d2eb;font-size:12px}
+#awards .award-race-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 2px 13px;flex-wrap:wrap}
+#awards .award-race-toolbar span{font:800 12px Archivo,Arial,sans-serif;color:#fff}
+#awards .award-race-toolbar a{font:20px Bangers,Impact,sans-serif;color:#ffd400;text-decoration:underline}
+#awards .award-race-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+#awards .award-race-card{min-width:0;padding:16px;background:#fffaf0;color:#14111f;border:4px solid #14111f;box-shadow:5px 5px 0 #14111f}
+#awards .award-race-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:10px;border-bottom:3px solid #14111f}
+#awards .award-race-card h3{font:clamp(27px,4vw,34px)/1 Bangers,Impact,sans-serif;margin:0;color:#a91430;overflow-wrap:anywhere}
+#awards .award-race-card-header .award-race-total{background:#14111f;color:#ffd400;white-space:nowrap;padding:7px 9px;font:19px/1 Bangers,Impact,sans-serif}
+#awards .award-race-leader{font:800 12px/1.35 Archivo,Arial,sans-serif;color:#14111f;margin:11px 0 12px;min-height:16px}
+#awards .award-race-rows{display:grid;gap:12px}
+#awards .award-race-person{min-width:0}
+#awards .award-race-person-line{display:flex;align-items:baseline;justify-content:space-between;gap:9px;margin:0 0 5px}
+#awards .award-race-person-line a{color:#14111f;font:800 14px Archivo,Arial,sans-serif;text-decoration:underline;text-underline-offset:2px}
+#awards .award-race-person-line strong{font:24px Bangers,Impact,sans-serif;color:#a91430}
+#awards .award-race-track{height:18px;background:#e4dae7;border:2px solid #14111f;overflow:hidden}
+#awards .award-race-fill{height:100%;background:linear-gradient(90deg,#92122c,#ef3d50);min-width:0}
+#awards .award-race-person.is-leading .award-race-fill{background:linear-gradient(90deg,#ffd400,#ff9e00)}
+#awards .award-race-week-note{color:#534c63;font:700 10px/1.35 Archivo,Arial,sans-serif;margin-top:5px}
+#awards .award-race-unclaimed{padding:18px 10px;text-align:center;font:22px/1.1 Bangers,Impact,sans-serif;color:#665a74;background:#ede7ef}
+#awards .award-race-card-footer{border-top:2px dashed #aaa1b0;padding-top:9px;margin:13px 0 0;color:#534c63;font:700 10px/1.4 Archivo,Arial,sans-serif}
+#awards .award-history-drawer{margin:22px 0 30px;background:#fffaf0;border:4px solid #14111f;box-shadow:5px 5px #14111f;color:#14111f}
+#awards .award-history-drawer>summary{cursor:pointer;padding:17px;list-style:none;background:#ffd400;font:clamp(22px,5vw,30px)/1.15 Bangers,Impact,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:12px}
+#awards .award-history-drawer>summary::-webkit-details-marker{display:none}
+#awards .award-history-drawer>summary span{font:800 10px Archivo,Arial,sans-serif}
+#awards .award-weekly-history{padding:15px}
+#awards .award-weekly-history>.panel{margin:0 0 15px}
+@media(max-width:760px){#awards .award-race-grid{grid-template-columns:1fr}#awards .award-race-card{padding:14px}#awards .award-race-toolbar{align-items:flex-start}}
+@media(prefers-reduced-motion:no-preference){#awards .award-race-fill{transition:width .35s ease}}
