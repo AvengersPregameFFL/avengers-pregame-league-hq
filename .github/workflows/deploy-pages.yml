@@ -33,9 +33,14 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           html=Path('index.html').read_text()
-          assert all(f'href="#story-{slug}"' in html for slug in ('travis','jugs','nick','allysa')), 'Missing story links'
-          assert html.count('<section class="page headline-page"') == 4, 'Expected four standalone story pages'
-          assert html.count('<article class="hp-story-slide') == 4, 'Expected four complete articles'
+          assert all(f'href="./stories/{slug}.html"' in html for slug in ('travis','jugs','nick','allysa')), 'Missing standalone story links'
+          assert '<section class="page headline-page"' not in html, 'Full articles must never be embedded in homepage'
+          assert '<article class="hp-story-slide' not in html, 'Homepage contains an article instead of just headlines'
+          for slug in ('travis','jugs','nick','allysa'):
+              page=Path('stories',f'{slug}.html').read_text()
+              assert '<article class="hp-story-slide' in page, f'Missing full article: {slug}'
+              assert 'href="../index.html#home"' in page, f'Missing homepage return: {slug}'
+          assert Path('stories/story-style.css').is_file(), 'Missing shared editorial styles'
           assert 'id="hp-story-track"' not in html, 'Old oversized homepage carousel still present'
           PY
       - name: Generate mobile app icons
