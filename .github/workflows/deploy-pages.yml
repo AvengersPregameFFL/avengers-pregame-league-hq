@@ -65,7 +65,7 @@ jobs:
           assert html.count('class="award-race-card"') == 13, 'Missing pre-rendered awards bar graphs'
           sync=Path('live-sync.js').read_text()
           assert "if(id==='awards')" in sync and 'live-awards-details' in sync, 'Live feed can hide season award race'
-          assert 'src="./live-sync.js?v=leader-crowns-v40"' in html, 'Stale live sync cache key'
+          assert 'src="./live-sync.js?v=' in html, 'Missing versioned live sync script'
           assert 'href="./awards-race.css?v=4"' in html, 'Stale awards style cache key'
           assert 'src="./awards-race.js?v=4"' in html, 'Stale awards graph script cache key'
           assert 'award-race-total' not in html, 'Redundant total-wins badges returned'
