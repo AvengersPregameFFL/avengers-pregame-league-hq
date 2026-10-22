@@ -1,0 +1,65 @@
+/* Premium redesign, layered over the original application. No legacy data or content removed. */
+:root{--premium-ink:#171717;--premium-paper:#f7f6f2;--premium-brass:#c9a25c;--premium-rule:#d9d6ce}
+html{scroll-behavior:smooth}
+body{background:var(--premium-paper)!important;background-image:none!important;color:var(--premium-ink)!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important}
+.wrap{max-width:1080px!important;padding:0 20px 70px!important}
+.header{background:var(--premium-paper)!important;position:sticky;top:0;z-index:99;border-bottom:1px solid #dedad1!important;padding:10px 0!important;align-items:center!important;min-height:75px}
+.brand,.brand-v66{background:none!important;border:0!important;box-shadow:none!important;transform:none!important;padding:0!important;color:#151515!important}
+.brand-v66-title{font:900 20px/1.05 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.07em!important;color:#171717!important}
+.brand-v66-art{display:none!important}.header .sub{color:#69655f!important;font:700 10px/1.4 Arial,sans-serif!important;letter-spacing:.08em!important}
+.header .pill{background:#e6c36d!important;color:#171717!important;border:1px solid #d2af59!important;border-radius:100px!important;box-shadow:none!important;font:700 11px Arial,sans-serif!important;transform:none!important}
+.page{padding-top:22px!important}
+.page h1{font:800 clamp(37px,8vw,62px)/1.05 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;letter-spacing:-.065em!important;text-shadow:none!important;color:#171717!important}
+.page h2{font:800 clamp(22px,4vw,33px)/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;letter-spacing:-.045em!important;transform:none!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;color:#171717!important}
+.page h3{font:750 19px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;color:#171717!important}
+.page .panel,.page .tile,.page .stat,.page .season-week,.page .scoring-chart{border:1px solid #e2ded5!important;box-shadow:none!important;background:#fff!important;color:#171717!important;border-radius:12px!important}
+.page .back,.page .weeklink{border:1px solid #ccc5b7!important;border-radius:8px!important;box-shadow:none!important;background:#fff!important;color:#222!important;font:700 12px Arial,sans-serif!important;padding:10px 13px!important;transform:none!important}
+#home{padding-top:0!important}
+#home > :not(.premium-home):not(.hq-feature-tabs):not(.hq-feature-carousel){display:none!important}
+.premium-home{display:block!important}
+.premium-hero{background:#151617;color:#f9f6ee;border-radius:18px 18px 0 0;margin:22px 0 0;padding:clamp(24px,5vw,55px) clamp(18px,5vw,55px) 30px;position:relative;overflow:hidden}
+.premium-hero:after{content:"";position:absolute;right:-100px;top:-160px;width:400px;height:400px;background:radial-gradient(circle,#d7b66b26,transparent 68%);pointer-events:none}
+.premium-eyebrow{font:800 11px/1.5 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ab8950}
+.premium-hero .premium-eyebrow{color:#e4c179}
+.premium-hero h1{color:#fff!important;font:850 clamp(43px,9vw,85px)/.95 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.08em!important;margin:18px 0 16px!important}
+.premium-hero p{color:#c9c6be;font-size:15px;max-width:580px;margin:0}
+#home>.hq-feature-tabs{background:#151617!important;border:0!important;border-radius:0!important;margin:0!important;padding:0 20px 15px!important;box-shadow:none!important}
+#home>.hq-feature-tabs button{border:1px solid #6b675e!important;border-radius:50px!important;background:#252626!important;color:#fff!important;box-shadow:none!important;transform:none!important;font:750 12px Arial,sans-serif!important;padding:10px 14px!important}
+#home>.hq-feature-tabs button[aria-pressed=true]{background:#e4c176!important;color:#171717!important;border-color:#e4c176!important}
+#home>.hq-feature-tabs .hq-feature-hint{color:#a9a7a2!important}
+#home>.hq-feature-carousel{background:#151617!important;border-radius:0 0 18px 18px!important;padding:0 14px 22px!important;box-shadow:none!important;margin:0!important;border:0!important}
+#home #hq-feature-scores,#home #hq-feature-stories{background:transparent!important}
+#home .home-score-strip{background:#090d13!important;color:#f7f6ef!important;border:8px ridge #8b8d90!important;border-radius:5px!important;box-shadow:0 14px 20px #0008!important;padding:15px!important}
+#home .home-score-head{color:#e6bf6b!important}
+#home .home-score-match{background:#111720!important;border:1px solid #323c49!important;box-shadow:none!important;border-radius:3px!important}
+#home .home-score-name,#home .home-score-points{color:#f5f1e6!important}
+#home .hp-story-shell{background:#e8dfcc!important;color:#191919!important;border:5px double #6c614c!important;box-shadow:none!important;border-radius:2px!important}
+#home .hp-top-stories{background:#e8dfcc!important;color:#191919!important}
+#home .bugle-edition{font-family:Georgia,serif!important;color:#191919!important}
+#home .hp-top-stories-list a{color:#191919!important}
+.premium-section{padding:48px 3px 10px}
+.premium-section h2{font:850 clamp(38px,7vw,59px)/1.05 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.065em!important;color:#171717!important;margin:10px 0 20px!important}
+.premium-link{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--premium-rule);padding:20px 4px;text-decoration:none!important;color:#171717!important;background:transparent}
+.premium-link strong{display:block;font:750 clamp(18px,3vw,23px)/1.2 Arial,sans-serif!important;letter-spacing:-.03em}
+.premium-link small{display:block;font:400 13px/1.5 Arial,sans-serif!important;color:#6b6861!important;margin-top:4px}
+.premium-link .arrow{font:400 28px Arial,sans-serif}
+.premium-features{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.premium-card{min-height:176px;padding:24px;background:#191a1b;color:white!important;border-radius:12px;text-decoration:none!important;display:flex;flex-direction:column;justify-content:space-between}
+.premium-card:nth-child(even){background:#e7e1d5;color:#191919!important}
+.premium-card strong{font:800 26px/1.1 Arial,sans-serif;letter-spacing:-.05em}
+.premium-card small{color:inherit!important;opacity:.7;font-size:12px}
+.premium-tools{display:flex;gap:9px;flex-wrap:wrap;padding:18px 0}
+.premium-tools a,.premium-tools button{background:#fff;border:1px solid #cfc9be;color:#151515;padding:10px 13px;border-radius:8px;font:750 12px Arial,sans-serif;cursor:pointer;text-decoration:none}
+.premium-tools .sleeper{background:#6f42c1;color:white;border-color:#6f42c1}
+.premium-nav{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.premium-nav a{padding:8px 12px;border:1px solid #d2ccc0;border-radius:7px;background:#fff;font:700 12px Arial,sans-serif;text-decoration:none;color:#151515}
+.premium-rivalry{background:#151515;color:#fff;border-radius:15px;overflow:hidden;margin-top:15px}
+.premium-rivalry .premium-rivalry-head{text-align:center;padding:27px 15px 10px}
+.premium-rivalry h3{color:#ffe100!important;font:900 clamp(36px,7vw,61px)/1 Arial,sans-serif!important;letter-spacing:-.07em!important;margin:9px 0!important}
+.premium-rivalry svg{width:100%;max-height:285px;display:block}
+.premium-rivalry a{color:#f4d484!important;display:block;text-align:center;padding:16px;text-decoration:underline}
+#rivalries .premium-rivalry-bus{margin:15px 0 22px;border-radius:12px;overflow:hidden;background:#171717}
+#rivalries .premium-rivalry-bus svg{width:100%;max-height:280px}
+.premium-fab{position:fixed;bottom:18px;right:18px;z-index:110;display:flex;gap:7px}
+.premium-fab a{border:1px solid #c9b98e;background:#171717;color:#f6d68a;padding:10px 13px;border-radius:50px;text-decoration:none;font:750 11px Arial,sans-serif;box-shadow:0 6px 20px #0003}
+@media(max-width:620px){.wrap{padding:0 13px 80px!important}.premium-features{grid-template-columns:1fr}.premium-card{min-height:132px}.premium-hero{margin-top:12px}.premium-fab{right:10px;bottom:10px}.premium-fab a{padding:9px 10px;font-size:10px}}
