@@ -39,3 +39,19 @@ p{line-height:1.65}
 a:focus-visible,button:focus-visible{outline:3px solid #b68b4c!important;outline-offset:3px}
 @media(max-width:600px){.wrap{padding:16px 16px 80px!important}.grid{grid-template-columns:1fr 1fr!important;gap:9px!important}.tile{padding:15px!important;min-height:115px!important}.tile strong{font-size:15px!important}#tesla-hq .hq-link{padding:21px 2px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Navigation and existing editorial carousel */
+#clubhouse-navigation{max-width:1160px;margin:0 auto;padding:12px clamp(16px,3vw,44px);display:flex;gap:clamp(12px,2.6vw,32px);overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--club-rule);scrollbar-width:thin}
+#clubhouse-navigation a{font-size:11px;font-weight:800;letter-spacing:.11em;color:#5c574f;padding:8px 0;text-decoration:none}
+#clubhouse-navigation a:hover{color:#a47d40}
+#premium-hero{background:#171819!important;color:#f8f5ef!important;border-radius:10px!important;padding:clamp(34px,7vw,82px)!important}
+#premium-hero b{display:block;font-size:clamp(48px,9vw,108px)!important;line-height:.94!important;letter-spacing:-.075em!important}
+#premium-hero small{color:#c9a467!important;letter-spacing:.16em!important}
+#premium-hero p{color:#c9c5bd!important}
+.hq-feature-carousel{border-radius:10px!important;overflow:hidden!important}
+.hq-feature-tabs{display:flex!important;align-items:center!important;gap:8px!important;margin-top:20px!important}
+.hq-feature-tab{border-radius:5px!important;letter-spacing:.09em!important}
+#home .hp-heading{letter-spacing:-.05em!important}
+#rivalries #premium-bus{background:#181818!important;border-radius:10px!important;padding:20px!important}
+#rivalries #premium-bus svg{max-width:650px!important;display:block!important;margin:auto!important}
+@media(max-width:600px){#clubhouse-navigation{padding:10px 16px}#premium-hero{padding:36px 22px!important}#premium-hero b{font-size:clamp(43px,12vw,70px)!important}}
