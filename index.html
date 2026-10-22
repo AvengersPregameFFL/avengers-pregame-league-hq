@@ -49,11 +49,58 @@ body{background:#f8f7f4!important}
 .section{padding-top:43px!important}
 .section h2{margin-top:7px!important}
 @media(max-width:560px){.top .shell{display:flex!important;flex-wrap:wrap!important;padding-top:13px!important;padding-bottom:10px!important;gap:8px!important}.actions{margin-top:0!important}.actions button,.actions a{font-size:10px!important;padding:6px 8px!important}.herohead h1{font-size:clamp(36px,10vw,50px)!important}.herohead p{font-size:13px!important}.jumbotron{margin:0 10px 12px!important}.match{font-size:12px!important}.nav{padding:7px 0!important}}
+</style><style id="clubhouse-final-layout">
+/* Editorial clubhouse: one masthead, one scoreboard, no stacked marketing heroes. */
+:root{--paper:#f5f5f2;--ink:#151719;--gold:#b39154;--line:#d8d9d6}
+body{background:var(--paper)!important;color:var(--ink)!important}
+.top{position:relative!important;background:#f5f5f2!important;border-bottom:1px solid #ddd!important}
+.top .shell{max-width:1200px!important;min-height:70px!important}
+.wordmark{font-size:clamp(17px,2.3vw,24px)!important;font-weight:850!important;letter-spacing:-.065em!important}
+.wordmark span{color:#99743c!important}
+.actions{align-items:center!important}
+.actions a,.actions button{background:transparent!important;border:1px solid #bcbdb9!important;border-radius:4px!important;color:#1b1b1b!important;font-size:11px!important}
+.actions .sleeper{background:#6f42c1!important;border-color:#6f42c1!important;color:white!important}
+.nav{gap:16px!important;padding:10px 0!important}
+.nav button{font-size:10px!important;border:0!important;border-radius:0!important;border-bottom:1px solid #bcbdb9!important;letter-spacing:.1em!important}
+.hero{margin-top:12px!important;border-radius:7px!important;background:#151719!important;box-shadow:none!important}
+.herohead{padding:clamp(24px,4vw,44px) clamp(20px,5vw,54px) 10px!important}
+.herohead .eyebrow{font-size:10px!important;letter-spacing:.22em!important;color:#bca170!important}
+.hero-titleline{display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.hero-titleline h1{font-size:clamp(38px,6vw,74px)!important;line-height:1!important;letter-spacing:-.075em!important;margin:10px 0 0!important}
+.gold-dot{color:#bca170}
+.hero-titleline p{margin:0 0 6px!important;font-size:clamp(12px,1.6vw,16px)!important;color:#b9bab9!important}
+.switch{padding:15px clamp(20px,5vw,54px) 18px!important}
+.switch button{border:1px solid #53585b!important;border-radius:4px!important;background:#222629!important;padding:9px 14px!important}
+.switch button.on{background:#c5a36b!important;border-color:#c5a36b!important;color:#121212!important}
+.jumbotron{margin:0 clamp(12px,3vw,35px) clamp(12px,3vw,35px)!important;border:2px solid #555e65!important;border-radius:4px!important;padding:clamp(16px,3vw,28px)!important;background:linear-gradient(155deg,#101d2a,#0b1118)!important;box-shadow:0 12px 35px #0007!important}
+.jumbohead{font-size:clamp(10px,1.4vw,14px)!important}
+.match{font-size:clamp(12px,1.7vw,18px)!important;line-height:1.35!important;padding:15px 4px!important}
+.section{padding:52px 0 10px!important}
+.section h2{font-size:clamp(36px,6vw,64px)!important;letter-spacing:-.075em!important}
+.linkrow{padding:22px 0!important}
+.linkrow strong{font-size:clamp(21px,2.8vw,29px)!important}
+.feature{border-radius:5px!important;min-height:170px!important}
+.pagehead h1{font-size:clamp(38px,7vw,68px)!important}
+@media(max-width:600px){
+.top .shell{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important;padding-top:16px!important;padding-bottom:12px!important}
+.actions{display:flex!important;justify-content:space-between!important;margin:0!important}
+.actions a,.actions button{padding:8px 11px!important}
+.hero{margin-top:4px!important}
+.herohead{padding:23px 19px 7px!important}
+.hero-titleline h1{font-size:43px!important}
+.hero-titleline p{font-size:12px!important}
+.switch{padding:14px 19px!important}
+.jumbotron{margin:0 9px 10px!important;padding:15px 12px!important}
+.match{font-size:12px!important}
+.section{padding-top:37px!important}
+.featuregrid{grid-template-columns:1fr!important}
+.feature{min-height:135px!important}
+}
 </style></head><body>
 <header class="top"><div class="shell"><div class="wordmark">AVENGERS <span>PREGAME</span> FFL</div><div class="actions"><a class="sleeper" href="https://sleeper.com/leagues/1395849826633019392" target="_blank" rel="noopener">SLEEPER ↗</a><button onclick="shareSite()">SHARE</button><button onclick="go('alerts')">ALERTS</button></div></div></header>
 <div class="shell"><nav class="nav"><button onclick="back()">← BACK</button><button onclick="go('menu')">MAIN MENU</button><button onclick="go('home')">HOME</button></nav>
 <main>
-<section id="home" class="page active"><div class="hero"><div class="herohead"><div class="eyebrow">THE OFFICIAL LEAGUE CLUBHOUSE · 2026</div><h1>Game day.<br><em>Elevated.</em></h1><p>Eight franchises. One championship. Your league, live.</p></div><div class="switch"><button class="on" data-slide="scoreboard" onclick="slide('scoreboard')">JUMBOTRON</button><button data-slide="newspaper" onclick="slide('newspaper')">PREGAME BUGLE</button></div><div id="scoreboard" class="slide on"><div class="jumbotron"><div class="jumbohead"><b>AVENGERS PREGAME FFL</b><span id="weeklabel">SLEEPER LIVE</span></div><div id="games"><div class="match">Connecting to Sleeper…</div></div><div class="subtle" style="color:#aaa;margin-top:13px;font-size:11px">Live matchup data; unavailable scores are never estimated.</div></div></div><div id="newspaper" class="slide"><div class="bugle"><div class="eyebrow" style="text-align:center">THE LEAGUE NEWSPAPER OF RECORD</div><div class="mast">The Pregame Bugle</div><h2>All the news that's fit to talk shit about.</h2><p>Read the original published stories in their existing archive. No headlines or stories have been replaced.</p><a href="./stories/archive.html">OPEN THE ORIGINAL STORY ARCHIVE →</a></div></div></div>
+<section id="home" class="page active"><div class="hero"><div class="herohead"><div class="eyebrow">AVENGERS PREGAME · OFFICIAL CLUBHOUSE</div><div class="hero-titleline"><h1>LEAGUE HQ<span class="gold-dot">.</span></h1><p>Eight franchises. One championship.</p></div></div><div class="switch"><button class="on" data-slide="scoreboard" onclick="slide('scoreboard')">JUMBOTRON</button><button data-slide="newspaper" onclick="slide('newspaper')">PREGAME BUGLE</button></div><div id="scoreboard" class="slide on"><div class="jumbotron"><div class="jumbohead"><b>AVENGERS PREGAME FFL</b><span id="weeklabel">SLEEPER LIVE</span></div><div id="games"><div class="match">Connecting to Sleeper…</div></div><div class="subtle" style="color:#aaa;margin-top:13px;font-size:11px">Live matchup data; unavailable scores are never estimated.</div></div></div><div id="newspaper" class="slide"><div class="bugle"><div class="eyebrow" style="text-align:center">THE PREGAME BUGLE · ORIGINAL EDITIONS</div><div class="mast">The Pregame Bugle</div><h2>All the news that's fit to talk shit about.</h2><p>Read the original published stories in their existing archive. No headlines or stories have been replaced.</p><a href="./stories/archive.html">OPEN THE ORIGINAL STORY ARCHIVE →</a></div></div></div>
 <div class="section"><div class="eyebrow">THE LEAGUE</div><h2>League HQ.</h2><div id="hqrows"></div></div>
 <div class="section"><div class="eyebrow">BUILT TO LAST</div><h2>More than a season.</h2><div class="featuregrid"><button class="feature" onclick="go('franchises')"><span class="eyebrow">EIGHT LEGACIES</span><strong>Franchises & Coaches →</strong><small>Teams, managers, history and trophy cases</small></button><button class="feature light" onclick="go('rivalries')"><span class="eyebrow">THE ORIGINAL FEUD</span><strong>Rivalries →</strong><small>Short Bus Showdown: Jake vs Ron</small></button><button class="feature light" onclick="go('records')"><span class="eyebrow">THE RECORD BOOK</span><strong>League Records →</strong><small>Weekly, seasonal and all-time achievements</small></button><button class="feature" onclick="go('commissioner')"><span class="eyebrow">BEHIND THE LEAGUE</span><strong>Commissioner's Office →</strong><small>Dues, booze tracker, rules and announcements</small></button></div></div>
 </section>
