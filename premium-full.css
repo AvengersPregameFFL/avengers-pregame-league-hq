@@ -15,7 +15,7 @@ body{background:var(--premium-paper)!important;background-image:none!important;c
 .page .panel,.page .tile,.page .stat,.page .season-week,.page .scoring-chart{border:1px solid #e2ded5!important;box-shadow:none!important;background:#fff!important;color:#171717!important;border-radius:12px!important}
 .page .back,.page .weeklink{border:1px solid #ccc5b7!important;border-radius:8px!important;box-shadow:none!important;background:#fff!important;color:#222!important;font:700 12px Arial,sans-serif!important;padding:10px 13px!important;transform:none!important}
 #home{padding-top:0!important}
-#home > :not(.premium-home):not(.hq-feature-tabs):not(.hq-feature-carousel){display:none!important}
+#home > :not(.premium-home):not(.premium-content):not(.hq-feature-tabs):not(.hq-feature-carousel){display:none!important}
 .premium-home{display:block!important}
 .premium-hero{background:#151617;color:#f9f6ee;border-radius:18px 18px 0 0;margin:22px 0 0;padding:clamp(24px,5vw,55px) clamp(18px,5vw,55px) 30px;position:relative;overflow:hidden}
 .premium-hero:after{content:"";position:absolute;right:-100px;top:-160px;width:400px;height:400px;background:radial-gradient(circle,#d7b66b26,transparent 68%);pointer-events:none}
