@@ -55,3 +55,11 @@ a:focus-visible,button:focus-visible{outline:3px solid #b68b4c!important;outline
 #rivalries #premium-bus{background:#181818!important;border-radius:10px!important;padding:20px!important}
 #rivalries #premium-bus svg{max-width:650px!important;display:block!important;margin:auto!important}
 @media(max-width:600px){#clubhouse-navigation{padding:10px 16px}#premium-hero{padding:36px 22px!important}#premium-hero b{font-size:clamp(43px,12vw,70px)!important}}
+
+#commissioner-office .club-kicker{color:#99723c;font-size:11px;font-weight:800;letter-spacing:.18em}
+#commissioner-office h1{margin:20px 0!important}
+.club-office-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.club-office-grid .panel{margin:0;padding:clamp(20px,3vw,34px)!important}
+.club-office-grid h2{font-size:clamp(24px,3vw,32px)!important;margin:0 0 18px!important}
+.club-office-grid a{color:#80602f;text-decoration:underline}
+@media(max-width:700px){.club-office-grid{grid-template-columns:1fr}}
