@@ -1,0 +1,65 @@
+/* Avengers Pregame · Tesla Clubhouse integration layer. Preserve all legacy scripts and content. */
+:root{--club-paper:#f5f3ed;--club-ink:#17191b;--club-gold:#a47d40;--club-rule:#d7d2c7}
+html{scroll-behavior:smooth}body{background:var(--club-paper)!important;color:var(--club-ink)!important;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:-.012em}
+.wrap{max-width:1160px!important;padding:24px clamp(16px,3vw,44px) 96px!important}
+.header{border-color:var(--club-rule)!important;padding:18px 0 22px!important}
+.brand{font-size:clamp(21px,3vw,32px)!important;letter-spacing:-.055em!important;font-weight:850!important}
+.sub,.muted,.label{color:#6f6c66!important}
+h1,h2,h3{letter-spacing:-.05em;line-height:1.08}h1{font-size:clamp(38px,7vw,76px)!important}h2{font-size:clamp(27px,4vw,44px)!important;margin:32px 0 20px!important}
+p{line-height:1.65}
+.page{padding-top:36px!important}
+.hero{background:#18191a!important;color:#f6f4ed!important;border:0!important;border-radius:8px!important;padding:clamp(28px,6vw,72px)!important}
+.hero p{color:#c7c2b9!important}
+.tile,.panel,.stat{background:#fff!important;color:#191a1b!important;border:1px solid #e1ded7!important;border-radius:8px!important;box-shadow:none!important}
+.tile{min-height:132px!important;padding:24px!important;transition:transform .2s ease,border-color .2s ease}
+.tile:hover{transform:translateY(-2px);border-color:#a47d40!important}
+.tile strong{font-size:18px!important;letter-spacing:-.035em}
+.tile small,.row small{color:#77736d!important}
+.grid{gap:14px!important}
+.row{border-color:#e5e0d7!important;padding:18px 0!important}
+.table th,.table td,.prime-table th,.prime-table td{border-color:#e7e2d9!important;color:#292a2b!important}
+.table th,.prime-table th{color:#797269!important}
+.back,.pill,.tag,.weeklink{background:#f5f1e8!important;color:#3b3327!important;border:1px solid #d9d1c3!important;border-radius:6px!important}
+.link,.prime-table a{color:#80602f!important}
+#tesla-intro{background:#161718!important;color:#f8f6f0!important;border-radius:10px!important;padding:clamp(30px,7vw,84px)!important;margin:12px 0 32px!important}
+#tesla-intro .overline,#tesla-hq .eyebrow{color:#bc985e!important;letter-spacing:.19em!important}
+#tesla-intro h1{font-size:clamp(50px,9vw,108px)!important;line-height:.94!important;letter-spacing:-.08em!important;margin:20px 0!important}
+#tesla-intro p{max-width:560px;color:#c9c4bb!important}
+#tesla-hq{padding:50px 0!important;background:transparent!important;color:var(--club-ink)!important}
+#tesla-hq h2{font-size:clamp(40px,6vw,74px)!important;letter-spacing:-.075em!important}
+#tesla-hq .hq-link{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:25px 4px!important;border-bottom:1px solid var(--club-rule)!important;background:transparent!important;color:var(--club-ink)!important;border-radius:0!important;box-shadow:none!important}
+#tesla-hq .hq-link strong{font-size:clamp(21px,3vw,30px)!important;letter-spacing:-.045em!important}
+#tesla-hq .hq-link small{color:#716c63!important;font-size:13px!important}
+#tesla-hq .hq-link b{font-size:26px!important;font-weight:400!important;color:#9c7840!important}
+#tesla-rivalry{background:#191919!important;color:#fff!important;border-radius:10px!important;padding:clamp(24px,5vw,60px)!important;margin:45px 0!important;text-align:center}
+#tesla-rivalry h2{color:#f5d425!important;font-size:clamp(42px,7vw,82px)!important}
+#tesla-rivalry svg{max-width:640px!important;margin:auto!important;display:block!important}
+#tesla-rivalry a{color:#f1d277!important}
+.footer{color:#706b63!important;border-color:var(--club-rule)!important}
+a:focus-visible,button:focus-visible{outline:3px solid #b68b4c!important;outline-offset:3px}
+@media(max-width:600px){.wrap{padding:16px 16px 80px!important}.grid{grid-template-columns:1fr 1fr!important;gap:9px!important}.tile{padding:15px!important;min-height:115px!important}.tile strong{font-size:15px!important}#tesla-hq .hq-link{padding:21px 2px!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Navigation and existing editorial carousel */
+#clubhouse-navigation{max-width:1160px;margin:0 auto;padding:12px clamp(16px,3vw,44px);display:flex;gap:clamp(12px,2.6vw,32px);overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--club-rule);scrollbar-width:thin}
+#clubhouse-navigation a{font-size:11px;font-weight:800;letter-spacing:.11em;color:#5c574f;padding:8px 0;text-decoration:none}
+#clubhouse-navigation a:hover{color:#a47d40}
+#premium-hero{background:#171819!important;color:#f8f5ef!important;border-radius:10px!important;padding:clamp(34px,7vw,82px)!important}
+#premium-hero b{display:block;font-size:clamp(48px,9vw,108px)!important;line-height:.94!important;letter-spacing:-.075em!important}
+#premium-hero small{color:#c9a467!important;letter-spacing:.16em!important}
+#premium-hero p{color:#c9c5bd!important}
+.hq-feature-carousel{border-radius:10px!important;overflow:hidden!important}
+.hq-feature-tabs{display:flex!important;align-items:center!important;gap:8px!important;margin-top:20px!important}
+.hq-feature-tab{border-radius:5px!important;letter-spacing:.09em!important}
+#home .hp-heading{letter-spacing:-.05em!important}
+#rivalries #premium-bus{background:#181818!important;border-radius:10px!important;padding:20px!important}
+#rivalries #premium-bus svg{max-width:650px!important;display:block!important;margin:auto!important}
+@media(max-width:600px){#clubhouse-navigation{padding:10px 16px}#premium-hero{padding:36px 22px!important}#premium-hero b{font-size:clamp(43px,12vw,70px)!important}}
+
+#commissioner-office .club-kicker{color:#99723c;font-size:11px;font-weight:800;letter-spacing:.18em}
+#commissioner-office h1{margin:20px 0!important}
+.club-office-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.club-office-grid .panel{margin:0;padding:clamp(20px,3vw,34px)!important}
+.club-office-grid h2{font-size:clamp(24px,3vw,32px)!important;margin:0 0 18px!important}
+.club-office-grid a{color:#80602f;text-decoration:underline}
+@media(max-width:700px){.club-office-grid{grid-template-columns:1fr}}
