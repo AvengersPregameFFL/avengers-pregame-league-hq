@@ -28,11 +28,32 @@ body{background:var(--paper);font-family:Inter,-apple-system,BlinkMacSystemFont,
 .paperpanel,.coach{border-radius:8px;box-shadow:none}
 .bugle{border-color:#796d55}
 @media(max-width:600px){.top .shell{min-height:70px}.herohead h1{font-size:clamp(46px,12vw,76px)}.section{padding-top:46px}.feature{min-height:150px}.jumbotron{border-width:3px}}
+</style><style id="homepage-mobile-correction">
+/* Single, restrained editorial hero; live scoreboard is the homepage focal point. */
+body{background:#f8f7f4!important}
+.top{position:relative!important;background:#f8f7f4!important}
+.top .shell{min-height:66px!important}
+.wordmark{font-size:clamp(17px,2vw,22px)!important;letter-spacing:-.045em!important}
+.actions button,.actions a{border-radius:5px!important}
+.nav{padding:10px 0!important}
+.hero{margin-top:8px!important;background:#17191b!important;border-radius:7px!important}
+.herohead{padding:clamp(23px,4vw,42px) clamp(20px,4vw,48px) 10px!important}
+.herohead h1{font-size:clamp(37px,6vw,70px)!important;line-height:1.02!important;letter-spacing:-.075em!important;margin:10px 0 9px!important;font-weight:780!important}
+.herohead h1 em{font-style:normal;color:#d8b56f}
+.herohead p{font-size:clamp(13px,1.6vw,17px)!important;margin:0 0 13px!important;color:#bbbdbd!important}
+.switch{padding:6px clamp(20px,4vw,48px) 17px!important}
+.switch button{font-size:11px!important;letter-spacing:.06em!important;border-radius:5px!important}
+.jumbotron{margin:0 clamp(12px,3vw,34px) 18px!important;border:2px solid #60666b!important;background:linear-gradient(150deg,#101b26,#090c11)!important;box-shadow:inset 0 0 0 2px #20272e,0 16px 35px #0007!important;padding:clamp(15px,3vw,25px)!important}
+.jumbohead{color:#e8c987!important}
+.match{padding:12px 3px!important}
+.section{padding-top:43px!important}
+.section h2{margin-top:7px!important}
+@media(max-width:560px){.top .shell{display:flex!important;flex-wrap:wrap!important;padding-top:13px!important;padding-bottom:10px!important;gap:8px!important}.actions{margin-top:0!important}.actions button,.actions a{font-size:10px!important;padding:6px 8px!important}.herohead h1{font-size:clamp(36px,10vw,50px)!important}.herohead p{font-size:13px!important}.jumbotron{margin:0 10px 12px!important}.match{font-size:12px!important}.nav{padding:7px 0!important}}
 </style></head><body>
 <header class="top"><div class="shell"><div class="wordmark">AVENGERS <span>PREGAME</span> FFL</div><div class="actions"><a class="sleeper" href="https://sleeper.com/leagues/1395849826633019392" target="_blank" rel="noopener">SLEEPER ↗</a><button onclick="shareSite()">SHARE</button><button onclick="go('alerts')">ALERTS</button></div></div></header>
 <div class="shell"><nav class="nav"><button onclick="back()">← BACK</button><button onclick="go('menu')">MAIN MENU</button><button onclick="go('home')">HOME</button></nav>
 <main>
-<section id="home" class="page active"><div class="hero"><div class="herohead"><div class="eyebrow">THE OFFICIAL LEAGUE CLUBHOUSE</div><h1>THE GAME.<br>THE GLORY.<br>THE GUYS.</h1><p>Eight franchises. One championship. A league history worth remembering.</p></div><div class="switch"><button class="on" data-slide="scoreboard" onclick="slide('scoreboard')">JUMBOTRON</button><button data-slide="newspaper" onclick="slide('newspaper')">PREGAME BUGLE</button></div><div id="scoreboard" class="slide on"><div class="jumbotron"><div class="jumbohead"><b>AVENGERS PREGAME FFL</b><span id="weeklabel">SLEEPER LIVE</span></div><div id="games"><div class="match">Connecting to Sleeper…</div></div><div class="subtle" style="color:#aaa;margin-top:13px;font-size:11px">Live matchup data; unavailable scores are never estimated.</div></div></div><div id="newspaper" class="slide"><div class="bugle"><div class="eyebrow" style="text-align:center">THE LEAGUE NEWSPAPER OF RECORD</div><div class="mast">The Pregame Bugle</div><h2>All the news that's fit to talk shit about.</h2><p>Read the original published stories in their existing archive. No headlines or stories have been replaced.</p><a href="./stories/archive.html">OPEN THE ORIGINAL STORY ARCHIVE →</a></div></div></div>
+<section id="home" class="page active"><div class="hero"><div class="herohead"><div class="eyebrow">THE OFFICIAL LEAGUE CLUBHOUSE · 2026</div><h1>Game day.<br><em>Elevated.</em></h1><p>Eight franchises. One championship. Your league, live.</p></div><div class="switch"><button class="on" data-slide="scoreboard" onclick="slide('scoreboard')">JUMBOTRON</button><button data-slide="newspaper" onclick="slide('newspaper')">PREGAME BUGLE</button></div><div id="scoreboard" class="slide on"><div class="jumbotron"><div class="jumbohead"><b>AVENGERS PREGAME FFL</b><span id="weeklabel">SLEEPER LIVE</span></div><div id="games"><div class="match">Connecting to Sleeper…</div></div><div class="subtle" style="color:#aaa;margin-top:13px;font-size:11px">Live matchup data; unavailable scores are never estimated.</div></div></div><div id="newspaper" class="slide"><div class="bugle"><div class="eyebrow" style="text-align:center">THE LEAGUE NEWSPAPER OF RECORD</div><div class="mast">The Pregame Bugle</div><h2>All the news that's fit to talk shit about.</h2><p>Read the original published stories in their existing archive. No headlines or stories have been replaced.</p><a href="./stories/archive.html">OPEN THE ORIGINAL STORY ARCHIVE →</a></div></div></div>
 <div class="section"><div class="eyebrow">THE LEAGUE</div><h2>League HQ.</h2><div id="hqrows"></div></div>
 <div class="section"><div class="eyebrow">BUILT TO LAST</div><h2>More than a season.</h2><div class="featuregrid"><button class="feature" onclick="go('franchises')"><span class="eyebrow">EIGHT LEGACIES</span><strong>Franchises & Coaches →</strong><small>Teams, managers, history and trophy cases</small></button><button class="feature light" onclick="go('rivalries')"><span class="eyebrow">THE ORIGINAL FEUD</span><strong>Rivalries →</strong><small>Short Bus Showdown: Jake vs Ron</small></button><button class="feature light" onclick="go('records')"><span class="eyebrow">THE RECORD BOOK</span><strong>League Records →</strong><small>Weekly, seasonal and all-time achievements</small></button><button class="feature" onclick="go('commissioner')"><span class="eyebrow">BEHIND THE LEAGUE</span><strong>Commissioner's Office →</strong><small>Dues, booze tracker, rules and announcements</small></button></div></div>
 </section>
