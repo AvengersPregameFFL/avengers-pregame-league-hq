@@ -26,3 +26,40 @@ body *{text-shadow:none!important}.wrap{max-width:1080px!important}.header{backg
 a:focus-visible,button:focus-visible{outline:3px solid #aa833a!important;outline-offset:3px!important}
 @media(max-width:600px){#clubhouse-intro{margin-top:10px!important}#clubhouse-nav a{padding:9px 10px!important;font-size:11px!important}#home .hp-menu-group a{min-height:62px!important}#clubhouse-rivalry{padding:16px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* 2026-10-22 refinement: remove accumulated comic overrides and visual duplication */
+body{background:#f6f5f2!important}#home{max-width:1040px!important;margin-inline:auto!important;padding-bottom:72px!important}
+#clubhouse-intro{min-height:390px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;background:radial-gradient(ellipse at 83% 10%,#343332 0%,transparent 46%),linear-gradient(125deg,#101112,#252424)!important;padding:clamp(32px,7vw,80px)!important;border-radius:12px!important;position:relative!important;overflow:hidden!important}
+#clubhouse-intro:after{content:"AP / FFL";position:absolute;right:-12px;bottom:-52px;font-size:clamp(110px,22vw,280px);font-weight:900;letter-spacing:-.12em;color:#ffffff07;pointer-events:none;white-space:nowrap}
+#clubhouse-intro .club-kicker{font-size:11px!important;letter-spacing:.24em!important;font-weight:800!important}
+#clubhouse-intro h1{font-size:clamp(52px,9vw,105px)!important;max-width:900px!important;line-height:.9!important;margin:26px 0!important;letter-spacing:-.09em!important}
+#clubhouse-intro p{font-size:clamp(14px,2vw,18px)!important;max-width:510px!important}
+#home>#clubhouse-nav{display:none!important}
+#clubhouse-nav{max-width:1080px!important;margin:0 auto!important;padding:13px 18px!important;gap:5px!important;overflow-x:auto!important;flex-wrap:nowrap!important;scrollbar-width:none!important}
+#clubhouse-nav a{background:transparent!important;border:0!important;border-radius:4px!important;font-size:11px!important;letter-spacing:.06em!important;white-space:nowrap!important;padding:10px 13px!important}
+#clubhouse-nav a:hover{background:#e7e4de!important}
+#home .hq-feature-tabs{display:flex!important;gap:8px!important;margin:20px 0 12px!important}
+#home .hq-feature-tab{border:1px solid #d8d4ca!important;background:#fff!important;color:#171717!important;border-radius:6px!important;padding:12px 18px!important;box-shadow:none!important;transform:none!important;font:800 12px Inter,Arial,sans-serif!important;letter-spacing:.07em!important}
+#home .hq-feature-tab[aria-pressed=true]{background:#18191b!important;color:#fff!important;border-color:#18191b!important}
+#home .hq-feature-hint{display:none!important}
+#home .hq-feature-carousel{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+#home .home-score-strip{background:linear-gradient(140deg,#0b0e11,#20252a)!important;border:8px solid #565a5c!important;outline:2px solid #a4a4a4!important;outline-offset:-5px!important;box-shadow:0 18px 36px #1113!important;border-radius:7px!important}
+#home .home-score-head{background:#111820!important;color:#d9bb79!important}
+#home .home-score-match{background:#10151a!important;color:#fff!important;border:1px solid #333a3f!important;border-radius:2px!important;box-shadow:none!important}
+#home .home-score-name{color:#fff!important}#home .home-score-points{color:#f4d17b!important}
+#home .hp-story-shell{background:#eae0cb!important;border:1px solid #b8aa8c!important;border-radius:3px!important;box-shadow:none!important;color:#211d18!important}
+#home .hp-top-stories-list a{background:transparent!important;background-image:none!important;color:#26221d!important;border-bottom:1px solid #a79a7d!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+#home .hp-menu-group a,#home .hp-menu-group a:nth-child(n){background:#fff!important;background-image:none!important;border:0!important;border-bottom:1px solid #dedbd4!important;box-shadow:none!important;transform:none!important;border-radius:0!important;padding:19px 6px!important;min-height:72px!important;color:#161616!important}
+#home .hp-menu-group a:before,#home .hp-menu-group a:after{display:none!important}
+#home .hp-menu-group a .hp-menu-label{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;min-height:0!important;font:750 clamp(17px,2.7vw,23px) Inter,Arial,sans-serif!important;letter-spacing:-.045em!important;text-align:left!important;justify-content:flex-start!important;color:#171717!important}
+#home .hp-menu-group a .hp-menu-arrow{display:block!important;color:#999!important}
+#home .hp-heading,#home .hp-menu-group-title{transform:none!important;text-transform:none!important;background:transparent!important;letter-spacing:-.06em!important}
+#home .hp-panel,#home .hp-stat,#home .hp-award{box-shadow:none!important;border:1px solid #e2dfd8!important;border-radius:8px!important;background:#fff!important}
+#home .hp-stats{gap:10px!important}
+#hq-native{border:1px solid #dedad2!important;border-radius:10px!important;box-shadow:none!important;background:#fff!important;color:#191919!important;overflow:hidden!important}
+#hq-native>div:first-child{background:#1b1b1b!important;color:#f5f2e9!important;font:800 22px Inter,Arial,sans-serif!important;letter-spacing:-.04em!important}
+#hq-ledger-link{border:1px solid #ddd8cc!important;background:#fff!important;box-shadow:none!important;border-radius:10px!important}
+#clubhouse-rivalry{margin:45px 0!important;background:#141414!important;border-radius:12px!important;padding:clamp(24px,5vw,50px)!important}
+#clubhouse-rivalry h2{font-size:clamp(34px,7vw,72px)!important;line-height:.98!important;letter-spacing:-.07em!important}
+#clubhouse-rivalry svg{display:block!important;margin:auto!important}
+@media(max-width:650px){#clubhouse-intro{min-height:340px!important;padding:29px!important}#clubhouse-intro h1{font-size:clamp(46px,12vw,75px)!important}#home .home-score-strip{border-width:5px!important}#home .hp-menu-group a{padding:15px 4px!important}}
