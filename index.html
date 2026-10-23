@@ -819,7 +819,7 @@ var roster=rosters.find(function(r){return clean(r.metadata&&r.metadata.team_nam
 var u=users.find(function(u){return clean(u.metadata&&u.metadata.team_name)===clean(team.name)});
 if(!u&&roster)u=users.find(function(u){return u.user_id===roster.owner_id});
 /* Mike's Sleeper team name may differ from the display label. Resolve by manager identity. */
-if(!u&&team.cls==='team-logo-infinity')u=users.find(function(x){return /^mike(?:$|[^a-z])/i.test(String(x.display_name||x.username||''))});
+if(!u&&team.cls==='team-logo-infinity')u=users.find(function(x){return clean(x.username)==='infinitybrocklet'||clean(x.display_name)==='infinitybrocklet'||clean(x.metadata&&x.metadata.team_name)==='infinitybrocklet'});
 if(!u)return;
 var avatar=urlFor((roster&&roster.metadata&&roster.metadata.avatar)||(u.metadata&&u.metadata.avatar)||u.avatar);
 if(!avatar)return;
