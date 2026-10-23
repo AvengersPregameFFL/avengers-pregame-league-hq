@@ -818,8 +818,10 @@ teams.forEach(function(team){
 var roster=rosters.find(function(r){return clean(r.metadata&&r.metadata.team_name)===clean(team.name)});
 var u=users.find(function(u){return clean(u.metadata&&u.metadata.team_name)===clean(team.name)});
 if(!u&&roster)u=users.find(function(u){return u.user_id===roster.owner_id});
+/* Mike's Sleeper team name may differ from the display label. Resolve by manager identity. */
+if(!u&&team.cls==='team-logo-infinity')u=users.find(function(x){return /^mike(?:$|[^a-z])/i.test(String(x.display_name||x.username||''))});
 if(!u)return;
-var avatar=urlFor(u.metadata&&u.metadata.avatar||u.avatar);
+var avatar=urlFor((roster&&roster.metadata&&roster.metadata.avatar)||(u.metadata&&u.metadata.avatar)||u.avatar);
 if(!avatar)return;
 var img=new Image();img.onload=function(){
 document.querySelectorAll('.'+team.cls).forEach(function(el){el.style.setProperty('background-image','url("'+avatar+'")','important');el.classList.add('sleeper-logo-loaded');el.setAttribute('role','img');el.setAttribute('aria-label',team.name+' Sleeper logo')});
