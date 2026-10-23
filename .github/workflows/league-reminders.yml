@@ -1,0 +1,22 @@
+name: League HQ scheduled reminders
+on:
+  schedule:
+    # Hourly windows account for Eastern daylight/standard time.
+    - cron: '0 13-23 * * 0,4'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: league-hq-reminders
+  cancel-in-progress: false
+jobs:
+  send-reminders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Send due reminders
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+        run: python3 scripts/send_reminders.py
