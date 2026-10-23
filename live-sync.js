@@ -117,7 +117,7 @@ status('accuracy','SEASON LINEUP ACCURACY · LIVE',true);replace('accuracy',box)
 function init(){
 var lastRefresh=0,lastAttempt=0,indicator=document.createElement('div');
 indicator.id='hq-data-freshness';
-indicator.setAttribute('role','status');indicator.setAttribute('aria-live','polite');
+indicator.setAttribute('role','status');indicator.setAttribute('aria-live','polite');indicator.setAttribute('title','Tap to see which data sources need attention');indicator.style.cursor='pointer';indicator.addEventListener('click',function(){var warnings=Array.from(document.querySelectorAll('.live-sync-status.live-sync-warn'));if(warnings.length){var details=warnings.map(function(w){return w.textContent}).join('\n\n');window.alert('League data source details:\n\n'+details)}else window.alert('All reporting sources currently show no warnings.')});
 indicator.style.cssText='margin:10px 0;padding:9px 12px;background:#17132b;color:#fff;border:2px solid #ffd400;font:700 12px/1.4 Arial,sans-serif;border-radius:4px';
 indicator.textContent='LEAGUE DATA · Connecting to Sleeper and Sheets…';
 var home=document.getElementById('home');
@@ -127,7 +127,7 @@ function updateIndicator(){
  var warnings=statuses.filter(function(x){return x.classList.contains('live-sync-warn')});
  var successes=statuses.filter(function(x){return x.classList.contains('live-sync-ok')});
  var clock=lastAttempt?new Date(lastAttempt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'—';
- indicator.textContent=warnings.length?'LEAGUE DATA · Updated/check attempted '+clock+' · '+warnings.length+' source warning(s). Some sections may be stale.':successes.length?'LEAGUE DATA · Last checked '+clock+' · Auto-refresh every 2 min while open':'LEAGUE DATA · Checking sources at '+clock;
+ indicator.textContent=warnings.length?'LEAGUE DATA · Checked '+clock+' · '+warnings.length+' source needs attention · TAP FOR DETAILS':successes.length?'LEAGUE DATA · Checked '+clock+' · Auto-refresh every 2 min':'LEAGUE DATA · Checking sources at '+clock;
  indicator.style.borderColor=warnings.length?'#ff786b':'#ffd400';
 }
 function refresh(force){
