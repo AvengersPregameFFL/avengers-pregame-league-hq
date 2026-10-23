@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(){
 const btn=document.getElementById('share-league');if(!btn)return;
-const url='https://jumbojuggernaut.github.io/avengers-pregame-league-hq/';
+const url='https://avengerspregameffl.github.io/avengers-pregame-league-hq/';
 const msg='Avengers Pregame FFL League HQ: '+url;
 const panel=document.createElement('div');panel.hidden=true;panel.id='league-share-options';
 panel.style.cssText='position:fixed;z-index:99999;left:12px;right:12px;bottom:12px;max-width:480px;margin:auto;background:#fffaf0;color:#14111f;border:3px solid #14111f;border-radius:12px;padding:16px;box-shadow:0 0 0 200vmax #0009';
