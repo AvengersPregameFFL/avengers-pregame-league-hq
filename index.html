@@ -698,7 +698,7 @@ header.header .header-actions #share-league{margin-right:3px!important}
 @media(prefers-reduced-motion:reduce){#home .hq-feature-tab,#home .home-score-match{transition:none!important}}
 </style><script id="bugle-story-share-v1">
 async function shareIndividualBugleStory(url,title,body){
- const link=new URL(url,location.href).href;
+ const link=new URL(url,location.href).href.replace(/^https:\/\/jumbojuggernaut\.github\.io\/avengers-pregame-league-hq\//i,'https://avengerspregameffl.github.io/avengers-pregame-league-hq/');
  const message=title+'\n\n'+body+'\n\n'+link;
  try{
   if(navigator.share)await navigator.share({title:title,text:message});
