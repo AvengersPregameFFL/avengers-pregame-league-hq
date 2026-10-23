@@ -11,7 +11,8 @@ function fmt(n){return Number(n||0).toFixed(2)}
 function csv(t){var out=[],row=[],v='',quoted=false;for(var i=0;i<t.length;i++){var c=t[i];if(c==='"'){if(quoted&&t[i+1]==='"'){v+='"';i++}else quoted=!quoted}else if(c===','&&!quoted){row.push(v);v=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&t[i+1]==='\n')i++;row.push(v);if(row.some(Boolean))out.push(row);row=[];v=''}else v+=c}row.push(v);if(row.some(Boolean))out.push(row);return out}
 function sheetRows(gid){var url='https://docs.google.com/spreadsheets/d/'+sheet+'/gviz/tq?tqx=out:csv&gid='+gid+'&cache='+Math.floor(Date.now()/300000);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sheet access '+r.status);return r.text()}).then(function(t){if(/^\s*</.test(t)||!t.includes(','))throw Error('Sheet is not publicly readable');return csv(t)})}
 function sheetRowsFrom(id,gid){var url='https://docs.google.com/spreadsheets/d/'+encodeURIComponent(id)+'/gviz/tq?tqx=out:csv&gid='+gid+'&cache='+Math.floor(Date.now()/300000);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sheet access '+r.status);return r.text()}).then(function(t){if(/^\s*</.test(t)||!t.includes(','))throw Error('Sheet is not publicly readable');return csv(t)})}
-function status(id,message,ok){var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');h.insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
+var reportStatus=null;
+function status(id,message,ok){if(reportStatus)reportStatus(id,message,ok);var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');h.insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
 function replace(id,node){var sec=document.getElementById(id);if(!sec)return;
 if(id==='awards'){
   /* Live sheet is supplementary: do not replace or hide the season graphs or weekly history. */
@@ -115,31 +116,44 @@ records.forEach(function(r,i){
 status('accuracy','SEASON LINEUP ACCURACY · LIVE',true);replace('accuracy',box)
 }).catch(function(e){status('accuracy','Coach accuracy data unavailable: '+e.message,false)})}
 function init(){
-var lastRefresh=0,lastAttempt=0,indicator=document.createElement('div');
+var ids=['standings','pickem','survivor','records','awards','accuracy'];
+var state={},pending=new Set(),inFlight=false,lastStart=0,cycle=0;
+var indicator=document.createElement('div');
 indicator.id='hq-data-freshness';
-indicator.setAttribute('role','status');indicator.setAttribute('aria-live','polite');indicator.setAttribute('title','Tap to see which data sources need attention');indicator.style.cursor='pointer';indicator.addEventListener('click',function(){var warnings=Array.from(document.querySelectorAll('.live-sync-status.live-sync-warn'));if(warnings.length){var details=warnings.map(function(w){return w.textContent}).join('\n\n');window.alert('League data source details:\n\n'+details)}else window.alert('All reporting sources currently show no warnings.')});
-indicator.style.cssText='margin:10px 0;padding:9px 12px;background:#17132b;color:#fff;border:2px solid #ffd400;font:700 12px/1.4 Arial,sans-serif;border-radius:4px';
-indicator.textContent='LEAGUE DATA · Connecting to Sleeper and Sheets…';
+indicator.setAttribute('role','status');
+indicator.setAttribute('aria-live','polite');
+indicator.style.cssText='margin:10px 0;padding:9px 12px;background:#17132b;color:#fff;border:2px solid #ffd400;font:700 12px/1.4 Arial,sans-serif;border-radius:4px;cursor:pointer';
+indicator.title='Tap for individual source freshness';
 var home=document.getElementById('home');
 if(home){var heading=home.querySelector('.hp-heading')||home.firstElementChild;if(heading)heading.insertAdjacentElement('beforebegin',indicator);else home.prepend(indicator)}
-function updateIndicator(){
- var statuses=Array.from(document.querySelectorAll('.live-sync-status'));
- var warnings=statuses.filter(function(x){return x.classList.contains('live-sync-warn')});
- var successes=statuses.filter(function(x){return x.classList.contains('live-sync-ok')});
- var clock=lastAttempt?new Date(lastAttempt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'—';
- indicator.textContent=warnings.length?'LEAGUE DATA · Checked '+clock+' · '+warnings.length+' source needs attention · TAP FOR DETAILS':successes.length?'LEAGUE DATA · Checked '+clock+' · Auto-refresh every 2 min':'LEAGUE DATA · Checking sources at '+clock;
- indicator.style.borderColor=warnings.length?'#ff786b':'#ffd400';
+function clock(t){return t?new Date(t).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'never'}
+function render(){
+ var failed=ids.filter(function(id){return state[id]&&state[id].ok===false});
+ var good=ids.filter(function(id){return state[id]&&state[id].ok===true});
+ var old=good.filter(function(id){return Date.now()-state[id].success>300000});
+ indicator.textContent=inFlight?'LEAGUE DATA · Checking '+pending.size+' sources…':failed.length?'LEAGUE DATA · '+failed.length+' source'+(failed.length===1?'':'s')+' unavailable · DETAILS':old.length?'LEAGUE DATA · '+old.length+' source'+(old.length===1?'':'s')+' delayed · DETAILS':good.length===ids.length?'LEAGUE DATA · '+ids.length+'/'+ids.length+' sources updated · '+clock(Math.min.apply(null,good.map(function(id){return state[id].success}))):'LEAGUE DATA · Waiting for source checks';
+ indicator.style.borderColor=failed.length?'#ff786b':'#ffd400';
 }
+reportStatus=function(id,message,ok){
+ if(ids.indexOf(id)<0)return;
+ var previous=state[id]||{};
+ state[id]={ok:ok,success:ok?Date.now():previous.success||0,attempt:Date.now(),message:message};
+ pending.delete(id);
+ if(inFlight&&pending.size===0)inFlight=false;
+ render();
+};
+indicator.addEventListener('click',function(){
+ window.alert('League data freshness:\n\n'+ids.map(function(id){var x=state[id];return id.toUpperCase()+': '+(!x?'not checked':(x.ok?'updated '+clock(x.success):'unavailable; last success '+clock(x.success)))+(x?'\\n'+x.message:'')}).join('\\n\\n'));
+});
 function refresh(force){
  if(document.hidden&&!force)return;
- if(!force&&Date.now()-lastRefresh<120000)return;
- lastRefresh=lastAttempt=Date.now();
- indicator.textContent='LEAGUE DATA · Refreshing…';
+ if(inFlight||(!force&&Date.now()-lastStart<120000))return;
+ inFlight=true;lastStart=Date.now();cycle++;
+ pending=new Set(ids);render();
  standings();pickem();survivor();records();awards();accuracy();
- setTimeout(updateIndicator,2500);
 }
 refresh(true);
-setInterval(function(){refresh(false);updateIndicator()},30000);
+setInterval(function(){refresh(false);render()},30000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden)refresh(true)});
 window.addEventListener('focus',function(){refresh(true)});
 window.addEventListener('online',function(){refresh(true)});
