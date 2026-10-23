@@ -8,7 +8,7 @@ import urllib.request
 import uuid
 from zoneinfo import ZoneInfo
 
-APP_URL = "https://jumbojuggernaut.github.io/avengers-pregame-league-hq/"
+APP_URL = "https://avengerspregameffl.github.io/avengers-pregame-league-hq/"
 EASTERN = ZoneInfo("America/New_York")
 DEFAULT_APP_ID = "0f86d84f-b2a8-401a-8c7e-f1dacf8d7094"
 
