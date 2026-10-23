@@ -763,4 +763,30 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 /* Restore signature comic yellow to the Week scoreboard masthead only. */
 #home .home-score-head{background:radial-gradient(circle,rgba(0,0,0,.12) 1px,transparent 1.5px) 0 0/8px 8px,#ffd43b!important;color:#17131b!important;text-shadow:1px 1px 0 #fff0a5!important}
 #home .home-score-head .home-score-live{background:#17131b!important;color:#ffe58e!important;box-shadow:2px 2px 0 #bd2841!important}
-</style></body></html>
+</style><style id="jug-sleeper-logo-global-v2">
+.team-logo-jug.sleeper-logo-loaded{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;color:transparent!important;font-size:0!important;text-shadow:none!important;overflow:hidden!important}
+#home .home-score-sleeper-logo{object-fit:cover!important}
+</style>
+<script id="jug-sleeper-logo-global-v2">
+(function(){
+var base='https://api.sleeper.app/v1/league/1395849826633019392';
+function avatarUrl(a){if(!a)return null;var v=String(a);if(/^https:\/\//i.test(v))return v;if(/^[a-zA-Z0-9_-]+$/.test(v))return 'https://sleepercdn.com/avatars/thumbs/'+encodeURIComponent(v);return null}
+function install(url){
+if(!url)return;
+var test=new Image();
+test.onload=function(){
+document.querySelectorAll('.team-logo-jug').forEach(function(el){el.style.setProperty('background-image','url("'+url+'")','important');el.classList.add('sleeper-logo-loaded');el.setAttribute('role','img');el.setAttribute('aria-label','Juggernauts Jumbo Package Sleeper logo')});
+var board=document.getElementById('home-score-track');if(board){
+function apply(){board.querySelectorAll('.home-score-match .home-score-side').forEach(function(side){var label=side.querySelector('.home-score-name');if(!label||!label.textContent.includes('Juggernauts Jumbo Package'))return;var img=side.querySelector('.home-score-sleeper-logo');if(!img){img=document.createElement('img');img.className='home-score-sleeper-logo';img.alt='Juggernauts Jumbo Package Sleeper logo';img.loading='lazy';side.insertBefore(img,label)}img.src=url})}
+apply();new MutationObserver(apply).observe(board,{childList:true,subtree:false});
+}
+};
+test.src=url
+}
+Promise.all([fetch(base+'/users').then(function(r){return r.json()}),fetch(base+'/rosters').then(function(r){return r.json()})]).then(function(d){
+var users=d[0],rosters=d[1];var u=users.find(function(x){return (x.metadata&&x.metadata.team_name||'').trim().toLowerCase()==='juggernauts jumbo package'});
+if(!u){var roster=rosters.find(function(x){return String(x.metadata&&x.metadata.team_name||'').trim().toLowerCase()==='juggernauts jumbo package'});if(roster)u=users.find(function(x){return x.user_id===roster.owner_id})}
+if(u)install(avatarUrl(u.metadata&&u.metadata.avatar||u.avatar))
+}).catch(function(){});
+})();
+</script></body></html>
