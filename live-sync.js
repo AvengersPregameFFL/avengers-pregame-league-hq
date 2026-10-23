@@ -87,7 +87,7 @@ records.forEach(function(r,i){
  var coach=el('a','accuracy-coach',r.name);coach.href='#coach-'+encodeURIComponent(r.name);
  details.appendChild(coach);
  if(r.team)details.appendChild(el('span','accuracy-team',r.team));
- var possible=el('span','accuracy-possible',r.max!==null&&Number.isFinite(r.max)?'POSSIBLE POINTS: '+r.max.toFixed(2):'POSSIBLE POINTS: —');details.appendChild(possible);
+ var possible=el('span','accuracy-possible',r.actual!==null&&Number.isFinite(r.actual)&&r.max!==null&&Number.isFinite(r.max)?'SCORED / POSSIBLE: '+r.actual.toFixed(2)+' / '+r.max.toFixed(2):'SCORED / POSSIBLE: —');details.appendChild(possible);
  var meter=el('div','accuracy-meter');meter.setAttribute('role','meter');meter.setAttribute('aria-label',r.name+' lineup accuracy');meter.setAttribute('aria-valuemin','0');meter.setAttribute('aria-valuemax','100');meter.setAttribute('aria-valuenow',r.accuracy.toFixed(1));
  var fill=el('span','accuracy-meter-fill');fill.style.width=r.accuracy.toFixed(1)+'%';meter.appendChild(fill);details.appendChild(meter);
  var score=el('strong','accuracy-score',r.accuracy.toFixed(1)+'%');
