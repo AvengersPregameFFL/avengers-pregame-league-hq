@@ -54,14 +54,15 @@ var norm=function(v){return safe(v).trim().toLowerCase().replace(/[^a-z0-9]/g,''
 var hi=rows.findIndex(function(r){var h=r.map(norm);return h.includes('scope')&&h.includes('record')&&h.some(function(x){return x==='holders'||x==='holder'})});
 if(hi<0)throw Error('Record Book headers not found');
 var h=rows[hi].map(norm),col=function(n){return h.indexOf(n)},get=function(r,n){var i=col(n);return i>=0?safe(r[i]).trim():''};
-var entries=rows.slice(hi+1).filter(function(r){return get(r,'record')&&get(r,'value')}).map(function(r){return {scope:get(r,'scope'),title:get(r,'record'),holder:get(r,'holders')||get(r,'holder'),team:get(r,'teams'),value:get(r,'value'),unit:get(r,'unit'),week:get(r,'weeks'),detail:get(r,'details')}});
+var sheetYear=(rows.slice(0,hi).flat().join(' ').match(/\b20\d{2}\b/)||[])[0]||'2026';
+var entries=rows.slice(hi+1).filter(function(r){return get(r,'record')&&get(r,'value')}).map(function(r){var week=get(r,'weeks'),year=get(r,'year')||(week.match(/\b20\d{2}\b/)||[])[0]||sheetYear;return {scope:get(r,'scope'),title:get(r,'record'),holder:get(r,'holders')||get(r,'holder'),team:get(r,'teams'),value:get(r,'value'),unit:get(r,'unit'),week:week,year:year,detail:get(r,'details')}});
 if(!entries.length)throw Error('No populated records');
 var box=el('div','record-board');
 var groups=[{name:'SINGLE-WEEK RECORDS',match:function(x){return /single|week/i.test(x.scope)}},{name:'SEASON & CAREER RECORDS',match:function(x){return !/single|week/i.test(x.scope)}}];
 groups.forEach(function(g){var matches=entries.filter(g.match);if(!matches.length)return;
 var section=el('section','record-group');section.appendChild(el('h2','record-group-title',g.name));
 matches.forEach(function(r){var card=el('article','record-entry');var top=el('div','record-entry-top');top.appendChild(el('strong','record-name',r.title));top.appendChild(el('strong','record-value',r.value+(r.unit?' '+r.unit:'')));card.appendChild(top);
-var meta=el('div','record-meta',r.holder+(r.week?' · '+r.week:''));card.appendChild(meta);
+var meta=el('div','record-meta',r.holder+' · '+r.year+(r.week?' · '+r.week:''));card.appendChild(meta);
 if(r.team&&r.team!==r.holder)card.appendChild(el('div','record-team',r.team));
 if(r.detail&&r.detail.length<130)card.title=r.detail;
 section.appendChild(card)});box.appendChild(section)});
