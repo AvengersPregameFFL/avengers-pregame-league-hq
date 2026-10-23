@@ -843,4 +843,28 @@ var board=document.getElementById('home-score-track');if(board)new MutationObser
 updateBoard()
 }).catch(function(){});
 })();
+</script><script id="mike-sleeper-logo-resolver-v4">
+(function(){
+var base='https://api.sleeper.app/v1/league/1395849826633019392';
+function norm(x){return String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+function imageSources(v){if(!v)return [];v=String(v);if(/^https:\/\//i.test(v))return [v];if(!/^[a-z0-9_-]+$/i.test(v))return [];return ['https://sleepercdn.com/avatars/'+encodeURIComponent(v),'https://sleepercdn.com/avatars/thumbs/'+encodeURIComponent(v)]}
+function tryImages(sources,done){var next=function(){if(!sources.length)return;var src=sources.shift(),img=new Image();img.onload=function(){done(src)};img.onerror=next;img.src=src};next()}
+Promise.all([fetch(base+'/users',{cache:'no-store'}).then(function(r){return r.json()}),fetch(base+'/rosters',{cache:'no-store'}).then(function(r){return r.json()})]).then(function(data){
+var users=data[0],rosters=data[1];
+var mike=users.find(function(u){return [u.username,u.display_name,u.metadata&&u.metadata.team_name].some(function(n){return norm(n)==='infinitybrocklet'||norm(n)==='teaminfinitybrocklet'})});
+var roster=mike&&rosters.find(function(r){return String(r.owner_id)===String(mike.user_id)});
+if(!roster)roster=rosters.find(function(r){return [r.metadata&&r.metadata.team_name,r.metadata&&r.metadata.nickname].some(function(n){return norm(n)==='teaminfinitybrocklet'||norm(n)==='infinitybrocklet'})});
+if(!mike&&roster)mike=users.find(function(u){return String(u.user_id)===String(roster.owner_id)});
+if(!mike)return;
+var avatars=[roster&&roster.metadata&&roster.metadata.avatar,mike.metadata&&mike.metadata.avatar,mike.avatar];
+var sources=[];avatars.forEach(function(a){imageSources(a).forEach(function(url){if(!sources.includes(url))sources.push(url)})});
+tryImages(sources,function(url){
+function apply(){
+document.querySelectorAll('.team-logo-infinity').forEach(function(el){el.style.setProperty('background-image','url("'+url+'")','important');el.style.setProperty('background-size','cover','important');el.style.setProperty('background-position','center','important');el.classList.add('sleeper-logo-loaded');el.setAttribute('aria-label','Team InfinityBrocklet Sleeper logo')});
+var board=document.getElementById('home-score-track');if(board)board.querySelectorAll('.home-score-side').forEach(function(side){var label=side.querySelector('.home-score-name');if(!label||!norm(label.textContent).includes('infinitybrocklet'))return;var img=side.querySelector('.home-score-sleeper-logo');if(!img){img=document.createElement('img');img.className='home-score-sleeper-logo';side.insertBefore(img,label)}img.src=url;img.alt='Team InfinityBrocklet Sleeper logo'})
+}
+apply();var board=document.getElementById('home-score-track');if(board)new MutationObserver(apply).observe(board,{childList:true})
+})
+}).catch(function(e){console.warn('Mike Sleeper avatar unavailable',e)})
+})();
 </script></body></html>
