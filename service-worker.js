@@ -1,5 +1,5 @@
 /* League HQ: network-first pages, safe offline fallback, bounded same-origin cache. */
-const CACHE='avengers-pregame-hq-v112';
+const CACHE='avengers-pregame-hq-v113';
 const CORE=['./','./index.html','./league-next-era.html','./commissioner-dues.html','./reports/latest.html','./manifest.webmanifest','./icons/icon.svg','./live-sync.js','./data/record-book.json','./league-notifications.js','./league-share.js','./awards-race.js','./awards-race.css','./stories/index.html','./stories/friday-week7.html','./stories/archive.html'];
 const OFFLINE_LIMIT=90;
 self.addEventListener('install',event=>{
