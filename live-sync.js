@@ -114,7 +114,36 @@ records.forEach(function(r,i){
 });
 status('accuracy','SEASON LINEUP ACCURACY · LIVE',true);replace('accuracy',box)
 }).catch(function(e){status('accuracy','Coach accuracy data unavailable: '+e.message,false)})}
-function init(){standings();pickem();survivor();records();awards();accuracy();var lastRefresh=Date.now();function refresh(){if(document.hidden)return;if(Date.now()-lastRefresh<240000)return;lastRefresh=Date.now();pickem();survivor();records();awards();accuracy();standings()}setInterval(refresh,60000);document.addEventListener('visibilitychange',refresh);window.addEventListener('focus',refresh)}
+function init(){
+var lastRefresh=0,lastAttempt=0,indicator=document.createElement('div');
+indicator.id='hq-data-freshness';
+indicator.setAttribute('role','status');indicator.setAttribute('aria-live','polite');
+indicator.style.cssText='margin:10px 0;padding:9px 12px;background:#17132b;color:#fff;border:2px solid #ffd400;font:700 12px/1.4 Arial,sans-serif;border-radius:4px';
+indicator.textContent='LEAGUE DATA · Connecting to Sleeper and Sheets…';
+var home=document.getElementById('home');
+if(home){var heading=home.querySelector('.hp-heading')||home.firstElementChild;if(heading)heading.insertAdjacentElement('beforebegin',indicator);else home.prepend(indicator)}
+function updateIndicator(){
+ var statuses=Array.from(document.querySelectorAll('.live-sync-status'));
+ var warnings=statuses.filter(function(x){return x.classList.contains('live-sync-warn')});
+ var successes=statuses.filter(function(x){return x.classList.contains('live-sync-ok')});
+ var clock=lastAttempt?new Date(lastAttempt).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'—';
+ indicator.textContent=warnings.length?'LEAGUE DATA · Updated/check attempted '+clock+' · '+warnings.length+' source warning(s). Some sections may be stale.':successes.length?'LEAGUE DATA · Last checked '+clock+' · Auto-refresh every 2 min while open':'LEAGUE DATA · Checking sources at '+clock;
+ indicator.style.borderColor=warnings.length?'#ff786b':'#ffd400';
+}
+function refresh(force){
+ if(document.hidden&&!force)return;
+ if(!force&&Date.now()-lastRefresh<120000)return;
+ lastRefresh=lastAttempt=Date.now();
+ indicator.textContent='LEAGUE DATA · Refreshing…';
+ standings();pickem();survivor();records();awards();accuracy();
+ setTimeout(updateIndicator,2500);
+}
+refresh(true);
+setInterval(function(){refresh(false);updateIndicator()},30000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)refresh(true)});
+window.addEventListener('focus',function(){refresh(true)});
+window.addEventListener('online',function(){refresh(true)});
+}
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
