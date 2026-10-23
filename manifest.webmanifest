@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Avengers Pregame League HQ",
-  "short_name": "League HQ",
-  "description": "Avengers Pregame fantasy football league headquarters",
+  "name": "AvengersPreGameFFL",
+  "short_name": "AvengersPreGameFFL",
+  "description": "Official AvengersPreGameFFL fantasy football league headquarters",
   "start_url": "./index.html#home",
   "scope": "./",
   "display": "standalone",
