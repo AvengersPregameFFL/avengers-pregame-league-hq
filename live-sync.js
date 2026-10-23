@@ -78,9 +78,21 @@ if(pct===null&&actual!==null&&max>0)pct=actual/max*100;
 return {name:safe(r[managerCol]).trim(),team:teamCol>=0?safe(r[teamCol]):'',rank:rankCol>=0?num(r[rankCol]):0,accuracy:pct,actual:actual,max:max}
 }).filter(function(r){return r.accuracy!==null&&Number.isFinite(r.accuracy)&&r.accuracy>=0&&r.accuracy<=100});
 if(!records.length)throw Error('Season accuracy requires weekly efficiency values, a valid season percentage, or actual and optimal points; ranking numbers are not accuracy');
-records.sort(function(a,b){return b.accuracy-a.accuracy||a.rank-b.rank});var box=el('div'),table=el('table','table'),tr=el('tr');['Rank','Coach / Team','Season Avg. Accuracy','Points'].forEach(function(t){tr.appendChild(el('th','',t))});table.appendChild(tr);
-records.forEach(function(r,i){var tr=el('tr'),coach=el('td'),link=el('a','link',r.name);link.href='#coach-'+encodeURIComponent(r.name);coach.appendChild(link);if(r.team)coach.appendChild(el('small','',r.team));tr.appendChild(el('td','',i+1));tr.appendChild(coach);tr.appendChild(el('td','',r.accuracy.toFixed(1)+'%'));tr.appendChild(el('td','',r.actual!==null&&r.max!==null?r.actual.toFixed(2)+' / '+r.max.toFixed(2):'—'));table.appendChild(tr)});
-var wrap=el('div','tablewrap');wrap.appendChild(table);box.appendChild(wrap);box.appendChild(el('p','muted','Season lineup accuracy: average of available weekly percentages when provided; otherwise season scored points divided by optimal points. Missing or invalid accuracy is excluded.'));status('accuracy','LIVE · season average coach accuracy from Google Sheets',true);replace('accuracy',box)
+records.sort(function(a,b){return b.accuracy-a.accuracy||a.rank-b.rank});
+var box=el('div','accuracy-board');
+records.forEach(function(r,i){
+ var item=el('div','accuracy-entry');
+ var position=el('span','accuracy-position',String(i+1));
+ var details=el('div','accuracy-details');
+ var coach=el('a','accuracy-coach',r.name);coach.href='#coach-'+encodeURIComponent(r.name);
+ details.appendChild(coach);
+ if(r.team)details.appendChild(el('span','accuracy-team',r.team));
+ var meter=el('div','accuracy-meter');meter.setAttribute('role','meter');meter.setAttribute('aria-label',r.name+' lineup accuracy');meter.setAttribute('aria-valuemin','0');meter.setAttribute('aria-valuemax','100');meter.setAttribute('aria-valuenow',r.accuracy.toFixed(1));
+ var fill=el('span','accuracy-meter-fill');fill.style.width=r.accuracy.toFixed(1)+'%';meter.appendChild(fill);details.appendChild(meter);
+ var score=el('strong','accuracy-score',r.accuracy.toFixed(1)+'%');
+ item.appendChild(position);item.appendChild(details);item.appendChild(score);box.appendChild(item);
+});
+status('accuracy','SEASON LINEUP ACCURACY · LIVE',true);replace('accuracy',box)
 }).catch(function(e){status('accuracy','Coach accuracy data unavailable: '+e.message,false)})}
 function init(){standings();pickem();survivor();records();awards();accuracy();var lastRefresh=Date.now();function refresh(){if(document.hidden)return;if(Date.now()-lastRefresh<240000)return;lastRefresh=Date.now();pickem();survivor();records();awards();accuracy();standings()}setInterval(refresh,60000);document.addEventListener('visibilitychange',refresh);window.addEventListener('focus',refresh)}
 
