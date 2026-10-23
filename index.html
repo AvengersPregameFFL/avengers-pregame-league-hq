@@ -792,4 +792,53 @@ if(u)install(avatarUrl(u.metadata&&u.metadata.avatar||u.avatar))
 </script><style id="sleeper-scores-purple-badge-v1">
 /* Purple Sleeper Scores label; preserve yellow scoreboard heading. */
 #home .home-score-head .home-score-live{background:#7136cf!important;color:#fff!important;border:2px solid #17131b!important;box-shadow:3px 3px 0 #301459!important;text-shadow:none!important}
-</style></body></html>
+</style><style id="sleeper-all-team-logos-v1">
+.team-logo.sleeper-logo-loaded{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;color:transparent!important;font-size:0!important;text-shadow:none!important;overflow:hidden!important}
+.team-logo.sleeper-logo-loaded>svg{display:none!important}
+#home .home-score-sleeper-logo{object-fit:cover!important}
+</style>
+<script id="sleeper-all-team-logos-v1">
+(function(){
+var base='https://api.sleeper.app/v1/league/1395849826633019392';
+var teams=[
+{cls:'team-logo-jug',name:'Juggernauts Jumbo Package'},
+{cls:'team-logo-venom',name:'Hurts Venom Inside Her'},
+{cls:'team-logo-infinity',name:'Team InfinityBrocklet'},
+{cls:'team-logo-loki',name:'Loki Down Bad'},
+{cls:'team-logo-four',name:'Fantastic Four Skin'},
+{cls:'team-logo-wanda',name:'Wanda WacksEmOff'},
+{cls:'team-logo-justice',name:"Jerry's Justice League"},
+{cls:'team-logo-flash',name:'Flash 23 Blast'}
+];
+function clean(s){return String(s||'').replace(/[^a-z0-9]/gi,'').toLowerCase()}
+function urlFor(a){if(!a)return null;var v=String(a);if(/^https:\/\//i.test(v))return v;if(/^[a-zA-Z0-9_-]+$/.test(v))return 'https://sleepercdn.com/avatars/thumbs/'+encodeURIComponent(v);return null}
+Promise.all([fetch(base+'/users').then(function(r){if(!r.ok)throw Error('users');return r.json()}),fetch(base+'/rosters').then(function(r){if(!r.ok)throw Error('rosters');return r.json()})]).then(function(data){
+var users=data[0],rosters=data[1],logos=[];
+teams.forEach(function(team){
+var roster=rosters.find(function(r){return clean(r.metadata&&r.metadata.team_name)===clean(team.name)});
+var u=users.find(function(u){return clean(u.metadata&&u.metadata.team_name)===clean(team.name)});
+if(!u&&roster)u=users.find(function(u){return u.user_id===roster.owner_id});
+if(!u)return;
+var avatar=urlFor(u.metadata&&u.metadata.avatar||u.avatar);
+if(!avatar)return;
+var img=new Image();img.onload=function(){
+document.querySelectorAll('.'+team.cls).forEach(function(el){el.style.setProperty('background-image','url("'+avatar+'")','important');el.classList.add('sleeper-logo-loaded');el.setAttribute('role','img');el.setAttribute('aria-label',team.name+' Sleeper logo')});
+logos.push({name:team.name,url:avatar});
+updateBoard()
+};img.src=avatar
+});
+function updateBoard(){
+var board=document.getElementById('home-score-track');if(!board)return;
+board.querySelectorAll('.home-score-side').forEach(function(side){
+var label=side.querySelector('.home-score-name');if(!label)return;
+var entry=logos.find(function(l){return clean(label.textContent).includes(clean(l.name))});if(!entry)return;
+var img=side.querySelector('.home-score-sleeper-logo');if(!img){img=document.createElement('img');img.className='home-score-sleeper-logo';img.loading='lazy';img.decoding='async';side.insertBefore(img,label)}
+if(img.getAttribute('src')!==entry.url)img.src=entry.url;
+img.alt=entry.name+' Sleeper logo'
+})
+}
+var board=document.getElementById('home-score-track');if(board)new MutationObserver(updateBoard).observe(board,{childList:true});
+updateBoard()
+}).catch(function(){});
+})();
+</script></body></html>
