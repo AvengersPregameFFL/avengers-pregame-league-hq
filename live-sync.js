@@ -69,7 +69,7 @@ if(r.team&&r.team!==r.holder)card.appendChild(el('div','record-team',r.team));
 if(r.detail&&r.detail.length<130)card.title=r.detail;
 section.appendChild(card)});box.appendChild(section)});
 status('records','LIVE · LEAGUE RECORDS',true);replace('records',box)
-}).catch(function(e){status('records','Saved records displayed · live refresh unavailable',false)})}
+}).catch(function(e){status('records','Saved records displayed · live refresh unavailable: '+e.message,false)})}
 function awards(){sheetRows(gids.awards).then(function(rows){if(!rows.length||rows[0][0]!=='Comic Award / Metric')throw Error('Unexpected Awards columns');var box=el('div','live-award-grid');rows.slice(1).filter(function(r){return r[0]&&r[1]}).forEach(function(r){
 var p=panel(r[0]);p.classList.add('live-award-card');p.appendChild(el('p','live-award-description',r[1]));
 var meta=el('div','live-award-meta'),winner=el('div','live-award-winner');
@@ -143,7 +143,7 @@ reportStatus=function(id,message,ok){
  render();
 };
 indicator.addEventListener('click',function(){
- window.alert('League data freshness:\n\n'+ids.map(function(id){var x=state[id];return id.toUpperCase()+': '+(!x?'not checked':(x.ok?'updated '+clock(x.success):'unavailable; last success '+clock(x.success)))+(x?'\\n'+x.message:'')}).join('\\n\\n'));
+ window.alert('League data freshness:\n\n'+ids.map(function(id){var x=state[id];return id.toUpperCase()+': '+(!x?'not checked':(x.ok?'updated '+clock(x.success):'unavailable; last success '+clock(x.success)))+(x?'\n'+x.message:'')}).join('\n\n'));
 });
 function refresh(force){
  if(document.hidden&&!force)return;
