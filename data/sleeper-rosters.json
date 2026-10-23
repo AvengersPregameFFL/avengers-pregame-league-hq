@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 7,
-  "generated_at_utc": "2026-10-23T01:01:31.495110+00:00",
+  "generated_at_utc": "2026-10-23T01:49:35.217700+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1604,7 +1604,7 @@
           "HOU",
           "MIN"
         ],
-        "points": 8.1,
+        "points": 10.7,
         "roster_id": 2,
         "starters": [
           "3163",
@@ -1621,7 +1621,7 @@
         "starters_points": [
           0.0,
           0.0,
-          8.1,
+          10.7,
           0.0,
           0.0,
           0.0,
@@ -1651,7 +1651,7 @@
           "9509",
           "SEA"
         ],
-        "points": 2.4,
+        "points": 19.96,
         "roster_id": 3,
         "starters": [
           "11564",
@@ -1666,7 +1666,7 @@
           "SEA"
         ],
         "starters_points": [
-          2.4,
+          19.96,
           0.0,
           0.0,
           0.0,
@@ -1697,7 +1697,7 @@
           "9500",
           "LAR"
         ],
-        "points": 4.8,
+        "points": 19.8,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1713,7 +1713,7 @@
         ],
         "starters_points": [
           0.0,
-          4.8,
+          19.8,
           0.0,
           0.0,
           0.0,
@@ -1789,7 +1789,7 @@
           "9758",
           "CLE"
         ],
-        "points": 0.0,
+        "points": 2.8,
         "roster_id": 6,
         "starters": [
           "9758",
@@ -1807,7 +1807,7 @@
           0.0,
           0.0,
           0.0,
-          0.0,
+          2.8,
           0.0,
           0.0,
           0.0,
@@ -1835,7 +1835,7 @@
           "8129",
           "IND"
         ],
-        "points": 10.4,
+        "points": 23.7,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -1856,7 +1856,7 @@
           0.0,
           0.0,
           0.0,
-          10.4,
+          23.7,
           0.0,
           0.0,
           0.0
