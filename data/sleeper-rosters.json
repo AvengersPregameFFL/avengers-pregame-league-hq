@@ -1,10 +1,16 @@
 {
   "current_nfl_week": 7,
-  "generated_at_utc": "2026-10-24T22:41:34.189296+00:00",
+  "generated_at_utc": "2026-10-24T23:37:53.094294+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
   "players": {
+    "0": {
+      "name": "0",
+      "position": null,
+      "status": null,
+      "team": null
+    },
     "10229": {
       "name": "Rashee Rice",
       "position": "WR",
@@ -70,12 +76,6 @@
       "position": "RB",
       "status": "Active",
       "team": "TB"
-    },
-    "11586": {
-      "name": "Blake Corum",
-      "position": "RB",
-      "status": "Active",
-      "team": "LAR"
     },
     "11604": {
       "name": "Brock Bowers",
@@ -1024,7 +1024,7 @@
       "reserve": [],
       "roster_id": 5,
       "starters": [
-        "4881",
+        "9228",
         "8228",
         "8150",
         "7547",
@@ -1042,7 +1042,7 @@
       "manager": "hboogie1003",
       "owner_id": "966433297117007872",
       "players": [
-        "11586",
+        "11435",
         "12185",
         "12514",
         "12545",
@@ -1063,7 +1063,7 @@
       "starters": [
         "9758",
         "9221",
-        "11586",
+        "0",
         "5859",
         "7525",
         "4217",
@@ -1746,7 +1746,7 @@
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "4881",
+          "9228",
           "8228",
           "8150",
           "7547",
@@ -1773,7 +1773,7 @@
       {
         "matchup_id": 1,
         "players": [
-          "11586",
+          "11435",
           "12185",
           "12514",
           "12545",
@@ -1794,7 +1794,7 @@
         "starters": [
           "9758",
           "9221",
-          "11586",
+          "0",
           "5859",
           "7525",
           "4217",
@@ -2119,7 +2119,7 @@
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "4881",
+          "9228",
           "8228",
           "8150",
           "7547",
@@ -2146,7 +2146,7 @@
       {
         "matchup_id": 1,
         "players": [
-          "11586",
+          "11435",
           "12185",
           "12514",
           "12545",
@@ -2167,7 +2167,7 @@
         "starters": [
           "9758",
           "9221",
-          "11586",
+          "0",
           "5859",
           "7525",
           "4217",
