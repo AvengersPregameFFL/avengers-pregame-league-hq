@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-10-27T18:55:57.441915+00:00",
+  "generated_at_utc": "2026-10-27T19:51:10.722677+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -104,7 +104,7 @@
     "11655": {
       "name": "Tyrone Tracy Jr.",
       "position": "RB",
-      "status": "Active",
+      "status": "Inactive",
       "team": "NYG"
     },
     "11792": {
