@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-10-28T13:09:13.290831+00:00",
+  "generated_at_utc": "2026-10-28T14:09:30.378006+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -821,8 +821,8 @@
         "8130",
         "12501",
         "5850",
-        "0",
-        "SF"
+        "7839",
+        "GB"
       ],
       "taxi": [],
       "team_name": "Juggernauts Jumbo Package"
@@ -1514,8 +1514,8 @@
           "8130",
           "12501",
           "5850",
-          "0",
-          "SF"
+          "7839",
+          "GB"
         ],
         "starters_points": [
           0.0,
@@ -1888,8 +1888,8 @@
           "8130",
           "12501",
           "5850",
-          "0",
-          "SF"
+          "7839",
+          "GB"
         ],
         "starters_points": [
           0.0,
