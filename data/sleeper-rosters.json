@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-10-28T07:10:34.603864+00:00",
+  "generated_at_utc": "2026-10-28T08:09:28.101975+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -58,6 +58,12 @@
       "position": "QB",
       "status": "Active",
       "team": "NE"
+    },
+    "11566": {
+      "name": "Jayden Daniels",
+      "position": "QB",
+      "status": "Active",
+      "team": "WAS"
     },
     "11576": {
       "name": "Braelon Allen",
@@ -527,6 +533,12 @@
       "status": "Active",
       "team": "NE"
     },
+    "7839": {
+      "name": "Evan McPherson",
+      "position": "K",
+      "status": "Active",
+      "team": "CIN"
+    },
     "8110": {
       "name": "Jake Ferguson",
       "position": "TE",
@@ -701,6 +713,12 @@
       "status": "Active",
       "team": "BAL"
     },
+    "CIN": {
+      "name": "Cincinnati Bengals",
+      "position": "DEF",
+      "status": null,
+      "team": "CIN"
+    },
     "CLE": {
       "name": "Cleveland Browns",
       "position": "DEF",
@@ -712,6 +730,12 @@
       "position": "DEF",
       "status": null,
       "team": "DEN"
+    },
+    "GB": {
+      "name": "Green Bay Packers",
+      "position": "DEF",
+      "status": null,
+      "team": "GB"
     },
     "HOU": {
       "name": "Houston Texans",
@@ -736,6 +760,12 @@
       "position": "DEF",
       "status": null,
       "team": "MIN"
+    },
+    "NE": {
+      "name": "New England Patriots",
+      "position": "DEF",
+      "status": null,
+      "team": "NE"
     },
     "NYJ": {
       "name": "New York Jets",
@@ -762,20 +792,20 @@
       "owner_id": "1395849040683352064",
       "players": [
         "10236",
-        "11655",
         "12481",
         "12501",
         "12527",
-        "1945",
         "2133",
         "5850",
         "6786",
         "6804",
         "7021",
         "7588",
+        "7839",
         "8130",
         "9488",
         "96",
+        "GB",
         "SF"
       ],
       "reserve": [
@@ -791,7 +821,7 @@
         "8130",
         "12501",
         "5850",
-        "1945",
+        "0",
         "SF"
       ],
       "taxi": [],
@@ -815,7 +845,8 @@
         "8112",
         "8155",
         "HOU",
-        "MIN"
+        "MIN",
+        "NE"
       ],
       "reserve": [
         "2216"
@@ -931,12 +962,12 @@
         "8150",
         "8228",
         "9228",
-        "NYJ"
+        "CIN"
       ],
       "reserve": [],
       "roster_id": 5,
       "starters": [
-        "9228",
+        "4881",
         "8228",
         "8150",
         "7547",
@@ -945,7 +976,7 @@
         "8146",
         "12526",
         "2747",
-        "NYJ"
+        "CIN"
       ],
       "taxi": [],
       "team_name": "🔮✨Wanda WacksEmOff✨🔮"
@@ -955,6 +986,7 @@
       "owner_id": "966433297117007872",
       "players": [
         "11435",
+        "11566",
         "12185",
         "12514",
         "13274",
@@ -1312,6 +1344,7 @@
         "matchup_id": 1,
         "players": [
           "11435",
+          "11566",
           "12185",
           "12514",
           "12545",
@@ -1454,20 +1487,20 @@
         "matchup_id": 1,
         "players": [
           "10236",
-          "11655",
           "12481",
           "12501",
           "12527",
-          "1945",
           "2133",
           "5850",
           "6786",
           "6804",
           "7021",
           "7588",
+          "7839",
           "8130",
           "9488",
           "96",
+          "GB",
           "SF"
         ],
         "points": 0.0,
@@ -1481,7 +1514,7 @@
           "8130",
           "12501",
           "5850",
-          "1945",
+          "0",
           "SF"
         ],
         "starters_points": [
@@ -1514,7 +1547,8 @@
           "8112",
           "8155",
           "HOU",
-          "MIN"
+          "MIN",
+          "NE"
         ],
         "points": 0.0,
         "roster_id": 2,
@@ -1653,12 +1687,12 @@
           "8150",
           "8228",
           "9228",
-          "NYJ"
+          "CIN"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "9228",
+          "4881",
           "8228",
           "8150",
           "7547",
@@ -1667,7 +1701,7 @@
           "8146",
           "12526",
           "2747",
-          "NYJ"
+          "CIN"
         ],
         "starters_points": [
           0.0,
@@ -1686,6 +1720,7 @@
         "matchup_id": 1,
         "players": [
           "11435",
+          "11566",
           "12185",
           "12514",
           "13274",
@@ -1826,20 +1861,20 @@
         "matchup_id": 2,
         "players": [
           "10236",
-          "11655",
           "12481",
           "12501",
           "12527",
-          "1945",
           "2133",
           "5850",
           "6786",
           "6804",
           "7021",
           "7588",
+          "7839",
           "8130",
           "9488",
           "96",
+          "GB",
           "SF"
         ],
         "points": 0.0,
@@ -1853,7 +1888,7 @@
           "8130",
           "12501",
           "5850",
-          "1945",
+          "0",
           "SF"
         ],
         "starters_points": [
@@ -1886,7 +1921,8 @@
           "8112",
           "8155",
           "HOU",
-          "MIN"
+          "MIN",
+          "NE"
         ],
         "points": 0.0,
         "roster_id": 2,
@@ -2025,12 +2061,12 @@
           "8150",
           "8228",
           "9228",
-          "NYJ"
+          "CIN"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "9228",
+          "4881",
           "8228",
           "8150",
           "7547",
@@ -2039,7 +2075,7 @@
           "8146",
           "12526",
           "2747",
-          "NYJ"
+          "CIN"
         ],
         "starters_points": [
           0.0,
@@ -2058,6 +2094,7 @@
         "matchup_id": 1,
         "players": [
           "11435",
+          "11566",
           "12185",
           "12514",
           "13274",
