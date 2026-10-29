@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-10-29T04:57:50.362433+00:00",
+  "generated_at_utc": "2026-10-29T05:55:31.263767+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -413,6 +413,12 @@
       "status": "Active",
       "team": "HOU"
     },
+    "5967": {
+      "name": "Tony Pollard",
+      "position": "RB",
+      "status": "Active",
+      "team": "TEN"
+    },
     "6083": {
       "name": "Matt Gay",
       "position": "K",
@@ -791,6 +797,12 @@
       "status": null,
       "team": "NYJ"
     },
+    "PIT": {
+      "name": "Pittsburgh Steelers",
+      "position": "DEF",
+      "status": null,
+      "team": "PIT"
+    },
     "SEA": {
       "name": "Seattle Seahawks",
       "position": "DEF",
@@ -1084,33 +1096,30 @@
         "12512",
         "5012",
         "5022",
-        "5846",
+        "5967",
         "6650",
         "6801",
         "8138",
         "8144",
         "8151",
         "8183",
-        "8408",
         "9224",
         "9997",
-        "DEN"
+        "PIT"
       ],
-      "reserve": [
-        "8408"
-      ],
+      "reserve": [],
       "roster_id": 8,
       "starters": [
-        "8183",
+        "11560",
         "9224",
         "8151",
-        "8144",
+        "6801",
         "9997",
         "5012",
-        "6801",
+        "8138",
         "5022",
         "6650",
-        "DEN"
+        "PIT"
       ],
       "taxi": [],
       "team_name": "Flash 23 Blast"
@@ -1834,31 +1843,30 @@
           "12512",
           "5012",
           "5022",
-          "5846",
+          "5967",
           "6650",
           "6801",
           "8138",
           "8144",
           "8151",
           "8183",
-          "8408",
           "9224",
           "9997",
-          "DEN"
+          "PIT"
         ],
         "points": 0.0,
         "roster_id": 8,
         "starters": [
-          "8183",
+          "11560",
           "9224",
           "8151",
-          "8144",
+          "6801",
           "9997",
           "5012",
-          "6801",
+          "8138",
           "5022",
           "6650",
-          "DEN"
+          "PIT"
         ],
         "starters_points": [
           0.0,
@@ -2208,31 +2216,30 @@
           "12512",
           "5012",
           "5022",
-          "5846",
+          "5967",
           "6650",
           "6801",
           "8138",
           "8144",
           "8151",
           "8183",
-          "8408",
           "9224",
           "9997",
-          "DEN"
+          "PIT"
         ],
         "points": 0.0,
         "roster_id": 8,
         "starters": [
-          "8183",
+          "11560",
           "9224",
           "8151",
-          "8144",
+          "6801",
           "9997",
           "5012",
-          "6801",
+          "8138",
           "5022",
           "6650",
-          "DEN"
+          "PIT"
         ],
         "starters_points": [
           0.0,
