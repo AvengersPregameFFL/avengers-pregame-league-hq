@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-10-29T23:48:24.170388+00:00",
+  "generated_at_utc": "2026-10-30T01:13:36.763334+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1522,7 +1522,7 @@
           "GB",
           "SF"
         ],
-        "points": 0.0,
+        "points": 8.4,
         "roster_id": 1,
         "starters": [
           "3294",
@@ -1544,9 +1544,9 @@
           0.0,
           0.0,
           0.0,
+          3.4,
           0.0,
-          0.0,
-          0.0
+          5.0
         ]
       },
       {
@@ -1569,7 +1569,7 @@
           "MIN",
           "NE"
         ],
-        "points": 0.0,
+        "points": 13.5,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1585,7 +1585,7 @@
         ],
         "starters_points": [
           0.0,
-          0.0,
+          13.5,
           0.0,
           0.0,
           0.0,
@@ -1662,7 +1662,7 @@
           "9500",
           "LAR"
         ],
-        "points": 0.0,
+        "points": 14.0,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1684,7 +1684,7 @@
           0.0,
           0.0,
           0.0,
-          0.0,
+          14.0,
           0.0,
           0.0
         ]
@@ -1708,7 +1708,7 @@
           "9228",
           "CIN"
         ],
-        "points": 0.0,
+        "points": 2.0,
         "roster_id": 5,
         "starters": [
           "4881",
@@ -1730,7 +1730,7 @@
           0.0,
           0.0,
           0.0,
-          0.0,
+          2.0,
           0.0,
           0.0
         ]
@@ -1754,7 +1754,7 @@
           "9758",
           "CLE"
         ],
-        "points": 0.0,
+        "points": 9.5,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -1774,7 +1774,7 @@
           0.0,
           0.0,
           0.0,
-          0.0,
+          9.5,
           0.0,
           0.0,
           0.0,
