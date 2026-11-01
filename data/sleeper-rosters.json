@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-11-01T21:46:58.829745+00:00",
+  "generated_at_utc": "2026-11-01T22:46:36.005919+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -368,7 +368,7 @@
     "4881": {
       "name": "Lamar Jackson",
       "position": "QB",
-      "status": "Active",
+      "status": "Inactive",
       "team": "BAL"
     },
     "4983": {
@@ -1584,7 +1584,7 @@
           "MIN",
           "NE"
         ],
-        "points": 130.86,
+        "points": 126.86,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1608,7 +1608,7 @@
           0.0,
           26.8,
           -5.0,
-          13.0
+          9.0
         ]
       },
       {
@@ -1631,7 +1631,7 @@
           "9509",
           "SEA"
         ],
-        "points": 74.34,
+        "points": 77.92,
         "roster_id": 3,
         "starters": [
           "11564",
@@ -1646,13 +1646,13 @@
           "SEA"
         ],
         "starters_points": [
-          1.24,
+          2.62,
           7.6,
           14.0,
           6.8,
           17.0,
           2.6,
-          11.6,
+          13.8,
           3.6,
           9.9,
           0.0
@@ -1677,7 +1677,7 @@
           "9500",
           "LAR"
         ],
-        "points": 121.48,
+        "points": 131.18,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1693,15 +1693,15 @@
         ],
         "starters_points": [
           52.48,
-          1.0,
+          3.5,
           21.0,
           0.0,
-          5.2,
+          15.4,
           5.8,
           0.0,
           17.3,
           9.7,
-          9.0
+          6.0
         ]
       },
       {
@@ -1723,7 +1723,7 @@
           "9228",
           "CIN"
         ],
-        "points": 121.4,
+        "points": 128.8,
         "roster_id": 5,
         "starters": [
           "4881",
@@ -1740,7 +1740,7 @@
         "starters_points": [
           0.0,
           21.3,
-          0.1,
+          7.5,
           12.6,
           31.1,
           6.5,
@@ -1816,7 +1816,7 @@
           "8129",
           "IND"
         ],
-        "points": 74.22,
+        "points": 90.32,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -1831,11 +1831,11 @@
           "IND"
         ],
         "starters_points": [
-          8.12,
-          0.6,
+          18.12,
+          2.2,
           6.7,
           16.6,
-          0.0,
+          4.5,
           0.0,
           0.0,
           29.9,
@@ -1862,7 +1862,7 @@
           "9997",
           "PIT"
         ],
-        "points": 111.1,
+        "points": 114.2,
         "roster_id": 8,
         "starters": [
           "11560",
@@ -1879,7 +1879,7 @@
         "starters_points": [
           0.0,
           16.1,
-          0.8,
+          3.9,
           37.5,
           0.0,
           4.4,
