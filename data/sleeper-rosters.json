@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-11-02T01:20:38.643819+00:00",
+  "generated_at_utc": "2026-11-02T03:00:03.693807+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1071,7 +1071,6 @@
         "4983",
         "6083",
         "6813",
-        "6904",
         "7526",
         "7569",
         "8129",
@@ -1584,7 +1583,7 @@
           "MIN",
           "NE"
         ],
-        "points": 125.86,
+        "points": 136.66,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1605,7 +1604,7 @@
           1.8,
           9.6,
           28.2,
-          0.0,
+          10.8,
           26.8,
           -5.0,
           8.0
@@ -1677,7 +1676,7 @@
           "9500",
           "LAR"
         ],
-        "points": 154.28,
+        "points": 165.18,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1698,7 +1697,7 @@
           0.0,
           25.0,
           5.8,
-          0.0,
+          10.9,
           17.3,
           9.7,
           11.0
@@ -1770,7 +1769,7 @@
           "9484",
           "CLE"
         ],
-        "points": 72.7,
+        "points": 89.54,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -1785,13 +1784,13 @@
           "CLE"
         ],
         "starters_points": [
-          0.0,
+          12.14,
           24.8,
           2.3,
           0.0,
           14.3,
           17.3,
-          0.0,
+          4.7,
           8.0,
           1.0,
           5.0
@@ -1862,7 +1861,7 @@
           "9997",
           "PIT"
         ],
-        "points": 122.7,
+        "points": 124.1,
         "roster_id": 8,
         "starters": [
           "11560",
@@ -1884,7 +1883,7 @@
           0.0,
           4.4,
           18.1,
-          0.0,
+          1.4,
           13.2,
           21.0
         ]
@@ -2184,7 +2183,6 @@
           "4983",
           "6083",
           "6813",
-          "6904",
           "7526",
           "7569",
           "8129",
