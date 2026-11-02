@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 8,
-  "generated_at_utc": "2026-11-02T03:00:03.693807+00:00",
+  "generated_at_utc": "2026-11-02T04:08:33.378835+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1583,7 +1583,7 @@
           "MIN",
           "NE"
         ],
-        "points": 136.66,
+        "points": 138.66,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1604,7 +1604,7 @@
           1.8,
           9.6,
           28.2,
-          10.8,
+          12.8,
           26.8,
           -5.0,
           8.0
@@ -1676,7 +1676,7 @@
           "9500",
           "LAR"
         ],
-        "points": 165.18,
+        "points": 166.68,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1697,7 +1697,7 @@
           0.0,
           25.0,
           5.8,
-          10.9,
+          12.4,
           17.3,
           9.7,
           11.0
@@ -1769,7 +1769,7 @@
           "9484",
           "CLE"
         ],
-        "points": 89.54,
+        "points": 99.48,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -1784,13 +1784,13 @@
           "CLE"
         ],
         "starters_points": [
-          12.14,
+          16.98,
           24.8,
           2.3,
           0.0,
           14.3,
           17.3,
-          4.7,
+          9.8,
           8.0,
           1.0,
           5.0
@@ -1861,7 +1861,7 @@
           "9997",
           "PIT"
         ],
-        "points": 124.1,
+        "points": 129.9,
         "roster_id": 8,
         "starters": [
           "11560",
@@ -1883,7 +1883,7 @@
           0.0,
           4.4,
           18.1,
-          1.4,
+          7.2,
           13.2,
           21.0
         ]
