@@ -1,0 +1,23 @@
+name: Refresh Sleeper optimal lineups
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 11 * * *'
+permissions:
+  contents: write
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Calculate from Sleeper scoring and matchup rosters
+        run: python scripts/refresh_optimal_lineups.py
+      - name: Publish refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/optimal-lineups.json data/optimal-lineups.csv
+          git diff --cached --quiet || (git commit -m "Refresh Sleeper optimal lineups" && git push)
