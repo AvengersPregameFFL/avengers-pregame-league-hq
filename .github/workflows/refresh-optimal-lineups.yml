@@ -1,6 +1,10 @@
 name: Refresh Sleeper optimal lineups
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/refresh_optimal_lineups.py'
+      - '.github/workflows/refresh-optimal-lineups.yml'
   schedule:
     - cron: '23 11 * * *'
 permissions:
