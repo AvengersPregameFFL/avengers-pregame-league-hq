@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-03T11:57:24.473944+00:00",
+  "generated_at_utc": "2026-11-03T13:17:31.827659+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -826,7 +826,7 @@
         "2449",
         "10232",
         "11792",
-        "NE"
+        "HOU"
       ],
       "taxi": [],
       "team_name": ""
@@ -862,10 +862,10 @@
         "3198",
         "8137",
         "8148",
-        "7553",
+        "8131",
         "10229",
         "9487",
-        "10955",
+        "3451",
         "SEA"
       ],
       "taxi": [],
@@ -931,8 +931,8 @@
       "reserve": [],
       "roster_id": 5,
       "starters": [
-        "4881",
-        "8228",
+        "9228",
+        "11576",
         "8150",
         "7547",
         "7564",
@@ -1148,7 +1148,7 @@
           "2449",
           "10232",
           "11792",
-          "NE"
+          "HOU"
         ],
         "starters_points": [
           0.0,
@@ -1191,10 +1191,10 @@
           "3198",
           "8137",
           "8148",
-          "7553",
+          "8131",
           "10229",
           "9487",
-          "10955",
+          "3451",
           "SEA"
         ],
         "starters_points": [
@@ -1278,8 +1278,8 @@
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "4881",
-          "8228",
+          "9228",
+          "11576",
           "8150",
           "7547",
           "7564",
@@ -1895,7 +1895,7 @@
           "2449",
           "10232",
           "11792",
-          "NE"
+          "HOU"
         ],
         "starters_points": [
           0.0,
@@ -1938,10 +1938,10 @@
           "3198",
           "8137",
           "8148",
-          "7553",
+          "8131",
           "10229",
           "9487",
-          "10955",
+          "3451",
           "SEA"
         ],
         "starters_points": [
@@ -2025,8 +2025,8 @@
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "4881",
-          "8228",
+          "9228",
+          "11576",
           "8150",
           "7547",
           "7564",
