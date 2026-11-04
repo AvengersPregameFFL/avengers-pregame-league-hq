@@ -45,7 +45,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.apply) && env.HAS_GOOGLE_CREDS == 'true' }}
         run: pip install google-api-python-client google-auth
       - name: Backup and sync authorized Bible feed
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply }}
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.apply) && env.HAS_GOOGLE_CREDS == 'true' }}
         env:
           GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON }}
         run: python scripts/sync_bible_sheet.py --apply
