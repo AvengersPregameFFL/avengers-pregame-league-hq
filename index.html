@@ -1233,7 +1233,21 @@ function updateProfiles(current,career,seasons){
   }
  }
 }
+async function snapshot(){
+ const r=await fetch("./data/coach-history.json?ts="+Math.floor(Date.now()/300000),{cache:"no-store"});
+ if(!r.ok)throw Error("Coach snapshot not yet published");
+ const data=await r.json();
+ if(!data.coaches||!data.through_week)throw Error("Invalid coach snapshot");
+ const current={last:data.through_week,totals:{},weekly:{}};
+ for(const [name,coach] of Object.entries(data.coaches)){
+  current.totals[name]={w:coach.all_play.wins,l:coach.all_play.losses,t:coach.all_play.ties};
+  current.weekly[name]=coach.weeks.map(w=>({week:w.week,points:w.points,against:w.opponent_points,result:w.result,allplay:w.all_play.wins+"–"+w.all_play.losses+"–"+w.all_play.ties}));
+ }
+ updateProfiles(current,current.totals,1);
+ return current;
+}
 async function run(){
+ try{await snapshot()}catch(e){console.warn("Snapshot unavailable, falling back to Sleeper",e)}
  const state=await api("/state/nfl");const career={};let current=null;let leagueId=id;const seen=new Set();let seasons=0;
  while(leagueId&&!seen.has(String(leagueId))&&seasons<30){
   seen.add(String(leagueId));
