@@ -68,11 +68,14 @@ def main():
     if not tab or tab["properties"]["gridProperties"]["rowCount"] < len(rows) + 1:
         raise SystemExit("Missing or undersized feed tab")
     old = sheets.spreadsheets().values().get(spreadsheetId=BIBLE_ID, range="'Sleeper Optimal Feed'!A1:F400").execute().get("values", [])
-    if old and old[0] != HEADER:
+    if not old or old[0] != HEADER:
         raise SystemExit("Feed header mismatch; refusing to overwrite")
     # Full copy of every tab, formulas, formatting and charts before any write.
     backup = drive.files().copy(fileId=BIBLE_ID, body={"name": "AUTO BACKUP — Avengers Pregame Bible — " + data["generated_at"]}, fields="id,name").execute()
-    print("Created recovery backup:", backup["id"])
+    verified = drive.files().get(fileId=backup["id"], fields="id,mimeType").execute()
+    if verified.get("mimeType") != "application/vnd.google-apps.spreadsheet":
+        raise SystemExit("Backup verification failed; refusing to write")
+    print("Created verified recovery backup:", backup["id"])
     # Write ONLY columns A:F of the designated feed tab. Never touch manual
     # Pick'em, Survivor, awards, dues, or other historical tables.
     payload = {"valueInputOption": "RAW", "data": [
@@ -85,7 +88,7 @@ def main():
             range=f"'Sleeper Optimal Feed'!A{len(rows)+2}:F{len(old)}", body={}).execute()
     check = sheets.spreadsheets().values().get(spreadsheetId=BIBLE_ID,
         range=f"'Sleeper Optimal Feed'!A1:F{len(rows)+1}").execute().get("values", [])
-    if len(check) != len(rows) + 1:
+    if [[str(v) for v in row] for row in check] != [[str(v) for v in row] for row in [HEADER] + rows]:
         raise SystemExit("Post-write row count mismatch; restore from backup " + backup["id"])
     print("Verified Bible feed update; backup ID:", backup["id"])
 
