@@ -168,6 +168,34 @@ def main():
                 rid=a if pa>=pb else b
                 entries.append((rid,abs(pa-pb) if metric=="margin" else pa+pb,f"W{w}"))
         add("Single week","Game performance",label,entries,mode,"pts",allweeks)
+    # Shared public snapshot: coach profiles and All-Play pages must use
+    # the same completed-week results instead of independently guessing.
+    coach_records = {}
+    for rid in ids:
+        name = managers[rid][0]
+        history = []
+        career_wins = career_losses = career_ties = 0
+        for i, score in enumerate(scores[rid]):
+            week_entries = get(f"/league/{LEAGUE}/matchups/{i+1}")
+            opponents = [e for e in week_entries if int(e["roster_id"]) != rid]
+            w = sum(score > round(float(e["points"]), 2) for e in opponents)
+            l = sum(score < round(float(e["points"]), 2) for e in opponents)
+            t = len(opponents) - w - l
+            career_wins += w; career_losses += l; career_ties += t
+            group = next(pair for pair in weekly[i][1].values() if rid in pair)
+            other = next(x for x in group if x != rid)
+            opponent_points = scores[other][i]
+            history.append({"week": i+1, "points": score, "opponent_points": opponent_points,
+                            "result": "W" if score > opponent_points else "L" if score < opponent_points else "T",
+                            "all_play": {"wins": w, "losses": l, "ties": t}})
+        coach_records[name] = {"team": managers[rid][1], "wins": wins[rid], "losses": losses[rid],
+                               "points": round(points_for[rid], 2),
+                               "all_play": {"wins": career_wins, "losses": career_losses, "ties": career_ties},
+                               "weeks": history}
+    history_result = {"season": int(league["season"]), "through_week": last,
+                      "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+                      "coaches": coach_records}
+    Path("data/coach-history.json").write_text(json.dumps(history_result, indent=2, ensure_ascii=False)+"\\n", encoding="utf-8")
     result={"source":"Sleeper public API — finalized matchup results","season":int(league["season"]),
             "verifiedThroughWeek":last,"generated_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
             "rows":rows}
