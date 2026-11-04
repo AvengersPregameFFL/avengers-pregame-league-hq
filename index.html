@@ -597,12 +597,10 @@ html body .wrap>header.header .header-actions #share-league{width:min(100%,130px
 <tr><td>Travis</td><td>Rams <span class="tracker-good">✓</span></td><td>2 used</td></tr>
 <tr><td>Aaron</td><td>Patriots <span class="tracker-good">✓</span></td><td>3 used</td></tr>
 </tbody></table><div class="tracker-foot">ELIMINATED: DAKOTA · JAKE · ALLYSA · NICK</div></article>
-<article class="bugle-tracker trav"><h3>PRIME-TIME TRAV WATCH</h3><p class="tracker-kicker">Big games. Bigger questions.</p>
-<table><thead><tr><th scope="col">GAME</th><th scope="col">RESULT</th><th scope="col">STATUS</th></tr></thead><tbody>
-<tr><td>THU · WEEK 7</td><td class="tracker-bad">WRONG</td><td>Bears won</td></tr>
-<tr><td>SUN · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
-<tr><td>MON · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
-</tbody></table><p class="tracker-note">Travis went 10-for-Week-8 in Pick'em overall. Individual prime-time selections are not recorded in the Bible, so no extra losses are assumed.</p></article>
+<article class="bugle-tracker trav"><h3>PRIME-TIME TRAV WATCH</h3><p class="tracker-kicker">Only picks Travis has actually made</p>
+<table><thead><tr><th scope="col">GAME</th><th scope="col">PICK</th><th scope="col">RESULT</th></tr></thead><tbody data-trav-picks>
+<tr><td>THU · WEEK 7</td><td>Against Bears</td><td class="tracker-bad">WRONG · Bears won</td></tr>
+</tbody></table><p class="tracker-note">New confirmed picks appear here when recorded. Results update after they are verified.</p></article>
 </section><a class="bugle-archive-link" href="/avengers-pregame-league-hq/stories/archive.html" aria-label="Open the permanent Pregame Bugle story archive">BROWSE PAST EDITIONS · PERMANENT STORY ARCHIVE →</a></div></div></div></div>
 
 <a class="road-home-button" href="#road-to-championship" aria-label="Open Road to the Championship playoff bracket"><span class="road-home-button-eyebrow">2026 PLAYOFF PICTURE · LIVE SEEDS</span><strong>ROAD TO THE CHAMPIONSHIP</strong><span class="road-home-button-cta">VIEW THE FULL BRACKET →</span></a>
@@ -1101,4 +1099,20 @@ window.addEventListener('pageshow',refreshLatest);
  }
  btn.addEventListener('click',refresh);refresh();window.addEventListener('pageshow',refresh);
 })();
-</script></body></html>
+</script><script id="trav-watch-data-loader-v1">(function(){
+const rows=document.querySelectorAll('[data-trav-picks]');
+if(!rows.length)return;
+fetch(new URL('./data/trav-prime-time.json',document.baseURI),{cache:'no-store'})
+.then(r=>{if(!r.ok)throw Error('Tracker unavailable');return r.json()})
+.then(data=>{if(!Array.isArray(data.picks))return;
+const picks=data.picks.filter(p=>p&&p.confirmed===true&&p.game&&p.pick);
+for(const body of rows){body.replaceChildren();for(const p of picks){
+const tr=document.createElement('tr');
+const game=document.createElement('td');game.textContent=p.game;
+const pick=document.createElement('td');pick.textContent=p.pick;
+const result=document.createElement('td');result.textContent=p.result||'PENDING';
+result.className=p.result==='CORRECT'?'tracker-good':p.result&&p.result.startsWith('WRONG')?'tracker-bad':'tracker-unknown';
+tr.append(game,pick,result);body.append(tr);
+}}})
+.catch(()=>{/* Keep verified static fallback if feed is unavailable. */});
+})();</script></body></html>
