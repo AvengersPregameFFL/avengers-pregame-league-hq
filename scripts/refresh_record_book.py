@@ -71,8 +71,10 @@ def main():
     points_against = defaultdict(float)
     allplay = defaultdict(int)
     weekly = []
+    matchup_cache = []
     for week in range(1, last + 1):
         entries = get(f"/league/{LEAGUE}/matchups/{week}")
+        matchup_cache.append(entries)
         if len(entries) != len(managers):
             raise RuntimeError(f"Week {week}: incomplete matchup roster count")
         by_id = {int(e["roster_id"]):e for e in entries}
@@ -176,7 +178,7 @@ def main():
         history = []
         career_wins = career_losses = career_ties = 0
         for i, score in enumerate(scores[rid]):
-            week_entries = get(f"/league/{LEAGUE}/matchups/{i+1}")
+            week_entries = matchup_cache[i]
             opponents = [e for e in week_entries if int(e["roster_id"]) != rid]
             w = sum(score > round(float(e["points"]), 2) for e in opponents)
             l = sum(score < round(float(e["points"]), 2) for e in opponents)
