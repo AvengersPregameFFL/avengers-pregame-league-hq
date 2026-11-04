@@ -45,12 +45,10 @@ h1{text-align:center;font-size:clamp(35px,8vw,70px);letter-spacing:-.055em;line-
 <tr><td>Travis</td><td>Rams <span class="tracker-good">✓</span></td><td>2 used</td></tr>
 <tr><td>Aaron</td><td>Patriots <span class="tracker-good">✓</span></td><td>3 used</td></tr>
 </tbody></table><div class="tracker-foot">ELIMINATED: DAKOTA · JAKE · ALLYSA · NICK</div></article>
-<article class="bugle-tracker trav"><h3>PRIME-TIME TRAV WATCH</h3><p class="tracker-kicker">Big games. Bigger questions.</p>
-<table><thead><tr><th scope="col">GAME</th><th scope="col">RESULT</th><th scope="col">STATUS</th></tr></thead><tbody>
-<tr><td>THU · WEEK 7</td><td class="tracker-bad">WRONG</td><td>Bears won</td></tr>
-<tr><td>SUN · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
-<tr><td>MON · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
-</tbody></table><p class="tracker-note">Travis went 10-for-Week-8 in Pick'em overall. Individual prime-time selections are not recorded in the Bible, so no extra losses are assumed.</p></article>
+<article class="bugle-tracker trav"><h3>PRIME-TIME TRAV WATCH</h3><p class="tracker-kicker">Only picks Travis has actually made</p>
+<table><thead><tr><th scope="col">GAME</th><th scope="col">PICK</th><th scope="col">RESULT</th></tr></thead><tbody data-trav-picks>
+<tr><td>THU · WEEK 7</td><td>Against Bears</td><td class="tracker-bad">WRONG · Bears won</td></tr>
+</tbody></table><p class="tracker-note">New confirmed picks appear here when recorded. Results update after they are verified.</p></article>
 </section><div class="actions"><button type="button" class="button" id="share">SHARE THIS WEEK'S EDITION ↗</button><a class="button alt" href="../index.html#home">BACK TO LEAGUE HQ</a><a class="button alt" href="./archive.html">PAST STORIES</a></div>
 <div class="footer">Avengers Pregame · The league's most questionable source of news.</div>
 </div></main><script>
@@ -60,4 +58,20 @@ document.getElementById('share').addEventListener('click',async()=>{
  try{if(navigator.share)await navigator.share({title,text,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('Weekly edition link copied!')}else prompt('Copy this link:',url)}
  catch(e){if(e.name!=='AbortError')prompt('Copy this link:',url)}
 });
-</script></body></html>
+</script><script id="trav-watch-data-loader-v1">(function(){
+const rows=document.querySelectorAll('[data-trav-picks]');
+if(!rows.length)return;
+fetch(new URL('../data/trav-prime-time.json',document.baseURI),{cache:'no-store'})
+.then(r=>{if(!r.ok)throw Error('Tracker unavailable');return r.json()})
+.then(data=>{if(!Array.isArray(data.picks))return;
+const picks=data.picks.filter(p=>p&&p.confirmed===true&&p.game&&p.pick);
+for(const body of rows){body.replaceChildren();for(const p of picks){
+const tr=document.createElement('tr');
+const game=document.createElement('td');game.textContent=p.game;
+const pick=document.createElement('td');pick.textContent=p.pick;
+const result=document.createElement('td');result.textContent=p.result||'PENDING';
+result.className=p.result==='CORRECT'?'tracker-good':p.result&&p.result.startsWith('WRONG')?'tracker-bad':'tracker-unknown';
+tr.append(game,pick,result);body.append(tr);
+}}})
+.catch(()=>{/* Keep verified static fallback if feed is unavailable. */});
+})();</script></body></html>
