@@ -7,6 +7,14 @@ on:
         required: true
         default: false
         type: boolean
+  schedule:
+    - cron: '53 12 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'data/optimal-lineups.json'
+      - 'scripts/sync_bible_sheet.py'
+      - '.github/workflows/oracle-bible-sync.yml'
   pull_request:
     paths:
       - 'scripts/sync_bible_sheet.py'
@@ -27,8 +35,14 @@ jobs:
           python-version: '3.12'
       - name: Validate Sleeper feed (read-only)
         run: python scripts/sync_bible_sheet.py
+      - name: Check authorized Google credentials
+        id: credentials
+        env:
+          GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON" ]; then echo 'HAS_GOOGLE_CREDS=true' >> "$GITHUB_ENV"; else echo 'Google Sheets service account not configured; skipping writes' >> "$GITHUB_STEP_SUMMARY"; fi
       - name: Install Google client for approved write
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply }}
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.apply) && env.HAS_GOOGLE_CREDS == 'true' }}
         run: pip install google-api-python-client google-auth
       - name: Backup and sync authorized Bible feed
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply }}
