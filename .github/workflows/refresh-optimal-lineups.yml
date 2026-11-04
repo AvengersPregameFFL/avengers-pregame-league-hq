@@ -22,6 +22,20 @@ jobs:
           python-version: '3.12'
       - name: Calculate from Sleeper scoring and matchup rosters
         run: python scripts/refresh_optimal_lineups.py
+      - name: Validate generated optimal lineup data
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          payload = json.loads(Path('data/optimal-lineups.json').read_text())
+          rows = payload['rows']
+          with Path('data/optimal-lineups.csv').open(newline='') as f:
+              csv_rows = list(csv.DictReader(f))
+          assert rows and len(rows) == len(csv_rows), 'JSON/CSV row mismatch or empty feed'
+          assert all(r['week'] >= 1 and r['optimal'] >= r['actual'] - 0.02 for r in rows), 'Invalid week or optimal score'
+          assert len({(r['week'], r['roster_id']) for r in rows}) == len(rows), 'Duplicate roster/week'
+          print(f'Validated {len(rows)} lineup records across {len({r["week"] for r in rows})} weeks')
+          PY
       - name: Publish refreshed data
         run: |
           git config user.name "github-actions[bot]"
