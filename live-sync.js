@@ -117,6 +117,25 @@ function accuracy(){
   replace('accuracy',box);
  }).catch(function(e){status('accuracy','Coach accuracy unavailable: '+e.message,false)});
 }
+function refreshCoachProfiles(){
+ Promise.all([sleep('/league/'+league+'/rosters'),fetch('./data/optimal-lineups.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Optimal feed unavailable');return r.json()})]).then(function(result){
+  var rosters=result[0],rows=result[1].rows||[],complete=[...new Set(rows.map(function(r){return r.week}))].filter(function(w){return rows.filter(function(r){return r.week===w}).length===8});
+  var mapping={1:'Dakota',2:'Mike',3:'Travis',4:'Aaron',5:'Allysa',6:'Hunter',7:'Jake',8:'Nick'};
+  rosters.forEach(function(r){
+   var name=mapping[r.roster_id],sec=document.getElementById('coach-'+name);if(!sec)return;
+   var values=sec.querySelectorAll('.grid .stat .value'),settings=r.settings||{},pf=Number(settings.fpts||0)+Number(settings.fpts_decimal||0)/100;
+   if(values[0])values[0].textContent=(settings.wins||0)+'–'+(settings.losses||0);
+   if(values[1])values[1].textContent=pf.toFixed(2);
+   var mine=rows.filter(function(x){return x.roster_id===r.roster_id&&complete.indexOf(x.week)>=0});
+   var actual=mine.reduce(function(a,x){return a+Number(x.actual)},0),best=mine.reduce(function(a,x){return a+Number(x.optimal)},0);
+   if(values[2])values[2].textContent=best>0?(100*actual/best).toFixed(1)+'%':'—';
+   if(values[3])values[3].textContent='See live all-play';
+   var note=sec.querySelector('.coach-live-note');
+   if(!note){note=el('p','coach-live-note');sec.querySelector('.grid').insertAdjacentElement('afterend',note)}
+   note.textContent='Sleeper standings live · lineup efficiency Weeks '+(complete.length?complete[0]+'–'+complete[complete.length-1]:'unavailable')+' · Pick’em and Survivor below are historical unless independently verified';
+  });
+ }).catch(function(e){document.querySelectorAll('[id^="coach-"]').forEach(function(sec){var note=sec.querySelector('.coach-live-note');if(!note){note=el('p','coach-live-note');var grid=sec.querySelector('.grid');if(grid)grid.insertAdjacentElement('afterend',note)}if(note)note.textContent='Archived profile snapshot · live refresh unavailable: '+e.message})});
+}
 function init(){
 var ids=['standings','pickem','survivor','records','awards','accuracy'];
 var state={},pending=new Set(),inFlight=false,lastStart=0,cycle=0;
@@ -152,7 +171,7 @@ function refresh(force){
  if(inFlight||(!force&&Date.now()-lastStart<120000))return;
  inFlight=true;lastStart=Date.now();cycle++;
  pending=new Set(ids);render();
- standings();pickem();survivor();records();awards();accuracy();
+ standings();pickem();survivor();records();awards();accuracy();refreshCoachProfiles();
 }
 refresh(true);
 setInterval(function(){refresh(false);render()},30000);
