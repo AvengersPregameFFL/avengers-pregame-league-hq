@@ -1124,10 +1124,23 @@ tr.append(game,pick,result);body.append(tr);
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  async function refresh(){
   try{
-   const res=await fetch('./data/record-book.json?ts='+Date.now(),{cache:'no-store'});
-   if(!res.ok)throw new Error('Record feed unavailable');
-   const data=await res.json();
-   if(!data.rows||!data.verifiedThroughWeek||data.rows.length<4)throw new Error('Incomplete record feed');
+   // GitHub Pages can serve an older deployment while main has fresh records.
+   // Compare both sources; never silently display the stale Week 5 snapshot.
+   const stamp=Date.now();
+   const sources=[
+    'https://raw.githubusercontent.com/AvengersPreGameFFL/avengers-pregame-league-hq/main/data/record-book.json?ts='+stamp,
+    './data/record-book.json?ts='+stamp
+   ];
+   const results=await Promise.all(sources.map(async url=>{
+    try{
+     const res=await fetch(url,{cache:'no-store'});
+     if(!res.ok)return null;
+     const data=await res.json();
+     return data&&Array.isArray(data.rows)&&data.rows.length>=4&&Number(data.verifiedThroughWeek)>0?data:null;
+    }catch(_){return null}
+   }));
+   const data=results.filter(Boolean).sort((a,b)=>Number(b.verifiedThroughWeek)-Number(a.verifiedThroughWeek))[0];
+   if(!data||Number(data.verifiedThroughWeek)<8)throw new Error('Current record feed unavailable or stale');
    const groups=new Map();
    for(const r of data.rows.slice(3)){
     if(!Array.isArray(r)||r.length<9)continue;
