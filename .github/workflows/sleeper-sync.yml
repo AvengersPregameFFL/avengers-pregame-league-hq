@@ -1,5 +1,11 @@
 name: Sync Sleeper Rosters
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sleeper-sync.yml'
+      - 'scripts/refresh_record_book.py'
+      - 'scripts/sync_sleeper.py'
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
