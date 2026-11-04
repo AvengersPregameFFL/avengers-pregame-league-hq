@@ -1,0 +1,815 @@
+{
+  "season": 2026,
+  "through_week": 8,
+  "generated_at_utc": "2026-11-04T16:57:08.773036+00:00",
+  "coaches": {
+    "DK": {
+      "team": "Juggernauts Jumbo Package",
+      "wins": 6,
+      "losses": 2,
+      "points": 1316.48,
+      "all_play": {
+        "wins": 45,
+        "losses": 11,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 182.26,
+          "opponent_points": 143.2,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 167.7,
+          "opponent_points": 133.86,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 165.94,
+          "opponent_points": 152.06,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 162.18,
+          "opponent_points": 183.18,
+          "result": "L",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 160.6,
+          "opponent_points": 190.06,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 130.64,
+          "opponent_points": 99.28,
+          "result": "W",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 190.46,
+          "opponent_points": 133.12,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 156.7,
+          "opponent_points": 101.38,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Mike": {
+      "team": "Team 2",
+      "wins": 4,
+      "losses": 4,
+      "points": 1208.22,
+      "all_play": {
+        "wins": 34,
+        "losses": 22,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 137.96,
+          "opponent_points": 127.12,
+          "result": "W",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 135.22,
+          "opponent_points": 137.36,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 152.06,
+          "opponent_points": 165.94,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 152.62,
+          "opponent_points": 180.72,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 179.28,
+          "opponent_points": 201.0,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 148.2,
+          "opponent_points": 133.5,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 136.32,
+          "opponent_points": 110.52,
+          "result": "W",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 166.56,
+          "opponent_points": 148.84,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Travis": {
+      "team": "Fantastic Four Skin",
+      "wins": 4,
+      "losses": 4,
+      "points": 1043.8,
+      "all_play": {
+        "wins": 23,
+        "losses": 33,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 157.32,
+          "opponent_points": 153.16,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 82.52,
+          "opponent_points": 160.68,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 122.26,
+          "opponent_points": 115.18,
+          "result": "W",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 106.74,
+          "opponent_points": 108.0,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 190.06,
+          "opponent_points": 160.6,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 133.5,
+          "opponent_points": 148.2,
+          "result": "L",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 142.14,
+          "opponent_points": 99.9,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 109.26,
+          "opponent_points": 134.2,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Aaron": {
+      "team": "Jerry’s Justice League ",
+      "wins": 3,
+      "losses": 5,
+      "points": 1111.28,
+      "all_play": {
+        "wins": 24,
+        "losses": 32,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 120.16,
+          "opponent_points": 177.9,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 107.58,
+          "opponent_points": 161.92,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 115.18,
+          "opponent_points": 122.26,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 135.82,
+          "opponent_points": 146.4,
+          "result": "L",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 201.0,
+          "opponent_points": 179.28,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 99.28,
+          "opponent_points": 130.64,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 165.58,
+          "opponent_points": 98.02,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 166.68,
+          "opponent_points": 145.88,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Alyssa": {
+      "team": "🔮✨Wanda WacksEmOff✨🔮",
+      "wins": 5,
+      "losses": 3,
+      "points": 1227.5,
+      "all_play": {
+        "wins": 35,
+        "losses": 21,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 153.16,
+          "opponent_points": 157.32,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 161.92,
+          "opponent_points": 107.58,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 160.04,
+          "opponent_points": 162.48,
+          "result": "L",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 183.18,
+          "opponent_points": 162.18,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 200.74,
+          "opponent_points": 121.04,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 123.74,
+          "opponent_points": 115.88,
+          "result": "W",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 110.52,
+          "opponent_points": 136.32,
+          "result": "L",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 134.2,
+          "opponent_points": 109.26,
+          "result": "W",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Hunter": {
+      "team": "Hurts Venom Inside Her",
+      "wins": 3,
+      "losses": 5,
+      "points": 936.46,
+      "all_play": {
+        "wins": 14,
+        "losses": 42,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 143.2,
+          "opponent_points": 182.26,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 137.36,
+          "opponent_points": 135.22,
+          "result": "W",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 126.94,
+          "opponent_points": 103.84,
+          "result": "W",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 108.0,
+          "opponent_points": 106.74,
+          "result": "W",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 121.04,
+          "opponent_points": 200.74,
+          "result": "L",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 100.52,
+          "opponent_points": 137.26,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 98.02,
+          "opponent_points": 165.58,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 101.38,
+          "opponent_points": 156.7,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Jake": {
+      "team": "Loki Down Bad",
+      "wins": 1,
+      "losses": 7,
+      "points": 967.24,
+      "all_play": {
+        "wins": 13,
+        "losses": 43,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 127.12,
+          "opponent_points": 137.96,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 133.86,
+          "opponent_points": 167.7,
+          "result": "L",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 103.84,
+          "opponent_points": 126.94,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 146.4,
+          "opponent_points": 135.82,
+          "result": "W",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 91.4,
+          "opponent_points": 101.76,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 115.88,
+          "opponent_points": 123.74,
+          "result": "L",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 99.9,
+          "opponent_points": 142.14,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 148.84,
+          "opponent_points": 166.56,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
+        }
+      ]
+    },
+    "Nick": {
+      "team": "Flash 23 Blast",
+      "wins": 6,
+      "losses": 2,
+      "points": 1199.8,
+      "all_play": {
+        "wins": 36,
+        "losses": 20,
+        "ties": 0
+      },
+      "weeks": [
+        {
+          "week": 1,
+          "points": 177.9,
+          "opponent_points": 120.16,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 2,
+          "points": 160.68,
+          "opponent_points": 82.52,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
+            "ties": 0
+          }
+        },
+        {
+          "week": 3,
+          "points": 162.48,
+          "opponent_points": 160.04,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 4,
+          "points": 180.72,
+          "opponent_points": 152.62,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 5,
+          "points": 101.76,
+          "opponent_points": 91.4,
+          "result": "W",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
+        },
+        {
+          "week": 6,
+          "points": 137.26,
+          "opponent_points": 100.52,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
+        },
+        {
+          "week": 7,
+          "points": 133.12,
+          "opponent_points": 190.46,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 8,
+          "points": 145.88,
+          "opponent_points": 166.68,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
+        }
+      ]
+    }
+  }
+}\n
