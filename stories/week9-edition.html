@@ -11,6 +11,24 @@ h1{text-align:center;font-size:clamp(35px,8vw,70px);letter-spacing:-.055em;line-
 .intro{text-align:center;font:16px/1.5 Georgia,serif;margin:18px 0 22px}.story{border-top:1px solid #a89e8b;padding:18px 0;display:block;text-decoration:none;color:inherit}.story:first-of-type{border-top:3px solid #181818}.meta{display:inline-block;background:#ffd400;border:2px solid #181818;padding:4px 7px;font:900 10px Arial,sans-serif;letter-spacing:.05em}.headline{display:block;margin:10px 0 7px;font:900 clamp(21px,5vw,32px)/1.15 Georgia,serif;letter-spacing:-.025em}.detail{display:block;color:#70443c;font:800 11px Arial,sans-serif}.story:hover .headline{text-decoration:underline}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.button{border:2px solid #181818;box-shadow:3px 3px 0 #181818;background:#ffd400;color:#181818;padding:11px 13px;font:900 12px Arial,sans-serif;text-decoration:none;cursor:pointer}.button.alt{background:#fff8e9}
 .footer{border-top:2px solid #181818;padding-top:15px;font:12px/1.5 Arial,sans-serif;text-align:center}
+</style><style id="bugle-weekly-trackers-v1">
+/* Comic-style sidebar cards that stack cleanly on mobile. */
+.bugle-weekly-trackers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 12px;font-family:Arial,sans-serif}
+.bugle-tracker{min-width:0;background:#fff8e5;border:3px solid #171717;box-shadow:4px 4px 0 #171717;padding:12px;position:relative;overflow:hidden}
+.bugle-tracker.survivor{border-top:7px solid #e7b900}
+.bugle-tracker.trav{border-top:7px solid #b71931}
+.bugle-tracker h3{font:900 clamp(20px,3vw,29px)/1.05 Impact,'Arial Black',Arial,sans-serif;letter-spacing:.025em;margin:0 0 5px;color:#171717;text-transform:uppercase}
+.bugle-tracker .tracker-kicker{font:800 10px/1.35 Arial,sans-serif;letter-spacing:.08em;color:#6a403c;margin:0 0 12px;text-transform:uppercase}
+.bugle-tracker table{width:100%;border-collapse:collapse;table-layout:fixed;font:800 12px/1.35 Arial,sans-serif}
+.bugle-tracker th{text-align:left;font-size:10px;letter-spacing:.04em;padding:6px 4px;border-bottom:2px solid #171717}
+.bugle-tracker td{padding:8px 4px;border-bottom:1px solid #c6bca5;overflow-wrap:break-word;vertical-align:top}
+.bugle-tracker td:last-child{text-align:right}
+.bugle-tracker .tracker-good{color:#146a31;font-weight:900}
+.bugle-tracker .tracker-bad{color:#b71931;font-weight:900}
+.bugle-tracker .tracker-unknown{color:#635f59;font-weight:900}
+.bugle-tracker .tracker-foot{font:800 10px/1.45 Arial,sans-serif;background:#171717;color:#fff;padding:9px;margin:12px -3px -3px}
+.bugle-tracker .tracker-note{font:11px/1.45 Arial,sans-serif;color:#4f4540;margin:10px 0 0}
+@media(max-width:720px){.bugle-weekly-trackers{grid-template-columns:minmax(0,1fr);gap:13px}.bugle-tracker{padding:12px}.bugle-tracker h3{font-size:24px}}
 </style></head><body><main class="wrap"><div class="paper">
 <div class="top"><span>AVENGERS PREGAME · EST. 2026</span><span>FOUR STORIES · ONE EDITION</span></div>
 <h1>PREGAME BUGLE</h1><div class="edition">WEEK 9 EDITION · NOVEMBER 3, 2026</div>
@@ -19,7 +37,21 @@ h1{text-align:center;font-size:clamp(35px,8vw,70px);letter-spacing:-.055em;line-
 <a class="story" href="./week8-wanda-travis.html"><span class="meta">NO. 16 · WEEK 8 · RECAP</span><strong class="headline">WANDA'S ON BED REST. TRAVIS'S FRANCHISE IS ON LIFE SUPPORT.</strong><span class="detail">READ FULL STORY →</span></a>
 <a class="story" href="./week8-jake-mike.html"><span class="meta">NO. 15 · WEEK 8 · RECAP</span><strong class="headline">JAKE DISCOVERS HIS STARTING LINEUP. MIKE DISCOVERS ANOTHER VICTIM.</strong><span class="detail">READ FULL STORY →</span></a>
 <a class="story" href="./week8-nick-aaron.html"><span class="meta">NO. 14 · WEEK 8 · RECAP</span><strong class="headline">SIX WEEKS OF TALKING SHIT. TWO WEEKS OF EATING IT.</strong><span class="detail">READ FULL STORY →</span></a>
-<div class="actions"><button type="button" class="button" id="share">SHARE THIS WEEK'S EDITION ↗</button><a class="button alt" href="../index.html#home">BACK TO LEAGUE HQ</a><a class="button alt" href="./archive.html">PAST STORIES</a></div>
+<section class="bugle-weekly-trackers" aria-label="Weekly Survivor and prime-time trackers">
+<article class="bugle-tracker survivor"><h3>SURVIVOR WATCH</h3><p class="tracker-kicker">Still alive after Week 8 · 4 coaches</p>
+<table><thead><tr><th scope="col">COACH</th><th scope="col">W8 PICK</th><th scope="col">REVIVES</th></tr></thead><tbody>
+<tr><td>Hunter</td><td>Bengals <span class="tracker-good">✓</span></td><td>2 used</td></tr>
+<tr><td>Mike</td><td>Seahawks <span class="tracker-good">✓</span></td><td>2 used</td></tr>
+<tr><td>Travis</td><td>Rams <span class="tracker-good">✓</span></td><td>2 used</td></tr>
+<tr><td>Aaron</td><td>Patriots <span class="tracker-good">✓</span></td><td>3 used</td></tr>
+</tbody></table><div class="tracker-foot">ELIMINATED: DAKOTA · JAKE · ALLYSA · NICK</div></article>
+<article class="bugle-tracker trav"><h3>PRIME-TIME TRAV WATCH</h3><p class="tracker-kicker">Big games. Bigger questions.</p>
+<table><thead><tr><th scope="col">GAME</th><th scope="col">RESULT</th><th scope="col">STATUS</th></tr></thead><tbody>
+<tr><td>THU · WEEK 7</td><td class="tracker-bad">WRONG</td><td>Bears won</td></tr>
+<tr><td>SUN · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
+<tr><td>MON · WEEK 8</td><td class="tracker-unknown">UNVERIFIED</td><td>Pick not logged</td></tr>
+</tbody></table><p class="tracker-note">Travis went 10-for-Week-8 in Pick'em overall. Individual prime-time selections are not recorded in the Bible, so no extra losses are assumed.</p></article>
+</section><div class="actions"><button type="button" class="button" id="share">SHARE THIS WEEK'S EDITION ↗</button><a class="button alt" href="../index.html#home">BACK TO LEAGUE HQ</a><a class="button alt" href="./archive.html">PAST STORIES</a></div>
 <div class="footer">Avengers Pregame · The league's most questionable source of news.</div>
 </div></main><script>
 document.getElementById('share').addEventListener('click',async()=>{
