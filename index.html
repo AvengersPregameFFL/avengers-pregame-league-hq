@@ -1260,4 +1260,20 @@ async function run(){
 }
 run().catch(e=>{console.warn("Coach live stats refresh unavailable:",e);document.querySelectorAll(".coach-allplay-card").forEach(c=>{const v=c.querySelector(".coach-allplay-total");if(v&&v.textContent.includes("Loading"))v.textContent="Live record temporarily unavailable"})});
 })();
-</script></body></html>
+</script><script id="live-league-contests-v1">
+(function(){
+ const names={Dakota:"Dakota",Hunter:"Hunter",Mike:"Mike",Jake:"Jake",Travis:"Travis",Allysa:"Allysa",Aaron:"Aaron",Nick:"Nick"};
+ const safe=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ fetch("./data/league-contests.json?fresh="+Math.floor(Date.now()/1800000),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("No snapshot");return r.json()}).then(data=>{
+ for(const [id,name] of Object.entries(names)){
+  const root=document.getElementById("coach-"+id);if(!root)continue;
+  const sv=data.survivor&&data.survivor[name],pk=data.pickem&&data.pickem[name];
+  if(sv){const heading=[...root.querySelectorAll("h2")].find(h=>h.textContent.trim()==="Survivor");
+   if(heading&&heading.nextElementSibling){heading.nextElementSibling.innerHTML='<strong>'+safe(sv.status)+' · '+safe(sv.revives_used)+' revives used</strong><p>League tracker · '+safe(sv.weeks.length)+' recorded weeks</p>'+sv.weeks.map(w=>'<div class="row"><strong>Week '+w.week+' · '+safe(w.pick||"No pick")+'</strong><span>'+safe(w.outcome||"Pending")+'</span></div>').join("");}}
+  if(pk&&pk.length){const heading=[...root.querySelectorAll("h2")].find(h=>h.textContent.trim()==="Pick’em");
+   if(heading&&heading.nextElementSibling){const total=pk.reduce((a,w)=>a+Number(w.correct||0),0);heading.nextElementSibling.innerHTML='<div class="value">'+total+' correct</div><p>League tracker · through Week '+Math.max(...pk.map(w=>w.week))+'</p>'+pk.sort((a,b)=>a.week-b.week).map(w=>'<div class="row"><strong>Week '+w.week+'</strong><span>'+w.correct+(w.games?' / '+w.games:'')+'</span></div>').join("");}}
+ }
+ }).catch(e=>console.info("League contest snapshot unavailable; retaining documented history",e.message));
+})();
+</script>
+</body></html>
