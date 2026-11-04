@@ -88,7 +88,16 @@ def main():
             range=f"'Sleeper Optimal Feed'!A{len(rows)+2}:F{len(old)}", body={}).execute()
     check = sheets.spreadsheets().values().get(spreadsheetId=BIBLE_ID,
         range=f"'Sleeper Optimal Feed'!A1:F{len(rows)+1}").execute().get("values", [])
-    if [[str(v) for v in row] for row in check] != [[str(v) for v in row] for row in [HEADER] + rows]:
+    def canonical(rows_to_check):
+        from decimal import Decimal
+        output = []
+        for index, row in enumerate(rows_to_check):
+            if index == 0:
+                output.append([str(value) for value in row])
+            else:
+                output.append([str(Decimal(str(value)).normalize()) if col in (0, 1, 3, 4, 5) else str(value) for col, value in enumerate(row)])
+        return output
+    if canonical(check) != canonical([HEADER] + rows):
         raise SystemExit("Post-write row count mismatch; restore from backup " + backup["id"])
     print("Verified Bible feed update; backup ID:", backup["id"])
 
