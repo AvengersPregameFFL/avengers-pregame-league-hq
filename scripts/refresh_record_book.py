@@ -3,6 +3,7 @@
 import datetime as dt
 import json
 import os
+import time
 from collections import defaultdict
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -12,8 +13,14 @@ API = "https://api.sleeper.app/v1"
 OUT = Path("data/record-book.json")
 
 def get(path):
-    with urlopen(Request(API + path, headers={"User-Agent":"AvengersPregameRecords/1.0"}), timeout=30) as response:
-        return json.load(response)
+    for attempt in range(4):
+        try:
+            with urlopen(Request(API + path, headers={"User-Agent":"Mozilla/5.0 AvengersPregameRecords/1.0","Accept":"application/json"}), timeout=30) as response:
+                return json.load(response)
+        except Exception:
+            if attempt == 3:
+                raise
+            time.sleep(2 ** attempt)
 
 def main():
     league = get("/league/" + LEAGUE)
@@ -38,14 +45,11 @@ def main():
     current = int(state.get("week") or 0)
     previous = int(state.get("previous_week") or 0)
     max_week = min(18, int((league.get("settings") or {}).get("playoff_week_start") or 15) - 1)
-    # The Sleeper previous_week field can lag the completed NFL slate.
-    # On Nov 4, 2026, Week 9 is completed; do not cap the feed at stale Week 8.
-    # For subsequent weeks, use the current-week boundary when available.
-    completed_floor = 9 if int(league.get("season") or 0) == 2026 and dt.datetime.now(dt.timezone.utc).date() >= dt.date(2026, 11, 4) else 0
+    # Never treat an in-progress week as final; use the prior week only.
     if current > 1:
-        max_week = min(max_week, max(current - 1, completed_floor))
+        max_week = min(max_week, current - 1)
     elif previous > 0:
-        max_week = min(max_week, max(previous, completed_floor))
+        max_week = min(max_week, previous)
     last = 0
     for candidate in range(1, max_week + 1):
         entries = get(f"/league/{LEAGUE}/matchups/{candidate}")
