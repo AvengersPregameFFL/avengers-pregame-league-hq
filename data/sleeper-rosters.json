@@ -1,10 +1,16 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-04T07:29:50.053018+00:00",
+  "generated_at_utc": "2026-11-04T09:08:28.652019+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
   "players": {
+    "0": {
+      "name": "0",
+      "position": null,
+      "status": null,
+      "team": null
+    },
     "10213": {
       "name": "Tre Tucker",
       "position": "WR",
@@ -112,6 +118,18 @@
       "position": "WR",
       "status": "Active",
       "team": "CAR"
+    },
+    "1166": {
+      "name": "Kirk Cousins",
+      "position": "QB",
+      "status": "Active",
+      "team": "LV"
+    },
+    "11786": {
+      "name": "Cam Little",
+      "position": "K",
+      "status": "Active",
+      "team": "JAX"
     },
     "11792": {
       "name": "Will Reichard",
@@ -238,6 +256,18 @@
       "position": "WR",
       "status": "Active",
       "team": "PHI"
+    },
+    "13337": {
+      "name": "Emmett Johnson",
+      "position": "RB",
+      "status": "Active",
+      "team": "KC"
+    },
+    "13345": {
+      "name": "Jonah Coleman",
+      "position": "RB",
+      "status": "Active",
+      "team": "DEN"
     },
     "1466": {
       "name": "Travis Kelce",
@@ -557,6 +587,12 @@
       "status": "Active",
       "team": "NYG"
     },
+    "8132": {
+      "name": "Tyler Allgeier",
+      "position": "RB",
+      "status": "Active",
+      "team": "ARI"
+    },
     "8137": {
       "name": "George Pickens",
       "position": "WR",
@@ -695,6 +731,12 @@
       "status": null,
       "team": "CLE"
     },
+    "DEN": {
+      "name": "Denver Broncos",
+      "position": "DEF",
+      "status": null,
+      "team": "DEN"
+    },
     "GB": {
       "name": "Green Bay Packers",
       "position": "DEF",
@@ -742,12 +784,6 @@
       "position": "DEF",
       "status": null,
       "team": "SEA"
-    },
-    "SF": {
-      "name": "San Francisco 49ers",
-      "position": "DEF",
-      "status": null,
-      "team": "SF"
     }
   },
   "rosters": {
@@ -756,9 +792,11 @@
       "owner_id": "1395849040683352064",
       "players": [
         "10236",
+        "11786",
         "12481",
         "12501",
         "12527",
+        "13337",
         "2133",
         "3294",
         "5850",
@@ -766,11 +804,9 @@
         "6804",
         "7021",
         "7588",
-        "7839",
         "8130",
         "9488",
-        "GB",
-        "SF"
+        "GB"
       ],
       "reserve": [
         "2133"
@@ -785,7 +821,7 @@
         "8130",
         "12501",
         "5850",
-        "7839",
+        "0",
         "GB"
       ],
       "taxi": [],
@@ -914,18 +950,19 @@
       "players": [
         "10859",
         "11576",
+        "1166",
         "12474",
         "12526",
         "13276",
-        "4199",
+        "13345",
         "4881",
         "7042",
         "7547",
         "7564",
+        "8132",
         "8146",
         "8150",
         "8228",
-        "9228",
         "CIN"
       ],
       "reserve": [
@@ -933,7 +970,7 @@
       ],
       "roster_id": 5,
       "starters": [
-        "9228",
+        "0",
         "11576",
         "8150",
         "7547",
@@ -1041,7 +1078,7 @@
         "8183",
         "9224",
         "9997",
-        "PIT"
+        "DEN"
       ],
       "reserve": [],
       "roster_id": 8,
@@ -1055,7 +1092,7 @@
         "8138",
         "5022",
         "6650",
-        "PIT"
+        "0"
       ],
       "taxi": [],
       "team_name": "Flash 23 Blast"
@@ -1075,9 +1112,11 @@
         "matchup_id": 2,
         "players": [
           "10236",
+          "11786",
           "12481",
           "12501",
           "12527",
+          "13337",
           "2133",
           "3294",
           "5850",
@@ -1085,11 +1124,9 @@
           "6804",
           "7021",
           "7588",
-          "7839",
           "8130",
           "9488",
-          "GB",
-          "SF"
+          "GB"
         ],
         "points": 0.0,
         "roster_id": 1,
@@ -1102,7 +1139,7 @@
           "8130",
           "12501",
           "5850",
-          "7839",
+          "0",
           "GB"
         ],
         "starters_points": [
@@ -1263,24 +1300,25 @@
         "players": [
           "10859",
           "11576",
+          "1166",
           "12474",
           "12526",
           "13276",
-          "4199",
+          "13345",
           "4881",
           "7042",
           "7547",
           "7564",
+          "8132",
           "8146",
           "8150",
           "8228",
-          "9228",
           "CIN"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "9228",
+          "0",
           "11576",
           "8150",
           "7547",
@@ -1413,7 +1451,7 @@
           "8183",
           "9224",
           "9997",
-          "PIT"
+          "DEN"
         ],
         "points": 0.0,
         "roster_id": 8,
@@ -1427,7 +1465,7 @@
           "8138",
           "5022",
           "6650",
-          "PIT"
+          "0"
         ],
         "starters_points": [
           0.0,
@@ -1461,8 +1499,7 @@
           "7839",
           "8130",
           "9488",
-          "GB",
-          "SF"
+          "GB"
         ],
         "points": 156.7,
         "roster_id": 1,
@@ -1822,9 +1859,11 @@
         "matchup_id": 2,
         "players": [
           "10236",
+          "11786",
           "12481",
           "12501",
           "12527",
+          "13337",
           "2133",
           "3294",
           "5850",
@@ -1832,11 +1871,9 @@
           "6804",
           "7021",
           "7588",
-          "7839",
           "8130",
           "9488",
-          "GB",
-          "SF"
+          "GB"
         ],
         "points": 0.0,
         "roster_id": 1,
@@ -1849,7 +1886,7 @@
           "8130",
           "12501",
           "5850",
-          "7839",
+          "0",
           "GB"
         ],
         "starters_points": [
@@ -2010,24 +2047,25 @@
         "players": [
           "10859",
           "11576",
+          "1166",
           "12474",
           "12526",
           "13276",
-          "4199",
+          "13345",
           "4881",
           "7042",
           "7547",
           "7564",
+          "8132",
           "8146",
           "8150",
           "8228",
-          "9228",
           "CIN"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "9228",
+          "0",
           "11576",
           "8150",
           "7547",
@@ -2160,7 +2198,7 @@
           "8183",
           "9224",
           "9997",
-          "PIT"
+          "DEN"
         ],
         "points": 0.0,
         "roster_id": 8,
@@ -2174,7 +2212,7 @@
           "8138",
           "5022",
           "6650",
-          "PIT"
+          "0"
         ],
         "starters_points": [
           0.0,
