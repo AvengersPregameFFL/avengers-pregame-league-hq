@@ -1,0 +1,38 @@
+name: Refresh verified Sleeper matchups
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 12 * * *'
+    - cron: '15 21 * * THU,FRI,SAT,SUN,MON'
+permissions:
+  contents: write
+concurrency:
+  group: sleeper-matchups-refresh
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and validate read-only Sleeper matchups
+        run: python scripts/refresh_matchups.py
+      - name: Validate published JSON
+        run: |
+          python -m json.tool data/sleeper-matchups.json >/dev/null
+      - name: Commit snapshot only when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sleeper-matchups.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Refresh verified Sleeper matchup snapshot"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
