@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "through_week": 8,
-  "generated_at_utc": "2026-11-04T16:57:08.773036+00:00",
+  "generated_at_utc": "2026-11-04T16:58:36.996972+00:00",
   "coaches": {
     "DK": {
       "team": "Juggernauts Jumbo Package",
@@ -812,4 +812,4 @@
       ]
     }
   }
-}\n
+}
