@@ -1164,4 +1164,86 @@ tr.append(game,pick,result);body.append(tr);
  refresh();
  window.addEventListener('pageshow',refresh);
 })();
-</script><script>(function(){const cards=[...document.querySelectorAll(".coach-allplay-card")];if(!cards.length)return;const aliases={"Dk25313":"DK","noreilly1993":"Nick","InfinityBrocklet":"Mike","Mexipez1999":"Aaron","hboogie1003":"Hunter","fondlerballer":"Jake","TGriffy93":"Travis","dentalhygenius":"Alyssa"};const api=async path=>{const r=await fetch("https://api.sleeper.app/v1"+path,{cache:"no-store"});if(!r.ok)throw Error("Sleeper unavailable");return r.json()};async function run(){const totals={};let id="1395849826633019392",visited=new Set(),seasons=0;while(id&&!visited.has(id)&&seasons<30){visited.add(id);const [league,rosters,users,state]=await Promise.all([api("/league/"+id),api("/league/"+id+"/rosters"),api("/league/"+id+"/users"),api("/state/nfl")]);const owners=Object.fromEntries(users.map(u=>[String(u.user_id),u]));const map={};for(const r of rosters){const u=owners[String(r.owner_id)]||{};map[r.roster_id]=aliases[u.display_name]||aliases[u.username]||(u.metadata||{}).team_name||"Roster "+r.roster_id}const current=Number(state.week||0),previous=Number(state.previous_week||0);let end=Number(league.season)<Number(state.season)?18:Math.max(0,current-1,previous);end=Math.min(end,18,Number((league.settings||{}).playoff_week_start||19)-1);for(let w=1;w<=end;w++){const entries=await api("/league/"+id+"/matchups/"+w);if(entries.length!==rosters.length||entries.some(e=>e.points==null||e.matchup_id==null)||new Set(entries.map(e=>e.matchup_id)).size!==rosters.length/2||!entries.some(e=>Number(e.points)>0))break;for(const a of entries){const name=map[a.roster_id];const t=totals[name]||(totals[name]={w:0,l:0,t:0});for(const b of entries){if(a.roster_id===b.roster_id)continue;if(Number(a.points)>Number(b.points))t.w++;else if(Number(a.points)<Number(b.points))t.l++;else t.t++}}}id=league.previous_league_id||null;seasons++}for(const card of cards){const name=card.dataset.allplayManager,t=totals[name],v=card.querySelector(".coach-allplay-total");if(t){const games=t.w+t.l+t.t;v.textContent=t.w+"–"+t.l+"–"+t.t+" • "+(games?((t.w+t.t/2)/games*100).toFixed(1):"0.0")+"%";card.querySelector(".coach-allplay-meta").textContent="Career all-play record • "+seasons+" linked season"+(seasons===1?"":"s")}else v.textContent="No linked all-play results"}}run().catch(()=>cards.forEach(c=>c.querySelector(".coach-allplay-total").textContent="Records temporarily unavailable"))})();</script></body></html>
+</script><script>
+(function(){
+const id="1395849826633019392";
+const aliases={"Dk25313":"DK","noreilly1993":"Nick","InfinityBrocklet":"Mike","Mexipez1999":"Aaron","hboogie1003":"Hunter","fondlerballer":"Jake","TGriffy93":"Travis","dentalhygenius":"Alyssa"};
+const ids={"DK":"Dakota","Hunter":"Hunter","Mike":"Mike","Jake":"Jake","Travis":"Travis","Alyssa":"Allysa","Aaron":"Aaron","Nick":"Nick"};
+const api=async path=>{const r=await fetch("https://api.sleeper.app/v1"+path,{cache:"no-store"});if(!r.ok)throw Error("Sleeper request "+r.status);return r.json()};
+const nameOf=u=>aliases[u.display_name]||aliases[u.username]||null;
+const escape=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function loadSeason(leagueId,activeState){
+ const [league,rosters,users]=await Promise.all([api("/league/"+leagueId),api("/league/"+leagueId+"/rosters"),api("/league/"+leagueId+"/users")]);
+ const userMap=Object.fromEntries(users.map(u=>[String(u.user_id),u]));
+ const rosterMap=Object.fromEntries(rosters.map(r=>[r.roster_id,nameOf(userMap[String(r.owner_id)]||{})]));
+ const end=Math.min(18,Number(league.settings?.playoff_week_start||19)-1,Number(league.season)<Number(activeState.season)?18:Math.max(0,Number(activeState.week||0)-1,Number(activeState.previous_week||0)));
+ const totals={},weekly={};let last=0;
+ for(let w=1;w<=end;w++){
+  const entries=await api("/league/"+leagueId+"/matchups/"+w);
+  if(entries.length!==rosters.length||entries.some(e=>e.points==null||e.matchup_id==null)||new Set(entries.map(e=>e.matchup_id)).size!==rosters.length/2||!entries.some(e=>Number(e.points)>0))break;
+  const pairs={};for(const e of entries)(pairs[e.matchup_id]||(pairs[e.matchup_id]=[])).push(e);
+  if(Object.values(pairs).some(p=>p.length!==2))break;
+  for(const e of entries){
+   const name=rosterMap[e.roster_id];if(!name)continue;
+   const t=totals[name]||(totals[name]={w:0,l:0,t:0});
+   let aw=0,al=0,at=0;
+   for(const other of entries){if(other.roster_id===e.roster_id)continue;if(+e.points>+other.points)aw++;else if(+e.points<+other.points)al++;else at++}
+   t.w+=aw;t.l+=al;t.t+=at;
+   const opponent=pairs[e.matchup_id].find(x=>x.roster_id!==e.roster_id);
+   (weekly[name]||(weekly[name]=[])).push({week:w,points:Number(e.points),against:Number(opponent.points),result:Number(e.points)>Number(opponent.points)?"W":Number(e.points)<Number(opponent.points)?"L":"T",allplay:aw+"–"+al+"–"+at});
+  }
+  last=w;
+ }
+ return {league,last,totals,weekly};
+}
+function updateProfiles(current,career,seasons){
+ for(const [name,sectionId] of Object.entries(ids)){
+  const section=document.getElementById("coach-"+sectionId);if(!section)continue;
+  const currentWeeks=current.weekly[name]||[];
+  const all=career[name],thisYear=current.totals[name];
+  const grid=[...section.querySelectorAll(":scope > .grid > .stat")];
+  if(grid.length>=4){
+   const play=grid[3].querySelector(".value");
+   if(play&&thisYear)play.textContent=thisYear.w+"–"+thisYear.l+(thisYear.t?"–"+thisYear.t:"");
+   if(currentWeeks.length){
+    const wins=currentWeeks.filter(x=>x.result==="W").length,losses=currentWeeks.filter(x=>x.result==="L").length,ties=currentWeeks.filter(x=>x.result==="T").length;
+    grid[0].querySelector(".value").textContent=wins+"–"+losses+(ties?"–"+ties:"");
+    grid[1].querySelector(".value").textContent=currentWeeks.reduce((sum,w)=>sum+w.points,0).toFixed(2);
+   }
+  }
+  const card=section.querySelector(".coach-allplay-card");
+  if(card&&all){
+   const n=all.w+all.l+all.t;
+   card.querySelector(".coach-allplay-total").textContent=all.w+"–"+all.l+"–"+all.t+" • "+(n?((all.w+all.t/2)/n*100).toFixed(1):"0.0")+"%";
+   card.querySelector(".coach-allplay-meta").textContent="Career all-play • "+seasons+" linked season"+(seasons===1?"":"s");
+  }
+  const chart=section.querySelector(".scoring-chart");
+  if(chart&&currentWeeks.length){
+   const max=Math.max(...currentWeeks.map(w=>w.points),1);
+   chart.innerHTML='<h2>Weekly Points Scored</h2><div class="hint">Final scores through Week '+current.last+' · one bar per completed week</div>'+currentWeeks.map(w=>'<div class="barline"><span class="barlabel">Week '+w.week+'</span><div class="bartrack"><div class="barfill" style="width:'+(w.points/max*100).toFixed(2)+'%"></div></div><span class="barvalue">'+w.points.toFixed(2)+'</span></div>').join("");
+  }
+  if(chart&&currentWeeks.length){
+   const title=[...section.querySelectorAll("h2")].find(x=>x.textContent.trim().toLowerCase()==="fantasy matchups");
+   const panel=title?.nextElementSibling;
+   if(panel?.classList.contains("panel")){
+    const original=[...panel.querySelectorAll(":scope > .row")];
+    const optimal=new Map(original.map(row=>{const match=row.querySelector("strong")?.textContent.match(/Week\s+(\d+)/);return match?[Number(match[1]),row.querySelector("small")?.textContent||""]:null}).filter(Boolean));
+    panel.innerHTML=currentWeeks.map(w=>'<div class="row"><div><strong>Week '+w.week+' · <span class="'+(w.result==="W"?"green":w.result==="L"?"red":"")+'">'+w.result+'</span></strong><small>'+escape(optimal.get(w.week)||"All-play: "+w.allplay)+'</small></div><div class="right">'+w.points.toFixed(2)+' – '+w.against.toFixed(2)+'</div></div>').join("");
+   }
+  }
+ }
+}
+async function run(){
+ const state=await api("/state/nfl");const career={};let current=null;let leagueId=id;const seen=new Set();let seasons=0;
+ while(leagueId&&!seen.has(String(leagueId))&&seasons<30){
+  seen.add(String(leagueId));
+  const season=await loadSeason(leagueId,state);
+  if(!current)current=season;
+  for(const [name,t] of Object.entries(season.totals)){const c=career[name]||(career[name]={w:0,l:0,t:0});c.w+=t.w;c.l+=t.l;c.t+=t.t}
+  leagueId=season.league.previous_league_id||null;seasons++;
+  updateProfiles(current,career,seasons);
+ }
+}
+run().catch(e=>{console.warn("Coach live stats refresh unavailable:",e);document.querySelectorAll(".coach-allplay-card").forEach(c=>{const v=c.querySelector(".coach-allplay-total");if(v&&v.textContent.includes("Loading"))v.textContent="Live record temporarily unavailable"})});
+})();
+</script></body></html>
