@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-03T23:50:29.579017+00:00",
+  "generated_at_utc": "2026-11-04T01:19:08.191082+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -779,7 +779,7 @@
       "starters": [
         "3294",
         "7588",
-        "12527",
+        "12481",
         "9488",
         "6786",
         "8130",
@@ -1096,7 +1096,7 @@
         "starters": [
           "3294",
           "7588",
-          "12527",
+          "12481",
           "9488",
           "6786",
           "8130",
@@ -1843,7 +1843,7 @@
         "starters": [
           "3294",
           "7588",
-          "12527",
+          "12481",
           "9488",
           "6786",
           "8130",
