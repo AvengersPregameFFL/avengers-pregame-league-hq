@@ -38,4 +38,19 @@ function initBugleShareButtons(){
  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBugleShareButtons);else initBugleShareButtons();
-</script><script id="week9-matchup-preview-reader">(function(){const status=document.getElementById('week9-matchup-status'),out=document.getElementById('week9-matchup-list');if(!status||!out)return;const base='https://api.sleeper.app/v1/league/1395849826633019392';const get=async u=>{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw Error('Sleeper unavailable');return r.json()};Promise.all([get(base+'/matchups/9'),get(base+'/rosters'),get(base+'/users')]).then(([games,rosters,users])=>{const usersById=new Map(users.map(u=>[u.user_id,u]));const nameByRoster=new Map(rosters.map(r=>{const u=usersById.get(r.owner_id);return [r.roster_id,u?.metadata?.team_name||u?.display_name||'Roster '+r.roster_id]}));const groups=new Map();for(const g of games){if(g.matchup_id==null)continue;if(!groups.has(g.matchup_id))groups.set(g.matchup_id,[]);groups.get(g.matchup_id).push(g)}let n=0;for(const pair of groups.values()){if(pair.length!==2)continue;const line=document.createElement('p');line.style.cssText='border-top:2px solid #171717;padding:10px 0;margin:0;font-weight:900';line.textContent=nameByRoster.get(pair[0].roster_id)+' VS. '+nameByRoster.get(pair[1].roster_id);out.append(line);n++}status.textContent=n===4?'Four confirmed Week 9 matchups:':n?'Sleeper returned '+n+' matchups:':'No confirmed pairings returned.'}).catch(()=>{status.textContent='Sleeper matchup feed unavailable. View the live matchups on League HQ.';const link=document.createElement('a');link.href='../index.html#league-schedule';link.textContent='OPEN LIVE MATCHUP CENTER →';out.append(link)})})();</script></body></html>
+</script><script id="week9-matchup-preview-reader">(function(){
+const status=document.getElementById('week9-matchup-status'),out=document.getElementById('week9-matchup-list');
+if(!status||!out)return;
+const base='https://api.sleeper.app/v1/league/1395849826633019392';
+async function get(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw Error('Request failed');return r.json()}
+function show(pairs,source){if(!Array.isArray(pairs)||pairs.length!==4)throw Error('Incomplete matchups');
+out.replaceChildren();
+for(const pair of pairs){if(!pair.teams||pair.teams.length!==2)throw Error('Incomplete pairing');
+const line=document.createElement('p');line.style.cssText='border-top:2px solid #171717;padding:10px 0;margin:0;font-weight:900';
+line.textContent=pair.teams[0].name+' VS. '+pair.teams[1].name;out.append(line)}
+status.textContent='All four Week 9 matchups verified via '+source+'.'}
+async function live(){const [games,rosters,users]=await Promise.all([get(base+'/matchups/9'),get(base+'/rosters'),get(base+'/users')]);const usersById=new Map(users.map(u=>[u.user_id,u]));const names=new Map(rosters.map(r=>[r.roster_id,usersById.get(r.owner_id)?.metadata?.team_name||usersById.get(r.owner_id)?.display_name||'Roster '+r.roster_id]));const groups=new Map();for(const g of games){if(g.matchup_id==null)continue;if(!groups.has(g.matchup_id))groups.set(g.matchup_id,[]);groups.get(g.matchup_id).push(g)}
+return [...groups.values()].filter(p=>p.length===2).map(p=>({teams:p.map(t=>({name:names.get(t.roster_id),roster_id:t.roster_id}))}))}
+(async()=>{try{const snapshot=await get('../data/sleeper-matchups.json');const week=snapshot.weeks?.['9'];if(!week)throw Error('No Week 9 snapshot');show(week.matchups,'saved Sleeper snapshot');}
+catch(e){try{show(await live(),'live Sleeper feed')}catch(e2){status.textContent='Verified pairings temporarily unavailable. Open League HQ Matchup Center.';out.replaceChildren();const link=document.createElement('a');link.href='../index.html#league-schedule';link.textContent='VIEW MATCHUPS →';out.append(link)}}})();
+})();</script></body></html>
