@@ -1115,4 +1115,38 @@ result.className=p.result==='CORRECT'?'tracker-good':p.result&&p.result.startsWi
 tr.append(game,pick,result);body.append(tr);
 }}})
 .catch(()=>{/* Keep verified static fallback if feed is unavailable. */});
-})();</script></body></html>
+})();</script><script id="live-record-book-renderer">
+(function(){
+ const section=document.getElementById('records');
+ if(!section)return;
+ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ async function refresh(){
+  try{
+   const res=await fetch('./data/record-book.json?ts='+Date.now(),{cache:'no-store'});
+   if(!res.ok)throw new Error('Record feed unavailable');
+   const data=await res.json();
+   if(!data.rows||!data.verifiedThroughWeek||data.rows.length<4)throw new Error('Incomplete record feed');
+   const groups=new Map();
+   for(const r of data.rows.slice(3)){
+    if(!Array.isArray(r)||r.length<9)continue;
+    const group=r[0]==='Single week'?'Single-Week Records':'Season & Career Records';
+    if(!groups.has(group))groups.set(group,[]);
+    groups.get(group).push(r);
+   }
+   let html='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">2026 season · Completed through Week '+escape(data.verifiedThroughWeek)+'</p><div class="record-board">';
+   for(const [title,records] of groups){
+    html+='<div class="record-group"><h2 class="record-group-title">'+escape(title)+'</h2>';
+    for(const r of records){
+     const value=Number(r[5]), unit=r[6]||'';
+     html+='<div class="record-entry"><div class="record-entry-main"><strong>'+escape(r[2])+'</strong><div>'+escape(r[3])+' · '+escape(data.season)+' · '+escape(r[7])+'</div><small>'+escape(r[4])+'</small></div><b class="record-entry-value">'+escape(Number.isFinite(value)?value.toLocaleString('en-US',{maximumFractionDigits:2}):r[5])+' '+escape(unit)+'</b></div>';
+    }
+    html+='</div>';
+   }
+   html+='</div>';
+   section.innerHTML=html;
+  }catch(err){console.warn('Keeping existing record display; live feed failed',err)}
+ }
+ refresh();
+ window.addEventListener('pageshow',refresh);
+})();
+</script></body></html>
