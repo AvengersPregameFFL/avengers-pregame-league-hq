@@ -80,41 +80,43 @@ p.appendChild(meta);
 if(r[4]){var detail=el('div','live-award-context');detail.appendChild(el('span','live-award-field','AWARD DETAILS'));detail.appendChild(el('p','',r[4]));p.appendChild(detail)}
 box.appendChild(p);
 });status('awards','LIVE · award definitions and current winners',true);replace('awards',box)}).catch(function(e){status('awards','Saved awards shown. Live updates unavailable. '+e.message,false)})}
-function accuracy(){sheetRows(gids.accuracy).then(function(rows){
-var normalize=function(x){return safe(x).trim().toLowerCase().replace(/[^a-z0-9]/g,'')};
-var headerIndex=rows.findIndex(function(r){var cells=r.map(normalize);return cells.some(function(x){return x==='manager'||x==='coach'||x==='name'})&&cells.some(function(x){return x.includes('accuracy')||x.includes('efficiency')||x.includes('points')||x==='rank'})});
-if(headerIndex<0)throw Error('Coach Accuracy data needs a recognizable Manager and Accuracy header');
-var header=rows[headerIndex].map(normalize),column=function(terms){return header.findIndex(function(h){return terms.some(function(t){return h===t||h.includes(t)})})};
-var managerCol=column(['manager','coach','name']),rankCol=column(['rank']),teamCol=column(['team']),accuracyCol=column(['seasonaverageaccuracy','seasonaccuracy','averageaccuracy','avgaccuracy','lineupefficiency','accuracy','efficiency']),scoredCol=column(['actualpoints','pointsscored','actualpf','actual']),maxCol=column(['maxpoints','optimalpoints','maxpf','possiblepoints','optimal']);
-if(managerCol<0)throw Error('Coach Accuracy manager column missing');
-var weeklyCols=header.map(function(h,i){return /^week(?:0?[1-9]|1[0-8])(?:accuracy|efficiency|pct|percent)?$/.test(h)?i:-1}).filter(function(i){return i>=0});
-var records=rows.slice(headerIndex+1).filter(function(r){return safe(r[managerCol]).trim()&&normalize(r[managerCol])!=='manager'}).map(function(r){
-var actual=scoredCol>=0?num(r[scoredCol]):null,max=maxCol>=0?num(r[maxCol]):null;
-var weekPcts=weeklyCols.map(function(i){var raw=safe(r[i]).trim();if(!raw)return null;var v=num(raw);if(!Number.isFinite(v))return null;if(v<=1&&!raw.includes('%'))v*=100;return v>=0&&v<=100?v:null}).filter(function(v){return v!==null});
-var raw=accuracyCol>=0?safe(r[accuracyCol]).trim():'',pct=null;
-if(weekPcts.length)pct=weekPcts.reduce(function(a,b){return a+b},0)/weekPcts.length;
-else if(raw){var v=num(raw);if(Number.isFinite(v)){if(raw.includes('%'))pct=v;else if(v>0&&v<=1)pct=v*100;else if(v>20&&v<=100)pct=v;}}
-if(pct===null&&actual!==null&&max>0)pct=actual/max*100;
-return {name:safe(r[managerCol]).trim(),team:teamCol>=0?safe(r[teamCol]):'',rank:rankCol>=0?num(r[rankCol]):0,accuracy:pct,actual:actual,max:max}
-}).filter(function(r){return r.accuracy!==null&&Number.isFinite(r.accuracy)&&r.accuracy>=0&&r.accuracy<=100});
-if(!records.length)throw Error('Season accuracy requires weekly efficiency values, a valid season percentage, or actual and optimal points; ranking numbers are not accuracy');
-records.sort(function(a,b){return b.accuracy-a.accuracy||a.rank-b.rank});
-var box=el('div','accuracy-board');
-records.forEach(function(r,i){
- var item=el('div','accuracy-entry');
- var position=el('span','accuracy-position',String(i+1));
- var details=el('div','accuracy-details');
- var coach=el('a','accuracy-coach',r.name);coach.href='#coach-'+encodeURIComponent(r.name);
- details.appendChild(coach);
- if(r.team)details.appendChild(el('span','accuracy-team',r.team));
- var possible=el('span','accuracy-possible',r.actual!==null&&Number.isFinite(r.actual)&&r.max!==null&&Number.isFinite(r.max)?'SCORED / POSSIBLE: '+r.actual.toFixed(2)+' / '+r.max.toFixed(2):'SCORED / POSSIBLE: —');details.appendChild(possible);
- var meter=el('div','accuracy-meter');meter.setAttribute('role','meter');meter.setAttribute('aria-label',r.name+' lineup accuracy');meter.setAttribute('aria-valuemin','0');meter.setAttribute('aria-valuemax','100');meter.setAttribute('aria-valuenow',r.accuracy.toFixed(1));
- var fill=el('span','accuracy-meter-fill');fill.style.width=r.accuracy.toFixed(1)+'%';meter.appendChild(fill);details.appendChild(meter);
- var score=el('strong','accuracy-score',r.accuracy.toFixed(1)+'%');
- item.appendChild(position);item.appendChild(details);item.appendChild(score);box.appendChild(item);
-});
-status('accuracy','SEASON LINEUP ACCURACY · LIVE',true);replace('accuracy',box)
-}).catch(function(e){status('accuracy','Coach accuracy data unavailable: '+e.message,false)})}
+function accuracy(){
+ fetch('./data/optimal-lineups.json?ts='+Date.now(),{cache:'no-store'}).then(function(response){
+  if(!response.ok)throw Error('Sleeper optimal lineup snapshot HTTP '+response.status);
+  return response.json();
+ }).then(function(data){
+  var rows=data.rows||[],weeks=[...new Set(rows.map(function(r){return Number(r.week)}))].sort(function(a,b){return a-b});
+  if(!weeks.length)throw Error('No completed weekly lineup records');
+  var complete=weeks.filter(function(w){return rows.filter(function(r){return Number(r.week)===w}).length===8});
+  if(!complete.length)throw Error('No complete eight-team weeks');
+  var byRoster={};
+  rows.filter(function(r){return complete.indexOf(Number(r.week))>=0}).forEach(function(r){
+   var id=Number(r.roster_id),actual=Number(r.actual),optimal=Number(r.optimal);
+   if(!Number.isFinite(actual)||!Number.isFinite(optimal)||optimal<=0||actual>optimal+0.02)throw Error('Invalid optimal lineup points for roster '+id+' week '+r.week);
+   if(!byRoster[id])byRoster[id]={id:id,actual:0,max:0,count:0};
+   byRoster[id].actual+=actual;byRoster[id].max+=optimal;byRoster[id].count++;
+  });
+  var teams={1:['Dakota','Juggernauts Jumbo Package'],2:['Mike','Team InfinityBrocklet'],3:['Travis','Fantastic Four Skin'],4:['Aaron',"Jerry's Justice League"],5:['Allysa','Wanda WacksEmOff'],6:['Hunter','Hurts Venom Inside Her'],7:['Jake','Loki Down Bad'],8:['Nick','Flash 23 Blast']};
+  var records=Object.keys(byRoster).map(function(k){var r=byRoster[k],t=teams[k]||['Roster '+k,''];return{name:t[0],team:t[1],actual:r.actual,max:r.max,accuracy:100*r.actual/r.max,count:r.count}});
+  if(records.length!==8||records.some(function(r){return r.count!==complete.length}))throw Error('Missing coach records in completed weeks');
+  records.sort(function(a,b){return b.accuracy-a.accuracy});
+  var box=el('div','accuracy-board');
+  records.forEach(function(r,i){
+   var item=el('div','accuracy-entry'),position=el('span','accuracy-position',String(i+1)),details=el('div','accuracy-details');
+   var coach=el('a','accuracy-coach',r.name);coach.href='#coach-'+encodeURIComponent(r.name);details.appendChild(coach);
+   details.appendChild(el('span','accuracy-team',r.team));
+   details.appendChild(el('span','accuracy-possible','SCORED / POSSIBLE: '+r.actual.toFixed(2)+' / '+r.max.toFixed(2)));
+   var meter=el('div','accuracy-meter');meter.setAttribute('role','meter');meter.setAttribute('aria-label',r.name+' lineup accuracy');meter.setAttribute('aria-valuemin','0');meter.setAttribute('aria-valuemax','100');meter.setAttribute('aria-valuenow',r.accuracy.toFixed(1));
+   var fill=el('span','accuracy-meter-fill');fill.style.width=Math.min(100,r.accuracy).toFixed(1)+'%';meter.appendChild(fill);details.appendChild(meter);
+   item.appendChild(position);item.appendChild(details);item.appendChild(el('strong','accuracy-score',r.accuracy.toFixed(1)+'%'));box.appendChild(item);
+  });
+  var generated=Date.parse(data.generated_at||'');
+  var age=Date.now()-generated;
+  var fresh=Number.isFinite(age)&&age>=0&&age<36*3600000;
+  status('accuracy','SEASON LINEUP ACCURACY · WEEKS '+complete[0]+'–'+complete[complete.length-1]+' · SOURCE '+(Number.isFinite(generated)?new Date(generated).toLocaleString():'UNKNOWN')+(fresh?'':' · DATA DELAYED'),fresh);
+  replace('accuracy',box);
+ }).catch(function(e){status('accuracy','Coach accuracy unavailable: '+e.message,false)});
+}
 function init(){
 var ids=['standings','pickem','survivor','records','awards','accuracy'];
 var state={},pending=new Set(),inFlight=false,lastStart=0,cycle=0;
