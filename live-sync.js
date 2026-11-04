@@ -68,18 +68,7 @@ var meta=el('div','record-meta',r.holder+' · '+r.year+(r.week?' · '+r.week:'')
 if(r.team&&r.team!==r.holder)card.appendChild(el('div','record-team',r.team));
 if(r.detail&&r.detail.length<130)card.title=r.detail;
 section.appendChild(card)});box.appendChild(section)});
-status('records','VERIFIED THROUGH WEEK '+snapshot.verifiedThroughWeek+' · archived snapshot · awaiting season reconciliation',false);replace('records',box);
-fetch('./data/optimal-lineups.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Missing optimal feed');return r.json()}).then(function(feed){
- var weekly=feed.rows||[],complete=[...new Set(weekly.map(function(r){return r.week}))].filter(function(w){return weekly.filter(function(r){return r.week===w}).length===8});
- if(!complete.length)return;
- var map={1:['Dakota','Juggernauts Jumbo Package'],2:['Mike','Team InfinityBrocklet'],3:['Travis','Fantastic Four Skin'],4:['Aaron',"Jerry's Justice League"],5:['Allysa','Wanda WacksEmOff'],6:['Hunter','Hurts Venom Inside Her'],7:['Jake','Loki Down Bad'],8:['Nick','Flash 23 Blast']};
- var data=weekly.filter(function(r){return complete.indexOf(r.week)>=0}),highest=data.reduce(function(a,b){return !a||b.actual>a.actual?b:a},null),lowest=data.reduce(function(a,b){return !a||b.actual<a.actual?b:a},null),best=data.reduce(function(a,b){return !a||b.optimal>a.optimal?b:a},null);
- var section=el('section','record-group');section.appendChild(el('h2','record-group-title','VERIFIED SLEEPER RECORDS · WEEKS '+complete[0]+'–'+complete[complete.length-1]));
- [['Highest score',highest,'actual'],['Lowest score',lowest,'actual'],['Highest optimal lineup',best,'optimal']].forEach(function(v){var r=v[1],t=map[r.roster_id]||['Roster '+r.roster_id,''],card=el('article','record-entry'),top=el('div','record-entry-top');top.appendChild(el('strong','record-name',v[0]));top.appendChild(el('strong','record-value',Number(r[v[2]]).toFixed(2)+' PTS'));card.appendChild(top);card.appendChild(el('div','record-meta',t[0]+' · 2026 · W'+r.week));card.appendChild(el('div','record-team',t[1]));section.appendChild(card)});
- var original=box.querySelector('.record-group');if(original)original.insertAdjacentElement('beforebegin',section);else box.prepend(section);
- status('records','SLEEPER VERIFIED WEEKS '+complete[0]+'–'+complete[complete.length-1]+' · remaining historical records through Week '+snapshot.verifiedThroughWeek,false);
-}).catch(function(){});
-
+status('records','',true);replace('records',box);
 }).catch(function(e){status('records','Saved records displayed · live refresh unavailable: '+e.message,false)})}
 function awards(){sheetRows(gids.awards).then(function(rows){if(!rows.length||rows[0][0]!=='Comic Award / Metric')throw Error('Unexpected Awards columns');var box=el('div','live-award-grid');rows.slice(1).filter(function(r){return r[0]&&r[1]}).forEach(function(r){
 var p=panel(r[0]);p.classList.add('live-award-card');p.appendChild(el('p','live-award-description',r[1]));
