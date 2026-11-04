@@ -23,11 +23,15 @@ jobs:
         env:
           SLEEPER_LEAGUE_ID: '1395849826633019392'
         run: python scripts/sync_sleeper.py
+      - name: Rebuild finalized season record book
+        env:
+          SLEEPER_LEAGUE_ID: '1395849826633019392'
+        run: python scripts/refresh_record_book.py
       - name: Commit changed snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/sleeper-rosters.json
+          git add data/sleeper-rosters.json data/record-book.json
           if git diff --cached --quiet; then
             echo "No changes"
             exit 0
