@@ -1138,7 +1138,7 @@ tr.append(game,pick,result);body.append(tr);
     html+='<div class="record-group"><h2 class="record-group-title">'+escape(title)+'</h2>';
     for(const r of records){
      const value=Number(r[5]), unit=r[6]||'';
-     html+='<div class="record-entry"><div class="record-entry-main"><strong>'+escape(r[2])+'</strong><div>'+escape(r[3])+' · '+escape(data.season)+' · '+escape(r[7])+'</div><small>'+escape(r[4])+'</small></div><b class="record-entry-value">'+escape(Number.isFinite(value)?value.toLocaleString('en-US',{maximumFractionDigits:2}):r[5])+' '+escape(unit)+'</b></div>';
+     html+='<div class="record-entry"><div class="record-entry-top"><strong class="record-name">'+escape(r[2])+'</strong><b class="record-value">'+escape(Number.isFinite(value)?value.toLocaleString('en-US',{maximumFractionDigits:2}):r[5])+' '+escape(unit)+'</b></div><div class="record-meta">'+escape(r[3])+' · '+escape(data.season)+' · '+escape(r[7])+'</div><div class="record-team">'+escape(r[4])+'</div></div>';
     }
     html+='</div>';
    }
