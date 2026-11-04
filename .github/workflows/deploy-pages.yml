@@ -104,10 +104,52 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Stage public website files only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          root = Path('.')
+          dest = Path('_site')
+          dest.mkdir(exist_ok=False)
+          # Explicitly approved public entrypoints and assets.
+          root_files = (
+              'index.html', 'league-next-era.html', 'commissioner-dues.html',
+              'legacy-league-hq.html', 'premium-clubhouse-preview.html',
+              'premium-full-preview.html', 'manifest.webmanifest',
+              'service-worker.js', 'share-preview.png',
+              'awards-race.css', 'awards-race.js', 'clubhouse-enhancements.js',
+              'league-notifications.js', 'league-share.js', 'live-sync.js',
+              'player-watch.js', 'premium-full.css', 'premium-full.js',
+              'premium-system.css', 'tesla-clubhouse.css',
+              '6C5DBF05-C994-4674-9843-238E4F28557B.png',
+              'file_000000006d8481f5b2796e1da79aa118.png',
+              'file_00000000b9dc81f5b02aa0b9ecfb7454.png',
+              'VID_20261027_010358.mp4',
+          )
+          for name in root_files:
+              source = root / name
+              if not source.is_file():
+                  raise SystemExit(f'Missing required public file: {name}')
+              shutil.copy2(source, dest / name)
+          # These folders contain public website media, articles and reports.
+          for folder in ('icons', 'images', 'stories', 'reports', 'onesignal'):
+              shutil.copytree(root / folder, dest / folder)
+          (dest / 'data').mkdir()
+          for name in ('optimal-lineups.json', 'record-book.json', 'sleeper-rosters.json'):
+              shutil.copy2(root / 'data' / name, dest / 'data' / name)
+          # Keep private build, GitHub automation, and repository metadata out.
+          forbidden = ('.github/', 'scripts/', 'config/', 'docs/', '.git/', '.env')
+          files = [p.relative_to(dest).as_posix() for p in dest.rglob('*') if p.is_file()]
+          assert files and (dest / 'index.html').exists()
+          assert not any(path.startswith(forbidden) for path in files)
+          assert not any(path.endswith(('.py', '.yml', '.yaml', '.toml', '.csv', '.md')) for path in files)
+          print(f'Staged {len(files)} public website files, with private repository files excluded')
+          PY
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
