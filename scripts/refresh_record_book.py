@@ -21,11 +21,12 @@ def main():
     users = {str(u["user_id"]):u for u in get("/league/" + LEAGUE + "/users")}
     if str(league.get("league_id")) != LEAGUE or len(rosters) != 8:
         raise RuntimeError("Unexpected Sleeper league or roster count")
+    display_names = {"Dk25313":"DK","noreilly1993":"Nick","InfinityBrocklet":"Mike","Mexipez1999":"Aaron","hboogie1003":"Hunter","fondlerballer":"Jake","TGriffy93":"Travis","dentalhygenius":"Alyssa"}
     managers = {}
     for roster in rosters:
         owner = users.get(str(roster.get("owner_id")), {})
         managers[int(roster["roster_id"])] = (
-            owner.get("display_name") or owner.get("username") or "Unknown",
+            display_names.get(owner.get("display_name")) or display_names.get(owner.get("username")) or "Unknown",
             (owner.get("metadata") or {}).get("team_name") or "Team " + str(roster["roster_id"])
         )
     # Sleeper NFL state can omit previous_week. Derive the completed-week
