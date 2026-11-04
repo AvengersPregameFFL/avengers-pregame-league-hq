@@ -19,3 +19,7 @@
 - Never delete the backup branch. Protect it against deletion/force pushes in GitHub settings if supported.
 - Never automatically roll back in response to a single failed check; alert and require commissioner approval.
 - Create an additional baseline archive outside the repository for protection against repository deletion or compromised access.
+
+## Security hardening
+- Require protected main branch and reviews before code deployments.
+- Test restoration of both the repository and Bible before enabling unattended writes.
