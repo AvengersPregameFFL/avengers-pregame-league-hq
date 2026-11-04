@@ -54,7 +54,7 @@ for week in range(1,19):
     for m in matchups:
         pts = m.get("players_points") or {}
         ids = m.get("players") or []
-        if not pts or not ids: continue
+        if not pts or not ids or not any(float(v or 0) != 0 for v in pts.values()): continue
         actual = m.get("points")
         if actual is None: continue
         best = optimal(pts, ids)
