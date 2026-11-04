@@ -1,0 +1,1171 @@
+{
+  "league_id": "1395849826633019392",
+  "generated_at": "2026-11-04T01:47:25.976102+00:00",
+  "roster_positions": [
+    "QB",
+    "RB",
+    "RB",
+    "WR",
+    "WR",
+    "TE",
+    "FLEX",
+    "FLEX",
+    "K",
+    "DEF"
+  ],
+  "source": "Sleeper public API matchup players_points",
+  "rows": [
+    {
+      "week": 1,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 182.26,
+      "optimal": 211.0,
+      "efficiency": 86.38
+    },
+    {
+      "week": 1,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 137.96,
+      "optimal": 168.86,
+      "efficiency": 81.7
+    },
+    {
+      "week": 1,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 157.32,
+      "optimal": 176.42,
+      "efficiency": 89.17
+    },
+    {
+      "week": 1,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 120.16,
+      "optimal": 133.56,
+      "efficiency": 89.97
+    },
+    {
+      "week": 1,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 153.16,
+      "optimal": 160.26,
+      "efficiency": 95.57
+    },
+    {
+      "week": 1,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 143.2,
+      "optimal": 155.36,
+      "efficiency": 92.17
+    },
+    {
+      "week": 1,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 127.12,
+      "optimal": 157.32,
+      "efficiency": 80.8
+    },
+    {
+      "week": 1,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 177.9,
+      "optimal": 212.9,
+      "efficiency": 83.56
+    },
+    {
+      "week": 2,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 167.7,
+      "optimal": 216.2,
+      "efficiency": 77.57
+    },
+    {
+      "week": 2,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 135.22,
+      "optimal": 154.12,
+      "efficiency": 87.74
+    },
+    {
+      "week": 2,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 82.52,
+      "optimal": 108.62,
+      "efficiency": 75.97
+    },
+    {
+      "week": 2,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 107.58,
+      "optimal": 146.58,
+      "efficiency": 73.39
+    },
+    {
+      "week": 2,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 161.92,
+      "optimal": 161.92,
+      "efficiency": 100.0
+    },
+    {
+      "week": 2,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 137.36,
+      "optimal": 157.96,
+      "efficiency": 86.96
+    },
+    {
+      "week": 2,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 133.86,
+      "optimal": 160.98,
+      "efficiency": 83.15
+    },
+    {
+      "week": 2,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 160.68,
+      "optimal": 167.98,
+      "efficiency": 95.65
+    },
+    {
+      "week": 3,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 165.94,
+      "optimal": 187.58,
+      "efficiency": 88.46
+    },
+    {
+      "week": 3,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 152.06,
+      "optimal": 171.48,
+      "efficiency": 88.68
+    },
+    {
+      "week": 3,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 122.26,
+      "optimal": 153.2,
+      "efficiency": 79.8
+    },
+    {
+      "week": 3,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 115.18,
+      "optimal": 117.68,
+      "efficiency": 97.88
+    },
+    {
+      "week": 3,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 160.04,
+      "optimal": 178.34,
+      "efficiency": 89.74
+    },
+    {
+      "week": 3,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 126.94,
+      "optimal": 147.94,
+      "efficiency": 85.81
+    },
+    {
+      "week": 3,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 103.84,
+      "optimal": 122.64,
+      "efficiency": 84.67
+    },
+    {
+      "week": 3,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 162.48,
+      "optimal": 168.98,
+      "efficiency": 96.15
+    },
+    {
+      "week": 4,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 162.18,
+      "optimal": 186.68,
+      "efficiency": 86.88
+    },
+    {
+      "week": 4,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 152.62,
+      "optimal": 154.68,
+      "efficiency": 98.67
+    },
+    {
+      "week": 4,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 106.74,
+      "optimal": 163.16,
+      "efficiency": 65.42
+    },
+    {
+      "week": 4,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 135.82,
+      "optimal": 141.32,
+      "efficiency": 96.11
+    },
+    {
+      "week": 4,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 183.18,
+      "optimal": 201.88,
+      "efficiency": 90.74
+    },
+    {
+      "week": 4,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 108.0,
+      "optimal": 121.2,
+      "efficiency": 89.11
+    },
+    {
+      "week": 4,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 146.4,
+      "optimal": 166.4,
+      "efficiency": 87.98
+    },
+    {
+      "week": 4,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 180.72,
+      "optimal": 193.92,
+      "efficiency": 93.19
+    },
+    {
+      "week": 5,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 160.6,
+      "optimal": 166.08,
+      "efficiency": 96.7
+    },
+    {
+      "week": 5,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 179.28,
+      "optimal": 180.72,
+      "efficiency": 99.2
+    },
+    {
+      "week": 5,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 190.06,
+      "optimal": 204.96,
+      "efficiency": 92.73
+    },
+    {
+      "week": 5,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 201.0,
+      "optimal": 219.22,
+      "efficiency": 91.69
+    },
+    {
+      "week": 5,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 200.74,
+      "optimal": 206.44,
+      "efficiency": 97.24
+    },
+    {
+      "week": 5,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 121.04,
+      "optimal": 145.04,
+      "efficiency": 83.45
+    },
+    {
+      "week": 5,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 91.4,
+      "optimal": 91.4,
+      "efficiency": 100.0
+    },
+    {
+      "week": 5,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 101.76,
+      "optimal": 115.76,
+      "efficiency": 87.91
+    },
+    {
+      "week": 6,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 130.64,
+      "optimal": 150.34,
+      "efficiency": 86.9
+    },
+    {
+      "week": 6,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 148.2,
+      "optimal": 157.6,
+      "efficiency": 94.04
+    },
+    {
+      "week": 6,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 133.5,
+      "optimal": 158.04,
+      "efficiency": 84.47
+    },
+    {
+      "week": 6,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 99.28,
+      "optimal": 104.58,
+      "efficiency": 94.93
+    },
+    {
+      "week": 6,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 123.74,
+      "optimal": 123.74,
+      "efficiency": 100.0
+    },
+    {
+      "week": 6,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 100.52,
+      "optimal": 112.62,
+      "efficiency": 89.26
+    },
+    {
+      "week": 6,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 115.88,
+      "optimal": 142.98,
+      "efficiency": 81.05
+    },
+    {
+      "week": 6,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 137.26,
+      "optimal": 142.26,
+      "efficiency": 96.49
+    },
+    {
+      "week": 7,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 190.46,
+      "optimal": 199.66,
+      "efficiency": 95.39
+    },
+    {
+      "week": 7,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 136.32,
+      "optimal": 136.32,
+      "efficiency": 100.0
+    },
+    {
+      "week": 7,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 142.14,
+      "optimal": 152.14,
+      "efficiency": 93.43
+    },
+    {
+      "week": 7,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 165.58,
+      "optimal": 165.58,
+      "efficiency": 100.0
+    },
+    {
+      "week": 7,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 110.52,
+      "optimal": 139.82,
+      "efficiency": 79.04
+    },
+    {
+      "week": 7,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 98.02,
+      "optimal": 110.12,
+      "efficiency": 89.01
+    },
+    {
+      "week": 7,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 99.9,
+      "optimal": 126.5,
+      "efficiency": 78.97
+    },
+    {
+      "week": 7,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 133.12,
+      "optimal": 161.32,
+      "efficiency": 82.52
+    },
+    {
+      "week": 8,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 156.7,
+      "optimal": 176.62,
+      "efficiency": 88.72
+    },
+    {
+      "week": 8,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 166.56,
+      "optimal": 166.56,
+      "efficiency": 100.0
+    },
+    {
+      "week": 8,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 109.26,
+      "optimal": 109.96,
+      "efficiency": 99.36
+    },
+    {
+      "week": 8,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 166.68,
+      "optimal": 178.98,
+      "efficiency": 93.13
+    },
+    {
+      "week": 8,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 134.2,
+      "optimal": 159.06,
+      "efficiency": 84.37
+    },
+    {
+      "week": 8,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 101.38,
+      "optimal": 101.38,
+      "efficiency": 100.0
+    },
+    {
+      "week": 8,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 148.84,
+      "optimal": 153.84,
+      "efficiency": 96.75
+    },
+    {
+      "week": 8,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 145.88,
+      "optimal": 170.18,
+      "efficiency": 85.72
+    },
+    {
+      "week": 9,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 9,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 10,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 11,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 12,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 13,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 14,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 15,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 16,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 17,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    },
+    {
+      "week": 18,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 0.0,
+      "optimal": 0.0,
+      "efficiency": null
+    }
+  ]
+}
