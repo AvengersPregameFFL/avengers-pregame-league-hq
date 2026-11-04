@@ -2,7 +2,7 @@
   "source": "Sleeper public API — finalized matchup results",
   "season": 2026,
   "verifiedThroughWeek": 8,
-  "generated_at_utc": "2026-11-04T16:46:24.079285+00:00",
+  "generated_at_utc": "2026-11-04T16:55:13.060879+00:00",
   "rows": [
     [
       "RECORD BOOK"
@@ -88,7 +88,7 @@
       "Most points allowed",
       "Mike",
       "Team 2",
-      1205,
+      1205.0,
       "pts",
       "Weeks 1–8",
       "",
@@ -160,7 +160,7 @@
       "Highest score",
       "Aaron",
       "Jerry’s Justice League ",
-      201,
+      201.0,
       "pts",
       "W5",
       "",
