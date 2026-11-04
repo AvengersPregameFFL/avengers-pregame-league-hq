@@ -197,7 +197,7 @@ def main():
     history_result = {"season": int(league["season"]), "through_week": last,
                       "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "coaches": coach_records}
-    Path("data/coach-history.json").write_text(json.dumps(history_result, indent=2, ensure_ascii=False)+"\\n", encoding="utf-8")
+    Path("data/coach-history.json").write_text(json.dumps(history_result, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
     result={"source":"Sleeper public API — finalized matchup results","season":int(league["season"]),
             "verifiedThroughWeek":last,"generated_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
             "rows":rows}
