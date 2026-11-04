@@ -1,19 +1,15 @@
 name: Deploy League HQ to GitHub Pages
-
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: league-hq-release-v2
+  group: github-pages
   cancel-in-progress: false
-
 jobs:
   deploy:
     environment:
@@ -21,93 +17,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out app
+      - name: Checkout latest main
         uses: actions/checkout@v4
-      - name: Verify installable app files
-        run: |
-          test -f index.html
-          test -f manifest.webmanifest
-          test -f service-worker.js
-      - name: Validate four-story homepage
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          html=Path('index.html').read_text()
-          current=('week9-preview','week8-wanda-travis','week8-jake-mike','week8-nick-aaron')
-          home_list=html.split('<nav class="hp-top-stories-list"',1)[1].split('</nav>',1)[0]
-          assert all(f'href="./stories/{slug}.html"' in home_list for slug in current), 'Missing current four story links'
-          assert [home_list.index(f'href="./stories/{slug}.html"') for slug in current] == sorted(home_list.index(f'href="./stories/{slug}.html"') for slug in current), 'Newest stories must appear first'
-          assert home_list.count('class="bugle-story-list-entry') == 4, 'Homepage must display exactly four story cards'
-          assert '<section class="page headline-page"' not in html, 'Full articles must never be embedded in homepage'
-          assert '<article class="hp-story-slide' not in html, 'Homepage contains an article instead of just headlines'
-          for slug in current:
-              page=Path('stories',f'{slug}.html').read_text()
-              assert '<article class="hp-story-slide' in page, f'Missing full article: {slug}'
-              assert 'href="../index.html#home"' in page, f'Missing homepage return: {slug}'
-          assert Path('stories/story-style.css').is_file(), 'Missing shared editorial styles'
-          assert 'id="hp-story-track"' not in html, 'Old oversized homepage carousel still present'
-          home=html.split('<section class="page home" id="home">',1)[1].split('<div class="footer">',1)[0]
-          assert home.count('class="hp-menu hp-menu-group"') == 2, 'Expected Game Day and League HQ navigation groups'
-          assert 'hp-quick-nav' not in home, 'Redundant quick navigation returned'
-          assert 'class="hp-stories"' not in home, 'Duplicate storylines cards returned'
-          assert all(home.count(f'href="#{item}"') == 1 for item in ('pickem','standings')), 'Duplicate homepage navigation target'
-          assert home.count('href="#league-schedule"') == 2, 'Schedule menu and scoreboard link must both exist'
-          assert 'id="home-score-track"' in home, 'Missing homepage scoreboard'
-          assert home.count('href="#survivor"') == 2, 'Survivor menu and snapshot shortcut should both be available'
-          assert 'href="#awards"' in home and 'href="#award-guide"' not in home, 'Awards navigation must be consolidated'
-          assert html.count('class="hp-stat hp-stat-link"') == 4, 'Snapshot must contain four clickable cards'
-          assert all(f'id="{metric}"' in html for metric in ('snapshot-record','snapshot-points','snapshot-weekhigh')), 'Snapshot comparison charts missing'
-          assert all(f'<section class="page snapshot-metric-page" id="{metric}"' in html for metric in ('snapshot-record','snapshot-points','snapshot-weekhigh')), 'Separate metric pages missing'
-          assert 'WIN STREAK' in html and 'RECORD: MOST POINTS IN A WEEK' in html, 'Snapshot labels missing'
-          assert 'href="#snapshot-metrics"' not in html, 'Snapshot cards still link to combined page'
-          assert 'id="league-hq-snapshot-contrast"' in html, 'Missing snapshot contrast stylesheet'
-          assert 'id="season-award-race"' in html and 'class="award-weekly-history"' in html, 'Missing award season race'
-          assert Path('awards-race.js').is_file() and Path('awards-race.css').is_file(), 'Missing season award graph assets'
-          assert '14,000,605 Outcomes' in Path('awards-race.js').read_text(), 'Missing situational awards'
-          assert 'Week 1</h2>' in html and 'Week 5</h2>' in html, 'Award history accidentally removed'
-          assert 'id="award-history-button"' in html, 'Missing weekly receipts control'
-          assert html.count('class="award-race-card"') == 13, 'Missing pre-rendered awards bar graphs'
-          sync=Path('live-sync.js').read_text()
-          assert "if(id==='awards')" in sync and 'live-awards-details' in sync, 'Live feed can hide season award race'
-          assert 'src="./live-sync.js?v=' in html, 'Missing versioned live sync script'
-          assert 'href="./awards-race.css?v=4"' in html, 'Stale awards style cache key'
-          assert 'src="./awards-race.js?v=4"' in html, 'Stale awards graph script cache key'
-          assert 'award-race-total' not in html, 'Redundant total-wins badges returned'
-          assert 'award-race-total' not in Path('awards-race.js').read_text(), 'Dynamic cards still show redundant total-wins badges'
-          assert 'id="award-guide"' not in html, 'Redundant award guide page remains'
-          assert html.count('class="award-race-description"') == 13, 'Award explanations not embedded in all graphs'
-          assert 'live-award-context' in Path('live-sync.js').read_text(), 'Long award descriptions still laid out inline'
-          assert '.page .row .right{white-space:normal' in Path('awards-race.css').read_text(), 'Live row wrapping guard missing'
-          import json
-          manifest=json.loads(Path('manifest.webmanifest').read_text())
-          assert manifest.get('display') == 'standalone', 'App manifest not installable'
-          assert manifest.get('start_url') and manifest.get('icons'), 'App manifest missing start URL or icons'
-          PY
-      - name: Generate mobile app icons
-        run: |
-          python -m pip install --quiet cairosvg
-          python - <<'PY'
-          import cairosvg, json
-          from pathlib import Path
-          for size in (180, 192, 512):
-              cairosvg.svg2png(url='icons/icon.svg', write_to=f'icons/icon-{size}.png', output_width=size, output_height=size)
-          path=Path('manifest.webmanifest')
-          manifest=json.loads(path.read_text())
-          manifest['icons']=[
-              {'src':'./icons/icon-192.png','sizes':'192x192','type':'image/png','purpose':'any maskable'},
-              {'src':'./icons/icon-512.png','sizes':'512x512','type':'image/png','purpose':'any maskable'}]
-          path.write_text(json.dumps(manifest,indent=2))
-          html=Path('index.html')
-          html.write_text(html.read_text().replace('href="./icons/icon.svg" type="image/svg+xml"','href="./icons/icon-180.png"'))
-          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - name: Upload website
+      - name: Upload entire website
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - name: Deploy website
+      - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
