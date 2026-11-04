@@ -122,7 +122,10 @@ function refreshCoachProfiles(){
   var rosters=result[0],rows=result[1].rows||[],complete=[...new Set(rows.map(function(r){return r.week}))].filter(function(w){return rows.filter(function(r){return r.week===w}).length===8});
   var mapping={1:'Dakota',2:'Mike',3:'Travis',4:'Aaron',5:'Allysa',6:'Hunter',7:'Jake',8:'Nick'};
   rosters.forEach(function(r){
-   var name=mapping[r.roster_id],sec=document.getElementById('coach-'+name);if(!sec)return;
+   var name=mapping[r.roster_id],sec=document.getElementById('coach-'+name);
+   var tile=document.querySelector('#teams a.tile[href="#coach-'+name+'"]');
+   if(tile){var summary=tile.querySelector('small'),settingsForTile=r.settings||{};if(summary){var teamLabel=summary.textContent.replace(/\s*·\s*\d+\s*[–-]\s*\d+(?:\s*[–-]\s*\d+)?\s*$/,'');summary.textContent=teamLabel+' · '+Number(settingsForTile.wins||0)+'–'+Number(settingsForTile.losses||0)+(Number(settingsForTile.ties||0)?'–'+Number(settingsForTile.ties):'');}}
+   if(!sec)return;
    var values=sec.querySelectorAll('.grid .stat .value'),settings=r.settings||{},pf=Number(settings.fpts||0)+Number(settings.fpts_decimal||0)/100;
    if(values[0])values[0].textContent=(settings.wins||0)+'–'+(settings.losses||0);
    if(values[1])values[1].textContent=pf.toFixed(2);
