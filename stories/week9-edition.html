@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffd400"><meta name="description" content="Avengers Pregame Week 9 Pregame Bugle issue: four latest stories, one link.">
+<meta property="og:title" content="PREGAME BUGLE · WEEK 9 EDITION"><meta property="og:description" content="Four league headlines. One link. Week 9 preview and Week 8 fallout.">
+<title>Week 9 Edition | Pregame Bugle</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#3165df;background-image:radial-gradient(#ffffff28 1.4px,transparent 1.4px);background-size:18px 18px;color:#181818;font-family:Georgia,'Times New Roman',serif}
+.wrap{max-width:780px;margin:18px auto;padding:0 12px}.paper{background:#f3ecd9;border:5px double #181818;box-shadow:5px 5px 0 #181818;padding:clamp(17px,4vw,34px)}
+.top{font:800 11px/1.5 Arial,sans-serif;letter-spacing:.08em;border-bottom:2px solid #181818;padding-bottom:9px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+h1{text-align:center;font-size:clamp(35px,8vw,70px);letter-spacing:-.055em;line-height:1;margin:20px 0 12px}.edition{text-align:center;background:#ffd400;border:2px solid #181818;padding:10px;font:900 14px Arial,sans-serif}
+.intro{text-align:center;font:16px/1.5 Georgia,serif;margin:18px 0 22px}.story{border-top:1px solid #a89e8b;padding:18px 0;display:block;text-decoration:none;color:inherit}.story:first-of-type{border-top:3px solid #181818}.meta{display:inline-block;background:#ffd400;border:2px solid #181818;padding:4px 7px;font:900 10px Arial,sans-serif;letter-spacing:.05em}.headline{display:block;margin:10px 0 7px;font:900 clamp(21px,5vw,32px)/1.15 Georgia,serif;letter-spacing:-.025em}.detail{display:block;color:#70443c;font:800 11px Arial,sans-serif}.story:hover .headline{text-decoration:underline}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.button{border:2px solid #181818;box-shadow:3px 3px 0 #181818;background:#ffd400;color:#181818;padding:11px 13px;font:900 12px Arial,sans-serif;text-decoration:none;cursor:pointer}.button.alt{background:#fff8e9}
+.footer{border-top:2px solid #181818;padding-top:15px;font:12px/1.5 Arial,sans-serif;text-align:center}
+</style></head><body><main class="wrap"><div class="paper">
+<div class="top"><span>AVENGERS PREGAME · EST. 2026</span><span>FOUR STORIES · ONE EDITION</span></div>
+<h1>PREGAME BUGLE</h1><div class="edition">WEEK 9 EDITION · NOVEMBER 3, 2026</div>
+<p class="intro">The Week 9 playoff-race preview and the latest Week 8 fallout. All four headlines, in one place.</p>
+<a class="story" href="./week9-preview.html"><span class="meta">NO. 17 · WEEK 9 · PREVIEW</span><strong class="headline">WEEK 9: THE CONTENDERS ARE HUNTING. THE PRETENDERS ARE HIDING.</strong><span class="detail">READ FULL STORY →</span></a>
+<a class="story" href="./week8-wanda-travis.html"><span class="meta">NO. 16 · WEEK 8 · RECAP</span><strong class="headline">WANDA'S ON BED REST. TRAVIS'S FRANCHISE IS ON LIFE SUPPORT.</strong><span class="detail">READ FULL STORY →</span></a>
+<a class="story" href="./week8-jake-mike.html"><span class="meta">NO. 15 · WEEK 8 · RECAP</span><strong class="headline">JAKE DISCOVERS HIS STARTING LINEUP. MIKE DISCOVERS ANOTHER VICTIM.</strong><span class="detail">READ FULL STORY →</span></a>
+<a class="story" href="./week8-nick-aaron.html"><span class="meta">NO. 14 · WEEK 8 · RECAP</span><strong class="headline">SIX WEEKS OF TALKING SHIT. TWO WEEKS OF EATING IT.</strong><span class="detail">READ FULL STORY →</span></a>
+<div class="actions"><button type="button" class="button" id="share">SHARE THIS WEEK'S EDITION ↗</button><a class="button alt" href="../index.html#home">BACK TO LEAGUE HQ</a><a class="button alt" href="./archive.html">PAST STORIES</a></div>
+<div class="footer">Avengers Pregame · The league's most questionable source of news.</div>
+</div></main><script>
+document.getElementById('share').addEventListener('click',async()=>{
+ const url=location.href.split('#')[0];const title='Pregame Bugle — Week 9 Edition';
+ const text='Week 9 Pregame Bugle is out: four stories, one link.';
+ try{if(navigator.share)await navigator.share({title,text,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('Weekly edition link copied!')}else prompt('Copy this link:',url)}
+ catch(e){if(e.name!=='AbortError')prompt('Copy this link:',url)}
+});
+</script></body></html>
