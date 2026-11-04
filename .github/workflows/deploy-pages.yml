@@ -33,9 +33,9 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           html=Path('index.html').read_text()
-          current=('down-goes-nick','week7-aaron-hunter','week7-travis-jake','week7-mike-alyssa')
+          current=('week9-preview','week8-wanda-travis','week8-jake-mike','week8-nick-aaron')
           home_list=html.split('<nav class="hp-top-stories-list"',1)[1].split('</nav>',1)[0]
-          assert all(f'href="./stories/{slug}.html"' in home_list for slug in current), 'Missing current four story links'
+          assert all(f'href="./stories/{slug}.html"' in home_list for slug in current), 'Missing current four story links'\n          assert [home_list.index(f'href="./stories/{slug}.html"') for slug in current] == sorted(home_list.index(f'href="./stories/{slug}.html"') for slug in current), 'Newest stories must appear first'
           assert home_list.count('class="bugle-story-list-entry') == 4, 'Homepage must display exactly four story cards'
           assert '<section class="page headline-page"' not in html, 'Full articles must never be embedded in homepage'
           assert '<article class="hp-story-slide' not in html, 'Homepage contains an article instead of just headlines'
