@@ -1,6 +1,8 @@
 name: Refresh Sleeper optimal lineups
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   push:
     paths:
       - 'scripts/refresh_optimal_lineups.py'
