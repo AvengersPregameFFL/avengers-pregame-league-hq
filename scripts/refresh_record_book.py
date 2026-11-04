@@ -17,7 +17,6 @@ def get(path):
 
 def main():
     league = get("/league/" + LEAGUE)
-    state = get("/state/nfl")
     rosters = get("/league/" + LEAGUE + "/rosters")
     users = {str(u["user_id"]):u for u in get("/league/" + LEAGUE + "/users")}
     if str(league.get("league_id")) != LEAGUE or len(rosters) != 8:
@@ -29,10 +28,33 @@ def main():
             owner.get("display_name") or owner.get("username") or "Unknown",
             (owner.get("metadata") or {}).get("team_name") or "Team " + str(roster["roster_id"])
         )
-    # Sleeper previous_week is the last completed NFL week, never the live week.
-    last = int(state.get("previous_week") or 0)
+    # Sleeper NFL state can omit previous_week. Derive the completed-week
+    # horizon from actual matchups, never from a missing state value.
+    try:
+        state = get("/state/nfl")
+    except Exception:
+        state = {}
+    current = int(state.get("week") or 0)
+    previous = int(state.get("previous_week") or 0)
+    max_week = min(18, int((league.get("settings") or {}).get("playoff_week_start") or 15) - 1)
+    if previous > 0:
+        max_week = min(max_week, previous)
+    elif current > 1:
+        max_week = min(max_week, current - 1)
+    last = 0
+    for candidate in range(1, max_week + 1):
+        entries = get(f"/league/{LEAGUE}/matchups/{candidate}")
+        if len(entries) != len(managers):
+            break
+        if any(e.get("points") is None or e.get("matchup_id") is None for e in entries):
+            break
+        if len({e["matchup_id"] for e in entries}) != 4:
+            break
+        if not any(float(e.get("points") or 0) > 0 for e in entries):
+            break
+        last = candidate
     if last < 1:
-        raise RuntimeError("No finalized weeks reported")
+        raise RuntimeError("No completed matchup weeks found in Sleeper league data")
     scores = defaultdict(list)
     wins = defaultdict(int)
     losses = defaultdict(int)
