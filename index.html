@@ -1119,6 +1119,8 @@ tr.append(game,pick,result);body.append(tr);
 (function(){
  const section=document.getElementById('records');
  if(!section)return;
+ // Remove obsolete hardcoded Week 5 records immediately, even before the fetch.
+ section.innerHTML='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">Loading current league records…</p>';
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  async function refresh(){
   try{
@@ -1144,7 +1146,7 @@ tr.append(game,pick,result);body.append(tr);
    }
    html+='</div>';
    section.innerHTML=html;
-  }catch(err){console.warn('Keeping existing record display; live feed failed',err)}
+  }catch(err){console.warn('Live record feed failed',err);section.innerHTML='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">Current records unavailable. Reconnect and reopen this page to retry. Outdated records are hidden.</p>';}
  }
  refresh();
  window.addEventListener('pageshow',refresh);
