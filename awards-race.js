@@ -17,6 +17,7 @@ if(s==='The Watcher')return 'Watcher';
 return s;
 }
 function element(tag,cls,txt){var x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=String(txt);return x;}
+var verifiedAutomatic=null,verifiedWeeks=[];
 function count(){
 var data={};categories.forEach(function(c){data[c]={};});
 var finalized=[],invalid=[];
@@ -37,7 +38,7 @@ if(!data[award][coach])data[award][coach]=[];
 data[award][coach].push(week);
 });
 });
-return {data:data,weeks:Array.from(new Set(finalized)).sort(function(a,b){return a-b}),duplicates:invalid};
+if(verifiedAutomatic){Object.keys(verifiedAutomatic).forEach(function(award){data[award]=verifiedAutomatic[award];});}return {data:data,weeks:Array.from(new Set(finalized.concat(verifiedWeeks))).sort(function(a,b){return a-b}),duplicates:invalid};
 }
 function render(){
 var results=count(),frag=document.createDocumentFragment();
@@ -71,10 +72,34 @@ frag.appendChild(card);
 });
 charts.replaceChildren(frag);
 var weeks=results.weeks,statusText=weeks.length?'TRACKING '+weeks.length+' RECORDED '+(weeks.length===1?'WEEK':'WEEKS')+' · W'+weeks[0]+'–W'+weeks[weeks.length-1]:'NO RECORDED WEEKS YET';
-if(results.duplicates.length)statusText+=' · CHECK DUPLICATE WINNERS';
+if(verifiedAutomatic)statusText+=' · AUTOMATIC SCORING AWARDS SYNCED FROM SLEEPER';if(results.duplicates.length&&!verifiedAutomatic)statusText+=' · CHECK DUPLICATE WINNERS';
 status.textContent=statusText;
 }
 render();
+function syncAutomaticAwards(){
+var base='https://api.sleeper.app/v1',league='1395849826633019392';
+function get(path){return fetch(base+path,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sleeper '+r.status);return r.json()})}
+Promise.all([get('/state/nfl'),get('/league/'+league+'/rosters'),get('/league/'+league+'/users')]).then(function(v){
+var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'};
+v[2].forEach(function(u){users[u.user_id]=u});v[1].forEach(function(r){var u=users[r.owner_id]||{};names[r.roster_id]=map[u.username]||null});
+return Promise.all(Array.from({length:current-1},function(_,i){return get('/league/'+league+'/matchups/'+(i+1)).then(function(rows){return {week:i+1,rows:rows}})})).then(function(weeks){
+var automatic={'Battle Beast':{},'Uncle Ben':{},'Punisher':{},'Goblin Glider':{}},prior={},confirmed=[];
+function credit(award,coach,week){if(!coach)return;(automatic[award][coach]||(automatic[award][coach]=[])).push(week)}
+weeks.forEach(function(item){
+var rows=item.rows;if(!Array.isArray(rows)||rows.length!==v[1].length||rows.some(function(r){return typeof r.points!=='number'||!names[r.roster_id]}))return;
+confirmed.push(item.week);
+var highest=rows.reduce(function(a,b){return a.points>b.points?a:b}),lowest=rows.reduce(function(a,b){return a.points<b.points?a:b});
+rows.filter(function(r){return r.points===highest.points}).forEach(function(r){credit('Battle Beast',names[r.roster_id],item.week)});
+rows.filter(function(r){return r.points===lowest.points}).forEach(function(r){credit('Uncle Ben',names[r.roster_id],item.week)});
+var margins=[];rows.forEach(function(r){var opponent=rows.find(function(o){return o.roster_id!==r.roster_id&&o.matchup_id!=null&&o.matchup_id===r.matchup_id});if(opponent&&r.points>opponent.points)margins.push({roster_id:r.roster_id,margin:r.points-opponent.points})});
+if(margins.length){var max=Math.max.apply(null,margins.map(function(m){return m.margin}));margins.filter(function(m){return Math.abs(m.margin-max)<.001}).forEach(function(m){credit('Punisher',names[m.roster_id],item.week)})}
+var drops=rows.map(function(r){return {roster_id:r.roster_id,drop:prior[r.roster_id]===undefined?null:prior[r.roster_id]-r.points}}).filter(function(r){return r.drop!==null&&r.drop>0});if(drops.length){var largest=Math.max.apply(null,drops.map(function(r){return r.drop}));drops.filter(function(r){return Math.abs(r.drop-largest)<.001}).forEach(function(r){credit('Goblin Glider',names[r.roster_id],item.week)})}
+rows.forEach(function(r){prior[r.roster_id]=r.points});
+});
+if(confirmed.length){verifiedAutomatic=automatic;verifiedWeeks=confirmed;render()}
+})}).catch(function(){status.textContent+=' · SLEEPER AUTOMATIC AWARDS UPDATE UNAVAILABLE'});
+}
+syncAutomaticAwards();setInterval(function(){if(!document.hidden)syncAutomaticAwards()},600000);
 var historyButton=document.getElementById('award-history-button');
 var historyDrawer=document.getElementById('award-history');
 if(historyButton&&historyDrawer)historyButton.addEventListener('click',function(){
