@@ -3,7 +3,7 @@
   "schema_version": 1,
   "weeks": {
     "8": {
-      "verified_at": "2026-11-05T21:59:11.580670+00:00",
+      "verified_at": "2026-11-06T13:13:00.925377+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-05T21:59:11.688591+00:00",
+      "verified_at": "2026-11-06T13:13:01.128634+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -91,12 +91,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 0.0
+              "points": 19.1
             },
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 0.0
+              "points": 8.9
             }
           ]
         },
@@ -106,12 +106,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 0.0
+              "points": 19.68
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 0.0
+              "points": 5.3
             }
           ]
         },
@@ -126,14 +126,14 @@
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 0.0
+              "points": 11.0
             }
           ]
         }
       ]
     },
     "10": {
-      "verified_at": "2026-11-05T21:59:11.769856+00:00",
+      "verified_at": "2026-11-06T13:13:01.283543+00:00",
       "matchups": [
         {
           "matchup_id": 1,
