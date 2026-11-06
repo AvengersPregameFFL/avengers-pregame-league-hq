@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-06T02:59:57.151723+00:00",
+  "generated_at_utc": "2026-11-06T04:04:00.946402+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1915,7 +1915,7 @@
           "9488",
           "GB"
         ],
-        "points": 10.1,
+        "points": 19.1,
         "roster_id": 1,
         "starters": [
           "3294",
@@ -1938,7 +1938,7 @@
           0.0,
           0.0,
           0.0,
-          10.1,
+          19.1,
           0.0
         ]
       },
@@ -2008,7 +2008,7 @@
           "9509",
           "SEA"
         ],
-        "points": 19.18,
+        "points": 19.48,
         "roster_id": 3,
         "starters": [
           "11564",
@@ -2025,7 +2025,7 @@
         "starters_points": [
           0.0,
           0.0,
-          5.08,
+          5.38,
           0.0,
           0.0,
           0.0,
@@ -2101,7 +2101,7 @@
           "8228",
           "JAX"
         ],
-        "points": 10.0,
+        "points": 11.0,
         "roster_id": 5,
         "starters": [
           "1166",
@@ -2125,7 +2125,7 @@
           0.0,
           0.0,
           0.0,
-          10.0
+          11.0
         ]
       },
       {
@@ -2194,7 +2194,7 @@
           "8129",
           "IND"
         ],
-        "points": 8.1,
+        "points": 8.9,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -2216,7 +2216,7 @@
           0.0,
           0.0,
           0.0,
-          8.1,
+          8.9,
           0.0,
           0.0
         ]
@@ -2240,7 +2240,7 @@
           "9997",
           "DEN"
         ],
-        "points": 3.8,
+        "points": 5.3,
         "roster_id": 8,
         "starters": [
           "8183",
@@ -2259,7 +2259,7 @@
           0.0,
           0.0,
           0.0,
-          3.8,
+          5.3,
           0.0,
           0.0,
           0.0,
