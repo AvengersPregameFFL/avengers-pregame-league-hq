@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-07T16:51:21.447411+00:00",
+  "generated_at_utc": "2026-11-07T17:45:57.709625+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -603,7 +603,7 @@
       "name": "Dameon Pierce",
       "position": "RB",
       "status": "Inactive",
-      "team": "PHI"
+      "team": null
     },
     "8130": {
       "name": "Trey McBride",
