@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-07T02:08:31.345489+00:00",
+  "generated_at_utc": "2026-11-07T02:59:19.475407+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -826,6 +826,12 @@
       "position": "DEF",
       "status": null,
       "team": "SEA"
+    },
+    "SF": {
+      "name": "San Francisco 49ers",
+      "position": "DEF",
+      "status": null,
+      "team": "SF"
     }
   },
   "rosters": {
@@ -887,9 +893,12 @@
         "8112",
         "8155",
         "HOU",
-        "MIN"
+        "MIN",
+        "SF"
       ],
-      "reserve": [],
+      "reserve": [
+        "2216"
+      ],
       "roster_id": 2,
       "starters": [
         "4984",
@@ -1212,7 +1221,8 @@
           "8112",
           "8155",
           "HOU",
-          "MIN"
+          "MIN",
+          "SF"
         ],
         "points": 0.0,
         "roster_id": 2,
@@ -1959,7 +1969,8 @@
           "8112",
           "8155",
           "HOU",
-          "MIN"
+          "MIN",
+          "SF"
         ],
         "points": 0.0,
         "roster_id": 2,
