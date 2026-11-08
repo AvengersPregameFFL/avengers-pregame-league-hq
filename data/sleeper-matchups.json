@@ -3,7 +3,7 @@
   "schema_version": 1,
   "weeks": {
     "8": {
-      "verified_at": "2026-11-08T12:58:27.149827+00:00",
+      "verified_at": "2026-11-08T21:50:34.751421+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-08T12:58:27.260996+00:00",
+      "verified_at": "2026-11-08T21:50:34.912595+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -76,12 +76,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 0.0
+              "points": 58.0
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 0.0
+              "points": 53.86
             }
           ]
         },
@@ -91,12 +91,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 19.1
+              "points": 134.7
             },
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 8.9
+              "points": 59.98
             }
           ]
         },
@@ -106,12 +106,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 19.68
+              "points": 103.34
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 5.3
+              "points": 112.8
             }
           ]
         },
@@ -121,19 +121,19 @@
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 0.0
+              "points": 116.34
             },
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 11.0
+              "points": 111.2
             }
           ]
         }
       ]
     },
     "10": {
-      "verified_at": "2026-11-08T12:58:27.348593+00:00",
+      "verified_at": "2026-11-08T21:50:35.105682+00:00",
       "matchups": [
         {
           "matchup_id": 1,
