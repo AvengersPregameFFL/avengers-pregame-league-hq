@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-08T03:00:15.389886+00:00",
+  "generated_at_utc": "2026-11-08T04:03:26.928569+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -88,6 +88,12 @@
       "position": "RB",
       "status": "Active",
       "team": "TB"
+    },
+    "11586": {
+      "name": "Blake Corum",
+      "position": "RB",
+      "status": "Active",
+      "team": "LAR"
     },
     "11604": {
       "name": "Brock Bowers",
@@ -256,12 +262,6 @@
       "position": "WR",
       "status": "Active",
       "team": "NYJ"
-    },
-    "13286": {
-      "name": "Jadarian Price",
-      "position": "RB",
-      "status": "Active",
-      "team": "SEA"
     },
     "13287": {
       "name": "Jeremiyah Love",
@@ -869,7 +869,7 @@
       "starters": [
         "3294",
         "7588",
-        "12481",
+        "12527",
         "9488",
         "6786",
         "8130",
@@ -1044,9 +1044,9 @@
       "players": [
         "11557",
         "11566",
+        "11586",
         "11625",
         "12514",
-        "13286",
         "13287",
         "13294",
         "2020",
@@ -1064,9 +1064,9 @@
       ],
       "roster_id": 6,
       "starters": [
-        "11557",
+        "11566",
         "9221",
-        "13286",
+        "11586",
         "11625",
         "6794",
         "4217",
@@ -1188,7 +1188,7 @@
         "starters": [
           "3294",
           "7588",
-          "12481",
+          "12527",
           "9488",
           "6786",
           "8130",
@@ -1402,9 +1402,9 @@
         "players": [
           "11557",
           "11566",
+          "11586",
           "11625",
           "12514",
-          "13286",
           "13287",
           "13294",
           "2020",
@@ -1420,9 +1420,9 @@
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "11557",
+          "11566",
           "9221",
-          "13286",
+          "11586",
           "11625",
           "6794",
           "4217",
@@ -1936,7 +1936,7 @@
         "starters": [
           "3294",
           "7588",
-          "12481",
+          "12527",
           "9488",
           "6786",
           "8130",
@@ -2150,9 +2150,9 @@
         "players": [
           "11557",
           "11566",
+          "11586",
           "11625",
           "12514",
-          "13286",
           "13287",
           "13294",
           "2020",
@@ -2168,9 +2168,9 @@
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "11557",
+          "11566",
           "9221",
-          "13286",
+          "11586",
           "11625",
           "6794",
           "4217",
