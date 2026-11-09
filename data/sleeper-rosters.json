@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-09T01:23:30.623417+00:00",
+  "generated_at_utc": "2026-11-09T02:58:57.604439+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1978,7 +1978,7 @@
           "MIN",
           "SF"
         ],
-        "points": 98.1,
+        "points": 100.5,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1995,7 +1995,7 @@
         "starters_points": [
           0.0,
           13.6,
-          0.0,
+          2.4,
           11.8,
           8.1,
           22.3,
@@ -2071,7 +2071,7 @@
           "9500",
           "LAR"
         ],
-        "points": 161.84,
+        "points": 168.34,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -2088,7 +2088,7 @@
         "starters_points": [
           35.54,
           14.8,
-          0.0,
+          6.5,
           9.3,
           35.0,
           8.4,
@@ -2165,7 +2165,7 @@
           "9484",
           "CHI"
         ],
-        "points": 57.76,
+        "points": 78.56,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -2186,10 +2186,10 @@
           0.0,
           0.0,
           9.8,
-          0.0,
+          6.8,
           12.1,
-          0.0,
-          0.0
+          5.0,
+          9.0
         ]
       },
       {
@@ -2211,7 +2211,7 @@
           "8129",
           "IND"
         ],
-        "points": 77.68,
+        "points": 97.78,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -2231,8 +2231,8 @@
           9.4,
           0.0,
           15.5,
-          0.0,
-          0.0,
+          3.0,
+          17.1,
           8.9,
           7.0,
           9.0
@@ -2257,7 +2257,7 @@
           "9997",
           "DEN"
         ],
-        "points": 138.38,
+        "points": 144.38,
         "roster_id": 8,
         "starters": [
           "8183",
@@ -2280,7 +2280,7 @@
           10.0,
           0.0,
           16.8,
-          0.0,
+          6.0,
           9.0
         ]
       }
