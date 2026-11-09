@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 9,
-  "generated_at_utc": "2026-11-09T22:56:49.018482+00:00",
+  "generated_at_utc": "2026-11-09T23:50:12.996864+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -734,7 +734,7 @@
     "9493": {
       "name": "Puka Nacua",
       "position": "WR",
-      "status": "Active",
+      "status": "Inactive",
       "team": "LAR"
     },
     "9500": {
