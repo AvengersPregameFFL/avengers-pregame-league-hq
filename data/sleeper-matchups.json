@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-09T21:58:58.104658+00:00",
+      "verified_at": "2026-11-10T13:10:36.562595+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -76,12 +76,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 101.2
+              "points": 126.66
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 89.46
+              "points": 98.26
             }
           ]
         },
@@ -96,7 +96,7 @@
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 107.78
+              "points": 114.38
             }
           ]
         },
@@ -111,7 +111,7 @@
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 148.88
+              "points": 165.58
             }
           ]
         },
@@ -126,14 +126,14 @@
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 135.84
+              "points": 149.94
             }
           ]
         }
       ]
     },
     "10": {
-      "verified_at": "2026-11-09T21:58:58.232187+00:00",
+      "verified_at": "2026-11-10T13:10:36.677701+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -191,6 +191,71 @@
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
+              "points": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "11": {
+      "verified_at": "2026-11-10T13:10:36.789082+00:00",
+      "matchups": [
+        {
+          "matchup_id": 1,
+          "teams": [
+            {
+              "roster_id": 3,
+              "name": "Fantastic Four Skin",
+              "points": 0.0
+            },
+            {
+              "roster_id": 6,
+              "name": "Hurts Venom Inside Her",
+              "points": 0.0
+            }
+          ]
+        },
+        {
+          "matchup_id": 2,
+          "teams": [
+            {
+              "roster_id": 1,
+              "name": "Juggernauts Jumbo Package",
+              "points": 0.0
+            },
+            {
+              "roster_id": 5,
+              "name": "🔮✨Wanda WacksEmOff✨🔮",
+              "points": 0.0
+            }
+          ]
+        },
+        {
+          "matchup_id": 3,
+          "teams": [
+            {
+              "roster_id": 2,
+              "name": "InfinityBrocklet",
+              "points": 0.0
+            },
+            {
+              "roster_id": 8,
+              "name": "Flash 23 Blast",
+              "points": 0.0
+            }
+          ]
+        },
+        {
+          "matchup_id": 4,
+          "teams": [
+            {
+              "roster_id": 4,
+              "name": "Jerry’s Justice League ",
+              "points": 0.0
+            },
+            {
+              "roster_id": 7,
+              "name": "Loki Down Bad",
               "points": 0.0
             }
           ]
