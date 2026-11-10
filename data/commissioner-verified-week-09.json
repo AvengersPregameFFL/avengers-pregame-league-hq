@@ -1,0 +1,113 @@
+{
+  "source": "Commissioner-provided Sleeper screenshots, November 10 2026",
+  "season": 2026,
+  "completed_week": 9,
+  "pickem": {
+    "standings": [
+      [
+        "Jake",
+        90,
+        12
+      ],
+      [
+        "DK",
+        86,
+        13
+      ],
+      [
+        "Alyssa",
+        83,
+        13
+      ],
+      [
+        "Hunter",
+        81,
+        14
+      ],
+      [
+        "Aaron",
+        79,
+        13
+      ],
+      [
+        "Mike",
+        77,
+        13
+      ],
+      [
+        "Travis",
+        76,
+        12
+      ],
+      [
+        "Nick",
+        66,
+        12
+      ]
+    ],
+    "week_9_winner": "Hunter",
+    "week_10_status": "pending"
+  },
+  "survivor": {
+    "week_9_players_remaining": 4,
+    "total_players": 8,
+    "dk": {
+      "eliminated_through_week": 7,
+      "revives_shown": 3
+    },
+    "note": "Other survivor history is visible in screenshot; do not infer Week 10 outcomes."
+  },
+  "weekly_awards": {
+    "week": 9,
+    "best_team": {
+      "manager": "Aaron",
+      "points": 190.34
+    },
+    "worst_team": {
+      "manager": "Hunter",
+      "points": 98.26
+    },
+    "best_manager": {
+      "manager": "Nick",
+      "actual": 165.58,
+      "optimal": 165.78
+    },
+    "worst_manager": {
+      "manager": "Mike",
+      "actual": 126.66,
+      "optimal": 146.66
+    },
+    "highest_points_loss": {
+      "manager": "Alyssa",
+      "points": 149.94
+    },
+    "lowest_points_win": {
+      "manager": "Mike",
+      "points": 126.66
+    },
+    "biggest_blowout": {
+      "winner": "DK",
+      "loser": "Jake",
+      "winner_points": 175.9,
+      "loser_points": 114.38,
+      "margin": 61.52
+    },
+    "narrow_victory": {
+      "winner": "Nick",
+      "loser": "Travis",
+      "winner_points": 165.58,
+      "loser_points": 146.84,
+      "margin": 18.74
+    },
+    "overachiever": {
+      "manager": "Aaron",
+      "actual": 190.34,
+      "projected": 153.65
+    },
+    "underachiever": {
+      "manager": "Hunter",
+      "actual": 98.26,
+      "projected": 139.03
+    }
+  }
+}
