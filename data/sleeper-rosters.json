@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-10T20:56:59.159489+00:00",
+  "generated_at_utc": "2026-11-10T21:52:37.873322+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -681,7 +681,7 @@
       "name": "Josh Downs",
       "position": "WR",
       "status": "Active",
-      "team": "IND"
+      "team": "KC"
     },
     "9509": {
       "name": "Bijan Robinson",
