@@ -1,16 +1,16 @@
 {
   "season": 2026,
-  "through_week": 8,
-  "generated_at_utc": "2026-11-10T04:52:58.545425+00:00",
+  "through_week": 9,
+  "generated_at_utc": "2026-11-10T05:04:20.837354+00:00",
   "coaches": {
     "DK": {
       "team": "Juggernauts Jumbo Package",
-      "wins": 6,
+      "wins": 7,
       "losses": 2,
-      "points": 1316.48,
+      "points": 1492.38,
       "all_play": {
-        "wins": 45,
-        "losses": 11,
+        "wins": 51,
+        "losses": 12,
         "ties": 0
       },
       "weeks": [
@@ -101,17 +101,28 @@
             "losses": 2,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 175.9,
+          "opponent_points": 114.38,
+          "result": "W",
+          "all_play": {
+            "wins": 6,
+            "losses": 1,
+            "ties": 0
+          }
         }
       ]
     },
     "Mike": {
       "team": "Team 2",
-      "wins": 4,
+      "wins": 5,
       "losses": 4,
-      "points": 1208.22,
+      "points": 1334.88,
       "all_play": {
-        "wins": 34,
-        "losses": 22,
+        "wins": 36,
+        "losses": 27,
         "ties": 0
       },
       "weeks": [
@@ -202,17 +213,28 @@
             "losses": 1,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 126.66,
+          "opponent_points": 98.26,
+          "result": "W",
+          "all_play": {
+            "wins": 2,
+            "losses": 5,
+            "ties": 0
+          }
         }
       ]
     },
     "Travis": {
       "team": "Fantastic Four Skin",
       "wins": 4,
-      "losses": 4,
-      "points": 1043.8,
+      "losses": 5,
+      "points": 1190.64,
       "all_play": {
-        "wins": 23,
-        "losses": 33,
+        "wins": 26,
+        "losses": 37,
         "ties": 0
       },
       "weeks": [
@@ -303,16 +325,27 @@
             "losses": 6,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 146.84,
+          "opponent_points": 165.58,
+          "result": "L",
+          "all_play": {
+            "wins": 3,
+            "losses": 4,
+            "ties": 0
+          }
         }
       ]
     },
     "Aaron": {
       "team": "Jerry’s Justice League ",
-      "wins": 3,
+      "wins": 4,
       "losses": 5,
-      "points": 1111.28,
+      "points": 1301.62,
       "all_play": {
-        "wins": 24,
+        "wins": 31,
         "losses": 32,
         "ties": 0
       },
@@ -404,17 +437,28 @@
             "losses": 0,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 190.34,
+          "opponent_points": 149.94,
+          "result": "W",
+          "all_play": {
+            "wins": 7,
+            "losses": 0,
+            "ties": 0
+          }
         }
       ]
     },
     "Alyssa": {
       "team": "🔮✨Wanda WacksEmOff✨🔮",
       "wins": 5,
-      "losses": 3,
-      "points": 1227.5,
+      "losses": 4,
+      "points": 1377.44,
       "all_play": {
-        "wins": 35,
-        "losses": 21,
+        "wins": 39,
+        "losses": 24,
         "ties": 0
       },
       "weeks": [
@@ -505,17 +549,28 @@
             "losses": 5,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 149.94,
+          "opponent_points": 190.34,
+          "result": "L",
+          "all_play": {
+            "wins": 4,
+            "losses": 3,
+            "ties": 0
+          }
         }
       ]
     },
     "Hunter": {
       "team": "Hurts Venom Inside Her",
       "wins": 3,
-      "losses": 5,
-      "points": 936.46,
+      "losses": 6,
+      "points": 1034.72,
       "all_play": {
         "wins": 14,
-        "losses": 42,
+        "losses": 49,
         "ties": 0
       },
       "weeks": [
@@ -606,17 +661,28 @@
             "losses": 7,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 98.26,
+          "opponent_points": 126.66,
+          "result": "L",
+          "all_play": {
+            "wins": 0,
+            "losses": 7,
+            "ties": 0
+          }
         }
       ]
     },
     "Jake": {
       "team": "Loki Down Bad",
       "wins": 1,
-      "losses": 7,
-      "points": 967.24,
+      "losses": 8,
+      "points": 1081.62,
       "all_play": {
-        "wins": 13,
-        "losses": 43,
+        "wins": 14,
+        "losses": 49,
         "ties": 0
       },
       "weeks": [
@@ -707,17 +773,28 @@
             "losses": 3,
             "ties": 0
           }
+        },
+        {
+          "week": 9,
+          "points": 114.38,
+          "opponent_points": 175.9,
+          "result": "L",
+          "all_play": {
+            "wins": 1,
+            "losses": 6,
+            "ties": 0
+          }
         }
       ]
     },
     "Nick": {
       "team": "Flash 23 Blast",
-      "wins": 6,
+      "wins": 7,
       "losses": 2,
-      "points": 1199.8,
+      "points": 1365.38,
       "all_play": {
-        "wins": 36,
-        "losses": 20,
+        "wins": 41,
+        "losses": 22,
         "ties": 0
       },
       "weeks": [
@@ -806,6 +883,17 @@
           "all_play": {
             "wins": 3,
             "losses": 4,
+            "ties": 0
+          }
+        },
+        {
+          "week": 9,
+          "points": 165.58,
+          "opponent_points": 146.84,
+          "result": "W",
+          "all_play": {
+            "wins": 5,
+            "losses": 2,
             "ties": 0
           }
         }

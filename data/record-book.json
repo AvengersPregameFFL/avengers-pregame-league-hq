@@ -1,14 +1,14 @@
 {
   "source": "Sleeper public API — finalized matchup results",
   "season": 2026,
-  "verifiedThroughWeek": 8,
-  "generated_at_utc": "2026-11-10T04:52:58.546578+00:00",
+  "verifiedThroughWeek": 9,
+  "generated_at_utc": "2026-11-10T05:04:20.838685+00:00",
   "rows": [
     [
       "RECORD BOOK"
     ],
     [
-      "2026 SEASON — THROUGH WEEK 8"
+      "2026 SEASON — THROUGH WEEK 9"
     ],
     [
       "Scope",
@@ -28,9 +28,9 @@
       "Most head-to-head wins",
       "DK / Nick",
       "Juggernauts Jumbo Package / Flash 23 Blast",
-      6,
+      7,
       "wins",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -50,11 +50,11 @@
       "Season to date",
       "Cumulative",
       "Longest losing streak",
-      "Mike / Aaron / Hunter / Jake",
-      "Team 2 / Jerry’s Justice League  / Hurts Venom Inside Her / Loki Down Bad",
-      4,
+      "Hunter / Jake",
+      "Hurts Venom Inside Her / Loki Down Bad",
+      5,
       "games",
-      "W2–W5; W1–W4; W5–W8; W5–W8",
+      "W5–W9; W5–W9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -64,9 +64,9 @@
       "Most fantasy points scored",
       "DK",
       "Juggernauts Jumbo Package",
-      1316.48,
+      1492.38,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -76,9 +76,9 @@
       "Fewest fantasy points scored",
       "Hunter",
       "Hurts Venom Inside Her",
-      936.46,
+      1034.72,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -86,11 +86,11 @@
       "Season to date",
       "Cumulative",
       "Most points allowed",
-      "Mike",
-      "Team 2",
-      1205.0,
+      "Hunter",
+      "Hurts Venom Inside Her",
+      1315.0,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -100,9 +100,9 @@
       "Fewest points allowed",
       "Nick",
       "Flash 23 Blast",
-      1064.4,
+      1211.24,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -112,9 +112,9 @@
       "Best point differential",
       "DK",
       "Juggernauts Jumbo Package",
-      180.34,
+      241.86,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -124,9 +124,9 @@
       "Worst point differential",
       "Hunter",
       "Hurts Venom Inside Her",
-      -251.88,
+      -280.28,
       "pts",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -136,9 +136,9 @@
       "Highest points per game",
       "DK",
       "Juggernauts Jumbo Package",
-      164.56,
+      165.82,
       "pts/game",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
@@ -148,9 +148,9 @@
       "Most all-play wins",
       "DK",
       "Juggernauts Jumbo Package",
-      45,
+      51,
       "wins",
-      "Weeks 1–8",
+      "Weeks 1–9",
       "",
       "Calculated from finalized Sleeper matchups"
     ],
