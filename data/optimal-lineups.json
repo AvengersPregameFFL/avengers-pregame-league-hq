@@ -1,6 +1,6 @@
 {
   "league_id": "1395849826633019392",
-  "generated_at": "2026-11-09T12:11:05.063603+00:00",
+  "generated_at": "2026-11-10T12:02:09.557843+00:00",
   "roster_positions": [
     "QB",
     "RB",
@@ -539,9 +539,9 @@
       "week": 9,
       "roster_id": 2,
       "manager": "InfinityBrocklet",
-      "actual": 101.2,
-      "optimal": 127.5,
-      "efficiency": 79.37
+      "actual": 126.66,
+      "optimal": 146.66,
+      "efficiency": 86.36
     },
     {
       "week": 9,
@@ -563,33 +563,33 @@
       "week": 9,
       "roster_id": 5,
       "manager": "dentalhygenius",
-      "actual": 135.84,
-      "optimal": 141.24,
-      "efficiency": 96.18
+      "actual": 149.94,
+      "optimal": 155.34,
+      "efficiency": 96.52
     },
     {
       "week": 9,
       "roster_id": 6,
       "manager": "hboogie1003",
-      "actual": 89.46,
-      "optimal": 103.16,
-      "efficiency": 86.72
+      "actual": 98.26,
+      "optimal": 110.06,
+      "efficiency": 89.28
     },
     {
       "week": 9,
       "roster_id": 7,
       "manager": "fondlerballer",
-      "actual": 107.78,
+      "actual": 114.38,
       "optimal": 125.08,
-      "efficiency": 86.17
+      "efficiency": 91.45
     },
     {
       "week": 9,
       "roster_id": 8,
       "manager": "noreilly1993",
-      "actual": 148.88,
-      "optimal": 154.38,
-      "efficiency": 96.44
+      "actual": 165.58,
+      "optimal": 165.78,
+      "efficiency": 99.88
     }
   ]
 }
