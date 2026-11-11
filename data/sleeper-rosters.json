@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-11T09:08:00.390269+00:00",
+  "generated_at_utc": "2026-11-11T10:11:53.216695+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -683,6 +683,12 @@
       "status": "Active",
       "team": "CIN"
     },
+    "9228": {
+      "name": "Bryce Young",
+      "position": "QB",
+      "status": "Active",
+      "team": "CAR"
+    },
     "9484": {
       "name": "Tucker Kraft",
       "position": "TE",
@@ -979,7 +985,6 @@
       "owner_id": "1263695176933576704",
       "players": [
         "10859",
-        "11576",
         "1166",
         "12474",
         "12526",
@@ -993,6 +998,7 @@
         "8146",
         "8150",
         "8228",
+        "9228",
         "JAX"
       ],
       "reserve": [
@@ -1000,13 +1006,13 @@
       ],
       "roster_id": 5,
       "starters": [
-        "1166",
-        "13345",
+        "9228",
+        "8228",
         "8150",
         "7547",
         "7564",
         "10859",
-        "12474",
+        "8146",
         "12526",
         "7042",
         "JAX"
@@ -1330,7 +1336,6 @@
         "matchup_id": 4,
         "players": [
           "10859",
-          "11576",
           "1166",
           "12474",
           "12526",
@@ -1344,18 +1349,19 @@
           "8146",
           "8150",
           "8228",
+          "9228",
           "JAX"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "1166",
-          "13345",
+          "9228",
+          "8228",
           "8150",
           "7547",
           "7564",
           "10859",
-          "12474",
+          "8146",
           "12526",
           "7042",
           "JAX"
@@ -1705,7 +1711,6 @@
         "matchup_id": 2,
         "players": [
           "10859",
-          "11576",
           "1166",
           "12474",
           "12526",
@@ -1719,18 +1724,19 @@
           "8146",
           "8150",
           "8228",
+          "9228",
           "JAX"
         ],
         "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "1166",
-          "13345",
+          "9228",
+          "8228",
           "8150",
           "7547",
           "7564",
           "10859",
-          "12474",
+          "8146",
           "12526",
           "7042",
           "JAX"
