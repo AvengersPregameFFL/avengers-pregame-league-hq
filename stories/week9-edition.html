@@ -58,20 +58,26 @@ document.getElementById('share').addEventListener('click',async()=>{
  try{if(navigator.share)await navigator.share({title,text,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('Weekly edition link copied!')}else prompt('Copy this link:',url)}
  catch(e){if(e.name!=='AbortError')prompt('Copy this link:',url)}
 });
-</script><script id="trav-watch-data-loader-v1">(function(){
-const rows=document.querySelectorAll('[data-trav-picks]');
-if(!rows.length)return;
-fetch(new URL('../data/trav-prime-time.json',document.baseURI),{cache:'no-store'})
-.then(r=>{if(!r.ok)throw Error('Tracker unavailable');return r.json()})
-.then(data=>{if(!Array.isArray(data.picks))return;
-const picks=data.picks.filter(p=>p&&p.confirmed===true&&p.game&&p.pick);
-for(const body of rows){body.replaceChildren();for(const p of picks){
-const tr=document.createElement('tr');
-const game=document.createElement('td');game.textContent=p.game;
-const pick=document.createElement('td');pick.textContent=p.pick;
-const result=document.createElement('td');result.textContent=p.result||'PENDING';
-result.className=p.result==='CORRECT'?'tracker-good':p.result&&p.result.startsWith('WRONG')?'tracker-bad':'tracker-unknown';
-tr.append(game,pick,result);body.append(tr);
-}}})
-.catch(()=>{/* Keep verified static fallback if feed is unavailable. */});
+</script><script id="trav-watch-data-loader-v2">(function(){
+ const bodies=document.querySelectorAll('[data-trav-picks]');if(!bodies.length)return;
+ fetch(new URL('../data/prime-time-picks.json',document.baseURI),{cache:'no-store'})
+ .then(r=>{if(!r.ok)throw Error('Prime-time picks unavailable');return r.json()})
+ .then(data=>{
+  if(!Array.isArray(data.games))throw Error('No verified games');
+  const games=data.games.filter(g=>g&&g.week>=7&&g.week<=data.updated_through_week&&g.winner&&g.picks).sort((a,b)=>b.week-a.week||['MNF','SNF','TNF'].indexOf(a.kind)-['MNF','SNF','TNF'].indexOf(b.kind));
+  if(!games.length)return;
+  for(const body of bodies){
+   body.replaceChildren();
+   for(const g of games){
+    const pick=g.picks.Travis;const tr=document.createElement('tr');
+    const game=document.createElement('td');game.textContent=g.kind+' · WEEK '+g.week;
+    const selection=document.createElement('td');selection.textContent=pick||'No pick';
+    const result=document.createElement('td');result.textContent=pick==null?'MISSED':pick===g.winner?'CORRECT':'WRONG · '+g.winner+' won';
+    result.className=pick==null?'tracker-unknown':pick===g.winner?'tracker-good':'tracker-bad';
+    tr.append(game,selection,result);body.appendChild(tr);
+   }
+  }
+  document.querySelectorAll('.bugle-tracker.trav .tracker-kicker').forEach(el=>el.textContent='Verified picks through Week '+data.updated_through_week+' · Later games pending');
+ })
+ .catch(err=>console.info('Using last confirmed Trav picks',err.message));
 })();</script></body></html>
