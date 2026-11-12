@@ -1390,4 +1390,30 @@ opacity:1!important;visibility:visible!important;z-index:2!important;filter:none
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="21"] a:before,
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="20"] a:before,
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="19"] a:before{content:none!important;display:none!important;background:none!important}
-</style><script src="./prime-time-picks-ui.js?v=20261111allweeks9" defer></script></body></html>
+</style><script src="./prime-time-picks-ui.js?v=20261111allweeks9" defer></script><script id="survivor-watch-bible-feed-v2">(function(){
+ const panel=document.querySelector('.bugle-weekly-trackers .bugle-tracker.survivor');
+ if(!panel)return;
+ fetch('./data/league-contests.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Bible contest feed unavailable');return r.json()})
+ .then(data=>{
+  const records=data.survivor;if(!records||Object.keys(records).length!==8)return;
+  const names=Object.keys(records);
+  const alive=names.filter(name=>String(records[name].status||'').toLowerCase()==='alive');
+  const latest=Math.max(0,...names.flatMap(name=>(records[name].weeks||[]).filter(w=>w.pick&&/^(correct|wrong|lost|won)$/i.test(String(w.outcome).trim())).map(w=>Number(w.week))));
+  if(latest<1)return;
+  const kicker=panel.querySelector('.tracker-kicker');
+  if(kicker)kicker.textContent='Week '+latest+' confirmed · '+alive.length+' coaches last marked alive · Week '+(latest+1)+' awaiting selections';
+  const cols=panel.querySelectorAll('thead th');if(cols[1])cols[1].textContent='W'+latest+' PICK';
+  const tbody=panel.querySelector('tbody');if(!tbody)return;tbody.replaceChildren();
+  for(const name of alive){
+   const record=records[name];const w=(record.weeks||[]).find(w=>Number(w.week)===latest);
+   const tr=document.createElement('tr'),coach=document.createElement('td'),pick=document.createElement('td'),revives=document.createElement('td');
+   coach.textContent=name==='Allysa'?'Alyssa':name;
+   pick.textContent=w&&w.pick?w.pick+' · '+w.outcome:'Not recorded';
+   if(w&&w.outcome)pick.className=String(w.outcome).toLowerCase()==='correct'?'tracker-good':'tracker-unknown';
+   revives.textContent=String(record.revives_used??'?')+' used';
+   tr.append(coach,pick,revives);tbody.append(tr);
+  }
+  const foot=panel.querySelector('.tracker-foot');
+  if(foot)foot.textContent='ELIMINATED: '+names.filter(n=>!alive.includes(n)).map(n=>n==='Allysa'?'Alyssa':n).join(' · ').toUpperCase()+' · SOURCE: GOOGLE BIBLE';
+ }).catch(err=>console.info('Survivor Watch using last verified Bible snapshot',err.message));
+})();</script></body></html>
