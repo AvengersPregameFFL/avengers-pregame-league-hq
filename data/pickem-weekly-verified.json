@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "season": 2026,
+  "verified_through_week": 9,
+  "source": "Google Avengers Pregame Bible Pickem totals Weeks 1-5 plus screenshot-verified Sleeper Pool W6-W9",
+  "baseline_week1_to_5": {
+    "DK": [
+      9,
+      13,
+      8,
+      10,
+      9
+    ],
+    "Hunter": [
+      10,
+      9,
+      9,
+      8,
+      9
+    ],
+    "Mike": [
+      11,
+      11,
+      5,
+      8,
+      9
+    ],
+    "Jake": [
+      10,
+      10,
+      8,
+      11,
+      10
+    ],
+    "Travis": [
+      10,
+      10,
+      7,
+      9,
+      7
+    ],
+    "Alyssa": [
+      10,
+      10,
+      7,
+      10,
+      8
+    ],
+    "Aaron": [
+      9,
+      10,
+      8,
+      10,
+      4
+    ],
+    "Nick": [
+      6,
+      8,
+      7,
+      10,
+      0
+    ]
+  },
+  "weekly": {
+    "6": {
+      "DK": 8,
+      "Hunter": 6,
+      "Mike": 7,
+      "Jake": 8,
+      "Travis": 5,
+      "Alyssa": 8,
+      "Aaron": 5,
+      "Nick": 8
+    },
+    "7": {
+      "DK": 6,
+      "Hunter": 6,
+      "Mike": 5,
+      "Jake": 11,
+      "Travis": 6,
+      "Alyssa": 8,
+      "Aaron": 11,
+      "Nick": 10
+    },
+    "8": {
+      "DK": 10,
+      "Hunter": 10,
+      "Mike": 8,
+      "Jake": 10,
+      "Travis": 10,
+      "Alyssa": 9,
+      "Aaron": 9,
+      "Nick": 5
+    },
+    "9": {
+      "DK": 13,
+      "Hunter": 14,
+      "Mike": 13,
+      "Jake": 12,
+      "Travis": 12,
+      "Alyssa": 13,
+      "Aaron": 13,
+      "Nick": 12
+    }
+  }
+}
