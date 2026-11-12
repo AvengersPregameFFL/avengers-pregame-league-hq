@@ -1,6 +1,6 @@
 /* League HQ: network-first pages, safe offline fallback, bounded same-origin cache. */
-const CACHE='avengers-pregame-hq-v127';
-const CORE=['./','./index.html','./league-next-era.html','./commissioner-dues.html','./reports/latest.html','./manifest.webmanifest','./icons/icon.svg','./live-sync.js','./data/record-book.json','./league-notifications.js','./league-share.js','./awards-race.js','./awards-race.css','./stories/index.html','./stories/carolina-civil-war.html','./stories/down-goes-nick.html','./stories/week7-aaron-hunter.html','./stories/week7-travis-jake.html','./stories/week7-mike-alyssa.html','./stories/archive.html'];
+const CACHE='avengers-pregame-hq-v128';
+const CORE=['./','./index.html','./league-next-era.html','./commissioner-dues.html','./reports/latest.html','./manifest.webmanifest','./icons/icon.svg','./live-sync.js','./prime-time-picks-ui.js','./data/prime-time-picks.json','./data/pickem-weekly-verified.json','./data/record-book.json','./league-notifications.js','./league-share.js','./awards-race.js','./awards-race.css','./stories/index.html','./stories/carolina-civil-war.html','./stories/down-goes-nick.html','./stories/week7-aaron-hunter.html','./stories/week7-travis-jake.html','./stories/week7-mike-alyssa.html','./stories/archive.html'];
 const OFFLINE_LIMIT=90;
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(async cache=>{
