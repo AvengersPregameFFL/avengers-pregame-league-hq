@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-12T06:16:48.563993+00:00",
+  "generated_at_utc": "2026-11-12T07:42:09.112954+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -244,12 +244,6 @@
       "position": "WR",
       "status": "Active",
       "team": "PHI"
-    },
-    "13296": {
-      "name": "Caleb Douglas",
-      "position": "WR",
-      "status": "Active",
-      "team": "MIA"
     },
     "13337": {
       "name": "Emmett Johnson",
@@ -704,7 +698,7 @@
     "9493": {
       "name": "Puka Nacua",
       "position": "WR",
-      "status": "Inactive",
+      "status": "Active",
       "team": "LAR"
     },
     "9500": {
@@ -1024,10 +1018,10 @@
       "manager": "hboogie1003",
       "owner_id": "966433297117007872",
       "players": [
+        "11566",
         "11586",
         "12491",
         "12514",
-        "13296",
         "13346",
         "4217",
         "5859",
@@ -1046,7 +1040,7 @@
       ],
       "roster_id": 6,
       "starters": [
-        "9758",
+        "11566",
         "9221",
         "11586",
         "5859",
@@ -1382,10 +1376,10 @@
       {
         "matchup_id": 1,
         "players": [
+          "11566",
           "11586",
           "12491",
           "12514",
-          "13296",
           "13346",
           "4217",
           "5859",
@@ -1402,7 +1396,7 @@
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "9758",
+          "11566",
           "9221",
           "11586",
           "5859",
@@ -1757,10 +1751,10 @@
       {
         "matchup_id": 1,
         "players": [
+          "11566",
           "11586",
           "12491",
           "12514",
-          "13296",
           "13346",
           "4217",
           "5859",
@@ -1777,7 +1771,7 @@
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "9758",
+          "11566",
           "9221",
           "11586",
           "5859",
