@@ -54,7 +54,7 @@ def main():
         if not current[i] or current[i][0] != label:
             raise RuntimeError(f"Bible Record Book row {22+i} not {label!r}; refusing write.")
     existing = str(current[0][5]) if len(current[0]) >= 6 else ""
-    match = re.search(r"Weeks? 1[–-](\\d+)", existing)
+    match = re.search(r"Weeks? 1[–-](\d+)", existing)
     if match and int(match.group(1)) > latest:
         raise RuntimeError("Google Bible is newer than Sleeper snapshot; refusing regression.")
     row_values = []
