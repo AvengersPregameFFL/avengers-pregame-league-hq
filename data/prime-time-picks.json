@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "season": 2026,
+  "updated_through_week": 9,
+  "confirmed_source": "Commissioner-provided Sleeper pool screenshots Weeks 6-9; NFL official primetime schedule and finals",
+  "baseline_description": "TNF baseline is archival results through Week 6 Thursday; SNF and MNF baselines are archival results through Week 5. Week 6 TNF selections are included for reference but not double-counted.",
+  "baseline": {
+    "DK": {
+      "TNF": [
+        2,
+        4,
+        0
+      ],
+      "SNF": [
+        4,
+        1,
+        0
+      ],
+      "MNF": [
+        1,
+        4,
+        0
+      ]
+    },
+    "Hunter": {
+      "TNF": [
+        1,
+        4,
+        1
+      ],
+      "SNF": [
+        1,
+        4,
+        0
+      ],
+      "MNF": [
+        2,
+        3,
+        0
+      ]
+    },
+    "Mike": {
+      "TNF": [
+        2,
+        2,
+        2
+      ],
+      "SNF": [
+        3,
+        2,
+        0
+      ],
+      "MNF": [
+        3,
+        2,
+        0
+      ]
+    },
+    "Jake": {
+      "TNF": [
+        2,
+        3,
+        1
+      ],
+      "SNF": [
+        2,
+        3,
+        0
+      ],
+      "MNF": [
+        3,
+        2,
+        0
+      ]
+    },
+    "Travis": {
+      "TNF": [
+        0,
+        4,
+        2
+      ],
+      "SNF": [
+        2,
+        3,
+        0
+      ],
+      "MNF": [
+        0,
+        5,
+        0
+      ]
+    },
+    "Alyssa": {
+      "TNF": [
+        2,
+        4,
+        0
+      ],
+      "SNF": [
+        1,
+        4,
+        0
+      ],
+      "MNF": [
+        1,
+        4,
+        0
+      ]
+    },
+    "Aaron": {
+      "TNF": [
+        1,
+        5,
+        0
+      ],
+      "SNF": [
+        0,
+        5,
+        0
+      ],
+      "MNF": [
+        1,
+        4,
+        0
+      ]
+    },
+    "Nick": {
+      "TNF": [
+        0,
+        3,
+        3
+      ],
+      "SNF": [
+        0,
+        4,
+        1
+      ],
+      "MNF": [
+        1,
+        3,
+        1
+      ]
+    }
+  },
+  "managers": [
+    "DK",
+    "Hunter",
+    "Mike",
+    "Jake",
+    "Travis",
+    "Alyssa",
+    "Aaron",
+    "Nick"
+  ],
+  "games": [
+    {
+      "week": 6,
+      "kind": "TNF",
+      "teams": "SEA @ DEN",
+      "winner": "DEN",
+      "picks": {
+        "DK": "DEN",
+        "Hunter": "SEA",
+        "Mike": "SEA",
+        "Jake": "SEA",
+        "Travis": null,
+        "Alyssa": "SEA",
+        "Aaron": "SEA",
+        "Nick": "SEA"
+      },
+      "includedInBaseline": true
+    },
+    {
+      "week": 6,
+      "kind": "SNF",
+      "teams": "DAL @ GB",
+      "winner": "GB",
+      "picks": {
+        "DK": "GB",
+        "Hunter": "GB",
+        "Mike": "DAL",
+        "Jake": "GB",
+        "Travis": "DAL",
+        "Alyssa": "GB",
+        "Aaron": "DAL",
+        "Nick": "DAL"
+      }
+    },
+    {
+      "week": 6,
+      "kind": "MNF",
+      "teams": "WAS @ SF",
+      "winner": "SF",
+      "picks": {
+        "DK": "SF",
+        "Hunter": "SF",
+        "Mike": "SF",
+        "Jake": "SF",
+        "Travis": "SF",
+        "Alyssa": "SF",
+        "Aaron": "SF",
+        "Nick": "SF"
+      }
+    },
+    {
+      "week": 7,
+      "kind": "TNF",
+      "teams": "NE @ CHI",
+      "winner": "CHI",
+      "picks": {
+        "DK": "NE",
+        "Hunter": "CHI",
+        "Mike": "CHI",
+        "Jake": "CHI",
+        "Travis": "NE",
+        "Alyssa": "CHI",
+        "Aaron": "CHI",
+        "Nick": "CHI"
+      }
+    },
+    {
+      "week": 7,
+      "kind": "SNF",
+      "teams": "KC @ SEA",
+      "winner": "SEA",
+      "picks": {
+        "DK": "KC",
+        "Hunter": "KC",
+        "Mike": "KC",
+        "Jake": "SEA",
+        "Travis": "KC",
+        "Alyssa": "KC",
+        "Aaron": "SEA",
+        "Nick": "KC"
+      }
+    },
+    {
+      "week": 7,
+      "kind": "MNF",
+      "teams": "DAL @ PHI",
+      "winner": "DAL",
+      "picks": {
+        "DK": "DAL",
+        "Hunter": "PHI",
+        "Mike": "DAL",
+        "Jake": "DAL",
+        "Travis": "DAL",
+        "Alyssa": "DAL",
+        "Aaron": "DAL",
+        "Nick": "DAL"
+      }
+    },
+    {
+      "week": 8,
+      "kind": "TNF",
+      "teams": "CAR @ GB",
+      "winner": "GB",
+      "picks": {
+        "DK": "GB",
+        "Hunter": "GB",
+        "Mike": "GB",
+        "Jake": "GB",
+        "Travis": "CAR",
+        "Alyssa": "GB",
+        "Aaron": "CAR",
+        "Nick": null
+      }
+    },
+    {
+      "week": 8,
+      "kind": "SNF",
+      "teams": "PHI @ WAS",
+      "winner": "WAS",
+      "picks": {
+        "DK": "PHI",
+        "Hunter": "WAS",
+        "Mike": "WAS",
+        "Jake": "WAS",
+        "Travis": "WAS",
+        "Alyssa": "WAS",
+        "Aaron": "WAS",
+        "Nick": "PHI"
+      }
+    },
+    {
+      "week": 8,
+      "kind": "MNF",
+      "teams": "CHI @ SEA",
+      "winner": "CHI",
+      "picks": {
+        "DK": "SEA",
+        "Hunter": "SEA",
+        "Mike": "SEA",
+        "Jake": "SEA",
+        "Travis": "SEA",
+        "Alyssa": "SEA",
+        "Aaron": "SEA",
+        "Nick": "SEA"
+      }
+    },
+    {
+      "week": 9,
+      "kind": "TNF",
+      "teams": "JAX @ BAL",
+      "winner": "JAX",
+      "picks": {
+        "DK": "JAX",
+        "Hunter": "JAX",
+        "Mike": "JAX",
+        "Jake": null,
+        "Travis": "JAX",
+        "Alyssa": "JAX",
+        "Aaron": "JAX",
+        "Nick": "JAX"
+      }
+    },
+    {
+      "week": 9,
+      "kind": "SNF",
+      "teams": "TB @ CHI",
+      "winner": "CHI",
+      "picks": {
+        "DK": "CHI",
+        "Hunter": "CHI",
+        "Mike": "CHI",
+        "Jake": "CHI",
+        "Travis": "TB",
+        "Alyssa": "CHI",
+        "Aaron": "CHI",
+        "Nick": "TB"
+      }
+    },
+    {
+      "week": 9,
+      "kind": "MNF",
+      "teams": "BUF @ MIN",
+      "winner": "BUF",
+      "picks": {
+        "DK": "BUF",
+        "Hunter": "BUF",
+        "Mike": "BUF",
+        "Jake": "BUF",
+        "Travis": "BUF",
+        "Alyssa": "BUF",
+        "Aaron": "BUF",
+        "Nick": "BUF"
+      }
+    }
+  ]
+}
