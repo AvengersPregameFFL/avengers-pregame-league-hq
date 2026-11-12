@@ -1,16 +1,10 @@
 {
   "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-12T04:07:31.895354+00:00",
+  "generated_at_utc": "2026-11-12T05:13:15.811137+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
   "players": {
-    "0": {
-      "name": "0",
-      "position": null,
-      "status": null,
-      "team": null
-    },
     "10229": {
       "name": "Rashee Rice",
       "position": "WR",
@@ -755,6 +749,12 @@
       "status": "Active",
       "team": "BAL"
     },
+    "BAL": {
+      "name": "Baltimore Ravens",
+      "position": "DEF",
+      "status": null,
+      "team": "BAL"
+    },
     "CHI": {
       "name": "Chicago Bears",
       "position": "DEF",
@@ -1027,7 +1027,6 @@
         "11586",
         "12491",
         "12514",
-        "13287",
         "13296",
         "13346",
         "4217",
@@ -1039,23 +1038,24 @@
         "9221",
         "9484",
         "9758",
+        "BAL",
         "TB"
       ],
       "reserve": [
-        "13287"
+        "7543"
       ],
       "roster_id": 6,
       "starters": [
-        "0",
+        "9758",
         "9221",
         "11586",
         "5859",
         "6794",
         "4217",
-        "7543",
-        "0",
-        "0",
-        "0"
+        "12491",
+        "13346",
+        "7839",
+        "BAL"
       ],
       "taxi": [],
       "team_name": "Hurts Venom Inside Her"
@@ -1385,7 +1385,6 @@
           "11586",
           "12491",
           "12514",
-          "13287",
           "13296",
           "13346",
           "4217",
@@ -1397,21 +1396,22 @@
           "9221",
           "9484",
           "9758",
+          "BAL",
           "TB"
         ],
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "0",
+          "9758",
           "9221",
           "11586",
           "5859",
           "6794",
           "4217",
-          "7543",
-          "0",
-          "0",
-          "0"
+          "12491",
+          "13346",
+          "7839",
+          "BAL"
         ],
         "starters_points": [
           0.0,
@@ -1760,7 +1760,6 @@
           "11586",
           "12491",
           "12514",
-          "13287",
           "13296",
           "13346",
           "4217",
@@ -1772,21 +1771,22 @@
           "9221",
           "9484",
           "9758",
+          "BAL",
           "TB"
         ],
         "points": 0.0,
         "roster_id": 6,
         "starters": [
-          "0",
+          "9758",
           "9221",
           "11586",
           "5859",
           "6794",
           "4217",
-          "7543",
-          "0",
-          "0",
-          "0"
+          "12491",
+          "13346",
+          "7839",
+          "BAL"
         ],
         "starters_points": [
           0.0,
