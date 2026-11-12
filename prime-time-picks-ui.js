@@ -22,6 +22,7 @@ function gameTable(game){
 }
 function primeUI(data){
  const section=document.getElementById("primetime");if(!section)return;
+ const history=section.querySelector('#prime-time-historical-weeks')?.outerHTML||'';
  const games=[...data.games].sort((a,b)=>b.week-a.week||({TNF:0,SNF:1,MNF:2}[a.kind]-{TNF:0,SNF:1,MNF:2}[b.kind]));
  let markup='<a class="back" href="#home">← Main menu</a><h1>Prime-Time Pick’em</h1>'+
  '<div class="panel" style="border:3px solid #171717;background:#fff1bf;color:#171717"><h2>VERIFIED THROUGH WEEK 9</h2><p>Thursday, Sunday night, and Monday night — all eight managers. Weeks 6–9 are reconstructed from league Sleeper Pool screenshots and official NFL finals. Historical Week 1–5/6 aggregate records remain included.</p><p class="muted">Week 10 selections not submitted yet. A missed pick counts as missed, never as a wrong prediction.</p></div>'+
@@ -37,7 +38,7 @@ function primeUI(data){
   markup+='</details>';
  }
  markup+='<p class="muted">Data: screenshot-confirmed league selections + previously archived early-season records. For future weeks, submit the latest Sleeper pool screenshots so this ledger can be extended accurately.</p>';
- section.innerHTML=markup;
+ section.innerHTML=markup+history;
 }
 function pickUI(data){
  const section=document.getElementById("pickem");if(!section)return;
