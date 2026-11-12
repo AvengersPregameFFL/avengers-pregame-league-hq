@@ -52,5 +52,7 @@ function pickUI(data){
  html+='<p class="muted">Season totals count recorded Pool points, not tiebreaker guesses. Updated from available Week 6–9 results; new weeks require confirmed selections/results.</p>';
  section.innerHTML=html;
 }
-Promise.all([fetch("./data/prime-time-picks.json",{cache:"no-store"}).then(x=>{if(!x.ok)throw Error("prime-time feed missing");return x.json()}),fetch("./data/pickem-weekly-verified.json",{cache:"no-store"}).then(x=>{if(!x.ok)throw Error("Pick'em feed missing");return x.json()})]).then(([prime,pick])=>{primeUI(prime);pickUI(pick)}).catch(e=>{for(const id of ["primetime","pickem"]){const el=document.getElementById(id);if(el)el.innerHTML='<a class="back" href="#home">← Main menu</a><h1>'+ (id==="primetime"?"Prime-Time Pick’em":"Pick’em")+'</h1><p>Latest verified results are temporarily unavailable; please refresh.</p>'; }});
+/* Independent feeds: a failed network request must NEVER erase the verified static Week 9 rankings. */
+fetch("./data/prime-time-picks.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("prime-time feed "+r.status);return r.json()}).then(d=>{if(d.updated_through_week>=9)primeUI(d)}).catch(e=>console.warn("Using saved verified Prime-Time rankings",e));
+fetch("./data/pickem-weekly-verified.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("pool feed "+r.status);return r.json()}).then(d=>{if(d.verified_through_week>=9)pickUI(d)}).catch(e=>console.warn("Using saved verified Pick'em rankings",e));
 })();
