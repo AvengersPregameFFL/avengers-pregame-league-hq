@@ -1,12 +1,61 @@
 {
   "schema_version": 1,
-  "updated_through": "2026-11-04",
+  "updated_through": "2026-11-11",
+  "source": "Verified Sleeper Prime-Time picks Weeks 7–9",
   "picks": [
     {
-      "game": "THU · WEEK 7",
-      "pick": "Against Bears",
+      "game": "MNF · WEEK 9",
+      "pick": "BUF",
       "confirmed": true,
-      "result": "WRONG · Bears won"
+      "result": "CORRECT"
+    },
+    {
+      "game": "SNF · WEEK 9",
+      "pick": "TB",
+      "confirmed": true,
+      "result": "WRONG · CHI won"
+    },
+    {
+      "game": "TNF · WEEK 9",
+      "pick": "JAX",
+      "confirmed": true,
+      "result": "CORRECT"
+    },
+    {
+      "game": "MNF · WEEK 8",
+      "pick": "SEA",
+      "confirmed": true,
+      "result": "WRONG · CHI won"
+    },
+    {
+      "game": "SNF · WEEK 8",
+      "pick": "WAS",
+      "confirmed": true,
+      "result": "CORRECT"
+    },
+    {
+      "game": "TNF · WEEK 8",
+      "pick": "CAR",
+      "confirmed": true,
+      "result": "WRONG · GB won"
+    },
+    {
+      "game": "MNF · WEEK 7",
+      "pick": "DAL",
+      "confirmed": true,
+      "result": "CORRECT"
+    },
+    {
+      "game": "SNF · WEEK 7",
+      "pick": "KC",
+      "confirmed": true,
+      "result": "WRONG · SEA won"
+    },
+    {
+      "game": "TNF · WEEK 7",
+      "pick": "NE",
+      "confirmed": true,
+      "result": "WRONG · CHI won"
     }
   ]
 }
