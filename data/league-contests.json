@@ -1,0 +1,752 @@
+{
+  "source": "Avengers Pregame Bible",
+  "verified_utc": "2026-11-12",
+  "survivor": {
+    "Dakota": {
+      "status": "Eliminated",
+      "revives_used": "3",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Lions",
+          "outcome": "Correct"
+        },
+        {
+          "week": 2,
+          "pick": "49ers",
+          "outcome": "Correct"
+        },
+        {
+          "week": 3,
+          "pick": "Packers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 4,
+          "pick": "Ravens",
+          "outcome": "Correct"
+        },
+        {
+          "week": 5,
+          "pick": "Cowboys",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 6,
+          "pick": "Titans",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 7,
+          "pick": "Panthers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 8,
+          "pick": "",
+          "outcome": "Already eliminated"
+        }
+      ]
+    },
+    "Hunter": {
+      "status": "Alive",
+      "revives_used": "2",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Lions",
+          "outcome": "Correct"
+        },
+        {
+          "week": 2,
+          "pick": "Bears",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "Bills",
+          "outcome": "Correct"
+        },
+        {
+          "week": 4,
+          "pick": "Packers",
+          "outcome": "Correct"
+        },
+        {
+          "week": 5,
+          "pick": "Cowboys",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 6,
+          "pick": "Commanders",
+          "outcome": "Correct"
+        },
+        {
+          "week": 7,
+          "pick": "Vikings",
+          "outcome": "Correct"
+        },
+        {
+          "week": 8,
+          "pick": "Bengals",
+          "outcome": "Correct"
+        }
+      ]
+    },
+    "Mike": {
+      "status": "Alive",
+      "revives_used": "2",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Seahawks",
+          "outcome": "Correct"
+        },
+        {
+          "week": 2,
+          "pick": "49ers",
+          "outcome": "Correct"
+        },
+        {
+          "week": 3,
+          "pick": "Bills",
+          "outcome": "Correct"
+        },
+        {
+          "week": 4,
+          "pick": "Vikings",
+          "outcome": "Correct"
+        },
+        {
+          "week": 5,
+          "pick": "Bengals",
+          "outcome": "Correct"
+        },
+        {
+          "week": 6,
+          "pick": "Cardinals",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 7,
+          "pick": "Texans",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 8,
+          "pick": "Seahawks",
+          "outcome": "Correct"
+        }
+      ]
+    },
+    "Jake": {
+      "status": "Eliminated",
+      "revives_used": "3",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Cowboys",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 2,
+          "pick": "Buccaneers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "Packers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 4,
+          "pick": "Bills",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 5,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 6,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 7,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 8,
+          "pick": "",
+          "outcome": "Already eliminated"
+        }
+      ]
+    },
+    "Travis": {
+      "status": "Alive",
+      "revives_used": "2",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Jaguars",
+          "outcome": "Correct"
+        },
+        {
+          "week": 2,
+          "pick": "Buccaneers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "Lions",
+          "outcome": "Correct"
+        },
+        {
+          "week": 4,
+          "pick": "Vikings",
+          "outcome": "Correct"
+        },
+        {
+          "week": 5,
+          "pick": "Bengals",
+          "outcome": "Correct"
+        },
+        {
+          "week": 6,
+          "pick": "Titans",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 7,
+          "pick": "Broncos",
+          "outcome": "Correct"
+        },
+        {
+          "week": 8,
+          "pick": "Rams",
+          "outcome": "Correct"
+        }
+      ]
+    },
+    "Allysa": {
+      "status": "Eliminated",
+      "revives_used": "3",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Steelers",
+          "outcome": "Correct"
+        },
+        {
+          "week": 2,
+          "pick": "Ravens",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "Chiefs",
+          "outcome": "Correct"
+        },
+        {
+          "week": 4,
+          "pick": "Bills",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 5,
+          "pick": "Cowboys",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 6,
+          "pick": "Jets",
+          "outcome": "Correct"
+        },
+        {
+          "week": 7,
+          "pick": "Panthers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 8,
+          "pick": "",
+          "outcome": "Already eliminated"
+        }
+      ]
+    },
+    "Aaron": {
+      "status": "Alive",
+      "revives_used": "3",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "Chargers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 2,
+          "pick": "Buccaneers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "49ers",
+          "outcome": "Correct"
+        },
+        {
+          "week": 4,
+          "pick": "Ravens",
+          "outcome": "Correct"
+        },
+        {
+          "week": 5,
+          "pick": "Lions",
+          "outcome": "Correct"
+        },
+        {
+          "week": 6,
+          "pick": "Cardinals",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 7,
+          "pick": "Vikings",
+          "outcome": "Correct"
+        },
+        {
+          "week": 8,
+          "pick": "Patriots",
+          "outcome": "Correct"
+        }
+      ]
+    },
+    "Nick": {
+      "status": "Eliminated",
+      "revives_used": "3",
+      "weeks": [
+        {
+          "week": 1,
+          "pick": "",
+          "outcome": "Not entered"
+        },
+        {
+          "week": 2,
+          "pick": "Ravens",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 3,
+          "pick": "Packers",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 4,
+          "pick": "Lions",
+          "outcome": "Wrong"
+        },
+        {
+          "week": 5,
+          "pick": "",
+          "outcome": "No pick — eliminated"
+        },
+        {
+          "week": 6,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 7,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 8,
+          "pick": "",
+          "outcome": "Already eliminated"
+        }
+      ]
+    }
+  },
+  "pickem": {
+    "Mike": [
+      {
+        "week": 1,
+        "correct": 11,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 11,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 5,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 9,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 7,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 5,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 8,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 13,
+        "games": 15
+      }
+    ],
+    "Jake": [
+      {
+        "week": 1,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 11,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 10,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 8,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 11,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 10,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 12,
+        "games": 15
+      }
+    ],
+    "Allysa": [
+      {
+        "week": 1,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 7,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 8,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 8,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 8,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 9,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 13,
+        "games": 15
+      }
+    ],
+    "Hunter": [
+      {
+        "week": 1,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 9,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 9,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 9,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 6,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 6,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 10,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 14,
+        "games": 15
+      }
+    ],
+    "Travis": [
+      {
+        "week": 1,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 7,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 9,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 7,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 5,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 6,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 10,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 12,
+        "games": 15
+      }
+    ],
+    "Dakota": [
+      {
+        "week": 1,
+        "correct": 9,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 13,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 9,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 8,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 6,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 10,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 13,
+        "games": 15
+      }
+    ],
+    "Aaron": [
+      {
+        "week": 1,
+        "correct": 9,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 4,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 5,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 11,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 9,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 13,
+        "games": 15
+      }
+    ],
+    "Nick": [
+      {
+        "week": 1,
+        "correct": 6,
+        "games": 16
+      },
+      {
+        "week": 2,
+        "correct": 8,
+        "games": 16
+      },
+      {
+        "week": 3,
+        "correct": 7,
+        "games": 16
+      },
+      {
+        "week": 4,
+        "correct": 10,
+        "games": 16
+      },
+      {
+        "week": 5,
+        "correct": 0,
+        "games": 15
+      },
+      {
+        "week": 6,
+        "correct": 8,
+        "games": 14
+      },
+      {
+        "week": 7,
+        "correct": 10,
+        "games": 14
+      },
+      {
+        "week": 8,
+        "correct": 5,
+        "games": null
+      },
+      {
+        "week": 9,
+        "correct": 12,
+        "games": 15
+      }
+    ]
+  }
+}
