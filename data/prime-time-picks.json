@@ -46,8 +46,8 @@
         2
       ],
       "SNF": [
-        3,
         2,
+        3,
         0
       ],
       "MNF": [
@@ -345,6 +345,17 @@
         "Aaron": "BUF",
         "Nick": "BUF"
       }
+    }
+  ],
+  "audit_notes": [
+    {
+      "date": "2026-11-11",
+      "week": 5,
+      "game": "SNF · BAL 30, ATL 23",
+      "manager": "Mike",
+      "sleeper_pick": "ATL",
+      "result": "WRONG",
+      "correction": "Original historical snapshot had Mike's Week 5 SNF as BAL (correct); provided Sleeper Week 5 screenshot clearly shows ATL (incorrect). Changed Mike SNF weeks 1–5 baseline from 3–2 to 2–3. TNF week 5 remains historical because it was not visible in these new screenshots."
     }
   ]
 }
