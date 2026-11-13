@@ -80,8 +80,8 @@ function syncAutomaticAwards(){
 var base='https://api.sleeper.app/v1',league='1395849826633019392';
 function get(path){return fetch(base+path,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sleeper '+r.status);return r.json()})}
 Promise.all([get('/state/nfl'),get('/league/'+league+'/rosters'),get('/league/'+league+'/users')]).then(function(v){
-var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'};
-v[2].forEach(function(u){users[u.user_id]=u});v[1].forEach(function(r){var u=users[r.owner_id]||{};names[r.roster_id]=map[u.username]||null});
+var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'},byRoster={1:'Dakota',2:'Mike',3:'Jake',4:'Travis',5:'Allysa',6:'Aaron',7:'Hunter',8:'Nick'};
+v[2].forEach(function(u){users[u.user_id]=u});v[1].forEach(function(r){var u=users[r.owner_id]||{};names[r.roster_id]=byRoster[r.roster_id]||map[u.display_name]||map[u.username]||null});
 return Promise.all(Array.from({length:current-1},function(_,i){return get('/league/'+league+'/matchups/'+(i+1)).then(function(rows){return {week:i+1,rows:rows}})})).then(function(weeks){
 var automatic={'Battle Beast':{},'Uncle Ben':{},'Punisher':{},'Goblin Glider':{}},prior={},confirmed=[];
 function credit(award,coach,week){if(!coach)return;(automatic[award][coach]||(automatic[award][coach]=[])).push(week)}
