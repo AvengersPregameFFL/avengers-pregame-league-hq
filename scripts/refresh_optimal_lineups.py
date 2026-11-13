@@ -50,7 +50,11 @@ def optimal(points, ids):
 rows = []
 for week in range(1,19):
     matchups = get(f"/league/{LEAGUE}/matchups/{week}")
-    if not matchups: continue
+    # Do not publish partial weeks: all eight roster scores must be present.
+    if len(matchups) != len(rosters) or len({m.get('roster_id') for m in matchups}) != len(rosters): continue
+    if any(m.get('points') is None or not m.get('players_points') or not m.get('players') for m in matchups): continue
+    # Sleeper exposes in-progress scores. Only prior weeks are final.
+    if week >= int((league.get('settings') or {}).get('leg') or 1): continue
     for m in matchups:
         pts = m.get("players_points") or {}
         ids = m.get("players") or []
