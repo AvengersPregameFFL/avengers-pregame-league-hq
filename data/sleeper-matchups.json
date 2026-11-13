@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-12T21:59:16.010700+00:00",
+      "verified_at": "2026-11-13T13:17:48.249366+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -133,7 +133,7 @@
       ]
     },
     "10": {
-      "verified_at": "2026-11-12T21:59:16.038912+00:00",
+      "verified_at": "2026-11-13T13:17:48.365409+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -141,7 +141,7 @@
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 0.0
+              "points": 28.76
             },
             {
               "roster_id": 7,
@@ -156,12 +156,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 0.0
+              "points": 27.2
             },
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 0.0
+              "points": 20.3
             }
           ]
         },
@@ -171,12 +171,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 0.0
+              "points": 27.7
             },
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 0.0
+              "points": 7.4
             }
           ]
         },
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-12T21:59:16.067742+00:00",
+      "verified_at": "2026-11-13T13:17:48.454080+00:00",
       "matchups": [
         {
           "matchup_id": 1,
