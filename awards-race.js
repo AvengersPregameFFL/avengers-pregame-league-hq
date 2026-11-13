@@ -75,6 +75,7 @@ var weeks=results.weeks,statusText=weeks.length?'TRACKING '+weeks.length+' RECOR
 if(verifiedAutomatic)statusText+=' · AUTOMATIC SCORING AWARDS SYNCED FROM SLEEPER';if(results.duplicates.length&&!verifiedAutomatic)statusText+=' · CHECK DUPLICATE WINNERS';
 status.textContent=statusText;
 }
+status.textContent='SYNCING COMPLETED WEEKS FROM SLEEPER FEED…';
 render();
 function syncAutomaticAwards(){
 /* Use the repository's scheduled, league-scored Sleeper feed. Never score an
