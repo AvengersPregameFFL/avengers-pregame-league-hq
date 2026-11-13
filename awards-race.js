@@ -80,7 +80,7 @@ function syncAutomaticAwards(){
 var base='https://api.sleeper.app/v1',league='1395849826633019392';
 function get(path){return fetch(base+path,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sleeper '+r.status);return r.json()})}
 Promise.all([get('/state/nfl'),get('/league/'+league+'/rosters'),get('/league/'+league+'/users')]).then(function(v){
-var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'},byRoster={1:'Dakota',2:'Mike',3:'Jake',4:'Travis',5:'Allysa',6:'Aaron',7:'Hunter',8:'Nick'};
+var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'},byRoster={1:'Dakota',2:'Mike',3:'Travis',4:'Aaron',5:'Allysa',6:'Hunter',7:'Jake',8:'Nick'};
 v[2].forEach(function(u){users[u.user_id]=u});v[1].forEach(function(r){var u=users[r.owner_id]||{};names[r.roster_id]=byRoster[r.roster_id]||map[u.display_name]||map[u.username]||null});
 return Promise.all(Array.from({length:current-1},function(_,i){return get('/league/'+league+'/matchups/'+(i+1)).then(function(rows){return {week:i+1,rows:rows}})})).then(function(weeks){
 var automatic={'Battle Beast':{},'Uncle Ben':{},'Punisher':{},'Goblin Glider':{}},prior={},confirmed=[];
@@ -96,8 +96,8 @@ if(margins.length){var max=Math.max.apply(null,margins.map(function(m){return m.
 var drops=rows.map(function(r){return {roster_id:r.roster_id,drop:prior[r.roster_id]===undefined?null:prior[r.roster_id]-r.points}}).filter(function(r){return r.drop!==null&&r.drop>0});if(drops.length){var largest=Math.max.apply(null,drops.map(function(r){return r.drop}));drops.filter(function(r){return Math.abs(r.drop-largest)<.001}).forEach(function(r){credit('Goblin Glider',names[r.roster_id],item.week)})}
 rows.forEach(function(r){prior[r.roster_id]=r.points});
 });
-if(confirmed.length){verifiedAutomatic=automatic;verifiedWeeks=confirmed;render()}
-})}).catch(function(){status.textContent+=' · SLEEPER AUTOMATIC AWARDS UPDATE UNAVAILABLE'});
+if(confirmed.length){verifiedAutomatic=automatic;verifiedWeeks=confirmed;render()}else{status.textContent='LIVE AWARD SYNC: NO COMPLETED WEEKS VERIFIED · HISTORICAL AWARDS BELOW MAY BE INCOMPLETE'}
+})}).catch(function(){status.textContent+=' · LIVE SYNC UNAVAILABLE — HISTORICAL AWARDS MAY BE INCOMPLETE'});
 }
 syncAutomaticAwards();setInterval(function(){if(!document.hidden)syncAutomaticAwards()},600000);
 var historyButton=document.getElementById('award-history-button');
