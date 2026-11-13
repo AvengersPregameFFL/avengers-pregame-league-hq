@@ -1,6 +1,6 @@
 {
   "league_id": "1395849826633019392",
-  "generated_at": "2026-11-13T12:07:51.966757+00:00",
+  "generated_at": "2026-11-13T22:36:17.610309+00:00",
   "roster_positions": [
     "QB",
     "RB",
@@ -590,46 +590,6 @@
       "actual": 165.58,
       "optimal": 165.78,
       "efficiency": 99.88
-    },
-    {
-      "week": 10,
-      "roster_id": 1,
-      "manager": "Dk25313",
-      "actual": 27.2,
-      "optimal": 27.2,
-      "efficiency": 100.0
-    },
-    {
-      "week": 10,
-      "roster_id": 2,
-      "manager": "InfinityBrocklet",
-      "actual": 20.3,
-      "optimal": 20.3,
-      "efficiency": 100.0
-    },
-    {
-      "week": 10,
-      "roster_id": 3,
-      "manager": "TGriffy93",
-      "actual": 27.7,
-      "optimal": 33.9,
-      "efficiency": 81.71
-    },
-    {
-      "week": 10,
-      "roster_id": 4,
-      "manager": "Mexipez1999",
-      "actual": 7.4,
-      "optimal": 7.4,
-      "efficiency": 100.0
-    },
-    {
-      "week": 10,
-      "roster_id": 6,
-      "manager": "hboogie1003",
-      "actual": 28.76,
-      "optimal": 28.76,
-      "efficiency": 100.0
     }
   ]
 }
