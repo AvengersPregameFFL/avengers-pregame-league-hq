@@ -77,27 +77,37 @@ status.textContent=statusText;
 }
 render();
 function syncAutomaticAwards(){
-var base='https://api.sleeper.app/v1',league='1395849826633019392';
-function get(path){return fetch(base+path,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sleeper '+r.status);return r.json()})}
-Promise.all([get('/state/nfl'),get('/league/'+league+'/rosters'),get('/league/'+league+'/users')]).then(function(v){
-var current=Math.max(1,Math.min(18,Number(v[0].week)||1)),users={},names={},map={Dk25313:'Dakota',hboogie1003:'Hunter',InfinityBrocklet:'Mike',fondlerballer:'Jake',TGriffy93:'Travis',dentalhygenius:'Allysa',Mexipez1999:'Aaron',noreilly1993:'Nick'},byRoster={1:'Dakota',2:'Mike',3:'Travis',4:'Aaron',5:'Allysa',6:'Hunter',7:'Jake',8:'Nick'};
-v[2].forEach(function(u){users[u.user_id]=u});v[1].forEach(function(r){var u=users[r.owner_id]||{};names[r.roster_id]=byRoster[r.roster_id]||map[u.display_name]||map[u.username]||null});
-return Promise.all(Array.from({length:current-1},function(_,i){return get('/league/'+league+'/matchups/'+(i+1)).then(function(rows){return {week:i+1,rows:rows}})})).then(function(weeks){
-var automatic={'Battle Beast':{},'Uncle Ben':{},'Punisher':{},'Goblin Glider':{}},prior={},confirmed=[];
-function credit(award,coach,week){if(!coach)return;(automatic[award][coach]||(automatic[award][coach]=[])).push(week)}
-weeks.forEach(function(item){
-var rows=item.rows;if(!Array.isArray(rows)||rows.length!==v[1].length||rows.some(function(r){return typeof r.points!=='number'||!names[r.roster_id]}))return;
-confirmed.push(item.week);
-var highest=rows.reduce(function(a,b){return a.points>b.points?a:b}),lowest=rows.reduce(function(a,b){return a.points<b.points?a:b});
-rows.filter(function(r){return r.points===highest.points}).forEach(function(r){credit('Battle Beast',names[r.roster_id],item.week)});
-rows.filter(function(r){return r.points===lowest.points}).forEach(function(r){credit('Uncle Ben',names[r.roster_id],item.week)});
-var margins=[];rows.forEach(function(r){var opponent=rows.find(function(o){return o.roster_id!==r.roster_id&&o.matchup_id!=null&&o.matchup_id===r.matchup_id});if(opponent&&r.points>opponent.points)margins.push({roster_id:r.roster_id,margin:r.points-opponent.points})});
-if(margins.length){var max=Math.max.apply(null,margins.map(function(m){return m.margin}));margins.filter(function(m){return Math.abs(m.margin-max)<.001}).forEach(function(m){credit('Punisher',names[m.roster_id],item.week)})}
-var drops=rows.map(function(r){return {roster_id:r.roster_id,drop:prior[r.roster_id]===undefined?null:prior[r.roster_id]-r.points}}).filter(function(r){return r.drop!==null&&r.drop>0});if(drops.length){var largest=Math.max.apply(null,drops.map(function(r){return r.drop}));drops.filter(function(r){return Math.abs(r.drop-largest)<.001}).forEach(function(r){credit('Goblin Glider',names[r.roster_id],item.week)})}
-rows.forEach(function(r){prior[r.roster_id]=r.points});
+/* Use the repository's scheduled, league-scored Sleeper feed. Never score an
+ * incomplete week or depend on browser access to Sleeper's API. */
+fetch('./data/optimal-lineups.json?refresh='+Date.now(),{cache:'no-store'})
+.then(function(response){if(!response.ok)throw Error('Feed '+response.status);return response.json()})
+.then(function(feed){
+if(String(feed.league_id)!=='1395849826633019392'||!Array.isArray(feed.rows))throw Error('Invalid league feed');
+var names={1:'Dakota',2:'Mike',3:'Travis',4:'Aaron',5:'Allysa',6:'Hunter',7:'Jake',8:'Nick'};
+var groups={},automatic={'Battle Beast':{},'Uncle Ben':{},'Watcher':{}},confirmed=[];
+feed.rows.forEach(function(r){
+var week=Number(r.week),id=Number(r.roster_id);
+if(!Number.isInteger(week)||week<1||week>18||!names[id])return;
+(groups[week]||(groups[week]=[])).push(r);
 });
-if(confirmed.length){verifiedAutomatic=automatic;verifiedWeeks=confirmed;render()}else{status.textContent='LIVE AWARD SYNC: NO COMPLETED WEEKS VERIFIED · HISTORICAL AWARDS BELOW MAY BE INCOMPLETE'}
-})}).catch(function(){status.textContent+=' · LIVE SYNC UNAVAILABLE — HISTORICAL AWARDS MAY BE INCOMPLETE'});
+function credit(award,id,week){var coach=names[id];if(coach)(automatic[award][coach]||(automatic[award][coach]=[])).push(week)}
+Object.keys(groups).map(Number).sort(function(a,b){return a-b}).forEach(function(week){
+var rows=groups[week],ids=rows.map(function(r){return Number(r.roster_id)});
+if(rows.length!==8||new Set(ids).size!==8||rows.some(function(r){return !Number.isFinite(Number(r.actual))||!Number.isFinite(Number(r.optimal))||Number(r.optimal)+0.02<Number(r.actual)}))return;
+confirmed.push(week);
+var high=Math.max.apply(null,rows.map(function(r){return Number(r.actual)}));
+var low=Math.min.apply(null,rows.map(function(r){return Number(r.actual)}));
+var gap=Math.max.apply(null,rows.map(function(r){return Number(r.optimal)-Number(r.actual)}));
+rows.forEach(function(r){
+if(Math.abs(Number(r.actual)-high)<0.011)credit('Battle Beast',Number(r.roster_id),week);
+if(Math.abs(Number(r.actual)-low)<0.011)credit('Uncle Ben',Number(r.roster_id),week);
+if(Math.abs(Number(r.optimal)-Number(r.actual)-gap)<0.011)credit('Watcher',Number(r.roster_id),week);
+});
+});
+if(!confirmed.length)throw Error('No complete weeks');
+verifiedAutomatic=automatic;verifiedWeeks=confirmed;render();
+status.textContent='AUTOMATIC AWARDS VERIFIED THROUGH WEEK '+Math.max.apply(null,confirmed)+' · '+confirmed.length+' COMPLETE WEEKS · SOURCE: SLEEPER LINEUP FEED';
+}).catch(function(e){status.textContent='AWARD SYNC UNAVAILABLE — HISTORICAL RESULTS MAY BE INCOMPLETE';});
 }
 syncAutomaticAwards();setInterval(function(){if(!document.hidden)syncAutomaticAwards()},600000);
 var historyButton=document.getElementById('award-history-button');
