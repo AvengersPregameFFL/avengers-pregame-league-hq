@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-15T22:50:44.762080+00:00",
+  "generated_at_utc": "2026-11-15T23:55:00.548516+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1174,7 +1174,7 @@
           "96",
           "GB"
         ],
-        "points": 118.8,
+        "points": 148.5,
         "roster_id": 1,
         "starters": [
           "96",
@@ -1190,11 +1190,11 @@
         ],
         "starters_points": [
           0.0,
-          4.5,
+          5.1,
           27.2,
-          9.4,
-          0.0,
-          5.6,
+          31.1,
+          4.3,
+          8.7,
           12.0,
           35.1,
           21.0,
@@ -1221,7 +1221,7 @@
           "MIN",
           "SF"
         ],
-        "points": 153.44,
+        "points": 165.74,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1238,7 +1238,7 @@
         "starters_points": [
           25.34,
           34.2,
-          18.2,
+          30.5,
           16.9,
           20.3,
           3.8,
@@ -1268,7 +1268,7 @@
           "9509",
           "SEA"
         ],
-        "points": 128.42,
+        "points": 132.42,
         "roster_id": 3,
         "starters": [
           "11564",
@@ -1292,7 +1292,7 @@
           27.7,
           28.2,
           7.5,
-          6.0
+          10.0
         ]
       },
       {
@@ -1314,7 +1314,7 @@
           "9753",
           "LAR"
         ],
-        "points": 55.3,
+        "points": 68.6,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1331,14 +1331,14 @@
         "starters_points": [
           0.0,
           0.0,
-          5.3,
+          9.4,
           7.4,
           0.0,
           2.4,
           15.3,
           6.7,
-          5.2,
-          13.0
+          10.4,
+          17.0
         ]
       },
       {
@@ -1361,7 +1361,7 @@
           "9228",
           "JAX"
         ],
-        "points": 73.4,
+        "points": 74.5,
         "roster_id": 5,
         "starters": [
           "9228",
@@ -1378,7 +1378,7 @@
         "starters_points": [
           8.1,
           0.0,
-          4.1,
+          5.2,
           25.8,
           0.0,
           2.6,
@@ -1408,7 +1408,7 @@
           "BAL",
           "TB"
         ],
-        "points": 113.46,
+        "points": 131.46,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -1425,10 +1425,10 @@
         "starters_points": [
           28.76,
           44.2,
-          9.5,
+          20.9,
           4.7,
           16.4,
-          4.8,
+          11.4,
           2.5,
           2.6,
           0.0,
@@ -1454,7 +1454,7 @@
           "8129",
           "IND"
         ],
-        "points": 159.72,
+        "points": 164.02,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -1477,7 +1477,7 @@
           5.0,
           0.0,
           20.3,
-          4.4,
+          8.7,
           13.0
         ]
       },
@@ -1501,7 +1501,7 @@
           "BUF",
           "DEN"
         ],
-        "points": 110.24,
+        "points": 115.42,
         "roster_id": 8,
         "starters": [
           "8183",
@@ -1516,7 +1516,7 @@
           "BUF"
         ],
         "starters_points": [
-          21.44,
+          26.62,
           23.9,
           16.1,
           0.0,
