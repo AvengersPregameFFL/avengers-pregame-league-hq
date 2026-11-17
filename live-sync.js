@@ -12,7 +12,7 @@ function csv(t){var out=[],row=[],v='',quoted=false;for(var i=0;i<t.length;i++){
 function sheetRows(gid){var url='https://docs.google.com/spreadsheets/d/'+sheet+'/gviz/tq?tqx=out:csv&gid='+gid+'&cache='+Math.floor(Date.now()/300000);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sheet access '+r.status);return r.text()}).then(function(t){if(/^\s*</.test(t)||!t.includes(','))throw Error('Sheet is not publicly readable');return csv(t)})}
 function sheetRowsFrom(id,gid){var url='https://docs.google.com/spreadsheets/d/'+encodeURIComponent(id)+'/gviz/tq?tqx=out:csv&gid='+gid+'&cache='+Math.floor(Date.now()/300000);return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Sheet access '+r.status);return r.text()}).then(function(t){if(/^\s*</.test(t)||!t.includes(','))throw Error('Sheet is not publicly readable');return csv(t)})}
 var reportStatus=null;
-function status(id,message,ok){if(reportStatus)reportStatus(id,message,ok);var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');h.insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
+function status(id,message,ok,current){if(reportStatus)reportStatus(id,message,ok,current);var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');h.insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
 function replace(id,node){var sec=document.getElementById(id);if(!sec)return;
 if(id==='awards'){
   /* Live sheet is supplementary: do not replace or hide the season graphs or weekly history. */
@@ -49,7 +49,32 @@ if(snapshot&&entries.length){
  if(cards[1]){var lead=entries.slice().sort(function(a,b){return b.pf-a.pf})[0];var v=cards[1].querySelector('.hp-stat-value'),n=cards[1].querySelector('.hp-stat-note');if(v)v.textContent=lead.manager.toUpperCase();if(n)n.textContent=fmt(lead.pf)+' PF'}
 }
 var table=el('table','table'),tr=el('tr');['Manager / Team','W–L','PF','PA'].forEach(function(t){tr.appendChild(el('th','',t))});table.appendChild(tr);entries.forEach(function(e){var tr=el('tr'),td=el('td'),a=el('a','link',e.manager);a.href='#coach-'+encodeURIComponent(e.manager);td.appendChild(a);td.appendChild(el('small','',e.team));tr.appendChild(td);[e.w+'–'+e.l+(e.t?'–'+e.t:''),fmt(e.pf),fmt(e.pa)].forEach(function(x){tr.appendChild(el('td','',x))});table.appendChild(tr)});var w=el('div','tablewrap');w.appendChild(table);status('standings','LIVE · Sleeper standings · '+(leagueInfo.season||'2026')+' season',true);replace('standings',w);var story=document.querySelector('.hp-story-slide:not(.hp-story-schedule) .hp-story-big');if(story&&entries[0])story.textContent=entries[0].manager.toUpperCase()+' · '+entries[0].w+'–'+entries[0].l}).catch(function(e){status('standings','Sleeper live update unavailable. Showing last saved standings. '+e.message,false)})}
-function pickem(){sheetRows(gids.pickem).then(function(rows){var head=rows[0]||[];if(/^\s*week\s*$/i.test(safe(head[0]).replace(/^\uFEFF/,'')))rows.shift();var entries=rows.filter(function(r){return /^\s*\d{1,2}\s*$/.test(safe(r[0]))&&num(r[0])>=1&&num(r[0])<=18&&safe(r[1]).trim()}),weeks=[...new Set(entries.map(function(r){return num(r[0])}))].sort(function(a,b){return b-a}),box=el('div');var totals={};entries.forEach(function(r){var name=r[1];if(!totals[name])totals[name]=0;totals[name]+=num(r[3])});var leader=panel('SEASON PICK’EM LEADERBOARD');var highest=Math.max.apply(null,Object.keys(totals).map(function(n){return totals[n]}));Object.keys(totals).sort(function(a,b){return totals[b]-totals[a]}).forEach(function(n){var item=row(n,totals[n]+' correct');if(totals[n]===highest){var nameCell=item.querySelector('strong');if(!nameCell)nameCell=item.querySelector('div');if(nameCell)nameCell.insertBefore(el('span','leader-crown','👑'),nameCell.firstChild)}leader.appendChild(item)});box.appendChild(leader);weeks.forEach(function(week){var inProgress=entries.some(function(r){return num(r[0])===week&&!r[4]});var p=panel('WEEK '+week+(inProgress?' · IN PROGRESS':''));entries.filter(function(r){return num(r[0])===week}).sort(function(a,b){return num(b[3])-num(a[3])}).forEach(function(r){p.appendChild(row(r[1],r[4]?r[3]+' / '+r[4]+' correct':r[3]+' correct so far',r[5]==='TRUE'?'Perfect week':r[4]?'':'IN PROGRESS'))});box.appendChild(p)});status('pickem',(weeks.length>=10?'LIVE':'INCOMPLETE SOURCE')+' · '+weeks.length+' weeks recorded'+(weeks.length<10?' · Verify Google Sheet coverage':''),weeks.length>=10);replace('pickem',box)}).catch(function(e){status('pickem','Saved results shown. Live updates unavailable. '+e.message,false)})}
+function pickem(){
+ function showVerified(data){
+  if(!data||!data.baseline_week1_to_5||!data.weekly)throw Error('Invalid verified Pickem ledger');
+  var w=Number(data.verified_through_week),names={DK:'Dakota',Hunter:'Hunter',Mike:'Mike',Jake:'Jake',Travis:'Travis',Alyssa:'Allysa',Aaron:'Aaron',Nick:'Nick'};
+  if(w<10)throw Error('Verified Pickem ledger ends before Week 10');
+  var rows=Object.keys(names).map(function(k){var weeks=[];for(var week=1;week<=w;week++){var val=week<=5?(data.baseline_week1_to_5[k]||[])[week-1]:(data.weekly[String(week)]||{})[k];if(val==null||!Number.isFinite(Number(val)))throw Error('Missing '+k+' W'+week);weeks.push(Number(val))}
+   return{name:names[k],weeks:weeks,total:weeks.reduce(function(a,b){return a+b},0)}
+  }).sort(function(a,b){return b.total-a.total||a.name.localeCompare(b.name)});
+  var box=el('div'),leader=panel('SEASON PICK’EM · VERIFIED THROUGH WEEK '+w);
+  rows.forEach(function(r,i){leader.appendChild(row((i+1)+'. '+r.name,r.total+' correct'))});box.appendChild(leader);
+  for(var week=w;week>=1;week--){var p=panel('WEEK '+week+' · VERIFIED RESULTS');rows.slice().sort(function(a,b){return b.weeks[week-1]-a.weeks[week-1]}).forEach(function(r){p.appendChild(row(r.name,r.weeks[week-1]+' correct'))});box.appendChild(p)}
+  status('pickem','VERIFIED · Complete Week 1–'+w+' Pickem ledger · all 8 managers',true,true);replace('pickem',box);
+ }
+ function showPartial(rows){
+  if(rows[0]&&/^week$/i.test(safe(rows[0][0]).trim()))rows.shift();
+  var entries=rows.filter(function(r){return /^\d{1,2}$/.test(safe(r[0]).trim())&&r[1]}),weeks=[...new Set(entries.map(function(r){return Number(r[0])}))];
+  if(!entries.length)throw Error('No CSV rows');
+  var totals={},box=el('div'),leader=panel('PARTIAL PICK’EM · GOOGLE SHEET FALLBACK');
+  entries.forEach(function(r){totals[r[1]]=(totals[r[1]]||0)+num(r[3])});
+  Object.keys(totals).sort(function(a,b){return totals[b]-totals[a]}).forEach(function(n){leader.appendChild(row(n,totals[n]+' correct (partial)'))});box.appendChild(leader);
+  status('pickem','PARTIAL · '+weeks.length+' weeks visible; verified ledger unavailable',true,false);replace('pickem',box);
+ }
+ fetch('./data/pickem-weekly-verified.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('Verified ledger HTTP '+r.status);return r.json()}).then(showVerified).catch(function(e){
+  sheetRows(gids.pickem).then(showPartial).catch(function(err){status('pickem','Pickem connection unavailable: '+e.message+'; '+err.message,false,false)});
+ });
+}
 function survivor(){sheetRows(gids.survivor).then(function(rows){var h=rows.shift();if(!h||h[0]!=='Manager')throw Error('Unexpected Survivor columns');var list=rows.filter(function(r){return r[0]}).map(function(r){var wins=0,picks=[];for(var i=1;i<=18;i++){var col=i<=2?2+(i-1)*2:10+(i-3)*2;var pick=r[col],out=r[col+1];if(safe(out).toLowerCase()==='correct')wins++;if(pick)picks.push('W'+i+': '+pick+' ('+(out||'Pending')+')')}return{name:r[0],wins:wins,revives:num(r[6]),state:r[7]||'Unknown',picks:picks,notes:r[9]||''}}).sort(function(a,b){return b.wins-a.wins||a.revives-b.revives});var box=el('div','surv-board');box.appendChild(el('h2','','THE LAST ONES STANDING'));list.forEach(function(v){var item=el('div','surv-entry'+(v.state.toLowerCase().indexOf('eliminat')>=0?' surv-out':'')),head=el('div','surv-head'),link=el('a','surv-name',v.name),state=el('span','surv-state',v.state.toLowerCase().indexOf('eliminat')>=0?'ELIMINATED':'STILL ALIVE');link.href='#coach-'+v.name;if(v.wins===list[0].wins&&v.revives===list[0].revives&&v.state.toLowerCase().indexOf('eliminat')<0){var crown=el('span','leader-crown','👑');crown.setAttribute('aria-label','Current Survivor leader');head.appendChild(crown)}head.appendChild(link);head.appendChild(state);item.appendChild(head);var track=el('div','surv-track');track.setAttribute('role','img');track.setAttribute('aria-label',v.name+': '+v.wins+' winning picks, '+v.revives+' revives used');var win=el('div','surv-seg surv-win'),rev=el('div','surv-seg surv-revive');win.style.width=(Math.min(v.wins,18)/18*100)+'%';rev.style.width=(Math.min(v.revives,18)/18*100)+'%';track.appendChild(win);track.appendChild(rev);item.appendChild(track);item.appendChild(el('div','surv-stats',v.wins+' winning picks · '+v.revives+' revives used'));var det=el('details'),sum=el('summary','', 'Week-by-week picks');det.appendChild(sum);det.appendChild(el('p','muted',v.picks.join(' · ')));if(v.notes)det.appendChild(el('p','muted',v.notes));item.appendChild(det);box.appendChild(item)});status('survivor','CURRENT SURVIVOR STANDINGS',true);replace('survivor',box)}).catch(function(e){status('survivor','Saved survivor standings shown',false)})}
 function records(){fetch('./data/record-book.json',{cache:'no-store'}).then(function(response){if(!response.ok)throw Error('Record Book HTTP '+response.status);return response.json()}).then(function(snapshot){if(!snapshot||!Array.isArray(snapshot.rows)||!Number.isInteger(snapshot.verifiedThroughWeek))throw Error('Invalid Record Book snapshot');return snapshot}).then(function(snapshot){var rows=snapshot.rows;
 var norm=function(v){return safe(v).trim().toLowerCase().replace(/[^a-z0-9]/g,'')};
@@ -68,7 +93,7 @@ var meta=el('div','record-meta',r.holder+' · '+r.year+(r.week?' · '+r.week:'')
 if(r.team&&r.team!==r.holder)card.appendChild(el('div','record-team',r.team));
 if(r.detail&&r.detail.length<130)card.title=r.detail;
 section.appendChild(card)});box.appendChild(section)});
-status('records','SNAPSHOT · verified through Week '+snapshot.verifiedThroughWeek+(snapshot.verifiedThroughWeek<10?' · HISTORICAL / REVIEW REQUIRED':''),snapshot.verifiedThroughWeek>=10);replace('records',box);
+status('records','SNAPSHOT · verified through Week '+snapshot.verifiedThroughWeek+(snapshot.verifiedThroughWeek<10?' · HISTORICAL / REVIEW REQUIRED':''),true,snapshot.verifiedThroughWeek>=10);replace('records',box);
 }).catch(function(e){status('records','Saved records displayed · live refresh unavailable: '+e.message,false)})}
 function awards(){sheetRows(gids.awards).then(function(rows){if(!rows.length||rows[0][0]!=='Comic Award / Metric')throw Error('Unexpected Awards columns');var box=el('div','live-award-grid');rows.slice(1).filter(function(r){return r[0]&&r[1]}).forEach(function(r){
 var p=panel(r[0]);p.classList.add('live-award-card');p.appendChild(el('p','live-award-description',r[1]));
@@ -79,7 +104,7 @@ if(r[5])meta.appendChild(el('span','live-award-frequency',r[5]));
 p.appendChild(meta);
 if(r[4]){var detail=el('div','live-award-context');detail.appendChild(el('span','live-award-field','AWARD DETAILS'));detail.appendChild(el('p','',r[4]));p.appendChild(detail)}
 box.appendChild(p);
-});status('awards','SHEET LOADED · award definitions and listed winners · recency NOT VERIFIED',false);replace('awards',box)}).catch(function(e){status('awards','Saved awards shown. Live updates unavailable. '+e.message,false)})}
+});status('awards','SHEET LOADED · award definitions and listed winners · recency NOT VERIFIED',true,false);replace('awards',box)}).catch(function(e){status('awards','Saved awards shown. Live updates unavailable. '+e.message,false)})}
 function accuracy(){
  fetch('./data/optimal-lineups.json?ts='+Date.now(),{cache:'no-store'}).then(function(response){
   if(!response.ok)throw Error('Sleeper optimal lineup snapshot HTTP '+response.status);
@@ -113,7 +138,7 @@ function accuracy(){
   var generated=Date.parse(data.generated_at||'');
   var age=Date.now()-generated;
   var fresh=Number.isFinite(age)&&age>=0&&age<36*3600000;
-  status('accuracy','SEASON LINEUP ACCURACY · WEEKS '+complete[0]+'–'+complete[complete.length-1]+' · SOURCE '+(Number.isFinite(generated)?new Date(generated).toLocaleString():'UNKNOWN')+(fresh?'':' · DATA DELAYED'),fresh);
+  status('accuracy','SEASON LINEUP ACCURACY · WEEKS '+complete[0]+'–'+complete[complete.length-1]+' · SOURCE '+(Number.isFinite(generated)?new Date(generated).toLocaleString():'UNKNOWN')+(fresh?'':' · DATA DELAYED'),true,fresh);
   replace('accuracy',box);
  }).catch(function(e){status('accuracy','Coach accuracy unavailable: '+e.message,false)});
 }
@@ -154,20 +179,20 @@ function clock(t){return t?new Date(t).toLocaleTimeString([],{hour:'numeric',min
 function render(){
  var failed=ids.filter(function(id){return state[id]&&state[id].ok===false});
  var good=ids.filter(function(id){return state[id]&&state[id].ok===true});
- var old=good.filter(function(id){return Date.now()-state[id].success>300000});
- indicator.textContent=inFlight?'LEAGUE DATA · Checking '+pending.size+' sources…':failed.length?'LEAGUE DATA · '+failed.length+' source'+(failed.length===1?'':'s')+' unavailable · DETAILS':old.length?'LEAGUE DATA · '+old.length+' source'+(old.length===1?'':'s')+' delayed · DETAILS':good.length===ids.length?'LEAGUE DATA · '+ids.length+'/'+ids.length+' sources updated · '+clock(Math.min.apply(null,good.map(function(id){return state[id].success}))):'LEAGUE DATA · Waiting for source checks';
+ var old=good.filter(function(id){return state[id].current===false||Date.now()-state[id].success>300000});
+ indicator.textContent=inFlight?'LEAGUE DATA · Checking '+pending.size+' sources…':failed.length?'LEAGUE DATA · '+failed.length+' connection'+(failed.length===1?'':'s')+' unavailable · DETAILS':old.length?'LEAGUE DATA · '+good.length+'/'+ids.length+' loaded · '+old.length+' delayed/review · DETAILS':good.length===ids.length?'LEAGUE DATA · '+ids.length+'/'+ids.length+' sources current · '+clock(Math.min.apply(null,good.map(function(id){return state[id].success}))):'LEAGUE DATA · Waiting for source checks';
  indicator.style.borderColor=failed.length?'#ff786b':'#ffd400';
 }
-reportStatus=function(id,message,ok){
+reportStatus=function(id,message,ok,current){
  if(ids.indexOf(id)<0)return;
  var previous=state[id]||{};
- state[id]={ok:ok,success:ok?Date.now():previous.success||0,attempt:Date.now(),message:message};
+ state[id]={ok:ok,current:ok?(current!==false):false,success:ok?Date.now():previous.success||0,attempt:Date.now(),message:message};
  pending.delete(id);
  if(inFlight&&pending.size===0)inFlight=false;
  render();
 };
 indicator.addEventListener('click',function(){
- window.alert('League data freshness:\n\n'+ids.map(function(id){var x=state[id];return id.toUpperCase()+': '+(!x?'not checked':(x.ok?'updated '+clock(x.success):'unavailable; last success '+clock(x.success)))+(x?'\n'+x.message:'')}).join('\n\n'));
+ window.alert('League data freshness:\n\n'+ids.map(function(id){var x=state[id];return id.toUpperCase()+': '+(!x?'not checked':(x.ok?(x.current?'updated ':'loaded, source delayed · checked ')+clock(x.success):'unavailable; last success '+clock(x.success)))+(x?'\n'+x.message:'')}).join('\n\n'));
 });
 function refresh(force){
  if(document.hidden&&!force)return;
