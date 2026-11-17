@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "season": 2026,
-  "verified_through_week": 9,
-  "source": "Google Avengers Pregame Bible Pickem totals Weeks 1-5 plus screenshot-verified Sleeper Pool W6-W9",
+  "verified_through_week": 10,
+  "source": "Google Avengers Pregame Bible Pickem totals W1–W5; commissioner Sleeper Pool screenshots W6–W10 (2026-11-17)",
   "baseline_week1_to_5": {
     "DK": [
       9,
@@ -101,6 +101,16 @@
       "Alyssa": 13,
       "Aaron": 13,
       "Nick": 12
+    },
+    "10": {
+      "DK": 11,
+      "Hunter": 1,
+      "Mike": 7,
+      "Jake": 8,
+      "Travis": 9,
+      "Alyssa": 11,
+      "Aaron": 9,
+      "Nick": 0
     }
   }
 }
