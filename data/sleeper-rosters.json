@@ -1,10 +1,16 @@
 {
   "current_nfl_week": 11,
-  "generated_at_utc": "2026-11-17T12:00:07.475038+00:00",
+  "generated_at_utc": "2026-11-17T13:25:38.509545+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
   "players": {
+    "0": {
+      "name": "0",
+      "position": null,
+      "status": null,
+      "team": null
+    },
     "10229": {
       "name": "Rashee Rice",
       "position": "WR",
@@ -966,7 +972,6 @@
       "players": [
         "11566",
         "11586",
-        "12491",
         "12514",
         "13346",
         "4217",
@@ -978,24 +983,21 @@
         "9221",
         "9484",
         "9758",
-        "BAL",
         "TB"
       ],
-      "reserve": [
-        "7543"
-      ],
+      "reserve": [],
       "roster_id": 6,
       "starters": [
         "11566",
         "9221",
-        "11586",
-        "5859",
+        "7543",
+        "0",
         "6794",
         "4217",
-        "12491",
-        "13346",
+        "7525",
+        "12514",
         "7839",
-        "BAL"
+        "TB"
       ],
       "taxi": [],
       "team_name": "Hurts Venom Inside Her"
@@ -1703,7 +1705,6 @@
         "players": [
           "11566",
           "11586",
-          "12491",
           "12514",
           "13346",
           "4217",
@@ -1715,7 +1716,6 @@
           "9221",
           "9484",
           "9758",
-          "BAL",
           "TB"
         ],
         "points": 0.0,
@@ -1723,14 +1723,14 @@
         "starters": [
           "11566",
           "9221",
-          "11586",
-          "5859",
+          "7543",
+          "0",
           "6794",
           "4217",
-          "12491",
-          "13346",
+          "7525",
+          "12514",
           "7839",
-          "BAL"
+          "TB"
         ],
         "starters_points": [
           0.0,
@@ -2079,7 +2079,6 @@
         "players": [
           "11566",
           "11586",
-          "12491",
           "12514",
           "13346",
           "4217",
@@ -2091,7 +2090,6 @@
           "9221",
           "9484",
           "9758",
-          "BAL",
           "TB"
         ],
         "points": 0.0,
@@ -2099,14 +2097,14 @@
         "starters": [
           "11566",
           "9221",
-          "11586",
-          "5859",
+          "7543",
+          "0",
           "6794",
           "4217",
-          "12491",
-          "13346",
+          "7525",
+          "12514",
           "7839",
-          "BAL"
+          "TB"
         ],
         "starters_points": [
           0.0,
