@@ -119,6 +119,27 @@ a{color:inherit}.shell{width:min(1100px,calc(100% - 18px));margin:14px auto 30px
  .comic-grid>.panel-life .read-ribbon,.comic-grid>.panel-four.panel-published .read-ribbon{font-size:clamp(12px,3vw,16px);padding:8px 3px}
  .comic-grid .story-number{font-size:11px;padding:5px 6px}
 }
+
+/* v137: editorial hierarchy — Jugs hero, full-width Nick strip, two equal comic squares */
+.comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start}
+.comic-grid>.panel-main{grid-column:1/-1!important;grid-row:1!important;width:100%!important}
+.comic-grid>.panel-schedule{grid-column:1/-1!important;grid-row:2!important;width:100%!important}
+.comic-grid>.panel-life{grid-column:1!important;grid-row:3!important;width:100%!important}
+.comic-grid>.panel-four.panel-published{grid-column:2!important;grid-row:3!important;width:100%!important;justify-self:stretch!important}
+.comic-grid>.panel-life img,.comic-grid>.panel-four.panel-published img{
+ display:block!important;width:100%!important;aspect-ratio:1/1!important;height:auto!important;
+ object-fit:contain!important;object-position:center!important;background:#181020!important
+}
+.comic-grid>.panel-life .story-title,.comic-grid>.panel-four.panel-published .story-title{
+ font-size:clamp(19px,3.4vw,37px)!important;line-height:1.05!important
+}
+.comic-grid>.panel-life .story-sub,.comic-grid>.panel-four.panel-published .story-sub{font-size:clamp(12px,1.7vw,19px)!important}
+.comic-grid>.panel-schedule img{width:100%!important;height:auto!important;object-fit:contain!important}
+@media(max-width:650px){
+ .comic-grid>.panel-life .story-title,.comic-grid>.panel-four.panel-published .story-title{font-size:clamp(18px,4.5vw,27px)!important}
+ .comic-grid>.panel-life .story-sub,.comic-grid>.panel-four.panel-published .story-sub{font-size:clamp(11px,2.8vw,15px)!important}
+ .comic-grid>.panel-life .read-ribbon,.comic-grid>.panel-four.panel-published .read-ribbon{font-size:12px!important;padding:8px 2px!important}
+}
 </style></head>
 <body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><h1 class="logo"><small>THE</small>PREGAME BUGLE</h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div>
 <section class="comic-grid" aria-label="Four featured story slots">
