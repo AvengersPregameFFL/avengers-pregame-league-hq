@@ -133,7 +133,7 @@
       ]
     },
     "10": {
-      "verified_at": "2026-11-16T22:01:56.893615+00:00",
+      "verified_at": "2026-11-17 (commissioner Sleeper Week 10 screenshot, correcting previous snapshot)",
       "matchups": [
         {
           "matchup_id": 1,
@@ -141,7 +141,7 @@
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 138.46
+              "points": 142.46
             },
             {
               "roster_id": 7,
@@ -171,12 +171,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 132.42
+              "points": 151.42
             },
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 110.76
+              "points": 128.26
             }
           ]
         },
@@ -191,7 +191,7 @@
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 138.06
+              "points": 165.66
             }
           ]
         }
@@ -206,12 +206,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 0.0
+              "points": 0
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 0.0
+              "points": 0
             }
           ]
         },
@@ -221,12 +221,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 0.0
+              "points": 0
             },
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 0.0
+              "points": 0
             }
           ]
         },
@@ -236,12 +236,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 0.0
+              "points": 0
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 0.0
+              "points": 0
             }
           ]
         },
@@ -251,12 +251,12 @@
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 0.0
+              "points": 0
             },
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 0.0
+              "points": 0
             }
           ]
         }
