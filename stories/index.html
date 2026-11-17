@@ -76,6 +76,22 @@ a{color:inherit}.shell{width:min(1100px,calc(100% - 18px));margin:14px auto 30px
 .panel-four.panel-published .story-sub{font-size:clamp(16px,2.1vw,23px);line-height:1.16;padding:5px 14px 10px;background:#171018;color:#fff}
 .panel-four.panel-published .read-ribbon{display:block;text-align:center;background:#ffda29;color:#13100d;box-shadow:none;font-size:clamp(16px,2.2vw,23px);padding:10px}
 @media(max-width:650px){.panel-four.panel-published .story-title{font-size:clamp(32px,9vw,49px)}.panel-four.panel-published .story-sub{font-size:19px}}
+
+/* Comic hierarchy: Nick's investigation gets the large 2/3 feature; Jake's comedy gets a compact card. */
+@media(min-width:651px){
+ .comic-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+ .comic-grid>.panel-main{grid-column:1/-1}
+ .comic-grid>.panel-life{grid-column:1/span 1}
+ .comic-grid>.panel-schedule{grid-column:2/span 2}
+ .comic-grid>.panel-four.panel-published{grid-column:1/-1;width:54%;justify-self:center}
+}
+@media(max-width:650px){
+ .comic-grid>.panel-schedule{width:100%}
+ .comic-grid>.panel-four.panel-published{width:76%;justify-self:center;grid-column:1/-1}
+ .panel-four.panel-published .story-title{font-size:clamp(24px,6vw,35px)}
+ .panel-four.panel-published .story-sub{font-size:15px}
+ .panel-four.panel-published .read-ribbon{font-size:16px}
+}
 </style></head>
 <body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><h1 class="logo"><small>THE</small>PREGAME BUGLE</h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div>
 <section class="comic-grid" aria-label="Four featured story slots">
