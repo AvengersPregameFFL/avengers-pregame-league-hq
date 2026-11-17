@@ -1,4 +1,4 @@
-/* Prime Time & Pick'em — one data source, screenshot-verified through Week 9. */
+/* Prime Time through W9; full Pick’em pool verified through W10. */
 (function(){
 "use strict";
 const nick={DK:"Dakota",Hunter:"Hunter",Mike:"Mike",Jake:"Jake",Travis:"Travis",Alyssa:"Alyssa",Aaron:"Aaron",Nick:"Nick"};
@@ -42,18 +42,18 @@ function primeUI(data){
 }
 function pickUI(data){
  const section=document.getElementById("pickem");if(!section)return;
- const rows=names.map(name=>{const history=data.baseline_week1_to_5[name].concat([6,7,8,9].map(w=>data.weekly[w][name]));return {name,history,total:history.reduce((a,b)=>a+b,0)};}).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+ const rows=names.map(name=>{const history=data.baseline_week1_to_5[name].concat([6,7,8,9,10].map(w=>data.weekly[w][name]));return {name,history,total:history.reduce((a,b)=>a+b,0)};}).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
  let html='<a class="back" href="#home">← Main menu</a><h1>Pick’em</h1><p><a class="back" href="#primetime">SEE PRIME-TIME THURSDAY, SUNDAY &amp; MONDAY →</a></p>'+
- '<div class="panel" style="border:3px solid #171717;background:#fff1bf;color:#171717"><h2>2026 POOL STANDINGS · VERIFIED THROUGH WEEK 9</h2><p>Overall all-game Pick’em points are separate from Prime-Time Picks. Weeks 1–5 from the league Bible; Weeks 6–9 from the commissioner’s Sleeper pool screenshots.</p></div>'+
- '<div class="panel"><h2>Season Pick’em Leaders · Through Week 9</h2>'+table(["Rank","Manager","Correct Picks","Week 9"],rows.map((x,i)=>[String(i+1),nick[x.name],String(x.total),String(data.weekly["9"][x.name])]))+'</div>';
- for(const w of [9,8,7,6]){
+ '<div class="panel" style="border:3px solid #171717;background:#fff1bf;color:#171717"><h2>2026 POOL STANDINGS · VERIFIED THROUGH WEEK 10</h2><p>Overall all-game Pick’em points are separate from Prime-Time Picks. Weeks 1–5 from the league Bible; Weeks 6–10 from the commissioner’s Sleeper pool screenshots.</p></div>'+
+ '<div class="panel"><h2>Season Pick’em Leaders · Through Week 10</h2>'+table(["Rank","Manager","Correct Picks","Week 10"],rows.map((x,i)=>[String(i+1),nick[x.name],String(x.total),String(data.weekly["10"][x.name])]))+'</div>';
+ for(const w of [10,9,8,7,6]){
  const rank=names.map(name=>({name,score:data.weekly[w][name]})).sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
- html+='<details class="panel season-week" '+(w===9?"open":"")+'><summary>Week '+w+' · Final Pool Results</summary>'+table(["Rank","Manager","Correct Picks"],rank.map((r,i)=>[String(i+1),nick[r.name],String(r.score)]))+'</details>';
+ html+='<details class="panel season-week" '+(w===10?"open":"")+'><summary>Week '+w+' · Final Pool Results</summary>'+table(["Rank","Manager","Correct Picks"],rank.map((r,i)=>[String(i+1),nick[r.name],String(r.score)]))+'</details>';
  }
- html+='<p class="muted">Season totals count recorded Pool points, not tiebreaker guesses. Updated from available Week 6–9 results; new weeks require confirmed selections/results.</p>';
+ html+='<p class="muted">Season totals count recorded Pool points, not tiebreaker guesses. Verified through Week 10; later weeks require confirmed selections/results.</p>';
  section.innerHTML=html;
 }
 /* Independent feeds: a failed network request must NEVER erase the verified static Week 9 rankings. */
 fetch("./data/prime-time-picks.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("prime-time feed "+r.status);return r.json()}).then(d=>{if(d.updated_through_week>=9)primeUI(d)}).catch(e=>console.warn("Using saved verified Prime-Time rankings",e));
-fetch("./data/pickem-weekly-verified.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("pool feed "+r.status);return r.json()}).then(d=>{if(d.verified_through_week>=9)pickUI(d)}).catch(e=>console.warn("Using saved verified Pick'em rankings",e));
+fetch("./data/pickem-weekly-verified.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("pool feed "+r.status);return r.json()}).then(d=>{if(d.verified_through_week>=10)pickUI(d)}).catch(e=>console.warn("Using saved verified Pick'em rankings",e));
 })();
