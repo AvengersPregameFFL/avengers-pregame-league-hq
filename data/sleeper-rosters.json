@@ -1,6 +1,6 @@
 {
-  "current_nfl_week": 10,
-  "generated_at_utc": "2026-11-17T04:06:38.561932+00:00",
+  "current_nfl_week": 11,
+  "generated_at_utc": "2026-11-17T05:11:23.212627+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -10,12 +10,6 @@
       "position": "WR",
       "status": "Active",
       "team": "KC"
-    },
-    "10232": {
-      "name": "Michael Wilson",
-      "position": "WR",
-      "status": "Inactive",
-      "team": "ARI"
     },
     "10236": {
       "name": "Dalton Kincaid",
@@ -53,12 +47,6 @@
       "status": "Active",
       "team": "WAS"
     },
-    "11576": {
-      "name": "Braelon Allen",
-      "position": "RB",
-      "status": "Active",
-      "team": "NYJ"
-    },
     "11584": {
       "name": "Bucky Irving",
       "position": "RB",
@@ -82,12 +70,6 @@
       "position": "WR",
       "status": "Active",
       "team": "KC"
-    },
-    "11625": {
-      "name": "Adonai Mitchell",
-      "position": "WR",
-      "status": "Active",
-      "team": "NYJ"
     },
     "11628": {
       "name": "Marvin Harrison Jr.",
@@ -239,18 +221,6 @@
       "status": "Active",
       "team": "NYJ"
     },
-    "13287": {
-      "name": "Jeremiyah Love",
-      "position": "RB",
-      "status": "Inactive",
-      "team": "ARI"
-    },
-    "13294": {
-      "name": "Makai Lemon",
-      "position": "WR",
-      "status": "Active",
-      "team": "PHI"
-    },
     "13337": {
       "name": "Emmett Johnson",
       "position": "RB",
@@ -274,12 +244,6 @@
       "position": "TE",
       "status": "Active",
       "team": "KC"
-    },
-    "2020": {
-      "name": "Cairo Santos",
-      "position": "K",
-      "status": "Active",
-      "team": "CHI"
     },
     "2133": {
       "name": "Davante Adams",
@@ -317,12 +281,6 @@
       "status": "Active",
       "team": "SF"
     },
-    "3294": {
-      "name": "Dak Prescott",
-      "position": "QB",
-      "status": "Active",
-      "team": "DAL"
-    },
     "3451": {
       "name": "Ka'imi Fairbairn",
       "position": "K",
@@ -334,12 +292,6 @@
       "position": "RB",
       "status": "Active",
       "team": "SF"
-    },
-    "4037": {
-      "name": "Chris Godwin Jr.",
-      "position": "WR",
-      "status": "Active",
-      "team": "TB"
     },
     "4046": {
       "name": "Patrick Mahomes",
@@ -424,18 +376,6 @@
       "position": "K",
       "status": "Active",
       "team": "LV"
-    },
-    "6130": {
-      "name": "Devin Singletary",
-      "position": "RB",
-      "status": "Active",
-      "team": "NYG"
-    },
-    "6650": {
-      "name": "Chase McLaughlin",
-      "position": "K",
-      "status": "Active",
-      "team": "TB"
     },
     "6770": {
       "name": "Joe Burrow",
@@ -760,12 +700,6 @@
       "position": "DEF",
       "status": null,
       "team": "BUF"
-    },
-    "CHI": {
-      "name": "Chicago Bears",
-      "position": "DEF",
-      "status": null,
-      "team": "CHI"
     },
     "DEN": {
       "name": "Denver Broncos",
@@ -1148,9 +1082,9 @@
   "season": "2026",
   "source": "Sleeper public API",
   "weekly_matchup_weeks": [
-    9,
     10,
-    11
+    11,
+    12
   ],
   "weekly_matchups": {
     "10": [
@@ -1314,7 +1248,7 @@
           "9753",
           "LAR"
         ],
-        "points": 127.46,
+        "points": 128.26,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1330,7 +1264,7 @@
         ],
         "starters_points": [
           41.16,
-          16.7,
+          17.5,
           9.4,
           7.4,
           0.0,
@@ -1501,7 +1435,7 @@
           "BUF",
           "DEN"
         ],
-        "points": 162.76,
+        "points": 165.66,
         "roster_id": 8,
         "starters": [
           "8183",
@@ -1520,8 +1454,8 @@
           23.9,
           16.1,
           11.6,
-          10.9,
-          13.8,
+          11.4,
+          16.2,
           21.7,
           6.0,
           8.1,
@@ -1905,7 +1839,7 @@
         ]
       }
     ],
-    "9": [
+    "12": [
       {
         "matchup_id": 2,
         "players": [
@@ -1916,7 +1850,6 @@
           "12527",
           "13337",
           "2133",
-          "3294",
           "5850",
           "6786",
           "6804",
@@ -1927,37 +1860,36 @@
           "96",
           "GB"
         ],
-        "points": 175.9,
+        "points": 0.0,
         "roster_id": 1,
         "starters": [
-          "3294",
+          "96",
           "7588",
-          "12527",
+          "12481",
           "9488",
           "6786",
           "8130",
           "12501",
-          "5850",
+          "13337",
           "11786",
           "GB"
         ],
         "starters_points": [
-          23.5,
-          22.4,
-          7.0,
-          12.1,
-          33.5,
-          12.4,
-          32.4,
-          0.5,
-          19.1,
-          13.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 1,
+        "matchup_id": 3,
         "players": [
-          "10232",
           "11604",
           "11646",
           "11792",
@@ -1970,39 +1902,40 @@
           "7594",
           "8112",
           "8155",
+          "9502",
           "HOU",
           "MIN",
           "SF"
         ],
-        "points": 126.66,
+        "points": 0.0,
         "roster_id": 2,
         "starters": [
           "4984",
           "7594",
-          "6790",
+          "4034",
           "8112",
           "2449",
           "11604",
           "11646",
-          "4034",
+          "8155",
           "11792",
           "HOU"
         ],
         "starters_points": [
-          15.86,
-          13.6,
-          3.1,
-          11.8,
-          8.1,
-          22.3,
-          6.6,
-          22.7,
-          9.6,
-          13.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 3,
+        "matchup_id": 2,
         "players": [
           "10229",
           "11564",
@@ -2021,7 +1954,7 @@
           "9509",
           "SEA"
         ],
-        "points": 146.84,
+        "points": 0.0,
         "roster_id": 3,
         "starters": [
           "11564",
@@ -2036,27 +1969,26 @@
           "SEA"
         ],
         "starters_points": [
-          27.26,
-          26.7,
-          5.58,
-          9.9,
-          5.0,
-          12.2,
-          16.3,
-          14.1,
-          17.8,
-          12.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 4,
+        "matchup_id": 3,
         "players": [
           "11533",
           "11584",
           "11632",
           "12507",
           "12518",
-          "4037",
           "421",
           "4866",
           "6770",
@@ -2065,40 +1997,40 @@
           "8167",
           "9493",
           "9500",
+          "9753",
           "LAR"
         ],
-        "points": 190.34,
+        "points": 0.0,
         "roster_id": 4,
         "starters": [
           "6770",
-          "7611",
-          "11584",
+          "12507",
+          "9753",
           "11632",
           "9493",
           "12518",
-          "4866",
+          "9500",
           "8167",
           "11533",
           "LAR"
         ],
         "starters_points": [
-          35.54,
-          14.8,
-          28.5,
-          9.3,
-          35.0,
-          8.4,
-          8.2,
-          30.1,
-          4.5,
-          16.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 4,
+        "matchup_id": 1,
         "players": [
           "10859",
-          "11576",
           "1166",
           "12474",
           "12526",
@@ -2112,33 +2044,34 @@
           "8146",
           "8150",
           "8228",
+          "9228",
           "JAX"
         ],
-        "points": 149.94,
+        "points": 0.0,
         "roster_id": 5,
         "starters": [
-          "1166",
-          "13345",
+          "9228",
+          "8228",
           "8150",
           "7547",
           "7564",
           "10859",
-          "12474",
+          "8146",
           "12526",
           "7042",
           "JAX"
         ],
         "starters_points": [
-          17.64,
-          18.8,
-          9.1,
-          16.6,
-          31.5,
-          7.2,
-          8.4,
-          15.6,
-          14.1,
-          11.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
@@ -2146,50 +2079,50 @@
         "players": [
           "11566",
           "11586",
-          "11625",
+          "12491",
           "12514",
-          "13287",
-          "13294",
-          "2020",
+          "13346",
           "4217",
           "5859",
-          "6130",
           "6794",
           "7525",
           "7543",
+          "7839",
           "9221",
           "9484",
-          "CHI"
+          "9758",
+          "BAL",
+          "TB"
         ],
-        "points": 98.26,
+        "points": 0.0,
         "roster_id": 6,
         "starters": [
           "11566",
           "9221",
-          "6130",
-          "11625",
+          "11586",
+          "5859",
           "6794",
           "4217",
-          "12514",
-          "13294",
-          "2020",
-          "CHI"
+          "12491",
+          "13346",
+          "7839",
+          "BAL"
         ],
         "starters_points": [
-          16.56,
-          13.4,
-          5.9,
           0.0,
-          8.8,
-          9.8,
-          6.9,
-          12.1,
-          9.8,
-          15.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 2,
+        "matchup_id": 4,
         "players": [
           "12490",
           "12495",
@@ -2207,7 +2140,7 @@
           "8129",
           "IND"
         ],
-        "points": 114.38,
+        "points": 0.0,
         "roster_id": 7,
         "starters": [
           "4046",
@@ -2215,35 +2148,35 @@
           "6813",
           "4983",
           "7569",
-          "12517",
-          "12519",
+          "1466",
+          "3286",
           "12490",
           "6083",
           "IND"
         ],
         "starters_points": [
-          20.48,
-          7.4,
-          9.4,
-          6.6,
-          15.5,
-          9.4,
-          20.7,
-          8.9,
-          7.0,
-          9.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       },
       {
-        "matchup_id": 3,
+        "matchup_id": 4,
         "players": [
           "11560",
           "11628",
+          "12185",
           "12512",
           "5012",
           "5022",
           "5967",
-          "6650",
           "6801",
           "8138",
           "8144",
@@ -2251,33 +2184,34 @@
           "8183",
           "9224",
           "9997",
+          "BUF",
           "DEN"
         ],
-        "points": 165.58,
+        "points": 0.0,
         "roster_id": 8,
         "starters": [
           "8183",
-          "9224",
-          "8151",
+          "5967",
+          "12512",
           "6801",
           "9997",
-          "5022",
+          "5012",
           "8138",
           "8144",
-          "6650",
-          "DEN"
+          "12185",
+          "BUF"
         ],
         "starters_points": [
-          30.28,
-          10.5,
-          36.3,
-          20.2,
-          5.3,
-          10.0,
-          16.7,
-          16.8,
-          10.5,
-          9.0
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
         ]
       }
     ]
