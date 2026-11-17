@@ -19,6 +19,10 @@ jobs:
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v4
+      - name: Build four-panel Bugle share cover
+        run: |
+          python -m pip install --quiet Pillow
+          python scripts/build_bugle_share_preview.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload entire website
