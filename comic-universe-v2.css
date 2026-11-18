@@ -1,0 +1,37 @@
+/* AVENGERS PREGAME · COMIC UNIVERSE V2 · presentation only
+   Loaded last on redesign branch. No fantasy data, endpoints, or JS touched. */
+:root{--cu-ink:#10101b;--cu-paper:#fff8e8;--cu-red:#db263b;--cu-gold:#ffcc35;--cu-blue:#173f91;--cu-shadow:5px 5px 0 #10101b}
+html{scroll-behavior:smooth}
+body{background-color:#142c69!important;background-image:radial-gradient(#ffffff20 1.2px,transparent 1.4px),linear-gradient(145deg,#142c69,#25123c 72%,#101526)!important;background-size:14px 14px,100% 100%!important}
+.wrap{max-width:1120px!important}
+.wrap>header.header{padding:18px 12px 24px!important;margin-bottom:12px;position:relative}
+.wrap>header.header:after{content:"THE LEAGUE. THE LEGENDS. THE CHAOS.";position:absolute;bottom:0;left:12px;font:800 10px/1.1 'Archivo',sans-serif;letter-spacing:.16em;color:#fff6d6}
+.page>h1{font-size:clamp(42px,7vw,76px)!important;max-width:100%;overflow-wrap:anywhere}
+.page>.back{display:inline-flex;align-items:center;gap:8px;background:var(--cu-gold)!important;color:var(--cu-ink)!important;border:3px solid var(--cu-ink)!important;border-radius:3px!important;box-shadow:4px 4px 0 var(--cu-ink)!important;font:900 13px/1.2 'Archivo',sans-serif!important;letter-spacing:.035em;text-transform:uppercase}
+.page .tile,.page .panel,.page .stat,.page .season-week{box-shadow:var(--cu-shadow)!important;position:relative;isolation:isolate}
+.page .tile{overflow:hidden;padding:20px!important;min-height:126px;border-width:3px!important;transition:transform .16s ease,box-shadow .16s ease}
+.page .tile:before{content:"";position:absolute;inset:0 0 auto auto;width:66px;height:66px;background:radial-gradient(#10101b25 1.5px,transparent 2px) 0 0/9px 9px;pointer-events:none;z-index:-1}
+.page .tile:hover,.page .tile:focus-visible{transform:translate(-3px,-3px) rotate(-.3deg);box-shadow:8px 8px 0 var(--cu-ink)!important}
+.page .tile:focus-visible,.page a:focus-visible,.page button:focus-visible{outline:3px solid var(--cu-gold)!important;outline-offset:3px}
+.page .grid{gap:15px}
+.page h2{max-width:100%;overflow-wrap:anywhere}
+.page .tablewrap{border:3px solid var(--cu-ink);background:var(--cu-paper);box-shadow:4px 4px 0 var(--cu-ink);border-radius:3px;scrollbar-width:thin}
+.page table{font-variant-numeric:tabular-nums}
+.page .row{border-bottom-style:dashed!important}
+.page .label{letter-spacing:.08em}
+.page .tag{border:2px solid var(--cu-ink)!important;background:#fff0c6!important;color:var(--cu-ink)!important;border-radius:2px!important;font-weight:800}
+.page .footer{background:var(--cu-paper);border:3px solid var(--cu-ink)!important;box-shadow:4px 4px 0 var(--cu-ink);padding:16px!important;color:#363043!important}
+#teams .grid>.tile:nth-child(4n+1),#home .grid>.tile:nth-child(4n+1){border-top:8px solid var(--cu-red)!important}
+#teams .grid>.tile:nth-child(4n+2),#home .grid>.tile:nth-child(4n+2){border-top:8px solid var(--cu-gold)!important}
+#teams .grid>.tile:nth-child(4n+3),#home .grid>.tile:nth-child(4n+3){border-top:8px solid #4385f7!important}
+#teams .grid>.tile:nth-child(4n),#home .grid>.tile:nth-child(4n){border-top:8px solid #36a98b!important}
+#home .hero{box-shadow:8px 8px 0 var(--cu-ink)!important;position:relative}
+#home .hero:after{content:"AVENGERS PREGAME";display:block;margin-top:12px;font:400 clamp(22px,4vw,40px)/1 'Bangers',Impact,sans-serif;letter-spacing:.08em}
+#standings .panel,#records .panel,#awards .panel,#survivor .panel,#pickem .panel{border-width:3px!important}
+#awards .award-race-section,#survivor .surv-board{box-shadow:7px 7px 0 var(--cu-ink)!important}
+#home .hp-top-stories-list{gap:12px}
+#home .bugle-story-list-entry{transition:transform .15s ease}
+#home .bugle-story-list-entry:hover{transform:translateY(-2px)}
+@media(min-width:760px){#teams .grid{grid-template-columns:repeat(4,minmax(0,1fr))}#home .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.wrap{padding-left:14px!important;padding-right:14px!important}.wrap>header.header{align-items:flex-start;gap:9px}.wrap>header.header:after{font-size:8px}.page .grid{gap:11px}.page .tile{padding:14px!important;min-height:108px}.page .tile strong{font-size:clamp(18px,5vw,25px)!important}.page h2{font-size:clamp(20px,6vw,28px)!important}.page .panel{padding:13px!important}.page .tablewrap{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.page .tile,.page .bugle-story-list-entry{transition:none!important}html{scroll-behavior:auto}}
