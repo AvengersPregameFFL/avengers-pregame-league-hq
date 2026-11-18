@@ -559,6 +559,16 @@ html body .wrap>header.header .header-actions #share-league{width:min(100%,130px
 #home #hq-feature-stories .hp-top-stories-list>.bugle-top-story-entry>a .bugle-top-story-label-breaking{
  background:#bd2033!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
+</style><style id="bugle-pickem-watch-v1">
+#home #hq-feature-stories .bugle-tracker.pickem{border-top:7px solid #b71931}
+#home #hq-feature-stories .bugle-tracker.pickem th:nth-child(2),#home #hq-feature-stories .bugle-tracker.pickem td:nth-child(2){text-align:center}
+#home #hq-feature-stories .bugle-tracker.pickem td:last-child{color:#b71931;font-weight:900}
+#home #hq-feature-stories .bugle-tracker.pickem tbody tr:first-child{background:#fff0b3}
+#home #hq-feature-stories .bugle-tracker.pickem tbody tr:first-child td:first-child{color:#8d1626;font-weight:900}
+#home #hq-feature-stories .bugle-tracker.pickem .tracker-foot a{color:#ffda29;text-decoration:underline;text-underline-offset:3px}
+#home #hq-feature-stories .bugle-tracker.pickem .tracker-foot a:hover{color:#fff}
+#home #hq-feature-stories .bugle-tracker.pickem td{padding-block:6px}
+#home #hq-feature-stories .bugle-tracker.pickem th:first-child{width:45%}
 </style><style id="bugle-weekly-trackers-v1">
 /* Comic-style sidebar cards that stack cleanly on mobile. */
 #home #hq-feature-stories .bugle-weekly-trackers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 12px;font-family:Arial,sans-serif}
@@ -640,7 +650,18 @@ html body .wrap>header.header .header-actions #share-league{width:min(100%,130px
 <tr><td>Travis</td><td>Rams <span class="tracker-good">✓</span></td><td>2 used</td></tr>
 <tr><td>Aaron</td><td>Patriots <span class="tracker-good">✓</span></td><td>3 used</td></tr>
 </tbody></table><div class="tracker-foot">LAST VERIFIED: WEEK 8 · ELIMINATED: DAKOTA · JAKE · ALLYSA · NICK</div></article>
-
+<article class="bugle-tracker pickem" aria-label="Weekly Pick'em Watch leaderboard">
+ <h3>PICK'EM WATCH</h3>
+ <p class="tracker-kicker" id="pickem-watch-kicker">Week 10 verified · 8 coaches · Jake leads by one pick</p>
+ <table aria-label="Verified season-long Pick'em standings"><thead><tr><th scope="col">RANK / COACH</th><th scope="col">SEASON PICKS</th><th scope="col">W10</th></tr></thead><tbody id="pickem-watch-body">
+ <tr><td>1. Jake</td><td>98</td><td>8</td></tr><tr><td>2. DK</td><td>97</td><td>11</td></tr>
+ <tr><td>3. Alyssa</td><td>94</td><td>11</td></tr><tr><td>4. Aaron</td><td>88</td><td>9</td></tr>
+ <tr><td>5. Travis</td><td>85</td><td>9</td></tr><tr><td>6. Mike</td><td>84</td><td>7</td></tr>
+ <tr><td>7. Hunter</td><td>82</td><td>1</td></tr><tr><td>8. Nick</td><td>66</td><td>0</td></tr>
+ </tbody></table>
+ <div class="tracker-foot">VERIFIED THROUGH WEEK 10 · <a href="#pickem" aria-label="View full Pick'em standings and weekly results">FULL PICK'EM RESULTS →</a></div>
+ <p class="tracker-note">Jake can predict NFL winners. Someone should tell his fantasy roster.</p>
+</article>
 </section><a class="bugle-archive-link" href="/avengers-pregame-league-hq/stories/archive.html" aria-label="Open the permanent Pregame Bugle story archive">BROWSE PAST EDITIONS · PERMANENT STORY ARCHIVE →</a></div></div></div></div>
 
 <a class="road-home-button" href="#road-to-championship" aria-label="Open Road to the Championship playoff bracket"><span class="road-home-button-eyebrow">2026 PLAYOFF PICTURE · LIVE SEEDS</span><strong>ROAD TO THE CHAMPIONSHIP</strong><span class="road-home-button-cta">VIEW THE FULL BRACKET →</span></a>
@@ -1387,7 +1408,41 @@ opacity:1!important;visibility:visible!important;z-index:2!important;filter:none
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="21"] a:before,
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="20"] a:before,
 #home #hq-feature-stories .hp-top-stories-list>.bugle-story-list-entry[data-story-number="19"] a:before{content:none!important;display:none!important;background:none!important}
-</style><script src="./prime-time-picks-ui.js?v=20261111allweeks9" defer></script><script id="survivor-watch-bible-feed-v2">(function(){
+</style><script src="./prime-time-picks-ui.js?v=20261111allweeks9" defer></script><script id="pickem-watch-live-v1">(function(){
+ const panel=document.querySelector('#home #hq-feature-stories .bugle-tracker.pickem');
+ if(!panel)return;
+ fetch('./data/pickem-weekly-verified.json',{cache:'no-store'})
+ .then(r=>{if(!r.ok)throw Error('Pickem verified feed '+r.status);return r.json()})
+ .then(d=>{
+   const latest=Number(d.verified_through_week||0);
+   const names=Object.keys(d.baseline_week1_to_5||{});
+   if(latest<5||names.length!==8)return;
+   const weeks=Array.from({length:latest-5},(_,i)=>i+6);
+   if(!weeks.every(w=>d.weekly&&d.weekly[w]&&names.every(n=>Number.isFinite(Number(d.weekly[w][n])))))return;
+   const scores=names.map(name=>{
+     const early=d.baseline_week1_to_5[name];
+     if(!Array.isArray(early)||early.length!==5||!early.every(v=>Number.isFinite(Number(v))))return null;
+     const total=early.reduce((sum,v)=>sum+Number(v),0)+weeks.reduce((sum,w)=>sum+Number(d.weekly[w][name]),0);
+     const weekPoints=latest<=5?Number(early[latest-1]):Number(d.weekly[latest][name]);
+     return {name,total,weekPoints};
+   });
+   if(scores.some(row=>!row))return;
+   scores.sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+   const tbody=panel.querySelector('tbody');tbody.replaceChildren();
+   scores.forEach((row,i)=>{
+     const tr=document.createElement('tr');
+     for(const value of [(i+1)+'. '+row.name,String(row.total),String(row.weekPoints)]){
+       const td=document.createElement('td');td.textContent=value;tr.appendChild(td);
+     }
+     tbody.appendChild(tr);
+   });
+   const lead=scores[0].total-scores[1].total;
+   const kicker=panel.querySelector('.tracker-kicker');
+   if(kicker)kicker.textContent='Week '+latest+' verified · '+scores.length+' coaches · '+scores[0].name+' leads by '+lead+' pick'+(lead===1?'':'s');
+   const foot=panel.querySelector('.tracker-foot');
+   if(foot)foot.firstChild.textContent='VERIFIED THROUGH WEEK '+latest+' · ';
+ }).catch(err=>console.info('Pickem Watch using last verified Week 10 snapshot',err.message));
+})();</script><script id="survivor-watch-bible-feed-v2">(function(){
  const panel=document.querySelector('.bugle-weekly-trackers .bugle-tracker.survivor');
  if(!panel)return;
  fetch('./data/league-contests.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Bible contest feed unavailable');return r.json()})
