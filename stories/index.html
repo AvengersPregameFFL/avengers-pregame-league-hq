@@ -147,8 +147,26 @@ a{color:inherit}.shell{width:min(1100px,calc(100% - 18px));margin:14px auto 30px
 .bugle-hq-return.top{margin:0 4px 13px}
 .bugle-hq-return.bottom{margin:16px 3px 8px}
 @media(max-width:650px){.bugle-hq-return{min-height:45px;font-size:16px;padding:9px 10px}.bugle-hq-return.top{margin:3px 2px 9px}.bugle-hq-return.bottom{margin:12px 2px 8px}}
+
+/* v151: masthead-led comic front page, a bold two-line newspaper wordmark */
+.masthead{position:relative;background:linear-gradient(125deg,#fff4d9,#f9e8c5 70%,#f1d8ac);border:4px solid #130b0b;box-shadow:0 6px 0 #130b0b,0 10px 0 #bc192a;padding:15px clamp(8px,2vw,22px) 16px;margin-bottom:18px;overflow:hidden}
+.masthead::before,.masthead::after{content:"";position:absolute;left:14px;right:14px;height:2px;background:#20120d;opacity:.75}
+.masthead::before{top:9px}.masthead::after{bottom:9px}
+.mast-top{padding:3px 2px 0;font-size:clamp(12px,2.3vw,18px)}
+.logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;margin:9px 0 4px;color:#c91b2e;letter-spacing:-.045em;line-height:.85;-webkit-text-stroke:0;text-shadow:none;white-space:nowrap}
+.logo small{font:900 clamp(15px,3.3vw,26px)/1 'Barlow Condensed',Impact,Arial,sans-serif;letter-spacing:.25em;margin:2px 0 3px;color:#111;text-shadow:none}
+.logo .logo-pregame,.logo .logo-bugle{display:block;max-width:100%;font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;font-weight:900;letter-spacing:-.035em;-webkit-text-stroke:clamp(1.2px,.32vw,3px) #160b0c;text-shadow:3px 4px 0 #130b0c,5px 6px 0 #e3b879}
+.logo .logo-pregame{font-size:clamp(60px,13vw,146px);line-height:.91}
+.logo .logo-bugle{font-size:clamp(84px,19vw,201px);line-height:.79;margin-top:1px}
+.mast-sub{max-width:95%;margin:13px auto 3px;font:800 clamp(11px,2.25vw,18px)/1.1 'Barlow Condensed',Arial,sans-serif;letter-spacing:.045em;color:#241712}
+.issue-bar{margin:11px 0 9px}
+.bugle-utility{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 12px}
+.bugle-hq-return.top{display:inline-flex;width:auto;min-height:39px;padding:7px 14px;margin:0;background:#17100f;color:#fff6df!important;border:2px solid #15100d;box-shadow:3px 3px 0 #c4202a;font:900 clamp(12px,2vw,16px)/1.1 'Barlow Condensed',Arial,sans-serif;letter-spacing:.03em}
+.bugle-utility-tag{font:900 clamp(11px,2vw,16px)/1.2 'Barlow Condensed',Arial,sans-serif;letter-spacing:.03em;text-align:right;color:#713b36}
+@media(max-width:650px){.masthead{padding:11px 4px 13px;margin-bottom:15px}.logo{margin:8px 0 7px}.logo .logo-pregame{font-size:clamp(53px,13.2vw,85px)}.logo .logo-bugle{font-size:clamp(78px,19.8vw,125px)}.logo small{font-size:15px}.mast-sub{font-size:11px;letter-spacing:.01em}.bugle-hq-return.top{font-size:13px;padding:7px 9px;min-height:36px}.bugle-utility-tag{font-size:11px}.bugle-utility{gap:6px}}
+@media(max-width:360px){.logo .logo-pregame{font-size:49px}.logo .logo-bugle{font-size:73px}}
 </style></head>
-<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><h1 class="logo"><small>THE</small>PREGAME BUGLE</h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div>
+<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><h1 class="logo" aria-label="The Pregame Bugle"><small>THE</small><span class="logo-pregame">PREGAME</span><span class="logo-bugle">BUGLE</span></h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div><div class="bugle-utility"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><span class="bugle-utility-tag">SELECT A PANEL TO READ THE STORY ↓</span></div>
 <section class="comic-grid" aria-label="Four featured story slots">
 <article class="panel panel-main"><a href="./week10-jugs-mike.html" aria-label="Read Story 1: Jugs Keep Rolling, Dakota defeats Mike 186.62 to 181.54"><img src="./39D20C8D-2F51-4AB1-A895-1330C9CD7323.png" alt="The bloodied Juggernauts Jumbo Package champion stands over fallen superhero helmets"><span class="story-number">STORY #1 <small>THE MAIN EVENT</small></span><strong class="story-title">JUGS KEEP ROLLING!</strong><span class="story-sub">Mike gets run over by five points.</span><span class="score-ribbon">DK 186.62 – MIKE 181.54</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
 <article class="panel panel-half panel-life"><a href="./week10-aaron-punisher.html" aria-label="Read Story 2: Life Alert, Aaron has fallen and may not get up"><img src="./F24B5F75-848B-4041-B9F0-701439E2B309.png" alt="Fraud Alert comic cover featuring Aaron pleading for help under a towering orange rock warrior"><span class="story-number">STORY #2</span><strong class="story-title">LIFE ALERT!</strong><span class="story-sub">Aaron has fallen and may not get up.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
