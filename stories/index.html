@@ -207,8 +207,60 @@ a{color:inherit}.shell{width:min(1100px,calc(100% - 18px));margin:14px auto 30px
  .next-issue-content{padding:12px}.next-issue h2{font-size:34px}.next-issue-matchups{gap:5px}
 }
 @media(max-width:390px){.editor-note{font-size:10px}.panel-life .editor-note,.panel-four .editor-note{font-size:8px}.next-issue-matchups{grid-template-columns:1fr}}
+
+/* v154 — DARK COLLECTOR EDITION: bespoke CSS recreation of approved masthead art */
+/* Cream lettering, deep ink, crimson, yellow-gold and halftone print */
+:root{--ink:#100e14;--paper:#eee0bf;--cream:#f9eed3;--yellow:#ffcd27;--red:#e31e32}
+body{background-color:#0c1020!important;background-image:radial-gradient(#34415c 1.3px,transparent 1.6px)!important;background-size:15px 15px!important}
+.shell{background:linear-gradient(140deg,#d3bb91 0%,#f2dfb7 22%,#e2c99b 78%,#c9ae82 100%)!important;border:5px solid #0d0c12!important;box-shadow:0 0 0 3px #e0bc6a,9px 12px 0 #02030a!important}
+.shell::before{opacity:.18!important}
+.masthead{position:relative!important;isolation:isolate;overflow:hidden!important;background:radial-gradient(circle at 50% 36%,#364153 0%,#131722 43%,#090b12 85%)!important;border:7px double #f6db93!important;outline:4px solid #09090f;box-shadow:0 0 0 2px #c32630,0 7px 0 #09080c!important;padding:clamp(12px,2.4vw,24px) clamp(8px,2vw,24px) clamp(18px,3.3vw,35px)!important;margin-bottom:22px!important;color:#fff}
+.masthead::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(#fff 0.75px,transparent 1.2px) center/11px 11px,linear-gradient(0deg,rgba(4,6,13,.2),transparent 65%);opacity:.16;height:auto;left:0;right:0;top:0}
+.masthead::after{content:"";position:absolute;left:1.2%;right:1.2%;bottom:8px;height:5px;background:#d82332;box-shadow:0 -3px 0 #ffcb25}
+.mast-top{position:relative;z-index:4;display:flex;justify-content:space-between;align-items:start;gap:10px;margin:0 0 12px}
+.mast-top span:first-child{max-width:135px;padding:10px 12px;background:#090c13;border:3px solid #ffce2d;box-shadow:4px 4px 0 #060608;color:#faf2df;font:900 clamp(13px,2.8vw,26px)/.95 'Barlow Condensed',Impact,sans-serif;letter-spacing:.045em}
+.mast-top span:last-child{background:#090c13!important;border:3px solid #ffce2d;color:#fff!important;padding:10px 12px!important;transform:none!important;font:900 clamp(13px,2.5vw,22px)/1 'Barlow Condensed',Impact,sans-serif}
+.comic-issue-seal{top:clamp(67px,9vw,105px)!important;right:clamp(12px,3.1vw,30px)!important;width:clamp(52px,9.3vw,89px)!important;background:#ffce26!important;color:#121017!important;border:4px solid #0b0d15!important;border-radius:0!important;box-shadow:4px 4px 0 #ba1428!important;transform:rotate(0deg)!important;font-size:clamp(15px,2.5vw,23px)!important}
+.comic-issue-seal small{font-size:clamp(7px,1.2vw,11px)!important}
+.bugle-globe{position:absolute;z-index:0;top:8%;left:50%;transform:translateX(-50%);width:45%;max-width:440px;opacity:.75;pointer-events:none}
+.bugle-globe svg{display:block;width:100%;height:auto}
+.logo{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;margin:clamp(10px,2vw,20px) 0 clamp(12px,2vw,20px)!important;gap:0!important;letter-spacing:-.045em!important;overflow:visible}
+.logo small{color:#fff1d6!important;letter-spacing:.2em!important;text-shadow:3px 3px 0 #000!important;font-size:clamp(21px,4vw,35px)!important;margin:0!important}
+.logo .logo-pregame,.logo .logo-bugle{font-style:italic;font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif!important;font-weight:900!important;letter-spacing:-.055em!important;-webkit-text-stroke:clamp(1px,.32vw,3.5px) #09080c!important;filter:drop-shadow(4px 6px 0 #030407);white-space:nowrap;max-width:100%}
+.logo .logo-pregame{font-size:clamp(51px,11.8vw,133px)!important;line-height:.92!important;color:#f9f0db!important;text-shadow:3px 4px 0 #09080c,6px 6px 0 #a61728!important}
+.logo .logo-bugle{font-size:clamp(80px,18vw,199px)!important;line-height:.86!important;margin-top:3px;color:#ec2736!important;text-shadow:3px 4px 0 #09080c,7px 8px 0 #770e1e!important}
+.mast-sub{position:relative;z-index:2;margin:13px -1% 0!important;padding:8px 10px!important;background:#0a0b11;border-top:3px solid #e52537;border-bottom:3px solid #e52537;color:#fff4df!important;font:900 clamp(10px,2.25vw,19px)/1.15 'Barlow Condensed',Impact,Arial,sans-serif!important;letter-spacing:.06em!important;text-transform:uppercase}
+.issue-bar{background:#0b0c11!important;border:4px solid #111!important;box-shadow:0 4px 0 #d32232!important;color:#f9eed8!important;padding:12px 11px!important;margin:14px 0 13px!important}
+.issue-bar strong{color:#ffd32b!important}
+.bugle-utility-tag{color:#23141b!important;font-weight:900}
+.bugle-hq-return.top{background:#17121d!important;color:#fff2d6!important;border-color:#ffc72a!important;box-shadow:3px 3px 0 #ba1d30!important}
+.bugle-hq-return.bottom{background:#ffce25!important}
+.comic-grid{background:#0d0e15!important;border-color:#080a10!important;box-shadow:inset 0 0 0 2px #f1c845,5px 6px 0 #08080e!important}
+.comic-grid>.panel{outline-color:#e7bb4b!important}
+.comic-grid .story-number{background:#ffcd28!important;color:#0d0b10!important}
+.read-ribbon{background:#ffcd27!important}
+.evidence-header{background:#12131c!important;border-bottom-color:#ffcb24!important}
+.evidence-header>span{color:#ffdd62}
+.bugle-evidence{background:#f6e3b8!important;border-color:#0d0e16!important}
+.next-issue{background:#11121f!important;border-color:#090b11!important}
+.footer-nav a,.footer-nav button{background:#13131d!important;color:#ffdd77!important;border-color:#ffcc31!important}
+.footer-nav a:hover,.footer-nav button:hover{background:#a91729!important;color:white!important}
+@media(max-width:650px){
+ .masthead{padding:10px 4px 16px!important;border-width:4px!important}
+ .mast-top span:first-child{max-width:96px;padding:5px;font-size:12px}
+ .mast-top span:last-child{font-size:12px;padding:6px!important}
+ .comic-issue-seal{width:48px!important;top:50px!important;right:4px!important}
+ .logo{margin:10px 0 11px!important}
+ .logo .logo-pregame{font-size:clamp(42px,11.2vw,75px)!important}
+ .logo .logo-bugle{font-size:clamp(66px,17.7vw,120px)!important}
+ .logo small{font-size:17px!important}
+ .mast-sub{font-size:11px!important;letter-spacing:.015em!important;padding:7px 4px!important}
+ .bugle-globe{top:10%;width:57%}
+ .issue-bar{padding:9px 5px!important}
+}
+@media(max-width:370px){.logo .logo-pregame{font-size:40px!important}.logo .logo-bugle{font-size:62px!important}.mast-top span:first-child{max-width:75px;font-size:10px}.comic-issue-seal{width:40px!important;top:45px!important}}
 </style></head>
-<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><div class="comic-issue-seal" aria-label="Collector edition, 2026">2026<small>COLLECTOR<br>EDITION</small></div><h1 class="logo" aria-label="The Pregame Bugle"><small>THE</small><span class="logo-pregame">PREGAME</span><span class="logo-bugle">BUGLE</span></h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div><div class="bugle-utility"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><span class="bugle-utility-tag">SELECT A PANEL TO READ THE STORY ↓</span></div>
+<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><div class="comic-issue-seal" aria-label="Collector edition, 2026">2026<small>COLLECTOR<br>EDITION</small></div><div class="bugle-globe" aria-hidden="true"><svg viewBox="0 0 300 160" role="presentation" focusable="false"><defs><clipPath id="globeClip"><ellipse cx="150" cy="153" rx="136" ry="133"/></clipPath></defs><g clip-path="url(#globeClip)" fill="none" stroke="#ffcc24" stroke-width="2.3"><ellipse cx="150" cy="153" rx="136" ry="133"/><ellipse cx="150" cy="153" rx="74" ry="133"/><ellipse cx="150" cy="153" rx="34" ry="133"/><path d="M14 153H286 M22 108H278 M40 70H260 M72 39H228 M150 20V155"/></g></svg></div><h1 class="logo" aria-label="The Pregame Bugle"><small>THE</small><span class="logo-pregame">PREGAME</span><span class="logo-bugle">BUGLE</span></h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div><div class="bugle-utility"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><span class="bugle-utility-tag">SELECT A PANEL TO READ THE STORY ↓</span></div>
 <section class="comic-grid" aria-label="Four featured story slots">
 <article class="panel panel-main"><a href="./week10-jugs-mike.html" aria-label="Read Story 1: Jugs Keep Rolling, Dakota defeats Mike 186.62 to 181.54"><img src="./39D20C8D-2F51-4AB1-A895-1330C9CD7323.png" alt="The bloodied Juggernauts Jumbo Package champion stands over fallen superhero helmets"><span class="story-number">STORY #1 <small>THE MAIN EVENT</small></span><span class="editor-note note-jugs">MEANWHILE, THE JUGS REFUSE TO DIE…</span><strong class="story-title">JUGS KEEP ROLLING!</strong><span class="story-sub">Mike gets run over by five points.</span><span class="score-ribbon">DK 186.62 – MIKE 181.54</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
 <article class="panel panel-half panel-life"><a href="./week10-aaron-punisher.html" aria-label="Read Story 2: Life Alert, Aaron has fallen and may not get up"><img src="./F24B5F75-848B-4041-B9F0-701439E2B309.png" alt="Fraud Alert comic cover featuring Aaron pleading for help under a towering orange rock warrior"><span class="story-number">STORY #2</span><span class="editor-note note-life">EMERGENCY SERVICES DISPATCHED</span><strong class="story-title">LIFE ALERT!</strong><span class="story-sub">Aaron has fallen and may not get up.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
