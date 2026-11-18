@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 11,
-  "generated_at_utc": "2026-11-18T07:31:36.651549+00:00",
+  "generated_at_utc": "2026-11-18T17:16:26.471244+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -71,6 +71,12 @@
       "status": "Active",
       "team": "LV"
     },
+    "11620": {
+      "name": "Rome Odunze",
+      "position": "WR",
+      "status": "Active",
+      "team": "CHI"
+    },
     "11624": {
       "name": "Xavier Worthy",
       "position": "WR",
@@ -100,6 +106,12 @@
       "position": "QB",
       "status": "Active",
       "team": "MIN"
+    },
+    "11783": {
+      "name": "Ryan Flournoy",
+      "position": "WR",
+      "status": "Active",
+      "team": "DAL"
     },
     "11786": {
       "name": "Cam Little",
@@ -227,6 +239,12 @@
       "status": "Active",
       "team": "NYJ"
     },
+    "13281": {
+      "name": "Jordyn Tyson",
+      "position": "WR",
+      "status": "Active",
+      "team": "NO"
+    },
     "13337": {
       "name": "Emmett Johnson",
       "position": "RB",
@@ -244,6 +262,12 @@
       "position": "WR",
       "status": "Active",
       "team": "CLE"
+    },
+    "13424": {
+      "name": "Seth McGowan",
+      "position": "RB",
+      "status": "Active",
+      "team": "IND"
     },
     "1466": {
       "name": "Travis Kelce",
@@ -286,6 +310,12 @@
       "position": "WR",
       "status": "Active",
       "team": "SF"
+    },
+    "3294": {
+      "name": "Dak Prescott",
+      "position": "QB",
+      "status": "Active",
+      "team": "DAL"
     },
     "3451": {
       "name": "Ka'imi Fairbairn",
@@ -364,6 +394,12 @@
       "position": "WR",
       "status": "Active",
       "team": "NE"
+    },
+    "5872": {
+      "name": "Deebo Samuel Sr.",
+      "position": "WR",
+      "status": "Active",
+      "team": "SF"
     },
     "5892": {
       "name": "David Montgomery",
@@ -707,11 +743,23 @@
       "status": null,
       "team": "BUF"
     },
+    "CHI": {
+      "name": "Chicago Bears",
+      "position": "DEF",
+      "status": null,
+      "team": "CHI"
+    },
     "DEN": {
       "name": "Denver Broncos",
       "position": "DEF",
       "status": null,
       "team": "DEN"
+    },
+    "DET": {
+      "name": "Detroit Lions",
+      "position": "DEF",
+      "status": null,
+      "team": "DET"
     },
     "GB": {
       "name": "Green Bay Packers",
@@ -736,6 +784,12 @@
       "position": "DEF",
       "status": null,
       "team": "JAX"
+    },
+    "KC": {
+      "name": "Kansas City Chiefs",
+      "position": "DEF",
+      "status": null,
+      "team": "KC"
     },
     "LAR": {
       "name": "Los Angeles Rams",
@@ -780,31 +834,31 @@
         "12527",
         "13337",
         "2133",
+        "3294",
         "5850",
+        "5872",
         "6786",
         "6804",
-        "7021",
         "7588",
         "8130",
         "9488",
-        "96",
-        "GB"
+        "CHI"
       ],
       "reserve": [
         "2133"
       ],
       "roster_id": 1,
       "starters": [
-        "96",
+        "3294",
         "7588",
         "12481",
         "6786",
-        "0",
+        "5872",
         "8130",
         "12527",
         "13337",
         "11786",
-        "0"
+        "CHI"
       ],
       "taxi": [],
       "team_name": "Juggernauts Jumbo Package"
@@ -855,7 +909,6 @@
       "players": [
         "10229",
         "11564",
-        "11624",
         "12489",
         "12506",
         "3198",
@@ -868,6 +921,7 @@
         "8148",
         "9487",
         "9509",
+        "DET",
         "SEA"
       ],
       "reserve": [
@@ -884,7 +938,7 @@
         "8137",
         "9487",
         "3451",
-        "0"
+        "DET"
       ],
       "taxi": [],
       "team_name": "Fantastic Four Skin"
@@ -932,20 +986,20 @@
       "players": [
         "10859",
         "1166",
+        "11783",
         "12474",
         "12526",
-        "13276",
+        "13281",
         "13345",
         "4881",
         "7042",
         "7547",
         "7564",
-        "8132",
         "8146",
         "8150",
         "8228",
         "9228",
-        "JAX"
+        "KC"
       ],
       "reserve": [
         "4881"
@@ -961,7 +1015,7 @@
         "8146",
         "12526",
         "7042",
-        "JAX"
+        "KC"
       ],
       "taxi": [],
       "team_name": "🔮✨Wanda WacksEmOff✨🔮"
@@ -972,8 +1026,9 @@
       "players": [
         "11566",
         "11586",
+        "11620",
         "12514",
-        "13346",
+        "13424",
         "4217",
         "5859",
         "6794",
@@ -1108,6 +1163,7 @@
           "8130",
           "9488",
           "96",
+          "CHI",
           "GB"
         ],
         "points": 186.62,
@@ -1329,6 +1385,7 @@
         "players": [
           "11566",
           "11586",
+          "11620",
           "12491",
           "12514",
           "13346",
@@ -1476,29 +1533,29 @@
           "12527",
           "13337",
           "2133",
+          "3294",
           "5850",
+          "5872",
           "6786",
           "6804",
-          "7021",
           "7588",
           "8130",
           "9488",
-          "96",
-          "GB"
+          "CHI"
         ],
         "points": 0.0,
         "roster_id": 1,
         "starters": [
-          "96",
+          "3294",
           "7588",
           "12481",
           "6786",
-          "0",
+          "5872",
           "8130",
           "12527",
           "13337",
           "11786",
-          "0"
+          "CHI"
         ],
         "starters_points": [
           0.0,
@@ -1565,7 +1622,6 @@
         "players": [
           "10229",
           "11564",
-          "11624",
           "12489",
           "12506",
           "3198",
@@ -1578,6 +1634,7 @@
           "8148",
           "9487",
           "9509",
+          "DET",
           "SEA"
         ],
         "points": 0.0,
@@ -1592,7 +1649,7 @@
           "8137",
           "9487",
           "3451",
-          "0"
+          "DET"
         ],
         "starters_points": [
           0.0,
@@ -1658,20 +1715,20 @@
         "players": [
           "10859",
           "1166",
+          "11783",
           "12474",
           "12526",
-          "13276",
+          "13281",
           "13345",
           "4881",
           "7042",
           "7547",
           "7564",
-          "8132",
           "8146",
           "8150",
           "8228",
           "9228",
-          "JAX"
+          "KC"
         ],
         "points": 0.0,
         "roster_id": 5,
@@ -1685,7 +1742,7 @@
           "8146",
           "12526",
           "7042",
-          "JAX"
+          "KC"
         ],
         "starters_points": [
           0.0,
@@ -1705,8 +1762,9 @@
         "players": [
           "11566",
           "11586",
+          "11620",
           "12514",
-          "13346",
+          "13424",
           "4217",
           "5859",
           "6794",
@@ -1850,29 +1908,29 @@
           "12527",
           "13337",
           "2133",
+          "3294",
           "5850",
+          "5872",
           "6786",
           "6804",
-          "7021",
           "7588",
           "8130",
           "9488",
-          "96",
-          "GB"
+          "CHI"
         ],
         "points": 0.0,
         "roster_id": 1,
         "starters": [
-          "96",
+          "3294",
           "7588",
           "12481",
           "6786",
-          "0",
+          "5872",
           "8130",
           "12527",
           "13337",
           "11786",
-          "0"
+          "CHI"
         ],
         "starters_points": [
           0.0,
@@ -1939,7 +1997,6 @@
         "players": [
           "10229",
           "11564",
-          "11624",
           "12489",
           "12506",
           "3198",
@@ -1952,6 +2009,7 @@
           "8148",
           "9487",
           "9509",
+          "DET",
           "SEA"
         ],
         "points": 0.0,
@@ -1966,7 +2024,7 @@
           "8137",
           "9487",
           "3451",
-          "0"
+          "DET"
         ],
         "starters_points": [
           0.0,
@@ -2032,20 +2090,20 @@
         "players": [
           "10859",
           "1166",
+          "11783",
           "12474",
           "12526",
-          "13276",
+          "13281",
           "13345",
           "4881",
           "7042",
           "7547",
           "7564",
-          "8132",
           "8146",
           "8150",
           "8228",
           "9228",
-          "JAX"
+          "KC"
         ],
         "points": 0.0,
         "roster_id": 5,
@@ -2059,7 +2117,7 @@
           "8146",
           "12526",
           "7042",
-          "JAX"
+          "KC"
         ],
         "starters_points": [
           0.0,
@@ -2079,8 +2137,9 @@
         "players": [
           "11566",
           "11586",
+          "11620",
           "12514",
-          "13346",
+          "13424",
           "4217",
           "5859",
           "6794",
