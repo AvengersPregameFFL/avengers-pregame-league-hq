@@ -1,5 +1,5 @@
 /* League HQ: network-first pages, safe offline fallback, bounded same-origin cache. */
-const CACHE='avengers-pregame-hq-v151';
+const CACHE='avengers-pregame-hq-v152';
 const CORE=['./','./index.html','./league-next-era.html','./commissioner-dues.html','./reports/latest.html','./manifest.webmanifest','./icons/icon.svg','./live-sync.js','./prime-time-picks-ui.js','./data/prime-time-picks.json','./data/pickem-weekly-verified.json','./data/record-book.json','./league-notifications.js','./league-share.js','./awards-race.js','./awards-race.css','./stories/index.html','./stories/week10-jugs-mike.html','./stories/week10-aaron-punisher.html','./stories/week10-nick-schedule.html','./stories/39D20C8D-2F51-4AB1-A895-1330C9CD7323.png','./stories/BCC151EE-FEBF-4143-89F6-914C3F93CB4C.png','./stories/pregame_bugle_schedule_luck_espn_style.png','./stories/carolina-civil-war.html','./stories/down-goes-nick.html','./stories/week7-aaron-hunter.html','./stories/week7-travis-jake.html','./stories/week7-mike-alyssa.html','./stories/archive.html'];
 const OFFLINE_LIMIT=90;
 self.addEventListener('install',event=>{
