@@ -165,13 +165,111 @@ a{color:inherit}.shell{width:min(1100px,calc(100% - 18px));margin:14px auto 30px
 .bugle-utility-tag{font:900 clamp(11px,2vw,16px)/1.2 'Barlow Condensed',Arial,sans-serif;letter-spacing:.03em;text-align:right;color:#713b36}
 @media(max-width:650px){.masthead{padding:11px 4px 13px;margin-bottom:15px}.logo{margin:8px 0 7px}.logo .logo-pregame{font-size:clamp(53px,13.2vw,85px)}.logo .logo-bugle{font-size:clamp(78px,19.8vw,125px)}.logo small{font-size:15px}.mast-sub{font-size:11px;letter-spacing:.01em}.bugle-hq-return.top{font-size:13px;padding:7px 9px;min-height:36px}.bugle-utility-tag{font-size:11px}.bugle-utility{gap:6px}}
 @media(max-width:360px){.logo .logo-pregame{font-size:49px}.logo .logo-bugle{font-size:73px}}
+
+/* v152: four-panel comic editorial treatment; preserve clickable full artwork */
+.masthead{isolation:isolate}
+.comic-issue-seal{position:absolute;top:39px;right:clamp(7px,2.7vw,22px);width:clamp(42px,8.5vw,75px);aspect-ratio:1;border:3px solid #18100c;border-radius:50%;background:#ffe29e;box-shadow:3px 4px 0 #bd1b28;color:#1e1010;display:flex;flex-direction:column;align-items:center;justify-content:center;font:900 clamp(12px,2vw,18px)/1 Impact,'Barlow Condensed',sans-serif;transform:rotate(11deg);z-index:2}
+.comic-issue-seal small{font:900 clamp(7px,1vw,10px)/1.05 Arial,sans-serif;text-align:center;margin-top:3px}
+.comic-grid{background:#171012;border:4px solid #171012;padding:7px;gap:14px!important;box-shadow:inset 0 0 0 2px #b92027,5px 6px 0 #171012}
+.comic-grid>.panel{border:5px solid #0a0809!important;box-shadow:inset 0 0 0 2px #fff1c9,3px 4px 0 #020204!important;outline:2px solid #f3cf9e;outline-offset:-8px}
+.comic-grid .story-number{border-top:2px solid #111;border-left:2px solid #111;z-index:5}
+.editor-note{position:absolute;right:9px;top:11px;display:block;max-width:60%;padding:7px 10px;color:#161014;background:#fff0b7;border:2px solid #1a1010;box-shadow:3px 3px 0 #120c0d;text-align:center;text-transform:uppercase;font:900 clamp(12px,1.8vw,17px)/1.12 'Barlow Condensed',Impact,Arial,sans-serif;letter-spacing:.035em;transform:rotate(2deg);z-index:6;pointer-events:none}
+.panel-life .editor-note,.panel-four .editor-note{max-width:71%;font-size:clamp(10px,1.5vw,14px);padding:6px 7px}
+.panel-schedule .editor-note{max-width:58%}
+.panel:hover .editor-note{background:#ffda29}
+.bugle-evidence{margin:18px 2px 11px;background:#f9edce;border:4px solid #161010;box-shadow:5px 6px 0 #171010}
+.evidence-header{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#b31b2b;color:#fff;padding:13px 15px;border-bottom:5px solid #14100d}
+.evidence-header>span{font:900 clamp(21px,4.3vw,38px)/.95 'Barlow Condensed',Impact,Arial,sans-serif;letter-spacing:.01em}
+.evidence-header small{font:800 clamp(10px,1.7vw,13px)/1.15 Arial,sans-serif;text-align:right;color:#fff1bb}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.evidence-item{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:17px 11px 13px;min-width:0}
+.evidence-item+.evidence-item{border-left:3px solid #15100d}
+.evidence-label{font:900 clamp(11px,2vw,15px)/1.15 'Barlow Condensed',Arial,sans-serif;letter-spacing:.05em}
+.evidence-item strong{font:900 clamp(26px,5.7vw,49px)/1 Impact,'Barlow Condensed',sans-serif;color:#b21c2a;letter-spacing:-.015em}
+.evidence-item>span:last-child{font:800 clamp(11px,1.9vw,15px)/1.3 'Barlow Condensed',Arial,sans-serif}
+.evidence-note{margin:0!important;padding:7px 12px 9px;border-top:3px solid #161010;font:700 clamp(11px,1.7vw,13px)/1.35 Arial,sans-serif;color:#4b3229}
+.next-issue{position:relative;display:grid;grid-template-columns:minmax(145px,.55fr) minmax(0,1.45fr);margin:19px 2px 16px;border:5px solid #101012;box-shadow:5px 6px 0 #15100e;background:#14111d;color:#fff;overflow:hidden}
+.next-issue-mark{display:flex;align-items:center;justify-content:center;padding:12px;background:repeating-linear-gradient(-20deg,#e1a51b 0 8px,#f5d457 8px 16px);color:#181012;text-align:center;font:900 clamp(23px,4.3vw,42px)/.96 Impact,'Barlow Condensed',sans-serif;transform:none;letter-spacing:.01em;border-right:5px solid #100c0d}
+.next-issue-content{padding:17px 19px 17px}
+.next-issue-eyebrow{font:900 12px/1 Arial,sans-serif;letter-spacing:.13em;color:#ffdb63}
+.next-issue h2{margin:6px 0 8px;font:900 clamp(28px,5.4vw,51px)/.96 Impact,'Barlow Condensed',sans-serif;color:#fff}
+.next-issue p{font:700 clamp(13px,2vw,17px)/1.35 Arial,sans-serif;margin:0 0 12px;color:#e9d9ce}
+.next-issue-matchups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.next-issue-matchups span{padding:8px 10px;border:2px solid #e8c883;background:#281f32;color:#ffe8a1;font:900 clamp(12px,2vw,17px)/1.05 'Barlow Condensed',Arial,sans-serif;text-align:center}
+@media(max-width:650px){
+ .comic-issue-seal{top:34px;right:5px;width:45px;height:45px;font-size:12px}.comic-issue-seal small{font-size:6px}
+ .comic-grid{padding:4px;gap:8px!important;border-width:3px}
+ .comic-grid>.panel{border-width:3px!important;outline-offset:-6px}
+ .editor-note{top:8px;right:6px;padding:5px 6px;font-size:11px;max-width:60%}
+ .panel-life .editor-note,.panel-four .editor-note{font-size:9px;max-width:76%;padding:4px}
+ .evidence-header{padding:10px 9px}.evidence-grid{grid-template-columns:1fr}.evidence-item{padding:10px 12px;gap:3px}.evidence-item+.evidence-item{border-left:0;border-top:2px solid #161010}.evidence-item strong{font-size:35px}
+ .next-issue{grid-template-columns:1fr}.next-issue-mark{border-right:0;border-bottom:4px solid #16100d;min-height:52px;font-size:28px}
+ .next-issue-content{padding:12px}.next-issue h2{font-size:34px}.next-issue-matchups{gap:5px}
+}
+@media(max-width:390px){.editor-note{font-size:10px}.panel-life .editor-note,.panel-four .editor-note{font-size:8px}.next-issue-matchups{grid-template-columns:1fr}}
 </style></head>
-<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><h1 class="logo" aria-label="The Pregame Bugle"><small>THE</small><span class="logo-pregame">PREGAME</span><span class="logo-bugle">BUGLE</span></h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div><div class="bugle-utility"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><span class="bugle-utility-tag">SELECT A PANEL TO READ THE STORY ↓</span></div>
+<body><main class="shell" aria-label="The Pregame Bugle weekly comic-book issue"><header class="masthead"><div class="mast-top"><span>AVENGERS PREGAME FFL</span><span>ISSUE NO. 025</span></div><div class="comic-issue-seal" aria-label="Collector edition, 2026">2026<small>COLLECTOR<br>EDITION</small></div><h1 class="logo" aria-label="The Pregame Bugle"><small>THE</small><span class="logo-pregame">PREGAME</span><span class="logo-bugle">BUGLE</span></h1><div class="mast-sub">The official illustrated newspaper of Avengers Pregame Fantasy Football</div></header><div class="issue-bar"><span>EST. 2026</span><strong>WEEK 11 EDITION · WEEK 10 RECAP</strong><span>NOV 17, 2026</span></div><div class="bugle-utility"><a class="bugle-hq-return top" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><span class="bugle-utility-tag">SELECT A PANEL TO READ THE STORY ↓</span></div>
 <section class="comic-grid" aria-label="Four featured story slots">
-<article class="panel panel-main"><a href="./week10-jugs-mike.html" aria-label="Read Story 1: Jugs Keep Rolling, Dakota defeats Mike 186.62 to 181.54"><img src="./39D20C8D-2F51-4AB1-A895-1330C9CD7323.png" alt="The bloodied Juggernauts Jumbo Package champion stands over fallen superhero helmets"><span class="story-number">STORY #1 <small>THE MAIN EVENT</small></span><strong class="story-title">JUGS KEEP ROLLING!</strong><span class="story-sub">Mike gets run over by five points.</span><span class="score-ribbon">DK 186.62 – MIKE 181.54</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
-<article class="panel panel-half panel-life"><a href="./week10-aaron-punisher.html" aria-label="Read Story 2: Life Alert, Aaron has fallen and may not get up"><img src="./F24B5F75-848B-4041-B9F0-701439E2B309.png" alt="Fraud Alert comic cover featuring Aaron pleading for help under a towering orange rock warrior"><span class="story-number">STORY #2</span><strong class="story-title">LIFE ALERT!</strong><span class="story-sub">Aaron has fallen and may not get up.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
-<article class="panel panel-half panel-schedule"><a href="./week10-nick-schedule.html" aria-label="Read Story 3: Schedule Fraud, Nick's lucky season investigated with a statistical graph"><img src="./BCC151EE-FEBF-4143-89F6-914C3F93CB4C.png" alt="Schedule Fraud comic cover featuring a speedster bursting through a sorceress toward a number 13 football player"><span class="story-number">STORY #3</span><strong class="story-title">SCHEDULE FRAUD</strong><span class="story-sub">Nick's 8–2 record gets investigated.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
-<article class="panel panel-four panel-published"><a href="./Jakebeatshunter26.html" aria-label="Read Story 4: The Lesser of Two Shits, Jake defeats Hunter 164.02 to 142.46"><img src="../AFAA7B84-6BBF-4B0E-99C4-C27A95352134.png" alt="Short Bus Showdown comic cover: Jake drives a short yellow bus over Hunter’s half-symbiote character"><span class="story-number">STORY #4</span><strong class="story-title">THE LESSER OF TWO SHITS</strong><span class="story-sub">Jake defeats Hunter. Nobody's impressed.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
+<article class="panel panel-main"><a href="./week10-jugs-mike.html" aria-label="Read Story 1: Jugs Keep Rolling, Dakota defeats Mike 186.62 to 181.54"><img src="./39D20C8D-2F51-4AB1-A895-1330C9CD7323.png" alt="The bloodied Juggernauts Jumbo Package champion stands over fallen superhero helmets"><span class="story-number">STORY #1 <small>THE MAIN EVENT</small></span><span class="editor-note note-jugs">MEANWHILE, THE JUGS REFUSE TO DIE…</span><strong class="story-title">JUGS KEEP ROLLING!</strong><span class="story-sub">Mike gets run over by five points.</span><span class="score-ribbon">DK 186.62 – MIKE 181.54</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
+<article class="panel panel-half panel-life"><a href="./week10-aaron-punisher.html" aria-label="Read Story 2: Life Alert, Aaron has fallen and may not get up"><img src="./F24B5F75-848B-4041-B9F0-701439E2B309.png" alt="Fraud Alert comic cover featuring Aaron pleading for help under a towering orange rock warrior"><span class="story-number">STORY #2</span><span class="editor-note note-life">EMERGENCY SERVICES DISPATCHED</span><strong class="story-title">LIFE ALERT!</strong><span class="story-sub">Aaron has fallen and may not get up.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
+<article class="panel panel-half panel-schedule"><a href="./week10-nick-schedule.html" aria-label="Read Story 3: Schedule Fraud, Nick's lucky season investigated with a statistical graph"><img src="./BCC151EE-FEBF-4143-89F6-914C3F93CB4C.png" alt="Schedule Fraud comic cover featuring a speedster bursting through a sorceress toward a number 13 football player"><span class="story-number">STORY #3</span><span class="editor-note note-schedule">THE SCHEDULE IS UNDER INVESTIGATION</span><strong class="story-title">SCHEDULE FRAUD</strong><span class="story-sub">Nick's 8–2 record gets investigated.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
+<article class="panel panel-four panel-published"><a href="./Jakebeatshunter26.html" aria-label="Read Story 4: The Lesser of Two Shits, Jake defeats Hunter 164.02 to 142.46"><img src="../AFAA7B84-6BBF-4B0E-99C4-C27A95352134.png" alt="Short Bus Showdown comic cover: Jake drives a short yellow bus over Hunter’s half-symbiote character"><span class="story-number">STORY #4</span><span class="editor-note note-jake">MEANWHILE, IN THE BASEMENT…</span><strong class="story-title">THE LESSER OF TWO SHITS</strong><span class="story-sub">Jake defeats Hunter. Nobody's impressed.</span><span class="read-ribbon">CLICK TO READ ▸</span></a></article>
+</section>
+<aside class="bugle-evidence" aria-label="The Bugle evidence board with verified Week 10 statistics">
+ <div class="evidence-header"><span>THE BUGLE'S EVIDENCE BOARD</span><small id="evidence-week">WEEK 10 · VERIFIED BOX SCORES</small></div>
+ <div class="evidence-grid">
+  <div class="evidence-item"><span class="evidence-label">THE CLOSEST ESCAPE</span><strong id="evidence-close-value">5.08 PTS</strong><span id="evidence-close-note">Jugs 186.62 — Mike 181.54</span></div>
+  <div class="evidence-item"><span class="evidence-label">LEAGUE HIGH</span><strong id="evidence-high-value">186.62</strong><span id="evidence-high-note">DK · Juggernauts Jumbo Package</span></div>
+  <div class="evidence-item"><span class="evidence-label">LEAGUE LOW</span><strong id="evidence-low-value">117.70</strong><span id="evidence-low-note">Alyssa · Wanda WacksEmOff</span></div>
+ </div>
+ <p class="evidence-note">Actual weekly scores, not predictions. Research department currently accepting applications for adult supervision.</p>
+</aside>
+<section class="next-issue" aria-labelledby="next-issue-title">
+ <div class="next-issue-mark">TO BE CONTINUED…</div>
+ <div class="next-issue-content"><span class="next-issue-eyebrow">THE PREGAME BUGLE · UP NEXT</span><h2 id="next-issue-title">NEXT ISSUE: THE PLOT THICKENS</h2><p id="next-issue-description">Week 11 matchups are already drawing battle lines. No one is safe from the next edition.</p>
+ <div class="next-issue-matchups" id="next-issue-matchups" aria-label="Verified upcoming matchups"><span>DK vs Alyssa</span><span>Nick vs Mike</span><span>Aaron vs Jake</span><span>Travis vs Hunter</span></div></div>
 </section>
 <nav class="footer-nav" aria-label="Bugle and league navigation"><a href="./archive.html">▤ Previous Issues</a><a href="../index.html#records">🏆 Records</a><a href="../index.html#standings">▥ Standings</a><a href="../index.html#league-schedule">▦ Schedule</a><button type="button" id="shareIssue">↗ Share Issue</button></nav><a class="bugle-hq-return bottom" href="../index.html#home" aria-label="Back to League HQ homepage">← BACK TO LEAGUE HQ</a><footer class="page-foot">FOUR STORY SLOTS · FOUR PUBLISHED</footer></main>
-<script>document.getElementById('shareIssue').addEventListener('click',async()=>{const url=location.href.split('?')[0];try{if(navigator.share)await navigator.share({title:'The Pregame Bugle · Week 11 Edition',text:'Check out the latest Avengers Pregame fantasy football comic edition.',url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('Issue link copied')}else prompt('Copy issue link',url)}catch(e){if(e.name!=='AbortError')prompt('Copy issue link',url)}});</script></body></html>
+<script>document.getElementById('shareIssue').addEventListener('click',async()=>{const url=location.href.split('?')[0];try{if(navigator.share)await navigator.share({title:'The Pregame Bugle · Week 11 Edition',text:'Check out the latest Avengers Pregame fantasy football comic edition.',url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);alert('Issue link copied')}else prompt('Copy issue link',url)}catch(e){if(e.name!=='AbortError')prompt('Copy issue link',url)}});</script><script>
+(async function refreshBugleDesk(){
+ const rosterNames={1:'DK',2:'Mike',3:'Travis',4:'Aaron',5:'Alyssa',6:'Hunter',7:'Jake',8:'Nick'};
+ const set=(id,value)=>{const node=document.getElementById(id);if(node)node.textContent=value};
+ try{
+  const [cr,mr]=await Promise.all([
+   fetch('../data/coach-history.json',{cache:'no-store'}),
+   fetch('../data/sleeper-matchups.json',{cache:'no-store'})
+  ]);
+  if(!cr.ok||!mr.ok)return;
+  const coaches=await cr.json(),matchups=await mr.json();
+  const week=Number(coaches.through_week);
+  if(!Number.isInteger(week)||week<1)return;
+  const teamRecords=Object.entries(coaches.coaches||{}).map(([name,v])=>({
+    name, week:v.weeks?.find(x=>Number(x.week)===week)
+  })).filter(t=>t.week&&Number.isFinite(Number(t.week.points)));
+  const verified=matchups.weeks?.[String(week)]?.matchups;
+  if(teamRecords.length===8&&Array.isArray(verified)&&verified.length===4){
+   const rank=teamRecords.slice().sort((a,b)=>Number(b.week.points)-Number(a.week.points));
+   const closest=verified.slice().sort((a,b)=>Math.abs(a.teams[0].points-a.teams[1].points)-Math.abs(b.teams[0].points-b.teams[1].points))[0];
+   const diff=Math.abs(closest.teams[0].points-closest.teams[1].points);
+   set('evidence-week','WEEK '+week+' · VERIFIED BOX SCORES');
+   set('evidence-high-value',Number(rank[0].week.points).toFixed(2));
+   set('evidence-high-note',rank[0].name);
+   set('evidence-low-value',Number(rank[7].week.points).toFixed(2));
+   set('evidence-low-note',rank[7].name);
+   set('evidence-close-value',diff.toFixed(2)+' PTS');
+   const pair=closest.teams.slice().sort((a,b)=>b.points-a.points);
+   set('evidence-close-note',rosterNames[pair[0].roster_id]+' '+Number(pair[0].points).toFixed(2)+' — '+rosterNames[pair[1].roster_id]+' '+Number(pair[1].points).toFixed(2));
+  }
+  const futureWeek=week+1, future=matchups.weeks?.[String(futureWeek)]?.matchups;
+  if(Array.isArray(future)&&future.length===4&&future.every(pair=>pair.teams?.length===2&&pair.teams.every(t=>rosterNames[t.roster_id]))){
+   set('next-issue-title','NEXT ISSUE: WEEK '+futureWeek);
+   set('next-issue-description','The next four matchups are set. Four battles, one league, absolutely no guarantee of dignity.');
+   const target=document.getElementById('next-issue-matchups');if(target){target.replaceChildren();future.forEach(pair=>{const chip=document.createElement('span');chip.textContent=rosterNames[pair.teams[0].roster_id]+' vs '+rosterNames[pair.teams[1].roster_id];target.appendChild(chip)})}
+  }else if(week!==10){
+   set('next-issue-title','THE NEXT ISSUE IS COMING');
+   set('next-issue-description','Upcoming matchups will appear when the verified league schedule is refreshed.');
+   const target=document.getElementById('next-issue-matchups');if(target)target.replaceChildren();
+  }
+ }catch(e){/* Static verified Week 10 edition remains readable offline. */}
+})();
+</script></body></html>
