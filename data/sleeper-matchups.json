@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-19T22:04:24.502028+00:00",
+      "verified_at": "2026-11-20T20:14:17.915285+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -133,7 +133,7 @@
       ]
     },
     "10": {
-      "verified_at": "2026-11-19T22:04:24.656261+00:00",
+      "verified_at": "2026-11-20T20:14:18.044142+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-19T22:04:24.855681+00:00",
+      "verified_at": "2026-11-20T20:14:18.192008+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -206,7 +206,7 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 0.0
+              "points": 21.4
             },
             {
               "roster_id": 6,
@@ -241,7 +241,7 @@
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 0.0
+              "points": -6.6
             }
           ]
         },
@@ -251,19 +251,19 @@
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 0.0
+              "points": 3.2
             },
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 0.0
+              "points": 24.5
             }
           ]
         }
       ]
     },
     "12": {
-      "verified_at": "2026-11-19T22:04:25.013935+00:00",
+      "verified_at": "2026-11-20T20:14:18.322340+00:00",
       "matchups": [
         {
           "matchup_id": 1,
