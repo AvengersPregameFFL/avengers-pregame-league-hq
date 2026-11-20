@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 11,
-  "generated_at_utc": "2026-11-19T17:23:19.887061+00:00",
+  "generated_at_utc": "2026-11-20T00:38:21.753498+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -692,7 +692,7 @@
     "9493": {
       "name": "Puka Nacua",
       "position": "WR",
-      "status": "Inactive",
+      "status": "Active",
       "team": "LAR"
     },
     "9500": {
@@ -963,6 +963,7 @@
         "8167",
         "9493",
         "9500",
+        "HOU",
         "JAX",
         "LAR"
       ],
@@ -980,7 +981,7 @@
         "12507",
         "4993",
         "11533",
-        "LAR"
+        "JAX"
       ],
       "taxi": [],
       "team_name": "Jerry’s Justice League "
@@ -1127,11 +1128,11 @@
       "starters": [
         "8183",
         "5967",
-        "12512",
+        "8138",
         "6801",
         "9997",
         "5012",
-        "8138",
+        "9224",
         "8144",
         "12185",
         "BUF"
@@ -1684,6 +1685,7 @@
           "8167",
           "9493",
           "9500",
+          "HOU",
           "JAX",
           "LAR"
         ],
@@ -1699,7 +1701,7 @@
           "12507",
           "4993",
           "11533",
-          "LAR"
+          "JAX"
         ],
         "starters_points": [
           0.0,
@@ -1878,11 +1880,11 @@
         "starters": [
           "8183",
           "5967",
-          "12512",
+          "8138",
           "6801",
           "9997",
           "5012",
-          "8138",
+          "9224",
           "8144",
           "12185",
           "BUF"
@@ -2058,6 +2060,7 @@
           "8167",
           "9493",
           "9500",
+          "HOU",
           "JAX",
           "LAR"
         ],
@@ -2073,7 +2076,7 @@
           "12507",
           "4993",
           "11533",
-          "LAR"
+          "JAX"
         ],
         "starters_points": [
           0.0,
@@ -2252,11 +2255,11 @@
         "starters": [
           "8183",
           "5967",
-          "12512",
+          "8138",
           "6801",
           "9997",
           "5012",
-          "8138",
+          "9224",
           "8144",
           "12185",
           "BUF"
