@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 11,
-  "generated_at_utc": "2026-11-22T09:54:12.301591+00:00",
+  "generated_at_utc": "2026-11-22T17:51:00.926381+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -809,6 +809,12 @@
       "status": null,
       "team": "MIN"
     },
+    "PIT": {
+      "name": "Pittsburgh Steelers",
+      "position": "DEF",
+      "status": null,
+      "team": "PIT"
+    },
     "SEA": {
       "name": "Seattle Seahawks",
       "position": "DEF",
@@ -1044,9 +1050,12 @@
         "9221",
         "9484",
         "9758",
+        "PIT",
         "TB"
       ],
-      "reserve": [],
+      "reserve": [
+        "5859"
+      ],
       "roster_id": 6,
       "starters": [
         "11566",
@@ -1058,7 +1067,7 @@
         "7525",
         "12514",
         "7839",
-        "TB"
+        "PIT"
       ],
       "taxi": [],
       "team_name": "Hurts Venom Inside Her"
@@ -1091,7 +1100,7 @@
         "6813",
         "4983",
         "7569",
-        "1466",
+        "12517",
         "12519",
         "12490",
         "6083",
@@ -1780,6 +1789,7 @@
           "9221",
           "9484",
           "9758",
+          "PIT",
           "TB"
         ],
         "points": 0.0,
@@ -1794,7 +1804,7 @@
           "7525",
           "12514",
           "7839",
-          "TB"
+          "PIT"
         ],
         "starters_points": [
           0.0,
@@ -1836,7 +1846,7 @@
           "6813",
           "4983",
           "7569",
-          "1466",
+          "12517",
           "12519",
           "12490",
           "6083",
@@ -2155,6 +2165,7 @@
           "9221",
           "9484",
           "9758",
+          "PIT",
           "TB"
         ],
         "points": 0.0,
@@ -2169,7 +2180,7 @@
           "7525",
           "12514",
           "7839",
-          "TB"
+          "PIT"
         ],
         "starters_points": [
           0.0,
@@ -2211,7 +2222,7 @@
           "6813",
           "4983",
           "7569",
-          "1466",
+          "12517",
           "12519",
           "12490",
           "6083",
