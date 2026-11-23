@@ -1450,7 +1450,8 @@ function refreshLatest(){
   card.classList.toggle('bugle-top-story-entry',index===0);
  });
  const label=document.querySelector('#home #hq-feature-stories .hp-story-top span:last-child');
- if(label&&/STORIES/.test(label.textContent))label.textContent=String(Math.min(cards.length,4)).padStart(2,'0')+' STORIES · LATEST HEADLINES';
+ const published=document.querySelectorAll('#home #hq-feature-stories .bugle-newstand-grid > a.bugle-newstand-card').length;
+ if(label&&/STORIES/.test(label.textContent))label.textContent=String(published||Math.min(cards.length,4)).padStart(2,'0')+' STORIES · LATEST HEADLINES';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',refreshLatest);
 else refreshLatest();
@@ -2518,5 +2519,64 @@ body:not(:has(.page:target)){
   color:#111827!important;
   border-color:#111827!important;
   text-shadow:none!important;
+}
+</style><style id="bugle-newsstand-cleanup-20261123">
+/* Bugle ONLY: strip the obsolete newspaper wrapper and legacy headline graphics. */
+#home #hq-feature-stories .hp-story-shell{
+ background:transparent!important;background-image:none!important;
+ color:#fff2da!important;border:0!important;outline:0!important;
+ box-shadow:none!important;padding:0!important;margin:0!important;
+}
+#home #hq-feature-stories .hp-story-shell::before,
+#home #hq-feature-stories .hp-story-shell::after,
+#home #hq-feature-stories .hp-top-stories::before,
+#home #hq-feature-stories .hp-top-stories::after{content:none!important;display:none!important}
+#home #hq-feature-stories .hp-story-top{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ background:#18243a!important;color:#fff4d9!important;border:0!important;
+ border-bottom:2px solid #f4cc50!important;box-shadow:none!important;
+ padding:8px 3px 10px!important;margin:0 0 10px!important;
+ font:900 clamp(11px,2.1vw,14px)/1.2 Archivo,Arial,sans-serif!important;
+ letter-spacing:.025em!important;gap:12px!important;
+}
+#home #hq-feature-stories .hp-story-top span{color:#fff4d9!important}
+#home #hq-feature-stories .hp-story-top span:last-child{color:#ffd52e!important;text-align:right!important}
+#home #hq-feature-stories .hp-top-stories{
+ background:transparent!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;padding:0!important;margin:0!important;
+}
+#home #hq-feature-stories .bugle-comic-embed{
+ background:#18243a!important;margin:0!important;padding:13px!important;
+ border:2px solid #f1c746!important;box-shadow:3px 4px 0 #091221!important;
+}
+#home #hq-feature-stories .bugle-newstand-head{display:flex!important;align-items:center!important;gap:12px!important}
+#home #hq-feature-stories .bugle-newstand-head>div{min-width:0!important;flex:1!important}
+#home #hq-feature-stories .bugle-newstand-head h2{
+ display:block!important;position:static!important;width:auto!important;max-width:none!important;
+ min-height:0!important;margin:4px 0!important;padding:0!important;
+ background:none!important;background-image:none!important;color:#fff3df!important;
+ border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;
+ transform:none!important;rotate:0deg!important;
+ font:900 clamp(24px,4.8vw,45px)/1.04 Bangers,Impact,sans-serif!important;
+ letter-spacing:.005em!important;text-align:left!important;text-shadow:1px 2px 0 #060a13!important;
+}
+#home #hq-feature-stories .bugle-newstand-head h2 em{color:#f23a50!important;font-style:normal!important}
+#home #hq-feature-stories .bugle-newstand-head small,
+#home #hq-feature-stories .bugle-newstand-head p{background:none!important;border:0!important;box-shadow:none!important;text-shadow:none!important}
+#home #hq-feature-stories .bugle-newstand-head>a{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ min-height:38px!important;white-space:nowrap!important;
+ background:#ffd52e!important;color:#121725!important;text-shadow:none!important;
+ box-shadow:2px 2px 0 #070a12!important;
+}
+#home #hq-feature-stories .bugle-newstand-caption h3{
+ background:none!important;border:0!important;box-shadow:none!important;
+ padding:0!important;transform:none!important;color:#ffd52e!important;
+}
+#home #hq-feature-stories .bugle-newstand-art img{max-width:100%!important;object-fit:contain!important}
+@media(max-width:650px){
+ #home #hq-feature-stories .hp-story-top{font-size:10px!important;letter-spacing:0!important}
+ #home #hq-feature-stories .bugle-newstand-head h2{font-size:clamp(24px,6.2vw,34px)!important}
+ #home #hq-feature-stories .bugle-comic-embed{padding:9px!important}
 }
 </style><link rel="stylesheet" href="./homepage-broadcast-option3-v1.css?v=20261123b" data-theme-scope="broadcast-snapshot-awards-data"></body></html>
