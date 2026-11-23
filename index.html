@@ -3008,12 +3008,20 @@ body:has(.page[data-coach-design="premium-2026"]:target){
  });
 })();
 </script><style id="coaches-directory-portrait-fit-20261123">
-/* Coaches directory ONLY: show full image without cropping the top or sides.
-   Preserve card dimensions, portraits, borders and profile layouts. */
-#teams .roster-comic-art{background:#18243a!important}
+/* Coaches directory only. Fill portrait frames with no blue letterboxing.
+   Keep top of the portraits framed to show faces; preserve card layout. */
+#teams .roster-comic-art{background:#101827!important}
 #teams .roster-comic-art img{
- object-fit:contain!important;
- object-position:center center!important;
- background:#18243a!important;
+ display:block!important;
+ width:100%!important;
+ height:100%!important;
+ object-fit:cover!important;
+ object-position:50% 17%!important;
+ background:transparent!important;
 }
+#teams .roster-comic-jug .roster-comic-art img,
+#teams .roster-comic-four .roster-comic-art img,
+#teams .roster-comic-justice .roster-comic-art img{object-position:50% 12%!important}
+#teams .roster-comic-loki .roster-comic-art img,
+#teams .roster-comic-flash .roster-comic-art img{object-position:50% 10%!important}
 </style><style id="share-coaches-footer-position-v1">#teams .share-coaches-footer{display:flex;justify-content:center;clear:both;margin:18px auto 14px}#teams .share-coaches-footer .share-coaches-directory{float:none!important;margin:0!important;min-width:180px}</style></body></html>
