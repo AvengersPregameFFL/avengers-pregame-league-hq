@@ -2404,4 +2404,21 @@ buildMenus();setup();
     font-size:14px!important;
   }
 }
+</style><style id="home-navy-background-blue-nav-v1">
+/* Homepage-only color swap: navy canvas, original league blue behind navigation tabs.
+   No fonts, sizes, cards, artwork, links, routes, or application logic altered. */
+html:has(#home:target),
+html:not(:has(.page:target)),
+body:has(#home:target),
+body:not(:has(.page:target)){
+  background-color:#202a3b!important;
+  background-image:none!important;
+}
+#home{
+  background-color:#202a3b!important;
+  background-image:none!important;
+}
+#home .hp-quick-column .hp-menu.hp-menu-group{
+  background:#2f63e0!important;
+}
 </style></body></html>
