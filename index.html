@@ -2943,4 +2943,16 @@ body:has(.page[data-coach-design="premium-2026"]:target){
    grid-column:1!important;grid-row:auto!important;max-width:none!important
  }
 }
-</style></body></html>
+</style><style id="coach-accuracy-strip-removal-20261123">
+.page[data-coach-design="premium-2026"] .coach-accuracy-inline{display:none!important}
+</style><script id="coach-accuracy-strip-removal-script">
+(function(){
+ function removeDuplicateAccuracy(){
+  document.querySelectorAll('.page[data-coach-design="premium-2026"] .coach-accuracy-inline').forEach(function(node){node.remove()});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',removeDuplicateAccuracy);
+ else removeDuplicateAccuracy();
+ window.addEventListener('pageshow',removeDuplicateAccuracy);
+ window.addEventListener('hashchange',removeDuplicateAccuracy);
+})();
+</script></body></html>
