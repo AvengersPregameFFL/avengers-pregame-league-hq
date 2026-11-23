@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="590" viewBox="0 0 1800 590" role="img" aria-label="Road to the Championship comic banner featuring a silver Super Bowl-style football trophy">
+<defs>
+<linearGradient id="bg" x1="0" y1=".2" x2="1" y2=".8"><stop stop-color="#064bb4"/><stop offset=".57" stop-color="#0b285c"/><stop offset=".57" stop-color="#dd1f35"/><stop offset="1" stop-color="#a90822"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2=".3"><stop stop-color="#555d69"/><stop offset=".12" stop-color="#fafbfc"/><stop offset=".24" stop-color="#a5acb5"/><stop offset=".4" stop-color="#f8fafb"/><stop offset=".58" stop-color="#6a7483"/><stop offset=".79" stop-color="#e3ebf2"/><stop offset="1" stop-color="#444957"/></linearGradient>
+<linearGradient id="ball" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#fff"/><stop offset=".25" stop-color="#b1bac7"/><stop offset=".49" stop-color="#272d37"/><stop offset=".62" stop-color="#f3f6f8"/><stop offset="1" stop-color="#606a76"/></linearGradient>
+<pattern id="dots" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#030819" opacity=".17"/></pattern>
+<filter id="rough"><feTurbulence baseFrequency=".025" numOctaves="1" seed="5" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2"/></filter>
+</defs>
+<rect x="7" y="8" width="1784" height="573" fill="#050a13" stroke="#050a13" stroke-width="12"/>
+<rect x="23" y="23" width="1754" height="543" fill="#ffd523" stroke="#050913" stroke-width="7"/>
+<rect x="37" y="37" width="1726" height="514" fill="url(#bg)" stroke="#080911" stroke-width="6"/>
+<g opacity=".85">
+<path d="M40 80L1250 200 40 130ZM40 170L1260 250 40 230ZM40 300L1240 300 40 330ZM40 500L1300 380 40 530Z" fill="#0a0b1b"/>
+<path d="M980 41L1320 290 1080 44ZM1180 40L1360 300 1240 39ZM1758 66L1400 297 1758 180ZM1758 270L1400 315 1758 330ZM1758 485L1400 330 1758 550Z" fill="#060a18"/>
+<path d="M44 90L1050 235 44 125ZM44 415L1150 310 44 465ZM1757 83L1430 270 1757 120ZM1757 410L1400 320 1757 473Z" fill="#f12633"/>
+<path d="M70 45L1300 265 450 50ZM80 520L1280 350 320 546Z" fill="#2786ed"/>
+</g>
+<rect x="38" y="38" width="1724" height="511" fill="url(#dots)" opacity=".75"/>
+<path d="M121 46H705L663 135H80Z" fill="#060911" stroke="#060911" stroke-width="9"/>
+<path d="M128 54H694L652 120H94Z" fill="#ffe132"/>
+<text x="132" y="105" font-family="Impact,'Arial Black',sans-serif" font-style="italic" font-weight="900" font-size="58" fill="#080910">2026 PLAYOFF PICTURE</text>
+<text x="718" y="98" font-family="Impact,'Arial Black',sans-serif" font-style="italic" font-weight="900" font-size="49" fill="#ffe03c">/ LIVE SEEDS</text>
+<g transform="translate(30 12)">
+<text x="120" y="286" font-family="Impact,'Arial Black',sans-serif" font-size="122" font-style="italic" font-weight="900" fill="#070912" stroke="#070912" stroke-width="23" paint-order="stroke">ROAD TO THE</text>
+<text x="90" y="420" font-family="Impact,'Arial Black',sans-serif" font-size="148" font-style="italic" font-weight="900" fill="#0b0b13" stroke="#0b0b13" stroke-width="27" paint-order="stroke">CHAMPIONSHIP</text>
+<text x="110" y="272" font-family="Impact,'Arial Black',sans-serif" font-size="122" font-style="italic" font-weight="900" fill="#ffffff" stroke="#f03a41" stroke-width="8" paint-order="stroke">ROAD TO THE</text>
+<text x="80" y="405" font-family="Impact,'Arial Black',sans-serif" font-size="148" font-style="italic" font-weight="900" fill="#fff" stroke="#ed2e37" stroke-width="8" paint-order="stroke">CHAMPIONSHIP</text>
+</g>
+<path d="M309 456L1050 439 1091 472 1040 516 310 524 266 495Z" fill="#080910" stroke="#070a13" stroke-width="13"/>
+<path d="M305 454L1048 441 1076 471 1036 502 295 511 270 490Z" fill="#ffe42a"/>
+<text x="346" y="489" font-family="Impact,'Arial Black',sans-serif" font-size="58" font-weight="900" font-style="italic" fill="#070910">VIEW THE FULL BRACKET →</text>
+<!-- Reflective Lombardi-shaped trophy, football resting on a tall tapered base. -->
+<g transform="translate(1345 10)">
+<path d="M130 265L258 265 295 525 99 525Z" fill="#0a0b12" stroke="#080911" stroke-width="16"/>
+<path d="M137 262L255 260 284 523 111 523Z" fill="url(#metal)" stroke="#202936" stroke-width="7"/>
+<path d="M160 278L184 274 153 514 131 514Z" fill="#fff" opacity=".65"/>
+<path d="M239 268L247 266 264 518 242 520Z" fill="#101a2c" opacity=".55"/>
+<ellipse cx="195" cy="177" rx="140" ry="91" transform="rotate(-36 195 177)" fill="url(#ball)" stroke="#090c13" stroke-width="12"/>
+<ellipse cx="190" cy="170" rx="123" ry="75" transform="rotate(-36 190 170)" fill="none" stroke="#f7f9fa" stroke-width="6" opacity=".9"/>
+<path d="M85 245Q176 207 298 96" fill="none" stroke="#fff" stroke-width="12" opacity=".8"/>
+<path d="M162 78Q215 160 241 267" fill="none" stroke="#202635" stroke-width="12"/>
+<path d="M150 98L192 154M161 93L203 143M174 88L216 132M189 84L227 119" stroke="#f8fafc" stroke-width="7"/>
+<path d="M147 326L241 323 232 390 157 390Z" fill="#0a101b" stroke="#dfe8ed" stroke-width="6"/>
+<text x="194" y="362" text-anchor="middle" font-family="Impact,Arial,sans-serif" font-size="31" fill="#fff">APFFL</text>
+<path d="M-17 480Q28 416 59 369M396 480Q352 416 330 369" fill="none" stroke="#e1ae2e" stroke-width="13" stroke-linecap="round"/>
+<path d="M0 467L42 410M17 457L20 412M365 467L343 413M380 456L362 400" fill="none" stroke="#e3b12f" stroke-width="10" stroke-linecap="round"/>
+</g>
+<rect x="19" y="20" width="1762" height="547" fill="none" stroke="#ffe329" stroke-width="10"/>
+</svg>
