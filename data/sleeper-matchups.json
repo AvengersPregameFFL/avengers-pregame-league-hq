@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-23T01:46:28.142293+00:00",
+      "verified_at": "2026-11-23T23:51:35.711186+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -133,7 +133,7 @@
       ]
     },
     "10": {
-      "verified_at": "2026-11-23T01:46:28.227227+00:00",
+      "verified_at": "2026-11-23T23:51:35.882261+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-23T01:46:28.314267+00:00",
+      "verified_at": "2026-11-23T23:51:36.030065+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -211,7 +211,7 @@
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 72.5
+              "points": 95.9
             }
           ]
         },
@@ -221,7 +221,7 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 205.3
+              "points": 209.5
             },
             {
               "roster_id": 5,
@@ -236,12 +236,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 80.26
+              "points": 121.96
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 76.8
+              "points": 96.8
             }
           ]
         },
@@ -263,7 +263,7 @@
       ]
     },
     "12": {
-      "verified_at": "2026-11-23T01:46:28.390631+00:00",
+      "verified_at": "2026-11-23T23:51:36.176521+00:00",
       "matchups": [
         {
           "matchup_id": 1,
