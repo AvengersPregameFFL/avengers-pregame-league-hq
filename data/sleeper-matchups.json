@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-22T19:36:57.372343+00:00",
+      "verified_at": "2026-11-23T01:46:28.142293+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -133,7 +133,7 @@
       ]
     },
     "10": {
-      "verified_at": "2026-11-22T19:36:57.531306+00:00",
+      "verified_at": "2026-11-23T01:46:28.227227+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-22T19:36:57.680096+00:00",
+      "verified_at": "2026-11-23T01:46:28.314267+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -206,12 +206,12 @@
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 65.1
+              "points": 139.44
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 30.6
+              "points": 72.5
             }
           ]
         },
@@ -221,12 +221,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 89.08
+              "points": 205.3
             },
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 52.9
+              "points": 124.9
             }
           ]
         },
@@ -236,12 +236,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 35.42
+              "points": 80.26
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 35.8
+              "points": 76.8
             }
           ]
         },
@@ -251,19 +251,19 @@
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 29.5
+              "points": 89.3
             },
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 82.12
+              "points": 116.76
             }
           ]
         }
       ]
     },
     "12": {
-      "verified_at": "2026-11-22T19:36:57.819533+00:00",
+      "verified_at": "2026-11-23T01:46:28.390631+00:00",
       "matchups": [
         {
           "matchup_id": 1,
