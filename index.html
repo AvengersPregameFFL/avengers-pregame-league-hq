@@ -1620,4 +1620,131 @@ opacity:1!important;visibility:visible!important;z-index:2!important;filter:none
  render(streakPage,'WIN STREAK · COACH COMPARISON','Longest consecutive winning streak for each coach through Week '+week,wins.map(c=>({...c,display:c.streak+' STRAIGHT'})),c=>c.streak,longest.streak||1);
  render(weekPage,'RECORD · MOST POINTS IN A WEEK','Verified individual best weekly score for each coach through Week '+week,all.map(c=>{const best=c.weeks.slice().sort((a,b)=>Number(b.points)-Number(a.points))[0];return {name:c.name,points:Number(best.points),display:fmt(best.points)+' · W'+best.week}}).sort((a,b)=>b.points-a.points),c=>c.points,weekHigh.points);
  }).catch(err=>console.warn('Snapshot using verified fallback',err.message));
-})();</script><script id="bugle-comic-autosize-v133">(function(){'use strict';var frame=document.getElementById('bugle-comic-frame');if(!frame)return;var observed=false,queued=false;function resize(){queued=false;try{var doc=frame.contentDocument;if(!doc)return;var shell=doc.querySelector('.shell');if(!shell)return;var rect=shell.getBoundingClientRect();var size=Math.ceil(Math.max(rect.bottom, shell.scrollHeight+rect.top)+24);if(size>500&&Math.abs(frame.getBoundingClientRect().height-size)>2)frame.style.setProperty('height',size+'px','important');if(!observed&&frame.contentWindow.ResizeObserver){observed=true;new frame.contentWindow.ResizeObserver(schedule).observe(shell);doc.querySelectorAll('img').forEach(function(img){if(!img.complete)img.addEventListener('load',schedule,{once:true})})}}catch(e){console.warn('Bugle frame resize unavailable',e)}}function schedule(){if(queued)return;queued=true;requestAnimationFrame(resize)}frame.addEventListener('load',function(){observed=false;schedule();setTimeout(schedule,250);setTimeout(schedule,1500)});window.addEventListener('resize',schedule);window.addEventListener('pageshow',schedule);document.addEventListener('visibilitychange',function(){if(!document.hidden)schedule()});schedule()})();</script><script id="ap-awards-verified-week-v20261117">(function(){'use strict';const leagueId='1395849826633019392',root='https://api.sleeper.app/v1/league/'+leagueId,button=document.getElementById('weekly-awards-open'),report=document.getElementById('auto-weekly-report');if(!button||!report)return;let lastVerified=0,revision=0;const get=p=>fetch(root+p,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Sleeper '+r.status);return r.json()});function show(week){if(!Number.isInteger(week)||week<1||week<lastVerified)return;lastVerified=week;button.innerHTML='WEEK '+week+' AWARDS <span aria-hidden="true">→</span>';button.href='./reports/latest.html?week='+week;button.setAttribute('aria-label','View verified Week '+week+' awards');report.textContent='WEEK '+week+' SLEEPER REPORT · RESULTS & AWARDS →';report.href='./reports/latest.html?week='+week;button.dataset.verifiedWeek=String(week);}function complete(g){return Array.isArray(g)&&g.length===8&&new Set(g.map(x=>Number(x.roster_id))).size===8&&g.every(x=>x.matchup_id!==null&&x.matchup_id!==undefined&&x.points!==null&&x.points!==undefined&&Number.isFinite(Number(x.points)))&&new Set(g.map(x=>x.matchup_id)).size===4&&g.every(x=>g.filter(y=>y.matchup_id===x.matchup_id).length===2)}async function refresh(){let token=++revision;try{const l=await get('');let current=Number(l.settings&&l.settings.leg);if(!Number.isInteger(current)||current<2)return;for(let w=Math.min(current-1,18);w>=1;w--){const games=await get('/matchups/'+w);if(token!==revision)return;if(complete(games)){show(w);return}}}catch(e){console.warn('Awards sync: latest verified results unavailable',e)}}refresh();document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});window.addEventListener('pageshow',refresh);setInterval(()=>{if(!document.hidden)refresh()},600000)})();</script></body></html>
+})();</script><script id="bugle-comic-autosize-v133">(function(){'use strict';var frame=document.getElementById('bugle-comic-frame');if(!frame)return;var observed=false,queued=false;function resize(){queued=false;try{var doc=frame.contentDocument;if(!doc)return;var shell=doc.querySelector('.shell');if(!shell)return;var rect=shell.getBoundingClientRect();var size=Math.ceil(Math.max(rect.bottom, shell.scrollHeight+rect.top)+24);if(size>500&&Math.abs(frame.getBoundingClientRect().height-size)>2)frame.style.setProperty('height',size+'px','important');if(!observed&&frame.contentWindow.ResizeObserver){observed=true;new frame.contentWindow.ResizeObserver(schedule).observe(shell);doc.querySelectorAll('img').forEach(function(img){if(!img.complete)img.addEventListener('load',schedule,{once:true})})}}catch(e){console.warn('Bugle frame resize unavailable',e)}}function schedule(){if(queued)return;queued=true;requestAnimationFrame(resize)}frame.addEventListener('load',function(){observed=false;schedule();setTimeout(schedule,250);setTimeout(schedule,1500)});window.addEventListener('resize',schedule);window.addEventListener('pageshow',schedule);document.addEventListener('visibilitychange',function(){if(!document.hidden)schedule()});schedule()})();</script><script id="ap-awards-verified-week-v20261117">(function(){'use strict';const leagueId='1395849826633019392',root='https://api.sleeper.app/v1/league/'+leagueId,button=document.getElementById('weekly-awards-open'),report=document.getElementById('auto-weekly-report');if(!button||!report)return;let lastVerified=0,revision=0;const get=p=>fetch(root+p,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Sleeper '+r.status);return r.json()});function show(week){if(!Number.isInteger(week)||week<1||week<lastVerified)return;lastVerified=week;button.innerHTML='WEEK '+week+' AWARDS <span aria-hidden="true">→</span>';button.href='./reports/latest.html?week='+week;button.setAttribute('aria-label','View verified Week '+week+' awards');report.textContent='WEEK '+week+' SLEEPER REPORT · RESULTS & AWARDS →';report.href='./reports/latest.html?week='+week;button.dataset.verifiedWeek=String(week);}function complete(g){return Array.isArray(g)&&g.length===8&&new Set(g.map(x=>Number(x.roster_id))).size===8&&g.every(x=>x.matchup_id!==null&&x.matchup_id!==undefined&&x.points!==null&&x.points!==undefined&&Number.isFinite(Number(x.points)))&&new Set(g.map(x=>x.matchup_id)).size===4&&g.every(x=>g.filter(y=>y.matchup_id===x.matchup_id).length===2)}async function refresh(){let token=++revision;try{const l=await get('');let current=Number(l.settings&&l.settings.leg);if(!Number.isInteger(current)||current<2)return;for(let w=Math.min(current-1,18);w>=1;w--){const games=await get('/matchups/'+w);if(token!==revision)return;if(complete(games)){show(w);return}}}catch(e){console.warn('Awards sync: latest verified results unavailable',e)}}refresh();document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});window.addEventListener('pageshow',refresh);setInterval(()=>{if(!document.hidden)refresh()},600000)})();</script><style id="coach-compact-tabs-v1">
+.page[id^="coach-"].coach-compact{--profile-border:#151122}
+.coach-compact .coach-profile-head{display:flex;align-items:center;gap:17px;margin:14px 0 18px;padding:17px;background:#fff9ed;border:4px solid #151122;box-shadow:5px 5px 0 #151122;border-radius:7px}
+.coach-compact .coach-profile-identity{min-width:0;flex:1}
+.coach-compact .coach-profile-identity h1{margin:0 0 7px!important;line-height:1!important;font-size:clamp(38px,8vw,61px)!important}
+.coach-compact .coach-profile-identity .muted{font-weight:800;line-height:1.35;margin:0!important;overflow-wrap:anywhere}
+.coach-compact .coach-portrait-slot{flex:0 0 100px;width:100px;min-width:0;aspect-ratio:4/5;border:3px solid #151122;background:#efdfbd;box-shadow:3px 3px 0 #151122;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.coach-compact .coach-portrait-slot .dk-coach-portrait{margin:0!important;width:100%!important;height:100%!important;border:0!important;box-shadow:none!important;display:flex;flex-direction:column}
+.coach-compact .coach-portrait-slot .dk-coach-portrait img{width:100%;height:100%;min-height:0;flex:1;aspect-ratio:auto!important;object-fit:cover}
+.coach-compact .coach-portrait-slot .dk-coach-portrait figcaption{padding:4px!important;font-size:8px!important;line-height:1.15!important}
+.coach-compact .coach-portrait-placeholder{font:900 42px/1 Bangers,Impact,sans-serif;color:#151122}
+.coach-compact .coach-portrait-note{font:900 10px/1.2 Archivo,Arial,sans-serif;color:#151122;text-align:center;padding:7px;letter-spacing:.06em}
+.coach-compact>.grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;margin:0 0 19px!important}
+.coach-compact>.grid .stat{min-width:0!important;padding:12px 7px!important;text-align:center}
+.coach-compact>.grid .stat .label{font-size:clamp(9px,2vw,12px)!important;overflow-wrap:anywhere;line-height:1.2}
+.coach-compact>.grid .stat .value{font-size:clamp(16px,4vw,26px)!important;overflow-wrap:anywhere;line-height:1.15}
+.coach-compact .coach-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:15px 0 16px}
+.coach-compact .coach-tab{cursor:pointer;background:#ffda05;color:#151122;border:3px solid #151122;border-radius:5px;box-shadow:3px 3px 0 #151122;padding:13px 3px;font:900 clamp(11px,2.6vw,15px)/1.15 Archivo,Arial,sans-serif;min-width:0}
+.coach-compact .coach-tab[aria-selected="true"]{background:#151122;color:#ffda05;box-shadow:none;transform:translate(2px,2px)}
+.coach-compact .coach-tab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.coach-compact .coach-tabpanel{display:none;min-width:0}
+.coach-compact .coach-tabpanel.is-active{display:block}
+.coach-compact .coach-tabpanel>h2{margin:12px 0 10px}
+.coach-compact .coach-tabpanel>.scoring-chart,.coach-compact .coach-tabpanel>.panel{margin-top:8px}
+.coach-compact .coach-allplay-card{margin:10px 4px 16px 0;padding:12px;box-shadow:3px 3px 0 #151122}
+.coach-compact .coach-allplay-total{font-size:clamp(24px,5vw,35px)}
+.coach-compact .coach-allplay-link{font-size:18px;padding:9px}
+.coach-compact .coach-fold{border:3px solid #151122;background:#fff9ed;margin:12px 0;box-shadow:3px 3px 0 #151122}
+.coach-compact .coach-fold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;font:900 16px/1.25 Archivo,Arial,sans-serif}
+.coach-compact .coach-fold>summary::-webkit-details-marker{display:none}
+.coach-compact .coach-fold>summary::after{content:"+";font-size:24px;line-height:1}
+.coach-compact .coach-fold[open]>summary::after{content:"−"}
+.coach-compact .coach-fold>summary .coach-fold-value{font-size:12px;color:#4b4552;font-weight:750;text-align:right}
+.coach-compact .coach-fold>.panel,.coach-compact .coach-fold>.scoring-chart{margin:0 8px 9px!important}
+.coach-compact .coach-tabpanel .coach-empty-note{background:#fff9ed;color:#151122;border:3px solid #151122;padding:17px;font-weight:750}
+.coach-compact .coach-summary-strip,.coach-compact>.coach-quick-nav{display:none!important}
+@media(max-width:520px){.coach-compact .coach-profile-head{padding:12px;gap:12px}.coach-compact .coach-portrait-slot{flex-basis:85px;width:85px}.coach-compact>.grid{gap:5px!important}.coach-compact>.grid .stat{padding:9px 3px!important}.coach-compact .coach-tabs{gap:5px}.coach-compact .coach-tab{border-width:2px;padding:11px 2px;font-size:11px}}
+</style><script id="coach-compact-tabs-script-v1">(function(){
+'use strict';
+const sections=document.querySelectorAll('.page[id^="coach-"]');
+const categories={'Pick’em':'overview','Survivor':'overview','Weekly Points Scored':'matchups','Fantasy matchups':'matchups','Awards':'awards','Draft history':'history'};
+const names=[['overview','Overview'],['matchups','Matchups'],['awards','Awards'],['history','History']];
+for(const root of sections){
+ if(root.dataset.compactReady==='true')continue;
+ const direct=()=>Array.from(root.children);
+ const title=direct().find(el=>el.tagName==='H1');
+ const subtitle=direct().find(el=>el.tagName==='P'&&el.classList.contains('muted'));
+ const stats=direct().find(el=>el.classList.contains('grid'));
+ if(!title||!subtitle||!stats)continue;
+ root.classList.add('coach-compact');
+ const header=document.createElement('div');header.className='coach-profile-head';
+ const identity=document.createElement('div');identity.className='coach-profile-identity';
+ identity.append(title,subtitle);
+ const portrait=document.createElement('div');portrait.className='coach-portrait-slot';
+ const existing=root.querySelector('.dk-coach-portrait');
+ if(existing){portrait.appendChild(existing);}
+ else{
+   const id=root.id.slice(6);
+   const abbrev={Hunter:'V',Mike:'∞',Jake:'L',Travis:'4',Allysa:'W',Aaron:'J',Nick:'F'}[id]||id.slice(0,1);
+   const placeholder=document.createElement('div');placeholder.className='coach-portrait-placeholder';placeholder.setAttribute('aria-label',id+' franchise emblem');placeholder.textContent=abbrev;portrait.appendChild(placeholder);
+ }
+ header.append(portrait,identity);
+ const back=direct().find(el=>el.classList.contains('back'));
+ if(back)back.insertAdjacentElement('afterend',header);else root.prepend(header);
+ const oldnav=direct().find(el=>el.classList.contains('coach-quick-nav'));if(oldnav)oldnav.remove();
+ const oldstrip=direct().find(el=>el.classList.contains('coach-summary-strip'));if(oldstrip)oldstrip.remove();
+ const nav=document.createElement('div');nav.className='coach-tabs';nav.setAttribute('role','tablist');nav.setAttribute('aria-label','Coach profile details');
+ stats.insertAdjacentElement('afterend',nav);
+ const panels={};
+ for(const [key,label] of names){
+   const btn=document.createElement('button');btn.type='button';btn.className='coach-tab';btn.id=root.id+'-tab-'+key;btn.textContent=label;btn.setAttribute('role','tab');btn.setAttribute('aria-controls',root.id+'-panel-'+key);
+   const panel=document.createElement('div');panel.className='coach-tabpanel';panel.id=root.id+'-panel-'+key;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',btn.id);
+   nav.appendChild(btn);root.appendChild(panel);panels[key]=panel;
+   btn.addEventListener('click',()=>activate(key,true));
+   btn.addEventListener('keydown',event=>{
+     if(event.key!=='ArrowRight'&&event.key!=='ArrowLeft'&&event.key!=='Home'&&event.key!=='End')return;
+     event.preventDefault();
+     const buttons=Array.from(nav.children),i=buttons.indexOf(btn);
+     const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(i+(event.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;
+     buttons[next].focus();activate(names[next][0],true);
+   });
+ }
+ function activate(key,save){
+   if(!panels[key])key='overview';
+   for(const [k] of names){
+     const active=k===key, btn=document.getElementById(root.id+'-tab-'+k),panel=panels[k];
+     btn.setAttribute('aria-selected',String(active));btn.tabIndex=active?0:-1;
+     panel.classList.toggle('is-active',active);panel.hidden=!active;
+   }
+   if(save){try{sessionStorage.setItem('ap-coach-tab-'+root.id,key)}catch(e){}}
+ }
+ const allplay=direct().find(el=>el.classList.contains('coach-allplay-card'));if(allplay)panels.overview.appendChild(allplay);
+ // Reuse existing content nodes so the live result and awards scripts retain their data targets.
+ const headings=direct().filter(el=>el.tagName==='H2');
+ for(const heading of headings){
+   const category=categories[heading.textContent.trim()]||'history';
+   const following=[];
+   let el=heading.nextElementSibling;
+   while(el&&el.tagName!=='H2'&&!el.classList.contains('coach-tabpanel')){const next=el.nextElementSibling;following.push(el);el=next;}
+   if(heading.textContent.trim()==='Draft history' && following.length===0){
+     heading.remove();continue;
+   }
+   if(category==='overview'){
+     const fold=document.createElement('details');fold.className='coach-fold';
+     const summary=document.createElement('summary');summary.textContent=heading.textContent.trim();
+     const first=following[0];
+     const val=first?.querySelector('.value')?.textContent?.trim()||first?.querySelector('strong')?.textContent?.trim()||'';
+     if(val){const small=document.createElement('span');small.className='coach-fold-value';small.textContent=val;summary.appendChild(small);}
+     fold.appendChild(summary);
+     // Keep original h2 and panel adjacent, preserving existing querySelector-based updates.
+     heading.style.cssText='position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)';
+     fold.appendChild(heading);for(const child of following)fold.appendChild(child);
+     panels.overview.appendChild(fold);
+   }else{
+     panels[category].appendChild(heading);
+     for(const child of following)panels[category].appendChild(child);
+   }
+ }
+ // Keep sections accessible for future history, even if the source has no draft grade yet.
+ if(!panels.history.children.length){
+   const empty=document.createElement('div');empty.className='coach-empty-note';empty.textContent='Draft and franchise history will appear here as verified records are added.';panels.history.appendChild(empty);
+ }
+ const historyLink=document.createElement('p');const link=document.createElement('a');link.className='link';const key=root.id==='coach-Dakota'?'DK':root.id.slice(6);link.href='./all-play-records.html?coach='+encodeURIComponent(key);link.textContent='View full all-play career history →';historyLink.appendChild(link);panels.history.appendChild(historyLink);
+ let preferred='overview';try{preferred=sessionStorage.getItem('ap-coach-tab-'+root.id)||preferred}catch(e){}
+ activate(preferred,false);
+ root.dataset.compactReady='true';
+}
+})();</script></body></html>
