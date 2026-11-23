@@ -2296,4 +2296,19 @@ buildMenus();setup();
  line-height:1.22!important;
  margin:1px 0 0!important;
 }
+</style><style id="home-comic-nav-no-halftone-v1">
+/* Solid comic colors ONLY in homepage navigation: remove dot patterns.
+   Keep angular accent graphics, all links, and Game Day Alerts art untouched. */
+#home .hp-quick-column>.hp-menu-group-title{
+ background:#ffd52e!important;
+}
+#home .hp-quick-column .hp-menu.hp-menu-group{
+ background:#2369da!important;
+}
+#home .hp-quick-column .hp-menu-group a{
+ background:linear-gradient(126deg,var(--comic-accent) 0 12%,transparent 12% 88%,var(--comic-accent) 88% 100%),var(--comic-fill)!important;
+}
+#home .hp-game-day-column>.hp-player-watch-cta{
+ background:#ffd52e!important;
+}
 </style></body></html>
