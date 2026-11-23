@@ -1,0 +1,94 @@
+/* MIDNIGHT MARVEL — live homepage scoreboard only.
+   Cosmetic overrides; deliberately leaves the carousel, ranking, matchup and Sleeper logic intact. */
+#home .home-score-strip{
+  --mm-ink:#101827;--mm-panel:#202a3b;--mm-card:#1a2434;
+  --mm-gold:#e8b84e;--mm-cream:#f4f2ea;--mm-muted:#b6bece;
+  --mm-rule:#3c4960;--mm-red:#9a283b;
+}
+#home .home-score-strip .home-score-head{
+  background:linear-gradient(115deg,#25324a 0%,#111b2c 100%)!important;
+  color:var(--mm-cream)!important;
+  border-color:var(--mm-ink)!important;
+  border-bottom:3px solid var(--mm-gold)!important;
+  text-shadow:1px 2px 0 #080f1c!important;
+  box-shadow:none!important;
+}
+#home .home-score-strip .home-score-head .home-score-live{
+  background:var(--mm-gold)!important;
+  color:var(--mm-ink)!important;
+  border:2px solid #101827!important;
+  box-shadow:3px 3px 0 #070e1b!important;
+  transform:none!important;
+  text-shadow:none!important;
+}
+#home .home-score-strip #home-score-track{
+  background:var(--mm-ink)!important;
+  border-color:var(--mm-ink)!important;
+  box-shadow:5px 5px 0 #0a1020!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match{
+  background:linear-gradient(150deg,#222e42 0%,#182334 100%)!important;
+  color:var(--mm-cream)!important;
+  border-color:#0e1727!important;
+  box-shadow:2px 2px 0 #0c1423!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match:hover{
+  filter:brightness(1.09);
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-game{
+  background:#303d53!important;
+  color:var(--mm-cream)!important;
+  border-bottom:2px solid #4a5870!important;
+  text-shadow:1px 1px 0 #101827!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-name{
+  color:var(--mm-cream)!important;
+  text-shadow:none!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-seed{
+  color:var(--mm-gold)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-side+.home-score-side{
+  border-top:1px dashed var(--mm-rule)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-points{
+  color:#ffe1a0!important;
+  background:#101827!important;
+  border:1px solid #8d754c!important;
+  box-shadow:inset 0 0 8px rgba(232,184,78,.12)!important;
+  text-shadow:none!important;
+}
+#home .home-score-strip #home-score-track .home-score-record{
+  color:var(--mm-muted)!important;
+}
+#home .home-score-strip #home-score-track .home-score-projection{
+  color:#d8ba7a!important;
+}
+#home .home-score-strip #home-score-track .home-score-sleeper-logo{
+  border-color:var(--mm-gold)!important;
+  background:var(--mm-ink)!important;
+  box-shadow:2px 2px 0 #0a1020!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week{
+  border:3px solid var(--mm-gold)!important;
+  background:linear-gradient(155deg,#2b3445 0%,#182333 100%)!important;
+  box-shadow:0 0 0 1px #0b1525,2px 2px 0 #0b1525!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week .gotw-marquee{
+  background:var(--mm-gold)!important;
+  color:var(--mm-ink)!important;
+  border-bottom:2px solid #a1803b!important;
+  text-shadow:none!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week .home-score-game{
+  background:#39455a!important;
+  color:var(--mm-cream)!important;
+}
+#home .home-score-strip .home-score-foot{
+  background:#202a3b!important;
+  border-color:#101827!important;
+  color:var(--mm-cream)!important;
+}
+#home .home-score-strip .home-score-foot a{
+  color:var(--mm-gold)!important;
+}
