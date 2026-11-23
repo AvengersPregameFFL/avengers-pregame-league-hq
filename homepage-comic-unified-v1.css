@@ -1,0 +1,264 @@
+/*
+AVENGERS PREGAME — UNIFIED HOMEPAGE COMIC PALETTE v1
+ONE removable, homepage-scoped presentation layer.
+Remove the link to this file from index.html to restore previous appearance.
+No layout, links, data, scripts, bracket, or image assets changed.
+*/
+#home{
+  --ap-hero-blue:#2f63e0;
+  --ap-ink:#111827;
+  --ap-cream:#fff5e4;
+  --ap-yellow:#ffd52e;
+  --ap-red:#e7374d;
+  --ap-navy:#202a3b;
+  --ap-navy-deep:#182235;
+  --ap-silver:#ced5e2;
+}
+
+/* Reusable, restrained comic-book headline treatment. */
+#home .hp-heading,
+#home .hp-heading:nth-of-type(3n){
+  color:var(--ap-cream)!important;
+  background:var(--ap-red)!important;
+  border:3px solid var(--ap-ink)!important;
+  border-radius:0!important;
+  box-shadow:4px 4px 0 var(--ap-ink)!important;
+  text-shadow:1px 2px 0 #581522!important;
+}
+#home .hp-menu-group-title{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  text-shadow:none!important;
+}
+#home .hp-weekly-awards-compact #weekly-awards-open{
+  color:var(--ap-cream)!important;
+  background:var(--ap-red)!important;
+}
+#home .hp-weekly-awards-compact #auto-weekly-report{
+  color:var(--ap-ink)!important;
+  background:var(--ap-cream)!important;
+  border:3px solid var(--ap-ink)!important;
+  box-shadow:3px 3px 0 var(--ap-ink)!important;
+  text-shadow:none!important;
+}
+
+/* Scoreboard: dark ink panels, clear paper/gold typography, featured crimson game.
+   Preserve team logos, rankings, score values and four-game layout. */
+#home .home-score-strip .home-score-head{
+  color:var(--ap-cream)!important;
+  background:linear-gradient(120deg,#202e47,#111827)!important;
+  border-color:var(--ap-ink)!important;
+  border-bottom:4px solid var(--ap-yellow)!important;
+  text-shadow:2px 2px 0 #080e17!important;
+}
+#home .home-score-strip .home-score-head .home-score-live{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border-color:var(--ap-ink)!important;
+  box-shadow:3px 3px 0 #080e17!important;
+}
+#home .home-score-strip #home-score-track{
+  background:var(--ap-ink)!important;
+  border-color:var(--ap-ink)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match{
+  background:linear-gradient(145deg,#27354e,#182235)!important;
+  border-color:#090e19!important;
+  box-shadow:4px 4px 0 #090e19!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-game{
+  background:#34425b!important;
+  color:var(--ap-cream)!important;
+  border-bottom-color:var(--ap-ink)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-name{
+  color:var(--ap-cream)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-seed,
+#home .home-score-strip #home-score-track>.home-score-match .home-score-projection{
+  color:#f8cd64!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-record{
+  color:var(--ap-silver)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match .home-score-points{
+  color:#ffe09a!important;
+  background:var(--ap-ink)!important;
+  border-color:#c5a15c!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week{
+  border:5px solid var(--ap-red)!important;
+  background:linear-gradient(140deg,#28364d,#182235)!important;
+  box-shadow:5px 5px 0 #090e19!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week .gotw-marquee{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border-bottom-color:var(--ap-ink)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week .home-score-game{
+  background:#ad263a!important;
+  color:var(--ap-cream)!important;
+}
+#home .home-score-strip #home-score-track>.home-score-match.game-of-week .home-score-points{
+  border-color:var(--ap-red)!important;
+}
+#home .home-score-strip .home-score-foot{
+  background:var(--ap-navy)!important;
+  border-color:var(--ap-ink)!important;
+  color:var(--ap-cream)!important;
+}
+#home .home-score-strip .home-score-foot a{color:var(--ap-yellow)!important}
+
+/* Carousel stays a carousel; tab state remains accessible. */
+#home .hq-feature-tab{
+  color:var(--ap-ink)!important;
+  background:var(--ap-cream)!important;
+  border-color:var(--ap-ink)!important;
+  box-shadow:4px 4px 0 var(--ap-ink)!important;
+}
+#home .hq-feature-tab[aria-pressed="true"]{
+  color:var(--ap-cream)!important;
+  background:var(--ap-red)!important;
+}
+#home .hq-feature-hint{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border-color:var(--ap-ink)!important;
+}
+
+/* Comic navigation panels: keep angles, two columns and individually clickable anchors.
+   Tone down the extra blue backing and give every caption an ink/cream label. */
+#home .hp-quick-column .hp-menu.hp-menu-group{
+  background:var(--ap-navy)!important;
+  border:3px solid var(--ap-ink)!important;
+  box-shadow:4px 4px 0 var(--ap-ink)!important;
+}
+#home .hp-quick-column .hp-menu-group a{
+  --comic-fill:var(--ap-cream);
+  --comic-accent:var(--ap-red);
+}
+#home .hp-quick-column .hp-menu-group a:nth-child(3n+2){
+  --comic-fill:var(--ap-yellow);
+  --comic-accent:var(--ap-red);
+}
+#home .hp-quick-column .hp-menu-group a:nth-child(4n){
+  --comic-fill:var(--ap-red);
+  --comic-accent:var(--ap-yellow);
+}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(3n){
+  --comic-fill:var(--ap-cream);
+  --comic-accent:var(--ap-red);
+}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(2){
+  --comic-fill:var(--ap-yellow);
+  --comic-accent:var(--ap-red);
+}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(4),
+#home .hp-league-tools-column .hp-menu-group a:nth-child(8){
+  --comic-fill:var(--ap-red);
+  --comic-accent:var(--ap-yellow);
+}
+#home .hp-quick-column .hp-menu-group a .hp-menu-label{
+  background:var(--ap-cream)!important;
+  color:var(--ap-ink)!important;
+  border-color:var(--ap-ink)!important;
+  box-shadow:2px 2px 0 var(--ap-ink)!important;
+  text-shadow:none!important;
+}
+#home .hp-game-day-column>.hp-player-watch-cta{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border-color:var(--ap-ink)!important;
+  box-shadow:5px 5px 0 var(--ap-red),7px 7px 0 var(--ap-ink)!important;
+}
+
+/* Snapshot: remove unrelated plum/purple surfaces. Four equally emphasized stat panels. */
+#home .hp-stats .hp-stat{
+  position:relative!important;
+  background:linear-gradient(130deg,#26344b,#1b273a)!important;
+  color:var(--ap-cream)!important;
+  border:4px solid var(--ap-ink)!important;
+  border-left:7px solid var(--ap-yellow)!important;
+  border-radius:0!important;
+  box-shadow:5px 5px 0 #080f1c!important;
+  text-decoration:none!important;
+  overflow:hidden!important;
+}
+#home .hp-stats .hp-stat::before{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;right:0!important;
+  width:18%!important;height:30%!important;
+  background:var(--ap-red)!important;
+  clip-path:polygon(100% 0,0 0,100% 100%)!important;
+  pointer-events:none!important;
+}
+#home .hp-stats .hp-stat-label{
+  color:var(--ap-cream)!important;
+  font:800 clamp(11px,2.5vw,15px)/1.25 Archivo,Arial,sans-serif!important;
+  letter-spacing:.075em!important;
+}
+#home .hp-stats .hp-stat-value{
+  color:var(--ap-yellow)!important;
+  text-shadow:2px 2px 0 var(--ap-ink)!important;
+  font-family:Bangers,Impact,sans-serif!important;
+}
+#home .hp-stats .hp-stat-note{
+  color:var(--ap-cream)!important;
+  font-weight:800!important;
+  line-height:1.3!important;
+}
+#home .hp-stats .hp-stat-link:focus-visible{
+  outline:4px solid var(--ap-yellow)!important;
+  outline-offset:3px!important;
+}
+
+/* Sleeper and Discord keep their logos and their two existing destinations.
+   Match the other ink-framed comic panels instead of unrelated neon ads. */
+#home .league-social-pair>.sleeper-side-card,
+#home .league-social-pair>.discord-medium-card{
+  background:linear-gradient(150deg,#263650,#111827)!important;
+  color:var(--ap-cream)!important;
+  border:4px solid var(--ap-ink)!important;
+  border-radius:4px!important;
+  box-shadow:0 0 0 3px var(--ap-yellow),5px 5px 0 var(--ap-ink)!important;
+}
+#home .league-social-pair>.sleeper-side-card{
+  gap:9px!important;
+}
+#home .league-social-pair>.sleeper-side-card>span{
+  color:var(--ap-cream)!important;
+  text-shadow:none!important;
+}
+#home .league-social-pair>.sleeper-side-card>b{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border:2px solid var(--ap-ink)!important;
+  border-radius:3px!important;
+  box-shadow:3px 3px 0 #080f1c!important;
+}
+#home .league-social-pair>.discord-medium-card>div[aria-hidden="true"]{
+  opacity:0!important;
+}
+#home .league-social-pair>.discord-medium-card>div[style*="position:relative"]>div[style*="font:italic"]{
+  color:var(--ap-cream)!important;
+  text-shadow:2px 2px 0 #080f1c!important;
+}
+#home .league-social-pair>.discord-medium-card>div[style*="position:relative"]>div[style*="font:italic"] span{
+  color:var(--ap-yellow)!important;
+}
+#home .league-social-pair>.discord-medium-card a[href*="discord.com/channels/"]{
+  color:var(--ap-ink)!important;
+  background:var(--ap-yellow)!important;
+  border:3px solid var(--ap-ink)!important;
+  border-radius:4px!important;
+  box-shadow:3px 3px 0 #080f1c!important;
+  text-shadow:none!important;
+}
+
+/* Existing photo artwork, the approved trophy-banner image,
+   live scores, user avatar images, notifications and page routing are untouched. */
+@media(prefers-reduced-motion:reduce){
+  #home .hq-feature-tab,#home .hp-stats .hp-stat{transition:none!important}
+}
