@@ -14,7 +14,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest main
@@ -29,6 +29,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - name: Deploy Pages
+      - name: Deploy Pages (first attempt)
+        id: deployment_first
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Retry Pages deployment if first attempt fails
+        if: steps.deployment_first.outcome == 'failure'
         id: deployment
         uses: actions/deploy-pages@v4
