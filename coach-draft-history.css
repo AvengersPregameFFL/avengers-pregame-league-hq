@@ -1,0 +1,24 @@
+/* Career file and archived coach draft selections */
+.coach-profile-details{max-width:100%;margin-inline:auto}
+.coach-profile-section-title{letter-spacing:.08em}
+.coach-profile-fold{overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.coach-profile-fold[open]{border-color:#ffd400;box-shadow:5px 6px 0 #0b1121}
+.coach-profile-fold>summary{cursor:pointer;transition:background .18s ease;gap:12px}
+.coach-profile-fold>summary:hover{background:#2b344d}
+.coach-profile-fold>summary:focus-visible{outline:3px solid #ffd400;outline-offset:-5px}
+.coach-profile-fold[open]>summary{background:#30364d;border-bottom:3px solid #ffd400}
+.coach-profile-fold>summary small{margin-left:auto}
+.coach-draft-history{font-family:Arial,sans-serif}
+.coach-draft-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;background:#172035;border:2px solid #0e1424;color:#fff}
+.coach-draft-toolbar label{font-weight:900;letter-spacing:.06em;color:#ffd400}
+.coach-draft-year{background:#ffcf00;border:2px solid #101522;border-radius:3px;color:#101522;padding:10px 14px;font:900 16px Arial,sans-serif;min-width:110px}
+.coach-draft-status{margin:12px 0;font-size:14px;line-height:1.5;color:#e5e8f3}
+.coach-draft-summary{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.coach-draft-summary span{padding:8px 11px;background:#111a2e;color:#ffd400;border:1px solid #5d6071;font-weight:800;font-size:13px}
+.coach-draft-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr));gap:10px;margin-top:13px}
+.coach-draft-pick{min-width:0;padding:12px;border:2px solid #101525;background:#f7f7f2;color:#172036;box-shadow:3px 3px 0 #111525}
+.coach-draft-pick .round{display:flex;justify-content:space-between;gap:8px;color:#575b6a;font-weight:900;font-size:12px;text-transform:uppercase}
+.coach-draft-pick strong{display:block;overflow-wrap:anywhere;font-size:18px;margin:8px 0 4px}
+.coach-draft-pick .meta{font-size:13px;font-weight:700;color:#545b68}
+.coach-draft-source{display:inline-block;margin-top:16px;color:#ffd400;font-weight:900;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:650px){.coach-draft-list{grid-template-columns:1fr}.coach-draft-toolbar{align-items:stretch}.coach-draft-year{width:100%}}
