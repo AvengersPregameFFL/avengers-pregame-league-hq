@@ -2311,4 +2311,41 @@ buildMenus();setup();
 #home .hp-game-day-column>.hp-player-watch-cta{
  background:#ffd52e!important;
 }
+</style><style id="road-championship-comic-trophy-v1">
+/* New comic championship illustration, homepage banner only; keep same bracket href and accessible words. */
+#home a.road-home-button{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:0!important;
+  aspect-ratio:1800/590!important;
+  margin:16px 0 22px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+  background:#102755 url('./assets/road-to-championship-comic-trophy.svg?v=1') center center / 100% 100% no-repeat!important;
+  box-shadow:5px 6px 0 #080c16!important;
+  color:transparent!important;
+  text-shadow:none!important;
+  transition:filter .15s ease!important;
+}
+#home a.road-home-button::before,#home a.road-home-button::after{
+  content:none!important;display:none!important;
+}
+#home a.road-home-button>span,#home a.road-home-button>strong{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+#home a.road-home-button:hover{filter:brightness(1.07)!important}
+#home a.road-home-button:focus-visible{outline:4px solid #fff!important;outline-offset:3px!important}
+@media(prefers-reduced-motion:reduce){#home a.road-home-button{transition:none!important}}
 </style></body></html>
