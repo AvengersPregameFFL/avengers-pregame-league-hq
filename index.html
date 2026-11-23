@@ -2955,4 +2955,20 @@ body:has(.page[data-coach-design="premium-2026"]:target){
  window.addEventListener('pageshow',removeDuplicateAccuracy);
  window.addEventListener('hashchange',removeDuplicateAccuracy);
 })();
-</script></body></html>
+</script><style id="coach-allplay-contrast-fix-20261123">
+/* Only All-Play career record cards on coach profiles: remove the yellow
+   wedge behind overlapping record/meta text, keep existing colors and layout. */
+.page[data-coach-design="premium-2026"] .coach-profile-allplay .coach-allplay-card{
+ background:linear-gradient(115deg,#102957 0%,#071737 100%)!important;
+}
+.page[data-coach-design="premium-2026"] .coach-profile-allplay .coach-allplay-kicker{
+ background:#ffcf2c!important;color:#10182b!important;
+ border-radius:5px!important;
+}
+.page[data-coach-design="premium-2026"] .coach-profile-allplay .coach-allplay-total{
+ color:#fffaf1!important;text-shadow:2px 2px 0 #030d24!important;
+}
+.page[data-coach-design="premium-2026"] .coach-profile-allplay .coach-allplay-meta{
+ color:#e3eafa!important;
+}
+</style></body></html>
