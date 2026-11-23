@@ -157,7 +157,7 @@ function refreshCoachProfiles(){
    var mine=rows.filter(function(x){return x.roster_id===r.roster_id&&complete.indexOf(x.week)>=0});
    var actual=mine.reduce(function(a,x){return a+Number(x.actual)},0),best=mine.reduce(function(a,x){return a+Number(x.optimal)},0);
    if(values[2])values[2].textContent=best>0?(100*actual/best).toFixed(1)+'%':'—';
-   if(values[3])values[3].textContent='See live all-play';
+   // Fourth coach dashboard tile is Pick’em accuracy; updated by the verified Pick’em feed in index.html.
    var note=sec.querySelector('.coach-live-note');
    if(!note){note=el('p','coach-live-note');sec.querySelector('.grid').insertAdjacentElement('afterend',note)}
    note.textContent='Sleeper standings live · lineup efficiency Weeks '+(complete.length?complete[0]+'–'+complete[complete.length-1]:'unavailable')+' · Pick’em and Survivor below are historical unless independently verified';
