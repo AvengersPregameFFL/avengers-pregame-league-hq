@@ -1912,6 +1912,17 @@ function render(root,choice){
  pane.innerHTML='<h2>'+year+' SEASON</h2><p>Finalized results through Week '+num(data.through_week)+'</p><div class="coach-career-stats">'+statsBox('SEASON RECORD',m.w+'–'+m.l)+statsBox('FANTASY POINTS',fmt(m.points))+statsBox('SEASON ALL-PLAY',m.apw+'–'+m.apl+'–'+m.apt)+statsBox('ALL-PLAY WIN RATE',pct+'%')+'</div><details class="coach-profile-fold"><summary>WEEK-BY-WEEK RESULTS</summary><div class="coach-profile-fold-body">'+m.weeks.map(w=>'<div class="coach-archive-week"><span>Week '+num(w.week)+' · '+clean(w.result||'—')+'</span><span>'+fmt(w.points)+' – '+fmt(w.opponent_points)+'</span></div>').join('')+'</div></details><p>Historical Pick’em, Survivor and awards are shown only where independently verified and archived.</p>';
 }
 function buildMenus(){
+ if(ready){
+  for(const [anchor,name] of Object.entries(aliases)){
+   const note=document.querySelector('#teams .roster-comic-card[href="#coach-'+anchor+'"] .roster-accuracy-note');
+   if(!note)continue;
+   const records=years.map(y=>archive[y]?.coaches?.[name]?.all_play).filter(a=>a&&[a.wins,a.losses,a.ties??0].every(v=>Number.isFinite(Number(v))));
+   note.textContent='CAREER ALL-PLAY · ';
+   if(!records.length){note.append('Unavailable');continue;}
+   const total=records.reduce((a,v)=>[a[0]+Number(v.wins),a[1]+Number(v.losses),a[2]+Number(v.ties??0)],[0,0,0]);
+   const b=document.createElement('b');b.textContent=total.join('–');note.append(b);
+  }
+ }
  for(const root of roots){
   const sel=root.querySelector('.coach-season-selector');if(!sel)continue;
   const chosen=sel.value||String(currentYear);
@@ -2645,7 +2656,7 @@ body:not(:has(.page:target)){
    const card=directory.querySelector('.roster-comic-card[href="#'+m.anchor+'"]');
    const content=card&&card.querySelector('.roster-comic-content');
    const cta=content&&content.querySelector('.roster-comic-cta');
-   if(cta){const note=el('span','roster-accuracy-note','ACCURACY · Loading…');content.insertBefore(note,cta)}
+   if(cta){const note=el('span','roster-accuracy-note','CAREER ALL-PLAY · Loading…');content.insertBefore(note,cta)}
    // Individual profiles use the dashboard lineup-efficiency card; no duplicate strip.
   });
  }
@@ -2665,7 +2676,7 @@ body:not(:has(.page:target)){
    }).sort((a,b)=>(Number.isFinite(b.score)?b.score:-1)-(Number.isFinite(a.score)?a.score:-1));
    leaders.forEach((m,i)=>{
     const card=document.querySelector('#teams .roster-comic-card[href="#'+m.anchor+'"] .roster-accuracy-note');
-    if(card){card.replaceChildren();card.append('ACCURACY · ');card.append(el('b','',pct(m.score)+' · #'+(i+1)))}
+    // Directory career records are populated by the verified season archive loader.
 
     // Match the existing dashboard efficiency display to the same verified season denominator.
     const page=document.getElementById(m.anchor);
@@ -2681,7 +2692,7 @@ body:not(:has(.page:target)){
     }
    });
   }catch(e){
-   document.querySelectorAll('#teams .roster-accuracy-note').forEach(n=>n.textContent='ACCURACY · Data temporarily unavailable');
+   // Directory career records are independent of lineup efficiency.
    document.querySelectorAll('.coach-accuracy-inline-main').forEach(n=>n.textContent='COACH ACCURACY · Verified data temporarily unavailable');
   }
  }
