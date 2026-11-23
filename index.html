@@ -2099,4 +2099,166 @@ buildMenus();setup();
 @media(prefers-reduced-motion:reduce){
  #home .home-score-strip #home-score-track>.home-score-match{transition:none!important}
 }
+</style><style id="home-comic-nav-1990s-v1">
+/* 1990s comic navigation: intentionally restricted to homepage quick columns.
+   All links, navigation, alerts, page logic, and scoreboard remain unchanged. */
+#home .hp-quick-columns{
+  gap:clamp(9px,1.8vw,17px)!important;
+  align-items:start!important;
+  margin-top:20px!important;
+}
+#home .hp-quick-column{
+  position:relative!important;
+  min-width:0!important;
+  isolation:isolate!important;
+}
+#home .hp-quick-column>.hp-menu-group-title{
+  position:relative!important;
+  z-index:2!important;
+  display:table!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:0 0 14px 6px!important;
+  padding:9px 14px 8px!important;
+  color:#0b0e18!important;
+  background:
+    radial-gradient(circle,rgba(0,0,0,.16) 1px,transparent 1.6px) 0 0/7px 7px,
+    #ffd52e!important;
+  font:clamp(20px,4.15vw,34px)/1 Bangers,Impact,sans-serif!important;
+  letter-spacing:.025em!important;
+  border:4px solid #080b14!important;
+  border-radius:0!important;
+  box-shadow:6px 6px 0 #ee3444,9px 9px 0 #080b14!important;
+  transform:skew(-6deg) rotate(-1.5deg)!important;
+  text-shadow:1px 1px 0 #fff4ab!important;
+  clip-path:polygon(0 14%,9% 14%,13% 0,18% 12%,31% 5%,34% 13%,100% 7%,97% 91%,17% 94%,11% 100%,7% 89%,0 90%)!important;
+}
+#home .hp-quick-column>.hp-menu-group-title::before{
+  content:none!important;display:none!important;
+}
+#home .hp-quick-column .hp-menu.hp-menu-group{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  padding:8px 6px 10px!important;
+  margin:0!important;
+  background:
+   radial-gradient(circle,rgba(0,8,34,.24) 1px,transparent 1.6px) 0 0/9px 9px,
+   rgba(24,111,226,.20)!important;
+  border:3px solid #0a0f20!important;
+  box-shadow:4px 4px 0 #070c18!important;
+}
+#home .hp-quick-column .hp-menu-group a{
+  --comic-fill:#fff8e9;
+  --comic-accent:#ed3547;
+  display:flex!important;
+  position:relative!important;
+  isolation:isolate!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:clamp(53px,7.1vw,72px)!important;
+  padding:8px 12px!important;
+  justify-content:center!important;
+  align-items:center!important;
+  overflow:visible!important;
+  color:#0d1120!important;
+  background:
+    linear-gradient(126deg,var(--comic-accent) 0 12%,transparent 12% 88%,var(--comic-accent) 88% 100%),
+    radial-gradient(circle,rgba(30,21,10,.20) .85px,transparent 1.5px) 0 0/7px 7px,
+    var(--comic-fill)!important;
+  border:3px solid #080b14!important;
+  border-radius:0!important;
+  box-shadow:4px 5px 0 #070b16!important;
+  transform:skew(-5deg)!important;
+  clip-path:polygon(2% 0,100% 0,98% 100%,0 100%)!important;
+  text-decoration:none!important;
+  transition:filter .14s ease,translate .14s ease!important;
+}
+#home .hp-quick-column .hp-menu-group a::before{
+  content:""!important;
+  position:absolute!important;
+  display:block!important;
+  top:0!important;left:0!important;
+  width:29%!important;height:35%!important;
+  background:repeating-linear-gradient(135deg,var(--comic-accent) 0 5px,#080b14 5px 8px,transparent 8px 15px)!important;
+  opacity:.82!important;
+  clip-path:polygon(0 0,100% 0,0 100%)!important;
+  border:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+}
+#home .hp-quick-column .hp-menu-group a::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;right:0!important;bottom:0!important;
+  height:5px!important;
+  background:var(--comic-accent)!important;
+  border-top:2px solid #080b14!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+#home .hp-quick-column .hp-menu-group a .hp-menu-label{
+  display:flex!important;
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:4px 1px!important;
+  justify-content:center!important;
+  align-items:center!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#0b0d16!important;
+  text-align:center!important;
+  font:clamp(14px,2.9vw,23px)/1.05 Bangers,Impact,sans-serif!important;
+  letter-spacing:.005em!important;
+  text-shadow:1px 1px 0 rgba(255,255,255,.65)!important;
+  transform:skew(5deg)!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+}
+#home .hp-quick-column .hp-menu-group a .hp-menu-arrow{display:none!important}
+#home .hp-quick-column .hp-menu-group a:nth-child(3n+2){--comic-fill:#ffd328;--comic-accent:#f04745}
+#home .hp-quick-column .hp-menu-group a:nth-child(4n){--comic-fill:#ed4150;--comic-accent:#ffcc2d}
+#home .hp-quick-column .hp-menu-group a:nth-child(4n) .hp-menu-label{text-shadow:1px 1px 0 #fff2c5!important}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(3n){--comic-fill:#fff8e9;--comic-accent:#2789e4}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(2){--comic-fill:#ffd328;--comic-accent:#ed3547}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(4),
+#home .hp-league-tools-column .hp-menu-group a:nth-child(8){--comic-fill:#ed4150;--comic-accent:#ffcf37}
+#home .hp-quick-column .hp-menu-group a:hover{filter:brightness(1.06) saturate(1.1)!important;translate:0 -2px!important}
+#home .hp-quick-column .hp-menu-group a:active{translate:2px 3px!important;box-shadow:1px 1px 0 #070b16!important}
+#home .hp-quick-column .hp-menu-group a:focus-visible,
+#home .hp-player-watch-cta:focus-visible{outline:4px solid #ffda25!important;outline-offset:3px!important}
+#home .hp-game-day-column>.hp-player-watch-cta{
+ display:flex!important;
+ min-height:clamp(51px,7vw,68px)!important;
+ align-items:center!important;
+ margin:11px 6px 8px!important;
+ padding:10px 12px!important;
+ background:
+   radial-gradient(circle,rgba(0,0,0,.17) 1px,transparent 1.5px) 0 0/8px 8px,
+   #ffd52e!important;
+ color:#0b0f1b!important;
+ border:4px solid #090c17!important;
+ border-radius:0!important;
+ box-shadow:5px 5px 0 #ed3547,7px 7px 0 #090c17!important;
+ transform:skew(-4deg)!important;
+ font:clamp(14px,2.8vw,22px)/1 Bangers,Impact,sans-serif!important;
+ text-shadow:1px 1px 0 #fff4ad!important;
+}
+#home .hp-game-day-column>.hp-player-watch-cta span{transform:skew(4deg)!important}
+#home .hp-game-day-column #hp-alerts-slot{margin-top:13px!important}
+/* Keep the Alerts panel, its art, and every notification control intact. */
+@media(max-width:490px){
+ #home .hp-quick-columns{gap:8px!important}
+ #home .hp-quick-column>.hp-menu-group-title{font-size:clamp(16px,4vw,22px)!important;padding:6px 8px!important;margin:0 0 12px 2px!important;border-width:3px!important}
+ #home .hp-quick-column .hp-menu.hp-menu-group{padding:6px 3px 8px!important;gap:8px!important;border-width:2px!important}
+ #home .hp-quick-column .hp-menu-group a{min-height:50px!important;padding:7px 5px!important}
+ #home .hp-quick-column .hp-menu-group a .hp-menu-label{font-size:clamp(11px,3.05vw,16px)!important;line-height:1.05!important}
+ #home .hp-game-day-column>.hp-player-watch-cta{font-size:clamp(11px,2.8vw,15px)!important;padding:8px 6px!important;margin-left:2px!important;margin-right:3px!important}
+}
+@media(prefers-reduced-motion:reduce){#home .hp-quick-column .hp-menu-group a{transition:none!important}}
 </style></body></html>
