@@ -2579,119 +2579,134 @@ body:not(:has(.page:target)){
  #home #hq-feature-stories .bugle-newstand-head h2{font-size:clamp(24px,6.2vw,34px)!important}
  #home #hq-feature-stories .bugle-comic-embed{padding:9px!important}
 }
-</style><link rel="stylesheet" href="./homepage-broadcast-option3-v1.css?v=20261123b" data-theme-scope="broadcast-snapshot-awards-data"><style id="coach-accuracy-integrated-style">
-/* 2026-11-23: Only Coaches directory / coach profiles. Data reads existing Sleeper optimal-lineups.json. */
-#teams .coach-accuracy-board,.page[id^="coach-"] .coach-accuracy-profile{
- margin:22px 0 12px;padding:clamp(12px,3vw,22px);background:#172238;color:#fff6df;
- border:3px solid #ffd52e;box-shadow:5px 5px 0 #10121c;
+</style><link rel="stylesheet" href="./homepage-broadcast-option3-v1.css?v=20261123b" data-theme-scope="broadcast-snapshot-awards-data"><style id="coach-accuracy-inline-v2">
+/* Accuracy lives in its existing full page; small scoped labels elsewhere. */
+#teams .coach-accuracy-directory-link{
+ display:inline-flex;align-items:center;gap:8px;margin:13px 0 4px;
+ background:#ffdb37!important;color:#121827!important;
+ border:3px solid #111827;padding:10px 15px;text-decoration:none!important;
+ box-shadow:3px 4px 0 #111827;font:900 14px/1.15 Archivo,Arial,sans-serif;
 }
-#teams .coach-accuracy-board h2,.page[id^="coach-"] .coach-accuracy-profile h2{
- margin:0 0 5px;font:900 clamp(29px,5vw,43px)/1 Bangers,Impact,sans-serif;color:#ffd52e;
+#teams .coach-accuracy-directory-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#teams .roster-comic-card .roster-accuracy-note{
+ display:block;width:100%;margin:9px 0 10px;padding:6px 0;
+ color:#fff!important;background:transparent!important;
+ font:800 clamp(10px,1.5vw,12px)/1.3 Archivo,Arial,sans-serif!important;
+ letter-spacing:0!important;text-shadow:none!important;
 }
-#teams .coach-accuracy-board p,.page[id^="coach-"] .coach-accuracy-profile p{
- margin:5px 0 14px;font:700 12px/1.45 Archivo,Arial,sans-serif;color:#f3e6ce;
+#teams .roster-comic-card .roster-accuracy-note b{color:var(--accent)!important;font-weight:900!important}
+#teams .roster-comic-card .roster-accuracy-note small{
+ color:#fff!important;font-size:inherit!important;white-space:nowrap
 }
-#teams .coach-accuracy-board table{width:100%;border-collapse:collapse;font:800 clamp(11px,2.2vw,14px)/1.3 Archivo,Arial,sans-serif;color:#fff9eb}
-#teams .coach-accuracy-board th{text-align:left;color:#ffd52e;white-space:nowrap;border-bottom:2px solid #ffd52e;padding:10px 7px}
-#teams .coach-accuracy-board td{padding:10px 7px;border-bottom:1px solid #485169;font-variant-numeric:tabular-nums}
-#teams .coach-accuracy-board tr:last-child td{border-bottom:0}
-#teams .coach-accuracy-board tbody tr:first-child{background:#2b3855}
-#teams .coach-accuracy-board a{color:#fff1ca;text-decoration:underline;text-underline-offset:3px}
-#teams .coach-accuracy-scroll{overflow-x:auto;max-width:100%}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics>div{background:#0e1626;border:1px solid #b89a46;padding:12px 6px;text-align:center;min-width:0}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics strong{display:block;color:#ffd52e;font:900 clamp(22px,4vw,35px)/1 Bangers,Impact,sans-serif}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics small{display:block;margin-top:5px;font:800 10px/1.3 Archivo,Arial,sans-serif;color:#fff5e5}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-weekly{display:flex;gap:7px;flex-wrap:wrap}
-.page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-weekly span{padding:7px 9px;background:#2d3c58;border:1px solid #637087;color:#fff5dc;font:800 11px/1.2 Archivo,Arial,sans-serif}
-@media(max-width:540px){
- #teams .coach-accuracy-board{padding:10px}
- #teams .coach-accuracy-board th,#teams .coach-accuracy-board td{padding:8px 5px}
- .page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics{gap:5px}
- .page[id^="coach-"] .coach-accuracy-profile .coach-accuracy-metrics>div{padding:10px 3px}
+.page[id^="coach-"] .coach-accuracy-inline{
+ display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+ margin:12px 0 18px;padding:12px 14px;background:#19243b!important;
+ color:#fff6de!important;border:2px solid #ffda35;
+ box-shadow:3px 3px 0 #101421;font-family:Archivo,Arial,sans-serif;
 }
-</style><script id="coach-accuracy-integrated-v1">
+.page[id^="coach-"] .coach-accuracy-inline .coach-accuracy-inline-main{
+ font-size:13px;font-weight:800;line-height:1.5;color:#fff!important
+}
+.page[id^="coach-"] .coach-accuracy-inline strong{
+ font-size:18px;color:#ffdf45!important;font-weight:900;
+}
+.page[id^="coach-"] .coach-accuracy-inline a{
+ background:#ffd52e!important;color:#101827!important;
+ padding:8px 10px;border:2px solid #101421;text-decoration:none!important;
+ font:900 12px/1.2 Archivo,Arial,sans-serif;
+}
+@media(max-width:610px){
+ #teams .roster-comic-card .roster-accuracy-note{font-size:10px!important}
+ #teams .coach-accuracy-directory-link{font-size:12px;padding:9px}
+ .page[id^="coach-"] .coach-accuracy-inline{padding:10px}
+}
+</style><script id="coach-accuracy-inline-v2">
 (function(){
  'use strict';
  const managers=[
-  {id:1,name:'DK',anchor:'coach-Dakota'},
-  {id:2,name:'Mike',anchor:'coach-Mike'},
-  {id:3,name:'Travis',anchor:'coach-Travis'},
-  {id:4,name:'Aaron',anchor:'coach-Aaron'},
-  {id:5,name:'Alyssa',anchor:'coach-Allysa'},
-  {id:6,name:'Hunter',anchor:'coach-Hunter'},
-  {id:7,name:'Jake',anchor:'coach-Jake'},
-  {id:8,name:'Nick',anchor:'coach-Nick'}
+ {id:1,name:'DK',anchor:'coach-Dakota'},
+ {id:2,name:'Mike',anchor:'coach-Mike'},
+ {id:3,name:'Travis',anchor:'coach-Travis'},
+ {id:4,name:'Aaron',anchor:'coach-Aaron'},
+ {id:5,name:'Alyssa',anchor:'coach-Allysa'},
+ {id:6,name:'Hunter',anchor:'coach-Hunter'},
+ {id:7,name:'Jake',anchor:'coach-Jake'},
+ {id:8,name:'Nick',anchor:'coach-Nick'}
  ];
- const fmt=(n)=>Number.isFinite(n)?n.toFixed(2):'—';
- const eff=(actual,optimal)=>optimal>0?100*actual/optimal:null;
- const pct=(n)=>n===null||!Number.isFinite(n)?'—':fmt(n)+'%';
- const make=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el};
- function prepare(){
-  const root=document.getElementById('teams');
-  if(!root||document.getElementById('coach-accuracy-season'))return;
-  const section=make('section','coach-accuracy-board');section.id='coach-accuracy-season';
-  section.append(make('h2','', 'COACH ACCURACY RANKINGS'));
-  section.append(make('p','coach-accuracy-description','Sleeper optimal-lineup efficiency. Season efficiency = total actual points ÷ total possible optimal points.'));
-  section.append(make('p','coach-accuracy-state','Loading verified Sleeper data…'));
-  root.appendChild(section);
-  for(const m of managers){
-   const profile=document.getElementById(m.anchor);if(!profile)continue;
-   const card=make('section','coach-accuracy-profile');card.id='accuracy-'+m.id;
-   card.append(make('h2','','COACH ACCURACY'));
-   card.append(make('p','coach-accuracy-state','Loading verified Sleeper lineup data…'));
-   const banner=profile.querySelector('.coach-profile-banner');
-   if(banner)banner.insertAdjacentElement('afterend',card);
-   else profile.appendChild(card);
+ const el=(tag,cls,value)=>{
+  const n=document.createElement(tag);if(cls)n.className=cls;
+  if(value!==undefined)n.textContent=value;return n;
+ };
+ const pct=n=>Number.isFinite(n)?n.toFixed(2)+'%':'—';
+ function install(){
+  const directory=document.getElementById('teams');
+  if(!directory||document.getElementById('coach-accuracy-open'))return;
+  const btn=el('a','coach-accuracy-directory-link','VIEW FULL COACH ACCURACY RANKINGS →');
+  btn.id='coach-accuracy-open';btn.href='#accuracy';
+  const grid=directory.querySelector('.roster-comic-grid');
+  if(grid)directory.insertBefore(btn,grid);
+  managers.forEach(m=>{
+   const card=directory.querySelector('.roster-comic-card[href="#'+m.anchor+'"]');
+   const content=card&&card.querySelector('.roster-comic-content');
+   const cta=content&&content.querySelector('.roster-comic-cta');
+   if(cta){const note=el('span','roster-accuracy-note','ACCURACY · Loading…');content.insertBefore(note,cta)}
+   const page=document.getElementById(m.anchor);
+   if(page){
+    const note=el('div','coach-accuracy-inline');
+    const main=el('div','coach-accuracy-inline-main','COACH ACCURACY · Loading verified lineup data…');
+    const link=el('a','','FULL RANKINGS →');link.href='#accuracy';
+    note.append(main,link);
+    const controls=page.querySelector('.coach-season-controls');
+    if(controls)controls.insertAdjacentElement('beforebegin',note);
+    else page.querySelector('.coach-profile-banner')?.insertAdjacentElement('afterend',note);
+   }
+  });
+ }
+ async function refresh(){
+  install();
+  try{
+   const res=await fetch('./data/optimal-lineups.json?coach-inline=2',{cache:'no-store'});
+   if(!res.ok)throw Error('Data unavailable');
+   const json=await res.json();
+   if(!Array.isArray(json.rows)||!json.rows.length)throw Error('No finalized lineups');
+   const leaders=managers.map(m=>{
+    const rows=json.rows.filter(r=>Number(r.roster_id)===m.id&&Number.isFinite(Number(r.actual))&&Number.isFinite(Number(r.optimal))&&Number(r.optimal)>0);
+    const actual=rows.reduce((n,r)=>n+Number(r.actual),0);
+    const optimal=rows.reduce((n,r)=>n+Number(r.optimal),0);
+    const latest=rows.slice().sort((a,b)=>Number(b.week)-Number(a.week))[0];
+    return {...m,score:optimal>0?actual/optimal*100:NaN,latest,weeks:rows.length};
+   }).sort((a,b)=>(Number.isFinite(b.score)?b.score:-1)-(Number.isFinite(a.score)?a.score:-1));
+   leaders.forEach((m,i)=>{
+    const card=document.querySelector('#teams .roster-comic-card[href="#'+m.anchor+'"] .roster-accuracy-note');
+    if(card){card.replaceChildren();card.append('ACCURACY · ');card.append(el('b','',pct(m.score)+' · #'+(i+1)))}
+    const profile=document.querySelector('#'+m.anchor+' .coach-accuracy-inline-main');
+    if(profile){
+     profile.replaceChildren();
+     profile.append('COACH ACCURACY · ');
+     profile.append(el('strong','',pct(m.score)));
+     profile.append(' · RANK #'+(i+1)+' OF 8');
+     if(m.latest)profile.append(' · WEEK '+m.latest.week+': '+pct(Number(m.latest.efficiency)));
+    }
+    // Match the existing dashboard efficiency display to the same verified season denominator.
+    const page=document.getElementById(m.anchor);
+    if(page&&Number.isFinite(m.score)){
+     const boxes=page.querySelectorAll('.stat');
+     for(const box of boxes){
+      const label=box.querySelector('.label');
+      if(label&&label.textContent.trim().toLowerCase()==='lineup efficiency'){
+       const value=box.querySelector('.value');if(value)value.textContent=pct(m.score);
+       break;
+      }
+     }
+    }
+   });
+  }catch(e){
+   document.querySelectorAll('#teams .roster-accuracy-note').forEach(n=>n.textContent='ACCURACY · Data temporarily unavailable');
+   document.querySelectorAll('.coach-accuracy-inline-main').forEach(n=>n.textContent='COACH ACCURACY · Verified data temporarily unavailable');
   }
  }
- async function load(){
-  prepare();
-  const board=document.getElementById('coach-accuracy-season');if(!board)return;
-  const setState=(message)=>document.querySelectorAll('#coach-accuracy-season .coach-accuracy-state,.coach-accuracy-profile .coach-accuracy-state').forEach(el=>el.textContent=message);
-  try{
-   const response=await fetch('./data/optimal-lineups.json?v=coach-accuracy-20261123',{cache:'no-store'});
-   if(!response.ok)throw Error('Sleeper data unavailable');
-   const data=await response.json();const rows=Array.isArray(data.rows)?data.rows:[];
-   if(!rows.length)throw Error('No finalized lineups in the feed');
-   const latest=Math.max(...rows.map(r=>Number(r.week)||0));
-   const results=managers.map(m=>{
-    const own=rows.filter(r=>Number(r.roster_id)===m.id && Number.isFinite(Number(r.actual)) && Number.isFinite(Number(r.optimal)) && Number(r.optimal)>0);
-    const actual=own.reduce((n,r)=>n+Number(r.actual),0);
-    const optimal=own.reduce((n,r)=>n+Number(r.optimal),0);
-    const mostRecent=own.slice().sort((a,b)=>Number(b.week)-Number(a.week))[0];
-    return {...m,own,actual,optimal,season:eff(actual,optimal),mostRecent};
-   }).sort((a,b)=>(b.season??-1)-(a.season??-1));
-   const desc=board.querySelector('.coach-accuracy-description');
-   desc.textContent='Sleeper-scored lineup efficiency through Week '+latest+'. Season % uses total actual ÷ total optimal, not an average of weekly percentages.';
-   board.querySelector('.coach-accuracy-state').remove();
-   const wrap=make('div','coach-accuracy-scroll'),table=make('table'),thead=make('thead'),hr=make('tr');
-   ['RANK','COACH','SEASON %','LATEST WEEK','WEEKS'].forEach(h=>hr.append(make('th','',h)));
-   thead.append(hr);table.append(thead);
-   const body=make('tbody');
-   results.forEach((r,i)=>{
-    const row=make('tr');
-    row.append(make('td','',String(i+1)));
-    const name=make('td'),link=make('a','',r.name);link.href='#'+r.anchor;name.append(link);row.append(name);
-    row.append(make('td','',pct(r.season)));
-    row.append(make('td','',r.mostRecent?'W'+r.mostRecent.week+' · '+pct(Number(r.mostRecent.efficiency)):'—'));
-    row.append(make('td','',String(r.own.length)));
-    body.append(row);
-    const card=document.getElementById('accuracy-'+r.id);if(!card)return;
-    card.querySelector('.coach-accuracy-state').remove();
-    const metrics=make('div','coach-accuracy-metrics');
-    const stats=[['SEASON EFFICIENCY',pct(r.season)],['LEAGUE RANK','#'+(i+1)],['LATEST WEEK',r.mostRecent?'W'+r.mostRecent.week+' · '+pct(Number(r.mostRecent.efficiency)):'—']];
-    stats.forEach(([label,value])=>{const c=make('div');c.append(make('strong','',value),make('small','',label));metrics.append(c)});
-    card.append(metrics);
-    card.append(make('p','','Lineup points: '+fmt(r.actual)+' actual / '+fmt(r.optimal)+' optimal · '+r.own.length+' verified weeks.'));
-    const weeks=make('div','coach-accuracy-weekly');
-    r.own.slice().sort((a,b)=>Number(b.week)-Number(a.week)).forEach(w=>weeks.append(make('span','','W'+w.week+' · '+pct(Number(w.efficiency)))));
-    card.append(weeks);
-   });
-   table.append(body);wrap.append(table);board.append(wrap);
-   board.append(make('p','','Data refreshed '+(data.generated_at?new Date(data.generated_at).toLocaleString():'when Sleeper sync completes')+'. Metrics reflect lineup decisions, not win-loss record.'));
-  }catch(e){setState('Coach accuracy unavailable: '+e.message+'. No stats have been estimated.')}
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',refresh);
+ else refresh();
+ window.addEventListener('pageshow',refresh);
 })();
 </script></body></html>
