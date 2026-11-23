@@ -198,6 +198,25 @@ def main():
                       "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "coaches": coach_records}
     Path("data/coach-history.json").write_text(json.dumps(history_result, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+    # Preserve each verified season separately. A new league ID must never overwrite 2026.
+    archive_dir = Path("data/seasons") / str(history_result["season"])
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    (archive_dir / "coach-history.json").write_text(
+        json.dumps(history_result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # Manifest is derived exclusively from existing verified archive files.
+    archive_years = []
+    for item in Path("data/seasons").glob("*/coach-history.json"):
+        try:
+            obj = json.loads(item.read_text(encoding="utf-8"))
+            year = int(item.parent.name)
+            if int(obj.get("season", 0)) == year and obj.get("coaches"):
+                archive_years.append(year)
+        except (ValueError, OSError, json.JSONDecodeError):
+            continue
+    Path("data/coach-seasons.json").write_text(
+        json.dumps({"seasons": sorted(set(archive_years)), "current_season": int(history_result["season"])}, indent=2) + "\n",
+        encoding="utf-8")
+
     result={"source":"Sleeper public API — finalized matchup results","season":int(league["season"]),
             "verifiedThroughWeek":last,"generated_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
             "rows":rows}
