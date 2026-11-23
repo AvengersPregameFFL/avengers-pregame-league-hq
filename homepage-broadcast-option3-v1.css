@@ -177,3 +177,97 @@
     font-size:9px!important;
   }
 }
+
+/* COMIC POP FINISH — 2026-11-23
+   Screenshot-inspired typography and halftone, scoped to Snapshot/Awards/Data.
+   Revert this single commit to restore the previous theme. No DOM or data changes. */
+#home .hp-stats{
+  background-color:#0967ee!important;
+  background-image:
+    radial-gradient(circle at 94% 13%,rgba(0,21,89,.38) 0 2px,transparent 2.4px),
+    repeating-conic-gradient(from 10deg at 27% 48%,rgba(255,255,255,.055) 0deg 9deg,transparent 9deg 20deg),
+    linear-gradient(125deg,#0879f8 0%,#075ceb 55%,#0751cd 100%)!important;
+  background-size:22px 22px,100% 100%,100% 100%!important;
+  border:4px solid #ffde19!important;
+  box-shadow:inset 0 0 0 3px #081325,6px 7px 0 #070d19!important;
+}
+#home .hp-stats>.hp-stat.hp-stat-link{
+  border-bottom:2px solid rgba(193,236,255,.78)!important;
+  text-shadow:none!important;
+}
+#home .hp-stats>.hp-stat.hp-stat-link:hover{
+  background:rgba(4,24,104,.17)!important;
+}
+#home .hp-stats>.hp-stat .hp-stat-label{
+  color:#ffe51c!important;
+  font-family:Archivo,Impact,Arial,sans-serif!important;
+  font-style:italic!important;
+  font-weight:950!important;
+  letter-spacing:-.025em!important;
+  font-size:clamp(13px,2.4vw,19px)!important;
+  -webkit-text-stroke:.55px #06111f;
+  text-shadow:1.5px 2px 0 #07101d,3px 4px 0 #07101d!important;
+}
+#home .hp-stats>.hp-stat .hp-stat-value{
+  font-family:Bangers,Impact,sans-serif!important;
+  font-size:clamp(31px,5.2vw,45px)!important;
+  color:#fffdf7!important;
+  -webkit-text-stroke:1px #050b16;
+  text-shadow:2px 3px 0 #050b16,4px 5px 0 #050b16!important;
+  letter-spacing:.015em!important;
+}
+#home .hp-stats>.hp-stat .hp-stat-note{
+  color:#fffdf7!important;
+  font-family:Archivo,Impact,Arial,sans-serif!important;
+  font-weight:950!important;
+  font-size:clamp(14px,2.7vw,21px)!important;
+  letter-spacing:-.045em!important;
+  -webkit-text-stroke:.45px #07101d;
+  text-shadow:1px 2px 0 #07101d,2.5px 3.5px 0 #07101d!important;
+}
+#home .hp-stats>.hp-stat.hp-stat-link::after{
+  color:#ffe51c!important;
+  font-family:Archivo,Impact,Arial,sans-serif!important;
+  font-style:italic!important;
+  font-weight:950!important;
+  font-size:clamp(11px,2.2vw,15px)!important;
+  -webkit-text-stroke:.35px #051025;
+  text-shadow:1px 2px 0 #06111f,2px 3px 0 #06111f!important;
+}
+#home .hp-weekly-awards-compact .hp-awards-title-row>a#weekly-awards-open{
+  background:
+    radial-gradient(circle at 12% 28%,rgba(212,88,0,.2) 0 2px,transparent 2.5px) 0 0/14px 14px,
+    repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,250,167,.35) 0deg 8deg,transparent 8deg 22deg),
+    linear-gradient(120deg,#ffdf22,#ffbd16)!important;
+  color:#fffdf5!important;
+  border:4px solid #ffdf22!important;
+  box-shadow:inset 0 0 0 3px #07111f,5px 6px 0 #060c16!important;
+  -webkit-text-stroke:1px #050b16!important;
+  text-shadow:2px 3px 0 #050b16,3px 4px 0 #050b16!important;
+}
+#home .hp-weekly-awards-compact .hp-awards-title-row>a#auto-weekly-report{
+  background:
+    radial-gradient(circle at 92% 20%,rgba(85,139,222,.22) 0 1.3px,transparent 1.6px) 0 0/13px 13px,
+    linear-gradient(135deg,#243d67,#0f192d)!important;
+  color:#fffdf7!important;
+  border:4px solid #ffdf22!important;
+  box-shadow:inset 0 0 0 3px #07111f,5px 6px 0 #060c16!important;
+  -webkit-text-stroke:.55px #050b16!important;
+  text-shadow:1.5px 2.5px 0 #050b16!important;
+  font-weight:950!important;
+}
+#home #hq-data-freshness{
+  background:#070c16!important;
+  color:#fffdf7!important;
+  border-color:#ffe21c!important;
+  border-width:3px!important;
+  box-shadow:5px 6px 0 #060c16!important;
+  -webkit-text-stroke:.25px #070c16;
+  text-shadow:1px 2px 0 #070c16!important;
+}
+@media(max-width:490px){
+  #home .hp-stats>.hp-stat .hp-stat-label{font-size:clamp(12px,3.3vw,15px)!important}
+  #home .hp-stats>.hp-stat .hp-stat-value{font-size:clamp(29px,7vw,37px)!important}
+  #home .hp-stats>.hp-stat .hp-stat-note{font-size:clamp(12px,3.3vw,16px)!important}
+  #home .hp-stats>.hp-stat.hp-stat-link::after{font-size:clamp(10px,2.8vw,13px)!important}
+}
