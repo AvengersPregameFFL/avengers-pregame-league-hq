@@ -2640,11 +2640,7 @@ body:not(:has(.page:target)){
  const pct=n=>Number.isFinite(n)?n.toFixed(2)+'%':'—';
  function install(){
   const directory=document.getElementById('teams');
-  if(!directory||document.getElementById('coach-accuracy-open'))return;
-  const btn=el('a','coach-accuracy-directory-link','VIEW FULL COACH ACCURACY RANKINGS →');
-  btn.id='coach-accuracy-open';btn.href='#accuracy';
-  const grid=directory.querySelector('.roster-comic-grid');
-  if(grid)directory.insertBefore(btn,grid);
+  if(!directory||directory.querySelector('.roster-accuracy-note'))return;
   managers.forEach(m=>{
    const card=directory.querySelector('.roster-comic-card[href="#'+m.anchor+'"]');
    const content=card&&card.querySelector('.roster-comic-content');
