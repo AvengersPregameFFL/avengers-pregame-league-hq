@@ -22,3 +22,7 @@
 .coach-draft-pick .meta{font-size:13px;font-weight:700;color:#545b68}
 .coach-draft-source{display:inline-block;margin-top:16px;color:#ffd400;font-weight:900;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:650px){.coach-draft-list{grid-template-columns:1fr}.coach-draft-toolbar{align-items:stretch}.coach-draft-year{width:100%}}
+
+/* Keep draft labels and status legible over the dark career panel. */
+.coach-profile-fold .coach-draft-history .coach-draft-toolbar label{color:#ffda21!important;text-shadow:none!important}
+.coach-profile-fold .coach-draft-history .coach-draft-status{color:#f0f2fb!important;text-shadow:none!important}
