@@ -2369,96 +2369,174 @@ buildMenus();setup();
  observer.observe(root,{childList:true,subtree:true});
  label();
 })();
-</script><style id="home-comic-nav-readable-v2">
-/* Readable comic caption plates, isolated to homepage quick navigation.
-   All hrefs, visual identities, two-column layout and alerts functionality stay intact. */
+</script><style id="home-comic-nav-readable-v3">
+/* Clean comic nav: flat print panels, no nested cards. Scoped to homepage nav only. */
+#home .hp-quick-columns{
+  gap:clamp(10px,2vw,18px)!important;
+}
 #home .hp-quick-column .hp-menu.hp-menu-group{
-  gap:10px!important;
-  padding:8px 6px 11px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:9px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
 }
 #home .hp-quick-column .hp-menu-group a{
-  min-height:69px!important;
-  padding:7px 9px 9px!important;
-  background:
-    linear-gradient(126deg,var(--comic-accent) 0 7%,transparent 7% 93%,var(--comic-accent) 93% 100%),
-    var(--comic-fill)!important;
-  transform:skew(-3deg)!important;
-  clip-path:polygon(1% 0,100% 0,99% 100%,0 100%)!important;
-}
-#home .hp-quick-column .hp-menu-group a::before{
-  width:16%!important;
-  height:22%!important;
-  opacity:.55!important;
-  background:linear-gradient(135deg,var(--comic-accent) 0 50%,transparent 50% 100%)!important;
-}
-#home .hp-quick-column .hp-menu-group a .hp-menu-label{
+  --comic-fill:#fff5e4;
+  --comic-accent:#e7374d;
+  position:relative!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
+  box-sizing:border-box!important;
   width:100%!important;
   min-width:0!important;
-  min-height:47px!important;
-  padding:8px 7px!important;
-  background:#fff8e9!important;
-  border:2px solid #0c1020!important;
+  min-height:58px!important;
+  padding:9px 13px!important;
+  overflow:hidden!important;
+  border:3px solid #111827!important;
   border-radius:0!important;
-  box-shadow:2px 2px 0 #0c1020!important;
-  color:#080d18!important;
-  font-family:'Arial Black',Archivo,Arial,sans-serif!important;
-  font-size:clamp(13px,2.9vw,18px)!important;
-  font-style:normal!important;
-  font-weight:900!important;
-  line-height:1.16!important;
+  background:linear-gradient(125deg,var(--comic-accent) 0 11px,var(--comic-fill) 11px 100%)!important;
+  box-shadow:4px 4px 0 #111827!important;
+  transform:none!important;
+  clip-path:none!important;
+  color:#111827!important;
+  text-decoration:none!important;
+  transition:filter .14s ease,translate .14s ease!important;
+}
+#home .hp-quick-column .hp-menu-group a:nth-child(3n+2){
+  --comic-fill:#ffd52e;
+  --comic-accent:#e7374d;
+}
+#home .hp-quick-column .hp-menu-group a:nth-child(4n){
+  --comic-fill:#fff5e4;
+  --comic-accent:#2f63e0;
+}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(3n){
+  --comic-fill:#fff5e4;
+  --comic-accent:#2f63e0;
+}
+#home .hp-league-tools-column .hp-menu-group a:nth-child(4n){
+  --comic-fill:#ffd52e;
+  --comic-accent:#e7374d;
+}
+#home .hp-quick-column .hp-menu-group a::before{
+  content:""!important;
+  position:absolute!important;
+  display:block!important;
+  width:16px!important;
+  height:16px!important;
+  top:0!important;
+  right:0!important;
+  bottom:auto!important;
+  left:auto!important;
+  background:var(--comic-accent)!important;
+  clip-path:polygon(100% 0,0 0,100% 100%)!important;
+  border:0!important;
+  opacity:1!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+#home .hp-quick-column .hp-menu-group a::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  top:auto!important;
+  height:3px!important;
+  background:var(--comic-accent)!important;
+  border:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+}
+#home .hp-quick-column .hp-menu-group a .hp-menu-label{
+  display:block!important;
+  flex:none!important;
+  width:100%!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:0 5px!important;
+  margin:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  font:900 clamp(13px,2.65vw,18px)/1.17 'Arial Black',Archivo,Arial,sans-serif!important;
   letter-spacing:-.025em!important;
+  color:#111827!important;
   text-align:center!important;
   text-transform:uppercase!important;
   text-shadow:none!important;
   -webkit-text-stroke:0!important;
-  transform:skew(3deg)!important;
+  transform:none!important;
+  white-space:normal!important;
   text-wrap:balance!important;
-  overflow-wrap:normal!important;
+  overflow-wrap:break-word!important;
   word-break:normal!important;
+  z-index:2!important;
 }
-#home .hp-quick-column .hp-menu-group a:nth-child(4n) .hp-menu-label{
-  text-shadow:none!important;
+#home .hp-quick-column .hp-menu-group a:hover{
+  filter:brightness(1.055)!important;
+  translate:0 -2px!important;
 }
-#home .hp-quick-column .hp-menu-group a:hover .hp-menu-label{
-  background:#fffdf4!important;
+#home .hp-quick-column .hp-menu-group a:active{
+  translate:2px 2px!important;
+  box-shadow:2px 2px 0 #111827!important;
+}
+#home .hp-quick-column .hp-menu-group a:focus-visible{
+  outline:4px solid #ffd52e!important;
+  outline-offset:3px!important;
+}
+#home .hp-quick-column .hp-menu-group .hp-menu-arrow{
+  display:none!important;
 }
 #home .hp-game-day-column>.hp-player-watch-cta{
-  min-height:64px!important;
-  padding:9px 10px!important;
-  font-family:'Arial Black',Archivo,Arial,sans-serif!important;
-  font-style:normal!important;
-  font-weight:900!important;
-  font-size:clamp(13px,2.7vw,17px)!important;
-  letter-spacing:-.03em!important;
-  line-height:1.15!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-height:58px!important;
+  margin:13px 0 9px!important;
+  padding:10px 12px!important;
+  background:#ffd52e!important;
+  color:#111827!important;
+  border:3px solid #111827!important;
+  box-shadow:4px 4px 0 #e7374d!important;
+  transform:none!important;
+  font:900 clamp(13px,2.65vw,18px)/1.18 'Arial Black',Archivo,Arial,sans-serif!important;
+  letter-spacing:-.025em!important;
   text-shadow:none!important;
 }
-@media(max-width:490px){
- #home .hp-quick-column .hp-menu.hp-menu-group{
-   gap:9px!important;
-   padding:6px 4px 9px!important;
- }
- #home .hp-quick-column .hp-menu-group a{
-   min-height:62px!important;
-   padding:6px 5px 8px!important;
- }
- #home .hp-quick-column .hp-menu-group a .hp-menu-label{
-   min-height:45px!important;
-   padding:6px 3px!important;
-   font-size:clamp(12px,3.2vw,15px)!important;
-   line-height:1.17!important;
-   letter-spacing:-.035em!important;
- }
- #home .hp-game-day-column>.hp-player-watch-cta{
-   min-height:59px!important;
-   padding:8px 7px!important;
-   font-size:clamp(12px,2.9vw,15px)!important;
- }
+#home .hp-game-day-column>.hp-player-watch-cta span{
+  transform:none!important;
 }
-@media(max-width:350px){
- #home .hp-quick-column .hp-menu-group a .hp-menu-label{font-size:11.5px!important;padding:6px 2px!important}
+@media(max-width:490px){
+  #home .hp-quick-columns{gap:9px!important}
+  #home .hp-quick-column .hp-menu.hp-menu-group{gap:8px!important;padding:0!important}
+  #home .hp-quick-column .hp-menu-group a{
+    min-height:53px!important;
+    padding:7px 5px!important;
+    border-width:2px!important;
+  }
+  #home .hp-quick-column .hp-menu-group a .hp-menu-label{
+    padding:0 2px!important;
+    font-size:clamp(11px,2.85vw,14px)!important;
+    line-height:1.15!important;
+    letter-spacing:-.035em!important;
+  }
+  #home .hp-game-day-column>.hp-player-watch-cta{
+    min-height:53px!important;
+    margin:11px 0 9px!important;
+    padding:7px 6px!important;
+    font-size:clamp(11px,2.8vw,14px)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #home .hp-quick-column .hp-menu-group a{transition:none!important}
 }
 </style></body></html>
