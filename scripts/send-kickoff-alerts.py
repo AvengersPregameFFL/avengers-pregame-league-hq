@@ -49,7 +49,11 @@ for kickoff in sorted(starts):
     delivery = max(now, kickoff - dt.timedelta(minutes=10))
     payload = {
         "app_id": APP_ID,
-        "included_segments": ["Subscribed Users"],
+        "filters": [
+            {"field": "tag", "key": "alert_kickoff", "relation": "not_exists"},
+            {"operator": "OR"},
+            {"field": "tag", "key": "alert_kickoff", "relation": "=", "value": "on"}
+        ],
         "headings": {"en": "Avengers Pregame: Lock Your Lineups"},
         "contents": {"en": f"{label} kickoff is approaching. Check your starters, injuries, Pick'em and Survivor. No excuses, dumbasses."},
         "url": SITE,
