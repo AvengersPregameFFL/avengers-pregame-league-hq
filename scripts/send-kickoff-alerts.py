@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send one opt-in OneSignal alert an hour before the first NFL kickoff of Thu/Sun/Mon.
+"""Send one opt-in OneSignal alert per NFL kickoff window, targeting ten minutes before kickoff.
 Requires GitHub Actions secret ONESIGNAL_REST_API_KEY.
 """
 import datetime as dt
@@ -16,9 +16,6 @@ SITE = "https://avengerspregameffl.github.io/avengers-pregame-league-hq/"
 KEY = os.environ.get("ONESIGNAL_REST_API_KEY", "")
 now = dt.datetime.now(dt.timezone.utc)
 local = now.astimezone(EASTERN)
-if local.weekday() not in (0, 3, 6):
-    print("Not Monday, Thursday, or Sunday in Eastern time.")
-    sys.exit(0)
 if not KEY:
     print("ERROR: ONESIGNAL_REST_API_KEY is missing; scheduled alerts cannot be delivered.")
     sys.exit(1)
@@ -31,7 +28,7 @@ try:
 except Exception as e:
     print("Could not retrieve NFL schedule:", e)
     sys.exit(1)
-starts = []
+starts = set()
 for event in data.get("events", []):
     stamp = event.get("date")
     try:
@@ -39,42 +36,33 @@ for event in data.get("events", []):
     except (ValueError, AttributeError):
         continue
     if kickoff.astimezone(EASTERN).date() == day:
-        starts.append(kickoff)
+        starts.add(kickoff)
 if not starts:
     print("No NFL kickoff on", day)
     sys.exit(0)
-first = min(starts)
-minutes = (first - now).total_seconds() / 60
-print("First kickoff:", first.isoformat(), "minutes away:", round(minutes, 1))
-# A 15-minute window accommodates a five-minute cron cadence and typical GitHub Actions delays.
-if not (45 <= minutes <= 65):
-    print("Outside one-hour notification window.")
-    sys.exit(0)
-label = {0:"Monday", 3:"Thursday", 6:"Sunday"}[local.weekday()]
-payload = {
-    "app_id": APP_ID,
-    "included_segments": ["Subscribed Users"],
-    "headings": {"en": "Avengers Pregame: " + label + " Kickoff"},
-    "contents": {"en": "Kickoff is in an hour, dumbasses. Check your lineups, injuries, Pick'em and Survivor. Your commissioner can't do everything!"},
-    "url": SITE,
-    "name": label + " NFL kickoff reminder " + str(day),
-    "idempotency_key": str(uuid.uuid5(uuid.NAMESPACE_URL, APP_ID + "/" + str(day) + "/first-kickoff"))
-}
-req = urllib.request.Request(
-    "https://api.onesignal.com/notifications",
-    data=json.dumps(payload).encode("utf-8"),
-    headers={"Authorization": "Key " + KEY, "Content-Type": "application/json", "User-Agent": "AvengersPregameLeagueHQ/1.0"},
-    method="POST"
-)
-try:
+for kickoff in sorted(starts):
+    minutes = (kickoff - now).total_seconds() / 60
+    if not (0 < minutes <= 10):
+        continue
+    label = kickoff.astimezone(EASTERN).strftime("%A %I:%M %p ET")
+    payload = {
+        "app_id": APP_ID,
+        "included_segments": ["Subscribed Users"],
+        "headings": {"en": "Avengers Pregame: Lock Your Lineups"},
+        "contents": {"en": f"{label} kickoff is approaching. Check your starters, injuries, Pick'em and Survivor. No excuses, dumbasses."},
+        "url": SITE,
+        "name": "NFL kickoff " + kickoff.isoformat(),
+        "idempotency_key": str(uuid.uuid5(uuid.NAMESPACE_URL, APP_ID + "/kickoff/" + kickoff.isoformat())),
+        "ttl": max(1, int(minutes * 60))
+    }
+    req = urllib.request.Request(
+        "https://api.onesignal.com/notifications",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Authorization": "Key " + KEY, "Content-Type": "application/json", "User-Agent": "AvengersPregameLeagueHQ/1.0"},
+        method="POST"
+    )
     with urllib.request.urlopen(req, timeout=25) as resp:
         result = json.load(resp)
-    print("OneSignal accepted notification:", result.get("id", "no id"), "recipients:", result.get("recipients", "unknown"))
     if not result.get("id"):
-        print("ERROR: OneSignal did not return a notification ID:", result)
-        sys.exit(1)
-    if result.get("recipients") == 0:
-        print("WARNING: OneSignal accepted the request, but there are no subscribed recipients.")
-except Exception as e:
-    print("OneSignal request failed:", e)
-    sys.exit(1)
+        raise RuntimeError("OneSignal did not return a notification ID: " + str(result))
+    print("OneSignal accepted", label, result.get("id"), "recipients:", result.get("recipients", "unknown"))
