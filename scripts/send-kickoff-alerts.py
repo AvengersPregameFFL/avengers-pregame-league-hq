@@ -40,7 +40,6 @@ for event in data.get("events", []):
         starts.add(kickoff)
 if not starts:
     print("No NFL kickoff on", day)
-    sys.exit(0)
 for kickoff in sorted(starts):
     minutes = (kickoff - now).total_seconds() / 60
     if not (2 < minutes <= 180):
@@ -76,3 +75,44 @@ for kickoff in sorted(starts):
     if not result.get("id"):
         raise RuntimeError("OneSignal did not return a notification ID: " + str(result))
     print("OneSignal accepted", label, result.get("id"), "recipients:", result.get("recipients", "unknown"))
+
+# Completed-week results, independently of kickoff windows.
+def fetch_json(url):
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent":"AvengersPregameLeagueHQ/1.0"}), timeout=20) as response:
+        return json.load(response)
+
+def send_final_results():
+    api = "https://api.sleeper.app/v1"
+    league = "1395849826633019392"
+    state = fetch_json(api + "/state/nfl")
+    week = int(state["week"])
+    season = str(state["season"])
+    # Only prior NFL weeks; never infer a final from a live score.
+    if week < 2 or state.get("season_type") != "regular":
+        return
+    week -= 1
+    # Avoid sending historical results every day; allow Tuesday/Wednesday retries.
+    if local.weekday() not in (1, 2):
+        return
+    rows = fetch_json(f"{api}/league/{league}/matchups/{week}")
+    groups = {}
+    for row in rows:
+        if row.get("matchup_id") is not None:
+            groups.setdefault(row["matchup_id"], []).append(row)
+    if len(groups) != 4 or any(len(g) != 2 for g in groups.values()) or len({r["roster_id"] for g in groups.values() for r in g}) != 8:
+        raise RuntimeError("Incomplete Sleeper matchup data")
+    for group in groups.values():
+        for a,b in (group, group[::-1]):
+            if a.get("points") is None or b.get("points") is None:
+                raise RuntimeError("Missing matchup score")
+            x,y = float(a["points"]),float(b["points"])
+            result = "WIN" if x>y else "LOSS" if x<y else "TIE"
+            payload = {"app_id":APP_ID,"target_channel":"push","filters":[{"field":"tag","key":"fantasy_roster","relation":"=","value":str(a["roster_id"])},{"operator":"AND"},{"field":"tag","key":"alert_final","relation":"=","value":"on"}],"headings":{"en":f"Week {week}: {result}"},"contents":{"en":f"Final weekly matchup score: {x:.2f}–{y:.2f}. " + ("Enjoy the victory." if x>y else "Better luck next week, loser." if x<y else "A tie. Nobody gets bragging rights.")},"url":SITE,"idempotency_key":str(uuid.uuid5(uuid.NAMESPACE_URL,f"{APP_ID}/final/{season}/{week}/{a['roster_id']}")),"ttl":86400}
+            if DRY_RUN:
+                print("DRY RUN:",json.dumps(payload))
+                continue
+            request = urllib.request.Request("https://api.onesignal.com/notifications",data=json.dumps(payload).encode(),headers={"Authorization":"Key "+KEY,"Content-Type":"application/json"},method="POST")
+            with urllib.request.urlopen(request,timeout=25) as response:
+                reply=json.load(response)
+            print("Final result",week,a["roster_id"],reply.get("id"),reply.get("recipients"))
+send_final_results()

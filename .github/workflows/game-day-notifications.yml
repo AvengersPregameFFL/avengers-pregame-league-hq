@@ -2,20 +2,20 @@ name: Game Day Push Reminders
 on:
   schedule:
     # Every day: international, holiday and Saturday games included.
-    - cron: '*/5 0-5,12-23 * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   notify:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Send kickoff-window notifications to opted-in subscribers
+      - name: Send kickoff and completed-week notifications
         env:
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
         run: python scripts/send-kickoff-alerts.py
