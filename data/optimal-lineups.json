@@ -1,6 +1,6 @@
 {
   "league_id": "1395849826633019392",
-  "generated_at": "2026-11-23T22:41:49.721613+00:00",
+  "generated_at": "2026-11-24T18:28:49.575199+00:00",
   "roster_positions": [
     "QB",
     "RB",
@@ -13,14 +13,14 @@
     "K",
     "DEF"
   ],
-  "source": "Sleeper public API matchup players_points; Week 11 verified Sleeper weekly report screenshots",
+  "source": "Sleeper public API matchup players_points",
   "rows": [
     {
       "week": 1,
       "roster_id": 1,
       "manager": "Dk25313",
       "actual": 182.26,
-      "optimal": 211,
+      "optimal": 211.0,
       "efficiency": 86.38
     },
     {
@@ -117,7 +117,7 @@
       "manager": "dentalhygenius",
       "actual": 161.92,
       "optimal": 161.92,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 2,
@@ -251,7 +251,7 @@
       "week": 4,
       "roster_id": 6,
       "manager": "hboogie1003",
-      "actual": 108,
+      "actual": 108.0,
       "optimal": 121.2,
       "efficiency": 89.11
     },
@@ -299,7 +299,7 @@
       "week": 5,
       "roster_id": 4,
       "manager": "Mexipez1999",
-      "actual": 201,
+      "actual": 201.0,
       "optimal": 219.22,
       "efficiency": 91.69
     },
@@ -325,7 +325,7 @@
       "manager": "fondlerballer",
       "actual": 91.4,
       "optimal": 91.4,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 5,
@@ -373,7 +373,7 @@
       "manager": "dentalhygenius",
       "actual": 123.74,
       "optimal": 123.74,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 6,
@@ -413,7 +413,7 @@
       "manager": "InfinityBrocklet",
       "actual": 136.32,
       "optimal": 136.32,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 7,
@@ -429,7 +429,7 @@
       "manager": "Mexipez1999",
       "actual": 165.58,
       "optimal": 165.58,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 7,
@@ -477,7 +477,7 @@
       "manager": "InfinityBrocklet",
       "actual": 166.56,
       "optimal": 166.56,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 8,
@@ -509,7 +509,7 @@
       "manager": "hboogie1003",
       "actual": 101.38,
       "optimal": 101.38,
-      "efficiency": 100
+      "efficiency": 100.0
     },
     {
       "week": 8,
