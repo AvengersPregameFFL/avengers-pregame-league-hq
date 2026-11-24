@@ -7,17 +7,17 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 concurrency:
   group: github-pages
   cancel-in-progress: false
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      artifact_name: ${{ steps.artifact-name.outputs.name }}
     steps:
-      - name: Checkout latest main
+      - name: Checkout website
         uses: actions/checkout@v4
       - name: Build four-panel Bugle share cover
         run: |
@@ -25,15 +25,41 @@ jobs:
           python scripts/build_bugle_share_preview.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Select unique artifact name
+        id: artifact-name
+        run: echo "name=github-pages-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
       - name: Upload entire website
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
-      - name: Deploy Pages (first attempt)
-        id: deployment_first
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
-      - name: Retry Pages deployment if first attempt fails
-        if: steps.deployment_first.outcome == 'failure'
+          name: ${{ steps.artifact-name.outputs.name }}
+          retention-days: 3
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Verify uploaded artifact is visible to GitHub API
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: ${{ needs.build.outputs.artifact_name }}
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 12); do
+            count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --paginate --jq ".artifacts[] | select(.name == \"$ARTIFACT_NAME\" and .expired == false) | .id" | wc -l) || count=0
+            if [ "$count" -eq 1 ]; then
+              echo "Verified deployment artifact: $ARTIFACT_NAME"
+              exit 0
+            fi
+            echo "Artifact not visible yet (attempt $attempt/12)"
+            sleep 10
+          done
+          echo "::error::Expected exactly one Pages artifact named $ARTIFACT_NAME"
+          exit 1
+      - name: Deploy verified Pages artifact
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
