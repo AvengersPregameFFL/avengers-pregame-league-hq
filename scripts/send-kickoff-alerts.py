@@ -16,7 +16,8 @@ SITE = "https://avengerspregameffl.github.io/avengers-pregame-league-hq/"
 KEY = os.environ.get("ONESIGNAL_REST_API_KEY", "")
 now = dt.datetime.now(dt.timezone.utc)
 local = now.astimezone(EASTERN)
-if not KEY:
+DRY_RUN = "--dry-run" in sys.argv
+if not KEY and not DRY_RUN:
     print("ERROR: ONESIGNAL_REST_API_KEY is missing; scheduled alerts cannot be delivered.")
     sys.exit(1)
 day = local.date()
@@ -42,9 +43,10 @@ if not starts:
     sys.exit(0)
 for kickoff in sorted(starts):
     minutes = (kickoff - now).total_seconds() / 60
-    if not (0 < minutes <= 10):
+    if not (2 < minutes <= 180):
         continue
     label = kickoff.astimezone(EASTERN).strftime("%A %I:%M %p ET")
+    delivery = max(now, kickoff - dt.timedelta(minutes=10))
     payload = {
         "app_id": APP_ID,
         "included_segments": ["Subscribed Users"],
@@ -53,8 +55,12 @@ for kickoff in sorted(starts):
         "url": SITE,
         "name": "NFL kickoff " + kickoff.isoformat(),
         "idempotency_key": str(uuid.uuid5(uuid.NAMESPACE_URL, APP_ID + "/kickoff/" + kickoff.isoformat())),
-        "ttl": max(1, int(minutes * 60))
+        "send_after": delivery.isoformat(),
+        "ttl": max(1, int((kickoff - delivery).total_seconds()))
     }
+    if DRY_RUN:
+        print("DRY RUN:", json.dumps(payload))
+        continue
     req = urllib.request.Request(
         "https://api.onesignal.com/notifications",
         data=json.dumps(payload).encode("utf-8"),
