@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 11,
-  "generated_at_utc": "2026-11-23T20:16:01.938095+00:00",
+  "generated_at_utc": "2026-11-24T04:50:18.330320+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1604,7 +1604,7 @@
           "MIN",
           "SF"
         ],
-        "points": 121.96,
+        "points": 130.46,
         "roster_id": 2,
         "starters": [
           "4984",
@@ -1623,7 +1623,7 @@
           26.0,
           14.2,
           22.9,
-          0.0,
+          8.5,
           0.0,
           11.9,
           19.0,
@@ -1698,7 +1698,7 @@
           "JAX",
           "LAR"
         ],
-        "points": 89.3,
+        "points": 125.9,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1713,14 +1713,14 @@
           "JAX"
         ],
         "starters_points": [
-          0.0,
+          23.9,
           13.5,
           19.0,
           18.5,
           9.9,
           3.2,
           10.3,
-          0.0,
+          12.7,
           10.9,
           4.0
         ]
@@ -1745,7 +1745,7 @@
           "8228",
           "KC"
         ],
-        "points": 124.9,
+        "points": 133.0,
         "roster_id": 5,
         "starters": [
           "11563",
@@ -1764,7 +1764,7 @@
           4.9,
           34.9,
           14.7,
-          0.0,
+          8.1,
           9.2,
           6.9,
           19.1,
@@ -1792,7 +1792,7 @@
           "PIT",
           "TB"
         ],
-        "points": 95.9,
+        "points": 124.36,
         "roster_id": 6,
         "starters": [
           "11566",
@@ -1807,7 +1807,7 @@
           "PIT"
         ],
         "starters_points": [
-          0.0,
+          17.06,
           27.8,
           7.6,
           8.5,
@@ -1815,7 +1815,7 @@
           18.4,
           9.1,
           3.8,
-          0.0,
+          11.4,
           7.0
         ]
       },
@@ -1885,7 +1885,7 @@
           "BUF",
           "DEN"
         ],
-        "points": 96.8,
+        "points": 117.7,
         "roster_id": 8,
         "starters": [
           "8183",
@@ -1903,10 +1903,10 @@
           28.2,
           11.0,
           17.2,
-          0.0,
+          12.3,
           16.4,
           3.4,
-          0.0,
+          8.6,
           19.2,
           -6.6,
           8.0
