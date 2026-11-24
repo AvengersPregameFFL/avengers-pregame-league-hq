@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '20 * * * *'
 permissions:
   contents: read
   pages: write
@@ -17,11 +19,14 @@ jobs:
     outputs:
       artifact_name: ${{ steps.artifact-name.outputs.name }}
     steps:
-      - name: Checkout website
+      - name: Checkout latest website
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Build four-panel Bugle share cover
         run: |
           python -m pip install --quiet Pillow
+          python scripts/sync_bugle_home.py
           python scripts/build_bugle_share_preview.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
