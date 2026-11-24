@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 
 EASTERN = ZoneInfo("America/New_York")
 APP_ID = "0f86d84f-b2a8-401a-8c7e-f1dacf8d7094"
-SITE = "https://jumbojuggernaut.github.io/avengers-pregame-league-hq/"
+SITE = "https://avengerspregameffl.github.io/avengers-pregame-league-hq/"
 KEY = os.environ.get("ONESIGNAL_REST_API_KEY", "")
 now = dt.datetime.now(dt.timezone.utc)
 local = now.astimezone(EASTERN)
@@ -20,8 +20,8 @@ if local.weekday() not in (0, 3, 6):
     print("Not Monday, Thursday, or Sunday in Eastern time.")
     sys.exit(0)
 if not KEY:
-    print("ONESIGNAL_REST_API_KEY is missing; no notification sent.")
-    sys.exit(0)
+    print("ERROR: ONESIGNAL_REST_API_KEY is missing; scheduled alerts cannot be delivered.")
+    sys.exit(1)
 day = local.date()
 url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=" + day.strftime("%Y%m%d") + "&limit=100"
 try:
@@ -70,6 +70,11 @@ try:
     with urllib.request.urlopen(req, timeout=25) as resp:
         result = json.load(resp)
     print("OneSignal accepted notification:", result.get("id", "no id"), "recipients:", result.get("recipients", "unknown"))
+    if not result.get("id"):
+        print("ERROR: OneSignal did not return a notification ID:", result)
+        sys.exit(1)
+    if result.get("recipients") == 0:
+        print("WARNING: OneSignal accepted the request, but there are no subscribed recipients.")
 except Exception as e:
     print("OneSignal request failed:", e)
     sys.exit(1)
