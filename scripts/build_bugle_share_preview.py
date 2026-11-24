@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Generate the social sharing cover for The Pregame Bugle from the four published images."""
 from pathlib import Path
+import json
+import re
+from html import escape
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,4 +40,16 @@ for (label,path),rect in zip(ART,panel_positions):
         font = ImageFont.truetype(bold, font.size-1)
     d.text((x0+13,y1-35),label,fill="#fff1d5",font=font)
 canvas.save(DEST,"PNG",optimize=True)
+revision = ISSUE["serial"] + "-" + ISSUE["cards"][-1]["number"]
+versioned = ROOT / "stories" / ("bugle-share-" + revision + ".png")
+canvas.save(versioned,"PNG",optimize=True)
+(ROOT / "stories" / "bugle-share.json").write_text(json.dumps({"serial": ISSUE["serial"], "revision": revision, "cover": versioned.name}, indent=2)+"\n")
+page = ROOT / "stories/index.html"
+src = page.read_text()
+base = "https://avengerspregameffl.github.io/avengers-pregame-league-hq/stories/"
+for prop in ("og:image", "twitter:image"):
+    src = re.sub(r'(<meta (?:property|name)="' + prop + r'" content=")[^"]*(")', lambda m: m[1]+base+versioned.name+m[2], src)
+src = re.sub(r'<meta property="og:image:(?:width|height)"[^>]*>', "", src)
+src = src.replace('<meta property="og:image:type"', '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type"',1)
+page.write_text(src)
 print(f"Created {DEST} ({DEST.stat().st_size:,} bytes)")
