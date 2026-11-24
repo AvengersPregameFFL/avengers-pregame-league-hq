@@ -47,6 +47,8 @@ def optimal(points, ids):
         return best if best != float("-inf") else solve(k+1, used)
     return round(solve(0,0), 2)
 
+state = get("/state/nfl")
+completed_week = max(0, int(state.get("week") or 1) - 1)
 rows = []
 for week in range(1,19):
     matchups = get(f"/league/{LEAGUE}/matchups/{week}")
@@ -54,7 +56,7 @@ for week in range(1,19):
     if len(matchups) != len(rosters) or len({m.get('roster_id') for m in matchups}) != len(rosters): continue
     if any(m.get('points') is None or not m.get('players_points') or not m.get('players') for m in matchups): continue
     # Sleeper exposes in-progress scores. Only prior weeks are final.
-    if week >= int((league.get('settings') or {}).get('leg') or 1): continue
+    if week > completed_week: continue
     for m in matchups:
         pts = m.get("players_points") or {}
         ids = m.get("players") or []
@@ -63,6 +65,14 @@ for week in range(1,19):
         if actual is None: continue
         best = optimal(pts, ids)
         rows.append({"week":week,"roster_id":m["roster_id"],"manager":owners.get(m["roster_id"], ""),"actual":round(float(actual),2),"optimal":best,"efficiency":round(100*float(actual)/best,2) if best>0 else None})
+# Preserve commissioner-verified official lineup results across future runs.
+from pathlib import Path
+for path in Path("data").glob("commissioner-verified-week-*.json"):
+    verified = json.loads(path.read_text())
+    official = verified.get("lineups") or []
+    week = verified.get("completed_week")
+    if verified.get("season") == int(league["season"]) and len(official) == 8 and len({r["roster_id"] for r in official}) == 8 and all(r["week"] == week for r in official):
+        rows = [r for r in rows if r["week"] != week] + official
 rows.sort(key=lambda x:(x["week"],x["roster_id"]))
 os.makedirs("data",exist_ok=True)
 payload={"league_id":LEAGUE,"generated_at":datetime.now(timezone.utc).isoformat(),"roster_positions":slots,"source":"Sleeper public API matchup players_points","rows":rows}

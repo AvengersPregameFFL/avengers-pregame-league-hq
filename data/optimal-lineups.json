@@ -13,14 +13,14 @@
     "K",
     "DEF"
   ],
-  "source": "Sleeper public API matchup players_points",
+  "source": "Sleeper public API matchup players_points; Week 11 verified Sleeper weekly report screenshots",
   "rows": [
     {
       "week": 1,
       "roster_id": 1,
       "manager": "Dk25313",
       "actual": 182.26,
-      "optimal": 211.0,
+      "optimal": 211,
       "efficiency": 86.38
     },
     {
@@ -117,7 +117,7 @@
       "manager": "dentalhygenius",
       "actual": 161.92,
       "optimal": 161.92,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 2,
@@ -251,7 +251,7 @@
       "week": 4,
       "roster_id": 6,
       "manager": "hboogie1003",
-      "actual": 108.0,
+      "actual": 108,
       "optimal": 121.2,
       "efficiency": 89.11
     },
@@ -299,7 +299,7 @@
       "week": 5,
       "roster_id": 4,
       "manager": "Mexipez1999",
-      "actual": 201.0,
+      "actual": 201,
       "optimal": 219.22,
       "efficiency": 91.69
     },
@@ -325,7 +325,7 @@
       "manager": "fondlerballer",
       "actual": 91.4,
       "optimal": 91.4,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 5,
@@ -373,7 +373,7 @@
       "manager": "dentalhygenius",
       "actual": 123.74,
       "optimal": 123.74,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 6,
@@ -413,7 +413,7 @@
       "manager": "InfinityBrocklet",
       "actual": 136.32,
       "optimal": 136.32,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 7,
@@ -429,7 +429,7 @@
       "manager": "Mexipez1999",
       "actual": 165.58,
       "optimal": 165.58,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 7,
@@ -477,7 +477,7 @@
       "manager": "InfinityBrocklet",
       "actual": 166.56,
       "optimal": 166.56,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 8,
@@ -509,7 +509,7 @@
       "manager": "hboogie1003",
       "actual": 101.38,
       "optimal": 101.38,
-      "efficiency": 100.0
+      "efficiency": 100
     },
     {
       "week": 8,
@@ -654,6 +654,70 @@
       "actual": 165.66,
       "optimal": 187.96,
       "efficiency": 88.14
+    },
+    {
+      "week": 11,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 209.5,
+      "optimal": 209.5,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 130.46,
+      "optimal": 138.86,
+      "efficiency": 93.95
+    },
+    {
+      "week": 11,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 139.44,
+      "optimal": 139.44,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 125.9,
+      "optimal": 136.9,
+      "efficiency": 91.96
+    },
+    {
+      "week": 11,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 133,
+      "optimal": 133,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 124.36,
+      "optimal": 134.76,
+      "efficiency": 92.28
+    },
+    {
+      "week": 11,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 116.76,
+      "optimal": 141.26,
+      "efficiency": 82.66
+    },
+    {
+      "week": 11,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 117.7,
+      "optimal": 125.1,
+      "efficiency": 94.08
     }
   ]
 }

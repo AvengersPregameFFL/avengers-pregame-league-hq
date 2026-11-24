@@ -1,0 +1,288 @@
+{
+  "source": "Commissioner-provided Sleeper Week 11 weekly report screenshots",
+  "season": 2026,
+  "completed_week": 11,
+  "standings": [
+    {
+      "roster_id": 1,
+      "coach": "DK",
+      "wins": 9,
+      "losses": 2,
+      "pf": 1888.5,
+      "pa": 1565.06,
+      "streak": "6W",
+      "rank": 1
+    },
+    {
+      "roster_id": 8,
+      "coach": "Nick",
+      "wins": 8,
+      "losses": 3,
+      "pf": 1648.74,
+      "pa": 1459.4,
+      "streak": "1L",
+      "rank": 2
+    },
+    {
+      "roster_id": 2,
+      "coach": "Mike",
+      "wins": 6,
+      "losses": 5,
+      "pf": 1646.88,
+      "pa": 1607.58,
+      "streak": "1W",
+      "rank": 3
+    },
+    {
+      "roster_id": 3,
+      "coach": "Travis",
+      "wins": 6,
+      "losses": 5,
+      "pf": 1481.5,
+      "pa": 1498.12,
+      "streak": "2W",
+      "rank": 4
+    },
+    {
+      "roster_id": 5,
+      "coach": "Alyssa",
+      "wins": 5,
+      "losses": 6,
+      "pf": 1628.14,
+      "pa": 1637.56,
+      "streak": "3L",
+      "rank": 5
+    },
+    {
+      "roster_id": 4,
+      "coach": "Aaron",
+      "wins": 5,
+      "losses": 6,
+      "pf": 1555.78,
+      "pa": 1580.42,
+      "streak": "1W",
+      "rank": 6
+    },
+    {
+      "roster_id": 6,
+      "coach": "Hunter",
+      "wins": 3,
+      "losses": 8,
+      "pf": 1301.54,
+      "pa": 1618.46,
+      "streak": "7L",
+      "rank": 7
+    },
+    {
+      "roster_id": 7,
+      "coach": "Jake",
+      "wins": 2,
+      "losses": 9,
+      "pf": 1362.4,
+      "pa": 1546.88,
+      "streak": "1L",
+      "rank": 8
+    }
+  ],
+  "lineups": [
+    {
+      "week": 11,
+      "roster_id": 1,
+      "manager": "Dk25313",
+      "actual": 209.5,
+      "optimal": 209.5,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 2,
+      "manager": "InfinityBrocklet",
+      "actual": 130.46,
+      "optimal": 138.86,
+      "efficiency": 93.95
+    },
+    {
+      "week": 11,
+      "roster_id": 3,
+      "manager": "TGriffy93",
+      "actual": 139.44,
+      "optimal": 139.44,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 4,
+      "manager": "Mexipez1999",
+      "actual": 125.9,
+      "optimal": 136.9,
+      "efficiency": 91.96
+    },
+    {
+      "week": 11,
+      "roster_id": 5,
+      "manager": "dentalhygenius",
+      "actual": 133,
+      "optimal": 133,
+      "efficiency": 100
+    },
+    {
+      "week": 11,
+      "roster_id": 6,
+      "manager": "hboogie1003",
+      "actual": 124.36,
+      "optimal": 134.76,
+      "efficiency": 92.28
+    },
+    {
+      "week": 11,
+      "roster_id": 7,
+      "manager": "fondlerballer",
+      "actual": 116.76,
+      "optimal": 141.26,
+      "efficiency": 82.66
+    },
+    {
+      "week": 11,
+      "roster_id": 8,
+      "manager": "noreilly1993",
+      "actual": 117.7,
+      "optimal": 125.1,
+      "efficiency": 94.08
+    }
+  ],
+  "weekly_awards": {
+    "best_team": {
+      "manager": "DK",
+      "points": 209.5,
+      "projected": 153.72
+    },
+    "worst_team": {
+      "manager": "Jake",
+      "points": 116.76,
+      "projected": 135.04
+    },
+    "best_manager": {
+      "manager": "DK",
+      "actual": 209.5,
+      "optimal": 209.5
+    },
+    "worst_manager": {
+      "manager": "Jake",
+      "actual": 116.76,
+      "optimal": 141.26
+    },
+    "highest_points_loss": {
+      "manager": "Alyssa",
+      "points": 133
+    },
+    "lowest_points_win": {
+      "manager": "Aaron",
+      "points": 125.9
+    },
+    "biggest_blowout": {
+      "winner": "DK",
+      "loser": "Alyssa",
+      "winner_points": 209.5,
+      "loser_points": 133,
+      "margin": 76.5
+    },
+    "narrow_victory": {
+      "winner": "Aaron",
+      "loser": "Jake",
+      "winner_points": 125.9,
+      "loser_points": 116.76,
+      "margin": 9.14
+    },
+    "overachiever": {
+      "manager": "DK",
+      "actual": 209.5,
+      "projected": 153.72
+    },
+    "underachiever": {
+      "manager": "Nick",
+      "actual": 117.7,
+      "projected": 145.93
+    }
+  },
+  "players_of_week": [
+    [
+      "QB",
+      "D. Prescott",
+      "DK",
+      43.9,
+      "vs TEN"
+    ],
+    [
+      "RB",
+      "J. Coleman",
+      "Alyssa",
+      34.9,
+      "vs LV"
+    ],
+    [
+      "WR",
+      "C. Lamb",
+      "DK",
+      30.2,
+      "vs TEN"
+    ],
+    [
+      "TE",
+      "G. Kittle",
+      "Hunter",
+      18.4,
+      "vs MIN"
+    ],
+    [
+      "K",
+      "C. Little",
+      "DK",
+      13.8,
+      "@ NYG"
+    ],
+    [
+      "DEF",
+      "Bears",
+      "DK",
+      17,
+      "vs NO"
+    ]
+  ],
+  "benchwarmers": [
+    [
+      "QB",
+      "C. Stroud",
+      "Hunter",
+      27.46,
+      "vs IND"
+    ],
+    [
+      "RB",
+      "S. McGowan",
+      "Hunter",
+      1.8,
+      "@ HOU"
+    ],
+    [
+      "WR",
+      "J. Waddle",
+      "Jake",
+      9.1,
+      "vs LV"
+    ],
+    [
+      "TE",
+      "T. Kelce",
+      "Jake",
+      25.4,
+      "vs ARI"
+    ],
+    [
+      "DEF",
+      "Texans",
+      "Aaron",
+      15,
+      "vs IND"
+    ]
+  ]
+}
