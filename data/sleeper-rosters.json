@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 12,
-  "generated_at_utc": "2026-11-24T15:54:56.243329+00:00",
+  "generated_at_utc": "2026-11-25T00:46:07.604182+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -1064,15 +1064,15 @@
       "roster_id": 8,
       "starters": [
         "8183",
-        "5967",
+        "8151",
         "8138",
         "6801",
         "9997",
         "5012",
-        "9224",
+        "5967",
         "8144",
         "12185",
-        "BUF"
+        "DEN"
       ],
       "taxi": [],
       "team_name": "Flash 23 Blast"
@@ -1815,15 +1815,15 @@
         "roster_id": 8,
         "starters": [
           "8183",
-          "5967",
+          "8151",
           "8138",
           "6801",
           "9997",
           "5012",
-          "9224",
+          "5967",
           "8144",
           "12185",
-          "BUF"
+          "DEN"
         ],
         "starters_points": [
           0.0,
@@ -2191,15 +2191,15 @@
         "roster_id": 8,
         "starters": [
           "8183",
-          "5967",
+          "8151",
           "8138",
           "6801",
           "9997",
           "5012",
-          "9224",
+          "5967",
           "8144",
           "12185",
-          "BUF"
+          "DEN"
         ],
         "starters_points": [
           0.0,
