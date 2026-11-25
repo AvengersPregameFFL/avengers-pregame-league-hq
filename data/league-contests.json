@@ -1,6 +1,6 @@
 {
-  "source": "Avengers Pregame Bible + commissioner Sleeper Pool Week 10 screenshots",
-  "verified_utc": "2026-11-17",
+  "source": "Avengers Pregame Bible — Pickem and Survivor through Week 11",
+  "verified_utc": "2026-11-25",
   "survivor": {
     "Dakota": {
       "status": "Eliminated",
@@ -48,6 +48,11 @@
         },
         {
           "week": 10,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 11,
           "pick": "",
           "outcome": "Already eliminated"
         }
@@ -98,9 +103,19 @@
           "outcome": "Correct"
         },
         {
+          "week": 9,
+          "pick": "Seahawks",
+          "outcome": "Correct"
+        },
+        {
           "week": 10,
           "pick": "",
           "outcome": "No pick recorded"
+        },
+        {
+          "week": 11,
+          "pick": "Broncos",
+          "outcome": "Correct"
         }
       ]
     },
@@ -149,8 +164,18 @@
           "outcome": "Correct"
         },
         {
+          "week": 9,
+          "pick": "Cowboys",
+          "outcome": "Correct"
+        },
+        {
           "week": 10,
           "pick": "Jaguars",
+          "outcome": "Correct"
+        },
+        {
+          "week": 11,
+          "pick": "Chiefs",
           "outcome": "Correct"
         }
       ]
@@ -200,7 +225,17 @@
           "outcome": "Already eliminated"
         },
         {
+          "week": 9,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
           "week": 10,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 11,
           "pick": "",
           "outcome": "Already eliminated"
         }
@@ -208,7 +243,7 @@
     },
     "Travis": {
       "status": "Alive",
-      "revives_used": "2",
+      "revives_used": "3",
       "weeks": [
         {
           "week": 1,
@@ -251,9 +286,19 @@
           "outcome": "Correct"
         },
         {
+          "week": 9,
+          "pick": "Chiefs",
+          "outcome": "Correct"
+        },
+        {
           "week": 10,
           "pick": "Chargers",
           "outcome": "Wrong"
+        },
+        {
+          "week": 11,
+          "pick": "Texans",
+          "outcome": "Correct"
         }
       ]
     },
@@ -302,14 +347,24 @@
           "outcome": "Already eliminated"
         },
         {
+          "week": 9,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
           "week": 10,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 11,
           "pick": "",
           "outcome": "Already eliminated"
         }
       ]
     },
     "Aaron": {
-      "status": "Alive",
+      "status": "Eliminated",
       "revives_used": "3",
       "weeks": [
         {
@@ -353,9 +408,19 @@
           "outcome": "Correct"
         },
         {
+          "week": 9,
+          "pick": "Chiefs",
+          "outcome": "Correct"
+        },
+        {
           "week": 10,
-          "pick": "",
-          "outcome": "No pick recorded"
+          "pick": "Bills",
+          "outcome": "Correct"
+        },
+        {
+          "week": 11,
+          "pick": "Jaguars",
+          "outcome": "Wrong"
         }
       ]
     },
@@ -404,7 +469,17 @@
           "outcome": "Already eliminated"
         },
         {
+          "week": 9,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
           "week": 10,
+          "pick": "",
+          "outcome": "Already eliminated"
+        },
+        {
+          "week": 11,
           "pick": "",
           "outcome": "Already eliminated"
         }
@@ -462,6 +537,11 @@
         "week": 10,
         "correct": 7,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 8,
+        "games": 13
       }
     ],
     "Jake": [
@@ -514,6 +594,11 @@
         "week": 10,
         "correct": 8,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 8,
+        "games": 13
       }
     ],
     "Allysa": [
@@ -566,6 +651,11 @@
         "week": 10,
         "correct": 11,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 8,
+        "games": 13
       }
     ],
     "Hunter": [
@@ -618,6 +708,11 @@
         "week": 10,
         "correct": 1,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 9,
+        "games": 13
       }
     ],
     "Travis": [
@@ -670,6 +765,11 @@
         "week": 10,
         "correct": 9,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 10,
+        "games": 13
       }
     ],
     "Dakota": [
@@ -722,6 +822,11 @@
         "week": 10,
         "correct": 11,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 9,
+        "games": 13
       }
     ],
     "Aaron": [
@@ -774,6 +879,11 @@
         "week": 10,
         "correct": 9,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 8,
+        "games": 13
       }
     ],
     "Nick": [
@@ -826,6 +936,11 @@
         "week": 10,
         "correct": 0,
         "games": 14
+      },
+      {
+        "week": 11,
+        "correct": 0,
+        "games": 13
       }
     ]
   }
