@@ -1,0 +1,49 @@
+name: Daily standings snapshot
+on:
+  schedule:
+    - cron: '20 11 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: standings-daily
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and validate Sleeper standings
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, pathlib, urllib.request, datetime
+          base='https://api.sleeper.app/v1/league/1395849826633019392'
+          def get(path):
+              with urllib.request.urlopen(base+path, timeout=30) as r:
+                  return json.load(r)
+          rosters, users, league = get('/rosters'), get('/users'), get('')
+          assert len(rosters)==8 and len({r['roster_id'] for r in rosters})==8
+          assert len(users)>=8 and league['league_id']=='1395849826633019392'
+          complete=min(sum(int(r['settings'].get(k,0)) for k in ('wins','losses','ties')) for r in rosters)
+          end=int(league['settings']['playoff_week_start'])-1
+          assert 0<=complete<=18 and 0<=end<=18
+          matchups={}
+          for week in range(1,end+1):
+              rows=get('/matchups/'+str(week))
+              if len(rows)==8 and len({r['roster_id'] for r in rows})==8:
+                  matchups[str(week)]=rows
+          assert all(str(w) in matchups for w in range(1,complete+1))
+          path=pathlib.Path('data/standings-daily.json')
+          path.parent.mkdir(exist_ok=True)
+          path.write_text(json.dumps({'updated_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'rosters':rosters,'users':users,'league':league,'matchups':matchups},separators=(',',':'))+'\n')
+          PY
+      - name: Publish validated snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/standings-daily.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh daily league standings snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
