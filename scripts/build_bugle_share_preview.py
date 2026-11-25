@@ -24,6 +24,10 @@ d.text((22,17),"THE PREGAME BUGLE",fill="#ba1929",font=titlefont,stroke_width=1,
 d.text((886,29),"ISSUE "+ISSUE["serial"],fill="#171011",font=subfont)
 # Comic page gutters and colorful panel edges. Each of the four art images is present.
 panel_positions=[(14,88,590,341),(610,88,1186,341),(14,353,590,616),(610,353,1186,616)]
+if len(ART)==5:
+    panel_positions=[(14,88,470,616),(490,88,831,341),(845,88,1186,341),(490,353,831,616),(845,353,1186,616)]
+elif len(ART)!=4:
+    raise ValueError("Unsupported share cover story count")
 for (label,path),rect in zip(ART,panel_positions):
     if not path.is_file():
         raise FileNotFoundError(path)
@@ -40,7 +44,7 @@ for (label,path),rect in zip(ART,panel_positions):
         font = ImageFont.truetype(bold, font.size-1)
     d.text((x0+13,y1-35),label,fill="#fff1d5",font=font)
 canvas.save(DEST,"PNG",optimize=True)
-revision = ISSUE["serial"] + "-" + ISSUE["cards"][-1]["number"]
+revision = ISSUE["serial"] + "-" + max(c["number"] for c in ISSUE["cards"])
 versioned = ROOT / "stories" / ("bugle-share-" + revision + ".png")
 canvas.save(versioned,"PNG",optimize=True)
 (ROOT / "stories" / "bugle-share.json").write_text(json.dumps({"serial": ISSUE["serial"], "revision": revision, "cover": versioned.name}, indent=2)+"\n")

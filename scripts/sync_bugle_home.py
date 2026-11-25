@@ -23,8 +23,8 @@ def issue():
             if not (ROOT / "stories" / card[field]).is_file():
                 raise FileNotFoundError(card[field])
         cards.append(card)
-    if len(cards) != 4 or len({c["number"] for c in cards}) != 4:
-        raise ValueError("Expected exactly four unique stories")
+    if len(cards) not in (4, 5) or len({c["number"] for c in cards}) != len(cards):
+        raise ValueError("Expected four or five unique stories")
     return dict(cards=cards, label=unescape(one(r'<div class="issue-bar">.*?<strong>(.*?)</strong>', src)), serial=one(r'<div class="mast-top">.*?<span>ISSUE ([^<]+)</span>',src), date=one(r'<div class="issue-bar">.*?<strong>.*?</strong><span>([^<]+)</span>',src))
 def sync():
     d=issue()
@@ -46,13 +46,13 @@ def sync():
     replace(r'(<div class="bugle-newstand-grid">).*?(</div></div><div class="bugle-notify-signup")',lambda m:m[1]+"\n"+"\n".join(panel)+"\n"+m[2])
     replace(r'(<nav class="hp-top-stories-list"[^>]*>).*?</nav>',lambda m:m[1]+"".join(rows)+"</nav>")
     replace(r'(<header class="bugle-newstand-head"><div><small>).*?(</small>.*?<p>).*?(</p>)',lambda m:m[1]+"AVENGERS PREGAME FFL · ISSUE "+escape(d["serial"])+m[2]+escape(d["label"])+m[3])
-    replace(r'(<div class="hp-story-top"><span>LEAGUE HEADLINES</span><span>).*?(</span>)',lambda m:m[1]+"04 STORIES · "+escape(d["label"])+m[2])
-    replace(r'(<div class="bugle-notify-signup"[^>]*>.*?<p>).*?(</p>)',lambda m:m[1]+"Four featured stories: "+" · ".join(escape(c["title"]) for c in cards)+m[2])
-    replace(r'(<div class="bugle-full-issue-action"[^>]*><strong[^>]*>).*?(</strong><p[^>]*>).*?(</p><button[^>]*>).*?(</button>)',lambda m:m[1]+"ISSUE "+escape(d["serial"])+" · "+escape(d["label"])+m[2]+"Read the four latest stories, with verified results and upcoming matchups."+m[3]+"SHARE ALL FOUR STORIES ↗"+m[4])
-    replace(r'(<div class="bugle-dateline"><span>[^<]*</span><span>).*?(</span>)',lambda m:m[1]+escape(d["label"])+" · ISSUE "+escape(d["serial"])+" · STORIES NO. "+cards[0]["number"]+"–"+cards[-1]["number"]+" · UPDATED "+escape(d["date"])+m[2])
+    replace(r'(<div class="hp-story-top"><span>LEAGUE HEADLINES</span><span>).*?(</span>)',lambda m:m[1]+f"{len(cards):02d} STORIES · "+escape(d["label"])+m[2])
+    replace(r'(<div class="bugle-notify-signup"[^>]*>.*?<p>).*?(</p>)',lambda m:m[1]+f"{len(cards)} featured stories: "+" · ".join(escape(c["title"]) for c in cards)+m[2])
+    replace(r'(<div class="bugle-full-issue-action"[^>]*><strong[^>]*>).*?(</strong><p[^>]*>).*?(</p><button[^>]*>).*?(</button>)',lambda m:m[1]+"ISSUE "+escape(d["serial"])+" · "+escape(d["label"])+m[2]+f"Read all {len(cards)} featured stories, with verified results and upcoming matchups."+m[3]+"SHARE ALL STORIES ↗"+m[4])
+    replace(r'(<div class="bugle-dateline"><span>[^<]*</span><span>).*?(</span>)',lambda m:m[1]+escape(d["label"])+" · ISSUE "+escape(d["serial"])+" · STORIES NO. "+min(c["number"] for c in cards)+"–"+max(c["number"] for c in cards)+" · UPDATED "+escape(d["date"])+m[2])
     replace(r'SHARE THE FULL WEEK \d+ BUGLE',lambda m:"SHARE THE FULL BUGLE") if re.search(r'SHARE THE FULL WEEK \d+ BUGLE',src) else None
     replace(r'const BUGLE_SHARE_TEXT="[^"]*";',lambda m:'const BUGLE_SHARE_TEXT="Alright, fuckers. Another week, another Pregame Bugle. Issue '+d["serial"]+'. '+d["label"]+'.";')
-    src=re.sub(r"url.searchParams.set\('issue','[^']*'\)",lambda m:"url.searchParams.set('issue','"+d["serial"]+"-"+cards[-1]["number"]+"')",src,count=1)
+    src=re.sub(r"url.searchParams.set\('issue','[^']*'\)",lambda m:"url.searchParams.set('issue','"+d["serial"]+"-"+max(c["number"] for c in cards)+"')",src,count=1)
     path.write_text(src)
 if __name__=="__main__":
     sync()
