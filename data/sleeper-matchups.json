@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-25T21:39:41.621846+00:00",
+      "verified_at": "2026-11-26T21:29:07.636737+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-25T21:39:41.768097+00:00",
+      "verified_at": "2026-11-26T21:29:07.782436+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -263,7 +263,7 @@
       ]
     },
     "12": {
-      "verified_at": "2026-11-25T21:39:41.921522+00:00",
+      "verified_at": "2026-11-26T21:29:07.939361+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -271,12 +271,12 @@
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 0.0
+              "points": 50.6
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 0.0
+              "points": 66.8
             }
           ]
         },
@@ -286,12 +286,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 0.0
+              "points": 7.9
             },
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 0.0
+              "points": 22.1
             }
           ]
         },
@@ -301,12 +301,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 0.0
+              "points": 29.2
             },
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 0.0
+              "points": 16.5
             }
           ]
         },
@@ -316,7 +316,7 @@
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 0.0
+              "points": 7.0
             },
             {
               "roster_id": 8,
@@ -328,7 +328,7 @@
       ]
     },
     "13": {
-      "verified_at": "2026-11-25T21:39:42.056594+00:00",
+      "verified_at": "2026-11-26T21:29:08.068411+00:00",
       "matchups": [
         {
           "matchup_id": 1,
