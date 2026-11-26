@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 12,
-  "generated_at_utc": "2026-11-25T19:57:06.419876+00:00",
+  "generated_at_utc": "2026-11-26T02:51:56.700609+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -761,6 +761,12 @@
       "status": null,
       "team": "MIN"
     },
+    "NYG": {
+      "name": "New York Giants",
+      "position": "DEF",
+      "status": null,
+      "team": "NYG"
+    },
     "PIT": {
       "name": "Pittsburgh Steelers",
       "position": "DEF",
@@ -951,7 +957,6 @@
         "10859",
         "11563",
         "1166",
-        "11783",
         "12474",
         "12526",
         "13281",
@@ -963,7 +968,8 @@
         "8146",
         "8150",
         "8228",
-        "KC"
+        "KC",
+        "NYG"
       ],
       "reserve": [
         "4881"
@@ -976,10 +982,10 @@
         "7547",
         "7564",
         "10859",
+        "12526",
         "8146",
-        "8228",
         "7042",
-        "KC"
+        "NYG"
       ],
       "taxi": [],
       "team_name": "🔮✨Wanda WacksEmOff✨🔮"
@@ -1506,7 +1512,7 @@
           "9488",
           "GB"
         ],
-        "points": 0.0,
+        "points": 9.9,
         "roster_id": 1,
         "starters": [
           "3294",
@@ -1527,10 +1533,10 @@
           0.0,
           0.0,
           0.0,
+          4.9,
           0.0,
           0.0,
-          0.0,
-          0.0
+          5.0
         ]
       },
       {
@@ -1646,7 +1652,7 @@
           "JAX",
           "LAR"
         ],
-        "points": 0.0,
+        "points": 16.5,
         "roster_id": 4,
         "starters": [
           "6770",
@@ -1665,7 +1671,7 @@
           0.0,
           0.0,
           0.0,
-          0.0,
+          16.5,
           0.0,
           0.0,
           0.0,
@@ -1679,7 +1685,6 @@
           "10859",
           "11563",
           "1166",
-          "11783",
           "12474",
           "12526",
           "13281",
@@ -1691,9 +1696,10 @@
           "8146",
           "8150",
           "8228",
-          "KC"
+          "KC",
+          "NYG"
         ],
-        "points": 0.0,
+        "points": 13.1,
         "roster_id": 5,
         "starters": [
           "1166",
@@ -1702,14 +1708,14 @@
           "7547",
           "7564",
           "10859",
+          "12526",
           "8146",
-          "8228",
           "7042",
-          "KC"
+          "NYG"
         ],
         "starters_points": [
           0.0,
-          0.0,
+          13.1,
           0.0,
           0.0,
           0.0,
@@ -2054,7 +2060,6 @@
           "10859",
           "11563",
           "1166",
-          "11783",
           "12474",
           "12526",
           "13281",
@@ -2066,7 +2071,8 @@
           "8146",
           "8150",
           "8228",
-          "KC"
+          "KC",
+          "NYG"
         ],
         "points": 0.0,
         "roster_id": 5,
@@ -2077,10 +2083,10 @@
           "7547",
           "7564",
           "10859",
+          "12526",
           "8146",
-          "8228",
           "7042",
-          "KC"
+          "NYG"
         ],
         "starters_points": [
           0.0,
