@@ -1,6 +1,6 @@
 {
   "current_nfl_week": 12,
-  "generated_at_utc": "2026-11-26T02:51:56.700609+00:00",
+  "generated_at_utc": "2026-11-26T12:38:27.911383+00:00",
   "league_id": "1395849826633019392",
   "league_name": "Avengers Pregame FFL",
   "notes": "Current roster ownership is live at sync time. Weekly matchups retain the starters recorded by Sleeper for each requested week; historical ownership may differ.",
@@ -837,6 +837,7 @@
       "manager": "InfinityBrocklet",
       "owner_id": "1395888112399314944",
       "players": [
+        "10236",
         "11604",
         "11646",
         "11792",
@@ -849,7 +850,6 @@
         "7594",
         "8112",
         "8155",
-        "9502",
         "MIN",
         "SF"
       ],
@@ -1512,7 +1512,7 @@
           "9488",
           "GB"
         ],
-        "points": 9.9,
+        "points": 7.9,
         "roster_id": 1,
         "starters": [
           "3294",
@@ -1536,12 +1536,13 @@
           4.9,
           0.0,
           0.0,
-          5.0
+          3.0
         ]
       },
       {
         "matchup_id": 3,
         "players": [
+          "10236",
           "11604",
           "11646",
           "11792",
@@ -1554,7 +1555,6 @@
           "7594",
           "8112",
           "8155",
-          "9502",
           "MIN",
           "SF"
         ],
@@ -1699,7 +1699,7 @@
           "KC",
           "NYG"
         ],
-        "points": 13.1,
+        "points": 16.5,
         "roster_id": 5,
         "starters": [
           "1166",
@@ -1715,7 +1715,7 @@
         ],
         "starters_points": [
           0.0,
-          13.1,
+          16.5,
           0.0,
           0.0,
           0.0,
@@ -1917,6 +1917,7 @@
       {
         "matchup_id": 3,
         "players": [
+          "10236",
           "11604",
           "11646",
           "11792",
@@ -1929,7 +1930,6 @@
           "7594",
           "8112",
           "8155",
-          "9502",
           "MIN",
           "SF"
         ],
