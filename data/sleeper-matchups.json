@@ -68,7 +68,7 @@
       ]
     },
     "9": {
-      "verified_at": "2026-11-26T21:29:07.636737+00:00",
+      "verified_at": "2026-11-27T03:39:57.090055+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -198,7 +198,7 @@
       ]
     },
     "11": {
-      "verified_at": "2026-11-26T21:29:07.782436+00:00",
+      "verified_at": "2026-11-27T03:39:57.141283+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -263,7 +263,7 @@
       ]
     },
     "12": {
-      "verified_at": "2026-11-26T21:29:07.939361+00:00",
+      "verified_at": "2026-11-27T03:39:57.198383+00:00",
       "matchups": [
         {
           "matchup_id": 1,
@@ -271,12 +271,12 @@
             {
               "roster_id": 5,
               "name": "🔮✨Wanda WacksEmOff✨🔮",
-              "points": 50.6
+              "points": 52.5
             },
             {
               "roster_id": 6,
               "name": "Hurts Venom Inside Her",
-              "points": 66.8
+              "points": 117.9
             }
           ]
         },
@@ -286,12 +286,12 @@
             {
               "roster_id": 1,
               "name": "Juggernauts Jumbo Package",
-              "points": 7.9
+              "points": 106.94
             },
             {
               "roster_id": 3,
               "name": "Fantastic Four Skin",
-              "points": 22.1
+              "points": 35.6
             }
           ]
         },
@@ -301,12 +301,12 @@
             {
               "roster_id": 2,
               "name": "InfinityBrocklet",
-              "points": 29.2
+              "points": 33.82
             },
             {
               "roster_id": 4,
               "name": "Jerry’s Justice League ",
-              "points": 16.5
+              "points": 25.1
             }
           ]
         },
@@ -316,19 +316,19 @@
             {
               "roster_id": 7,
               "name": "Loki Down Bad",
-              "points": 7.0
+              "points": 13.4
             },
             {
               "roster_id": 8,
               "name": "Flash 23 Blast",
-              "points": 0.0
+              "points": 17.0
             }
           ]
         }
       ]
     },
     "13": {
-      "verified_at": "2026-11-26T21:29:08.068411+00:00",
+      "verified_at": "2026-11-27T03:39:57.255547+00:00",
       "matchups": [
         {
           "matchup_id": 1,
