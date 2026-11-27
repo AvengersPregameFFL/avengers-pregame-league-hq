@@ -1,0 +1,523 @@
+{
+  "season": 2026,
+  "source": "Commissioner-provided Sleeper pool screenshots 2026-11-27",
+  "weeks": [
+    {
+      "week": 10,
+      "games": [
+        {
+          "teams": [
+            "NYG",
+            "WAS"
+          ],
+          "winner": "WAS"
+        },
+        {
+          "teams": [
+            "DET",
+            "NE"
+          ],
+          "winner": "DET"
+        },
+        {
+          "teams": [
+            "ATL",
+            "KC"
+          ],
+          "winner": "KC"
+        },
+        {
+          "teams": [
+            "CLE",
+            "HOU"
+          ],
+          "winner": "CLE"
+        },
+        {
+          "teams": [
+            "GB",
+            "MIN"
+          ],
+          "winner": "MIN"
+        },
+        {
+          "teams": [
+            "IND",
+            "MIA"
+          ],
+          "winner": "IND"
+        },
+        {
+          "teams": [
+            "NO",
+            "CAR"
+          ],
+          "winner": "CAR"
+        },
+        {
+          "teams": [
+            "NYJ",
+            "BUF"
+          ],
+          "winner": "BUF"
+        },
+        {
+          "teams": [
+            "TEN",
+            "JAX"
+          ],
+          "winner": "JAX"
+        },
+        {
+          "teams": [
+            "ARI",
+            "LAR"
+          ],
+          "winner": "LAR"
+        },
+        {
+          "teams": [
+            "LV",
+            "SEA"
+          ],
+          "winner": "SEA"
+        },
+        {
+          "teams": [
+            "DAL",
+            "SF"
+          ],
+          "winner": "SF"
+        },
+        {
+          "teams": [
+            "CIN",
+            "PIT"
+          ],
+          "winner": "CIN"
+        },
+        {
+          "teams": [
+            "BAL",
+            "LAC"
+          ],
+          "winner": "LAC"
+        }
+      ],
+      "tiebreak_total": 43,
+      "entries": {
+        "DK": {
+          "points": 11,
+          "tiebreak": 45,
+          "picks": [
+            "NYG",
+            "DET",
+            "KC",
+            "CLE",
+            "GB",
+            "IND",
+            "CAR",
+            "BUF",
+            "JAX",
+            "LAR",
+            "SEA",
+            "SF",
+            "CIN",
+            "BAL"
+          ]
+        },
+        "Alyssa": {
+          "points": 11,
+          "tiebreak": null,
+          "picks": [
+            "NYG",
+            "DET",
+            "KC",
+            "HOU",
+            "GB",
+            "IND",
+            "CAR",
+            "BUF",
+            "JAX",
+            "LAR",
+            "SEA",
+            "SF",
+            "CIN",
+            "LAC"
+          ]
+        },
+        "Travis": {
+          "points": 9,
+          "tiebreak": 38,
+          "picks": [
+            "NYG",
+            "NE",
+            "KC",
+            "HOU",
+            "GB",
+            "IND",
+            "CAR",
+            "BUF",
+            "JAX",
+            "LAR",
+            "SEA",
+            "SF",
+            "CIN",
+            "BAL"
+          ]
+        },
+        "Aaron": {
+          "points": 9,
+          "tiebreak": 27,
+          "picks": [
+            "WAS",
+            "DET",
+            "KC",
+            "HOU",
+            "MIN",
+            "IND",
+            "CAR",
+            "BUF",
+            "JAX",
+            "LAR",
+            null,
+            "DAL",
+            "PIT",
+            "BAL"
+          ]
+        },
+        "Jake": {
+          "points": 8,
+          "tiebreak": null,
+          "picks": [
+            null,
+            null,
+            "KC",
+            "HOU",
+            "GB",
+            "IND",
+            "NO",
+            "BUF",
+            "JAX",
+            "LAR",
+            "SEA",
+            "SF",
+            "CIN",
+            null
+          ]
+        },
+        "Mike": {
+          "points": 7,
+          "tiebreak": 41,
+          "picks": [
+            "NYG",
+            "NE",
+            "KC",
+            "HOU",
+            "GB",
+            "MIA",
+            "NO",
+            "BUF",
+            "JAX",
+            "LAR",
+            "SEA",
+            "SF",
+            "CIN",
+            "BAL"
+          ]
+        },
+        "Hunter": {
+          "points": 1,
+          "tiebreak": null,
+          "picks": [
+            "NYG",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "CIN",
+            "BAL"
+          ]
+        },
+        "Nick": {
+          "points": 0,
+          "tiebreak": null,
+          "picks": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      }
+    },
+    {
+      "week": 11,
+      "games": [
+        {
+          "teams": [
+            "HOU",
+            "IND"
+          ],
+          "winner": "HOU"
+        },
+        {
+          "teams": [
+            "BUF",
+            "MIA"
+          ],
+          "winner": "BUF"
+        },
+        {
+          "teams": [
+            "CAR",
+            "BAL"
+          ],
+          "winner": "CAR"
+        },
+        {
+          "teams": [
+            "CHI",
+            "NO"
+          ],
+          "winner": "CHI"
+        },
+        {
+          "teams": [
+            "DAL",
+            "TEN"
+          ],
+          "winner": "DAL"
+        },
+        {
+          "teams": [
+            "DET",
+            "TB"
+          ],
+          "winner": "DET"
+        },
+        {
+          "teams": [
+            "KC",
+            "ARI"
+          ],
+          "winner": "KC"
+        },
+        {
+          "teams": [
+            "PHI",
+            "PIT"
+          ],
+          "winner": "PHI"
+        },
+        {
+          "teams": [
+            "LAC",
+            "NYJ"
+          ],
+          "winner": "NYJ"
+        },
+        {
+          "teams": [
+            "DEN",
+            "LV"
+          ],
+          "winner": "DEN"
+        },
+        {
+          "teams": [
+            "NYG",
+            "JAX"
+          ],
+          "winner": "NYG"
+        },
+        {
+          "teams": [
+            "SF",
+            "MIN"
+          ],
+          "winner": "SF"
+        },
+        {
+          "teams": [
+            "WAS",
+            "CIN"
+          ],
+          "winner": "WAS"
+        }
+      ],
+      "tiebreak_total": 42,
+      "entries": {
+        "Travis": {
+          "points": 10,
+          "tiebreak": 56,
+          "picks": [
+            "HOU",
+            "BUF",
+            "CAR",
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "NYJ",
+            "DEN",
+            "JAX",
+            "SF",
+            "CIN"
+          ]
+        },
+        "DK": {
+          "points": 9,
+          "tiebreak": null,
+          "picks": [
+            null,
+            "BUF",
+            "CAR",
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "NYJ",
+            "DEN",
+            "JAX",
+            "SF",
+            "CIN"
+          ]
+        },
+        "Hunter": {
+          "points": 9,
+          "tiebreak": null,
+          "picks": [
+            null,
+            "BUF",
+            "CAR",
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "NYJ",
+            "DEN",
+            "JAX",
+            "SF",
+            "CIN"
+          ]
+        },
+        "Aaron": {
+          "points": 8,
+          "tiebreak": 48,
+          "picks": [
+            "IND",
+            "BUF",
+            "CAR",
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "NYJ",
+            "DEN",
+            "JAX",
+            "MIN",
+            "CIN"
+          ]
+        },
+        "Mike": {
+          "points": 8,
+          "tiebreak": 54,
+          "picks": [
+            "HOU",
+            "BUF",
+            null,
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "NYJ",
+            "DEN",
+            "JAX",
+            "MIN",
+            "CIN"
+          ]
+        },
+        "Jake": {
+          "points": 8,
+          "tiebreak": null,
+          "picks": [
+            "HOU",
+            "BUF",
+            "BAL",
+            "CHI",
+            "DAL",
+            "DET",
+            "KC",
+            "PIT",
+            "LAC",
+            "DEN",
+            "JAX",
+            "SF",
+            "CIN"
+          ]
+        },
+        "Alyssa": {
+          "points": 8,
+          "tiebreak": null,
+          "picks": [
+            "HOU",
+            "BUF",
+            "CAR",
+            "CHI",
+            "TEN",
+            "DET",
+            "KC",
+            "PIT",
+            "LAC",
+            "DEN",
+            "JAX",
+            "SF",
+            "CIN"
+          ]
+        },
+        "Nick": {
+          "points": 0,
+          "tiebreak": null,
+          "picks": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      }
+    }
+  ]
+}
