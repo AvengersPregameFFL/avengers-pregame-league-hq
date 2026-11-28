@@ -1795,54 +1795,66 @@ window.addEventListener('pageshow',refreshLatest);
   document.querySelectorAll('.bugle-tracker.trav .tracker-kicker').forEach(el=>el.textContent='Verified picks through Week '+data.updated_through_week+' · Later games pending');
  })
  .catch(err=>console.info('Using last confirmed Trav picks',err.message));
-})();</script><script id="live-record-book-renderer">
+})();</script><style id="record-book-archive-v2">
+#records .rb-shell{font:600 14px/1.45 Archivo,Arial,sans-serif;color:#171522;max-width:980px;margin:0 auto 24px}
+#records .rb-intro,#records .rb-hero,#records .rb-card,#records .rb-empty,#records .rb-select{background:#fffaf0;border:2px solid #171522;border-radius:12px;padding:16px;box-sizing:border-box}
+#records .rb-intro h2{font:34px/1 Bangers,Impact,sans-serif!important;background:none!important;box-shadow:none!important;border:0!important;color:#171522!important;transform:none!important;margin:8px 0!important;padding:0!important}
+#records .rb-intro p{margin:6px 0;color:#171522}#records .rb-shell small{display:block;color:#51485b;font-size:12px;line-height:1.4}
+#records .rb-kicker{font:800 10px/1.4 Archivo,Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#51485b;display:block}
+#records .rb-hero{background:#161b35;color:#fff;border-color:#ffd400;margin-top:12px;display:grid;gap:5px}
+#records .rb-hero .rb-kicker,#records .rb-hero small{color:#f4dc83}#records .rb-hero b{font:clamp(42px,9vw,70px)/1 Bangers,Impact,sans-serif;color:#ffd400}
+#records .rb-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+#records .rb-tabs button,#records .rb-share{font:800 13px/1.2 Archivo,Arial,sans-serif;background:#fffaf0;color:#171522;border:2px solid #171522;border-radius:8px;padding:11px;min-height:44px;cursor:pointer}
+#records .rb-tabs button[aria-pressed=true]{background:#ffd400;color:#171522}
+#records .rb-select{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding:10px 14px}#records .rb-select select{font:inherit;color:#171522;background:#fff;border:1px solid #171522;padding:8px;border-radius:6px}
+#records .rb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:10px;align-items:start}
+#records .rb-card{padding:0;overflow:hidden;min-width:0;box-shadow:none}
+#records .rb-card summary{list-style:none;cursor:pointer;padding:14px;display:block}#records .rb-card summary::-webkit-details-marker{display:none}
+#records .rb-top{display:flex;justify-content:space-between;align-items:start;gap:8px}#records .rb-top strong{display:block;font-size:15px;color:#171522;margin-top:3px}#records .rb-top b{font:26px/1.05 Bangers,Impact,sans-serif;text-align:right;flex-shrink:0;max-width:45%;overflow-wrap:anywhere}
+#records .rb-good{color:#14613d}#records .rb-bad{color:#a81731}
+#records .rb-holder{display:flex;gap:9px;align-items:center;margin:12px 0 8px}#records .rb-holder .team-logo{width:36px;height:36px;flex-shrink:0}
+#records .rb-holder strong{color:#171522}#records .rb-expand{display:block;color:#244caa;font-size:12px;font-weight:800}#records .rb-expand:after{content:' +'}#records details[open] .rb-expand:after{content:' −'}
+#records .rb-detail{border-top:1px solid #d6cdbd;padding:14px;background:#fff}#records .rb-detail h3{font:800 14px Archivo,Arial,sans-serif;color:#171522;margin:0 0 8px}
+#records .rb-rank{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #e8e1d5;color:#171522}#records .rb-rank strong{white-space:nowrap}#records .rb-detail p{font-size:12px;color:#51485b}
+#records .rb-new{display:inline-block;background:#ffd400;color:#171522;font-size:10px;font-weight:900;padding:3px 6px;border-radius:4px;margin-bottom:6px}
+#records .rb-foot{color:#fff;font-size:12px;padding:8px;line-height:1.5}#records .rb-empty{grid-column:1/-1}
+#records button:focus-visible,#records summary:focus-visible,#records select:focus-visible{outline:3px solid #2f63e0;outline-offset:2px}
+</style><script id="live-record-book-renderer">
 (function(){
- const section=document.getElementById('records');
- if(!section)return;
- // Remove obsolete hardcoded Week 5 records immediately, even before the fetch.
- section.innerHTML='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">Loading current league records…</p>';
- const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- async function refresh(){
-  try{
-   // GitHub Pages can serve an older deployment while main has fresh records.
-   // Compare both sources; never silently display the stale Week 5 snapshot.
-   const stamp=Date.now();
-   const sources=[
-    'https://raw.githubusercontent.com/AvengersPreGameFFL/avengers-pregame-league-hq/main/data/record-book.json?ts='+stamp,
-    './data/record-book.json?ts='+stamp
-   ];
-   const results=await Promise.all(sources.map(async url=>{
-    try{
-     const res=await fetch(url,{cache:'no-store'});
-     if(!res.ok)return null;
-     const data=await res.json();
-     return data&&Array.isArray(data.rows)&&data.rows.length>=4&&Number(data.verifiedThroughWeek)>0?data:null;
-    }catch(_){return null}
-   }));
-   const data=results.filter(Boolean).sort((a,b)=>Number(b.verifiedThroughWeek)-Number(a.verifiedThroughWeek))[0];
-   if(!data||Number(data.verifiedThroughWeek)<8)throw new Error('Current record feed unavailable or stale');
-   const groups=new Map();
-   for(const r of data.rows.slice(3)){
-    if(!Array.isArray(r)||r.length<9)continue;
-    const group=r[0]==='Single week'?'Single-Week Records':'Season & Career Records';
-    if(!groups.has(group))groups.set(group,[]);
-    groups.get(group).push(r);
-   }
-   let html='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">2026 season · Completed through Week '+escape(data.verifiedThroughWeek)+'</p><div class="record-board">';
-   for(const [title,records] of groups){
-    html+='<div class="record-group"><h2 class="record-group-title">'+escape(title)+'</h2>';
-    for(const r of records){
-     const value=Number(r[5]), unit=r[6]||'';
-     html+='<div class="record-entry"><div class="record-entry-top"><strong class="record-name">'+escape(r[2])+'</strong><b class="record-value">'+escape(Number.isFinite(value)?value.toLocaleString('en-US',{maximumFractionDigits:2}):r[5])+' '+escape(unit)+'</b></div><div class="record-meta">'+escape(r[3])+' · '+escape(data.season)+' · '+escape(r[7])+'</div><div class="record-team">'+escape(r[4])+'</div></div>';
-    }
-    html+='</div>';
-   }
-   html+='</div>';
-   section.innerHTML=html;
-  }catch(err){console.warn('Live record feed failed',err);section.innerHTML='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><p class="muted">Current records unavailable. Reconnect and reopen this page to retry. Outdated records are hidden.</p>';}
- }
- refresh();
- window.addEventListener('pageshow',refresh);
+const root=document.getElementById('records');if(!root)return;
+const e=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
+const names={'Highest score':'The Infinity Gauntlet','Longest winning streak':'The Unstoppable Force','Longest losing streak':'The Darkest Timeline','Largest margin of victory':'The Multiverse Massacre','Lowest score in a win':'Against All Odds','Largest margin of defeat':'The Snap','Best all-play percentage':'The Living Tribunal','Most championships':'The Dynasty'};
+const logos={DK:'jug',Nick:'flash',Mike:'infinity',Aaron:'justice',Hunter:'venom',Jake:'loki',Travis:'four',Alyssa:'wanda'};
+const tabs=['All-Time','Season','Weekly','Streaks','Heartbreak','Postseason','Rivalries'];
+let tab='All-Time',year='',archives=[],feed=null,loading=false,failed=false;
+const base='https://raw.githubusercontent.com/AvengersPregameFFL/avengers-pregame-league-hq/main/';
+async function get(path){const q='?ts='+Date.now();const results=await Promise.all([base,'./'].map(async b=>{try{const r=await fetch(b+path+q,{cache:'no-store'});return r.ok?await r.json():null}catch(_){return null}}));return results.filter(Boolean).sort((a,b)=>(Number(b.through_week||b.verifiedThroughWeek||b.current_season||0)-Number(a.through_week||a.verifiedThroughWeek||a.current_season||0))||String(b.generated_at_utc||'').localeCompare(String(a.generated_at_utc||'')))[0]}
+const valid=h=>h&&h.coaches&&Number(h.through_week)>0;
+function build(hist,career){
+const groups={};const add=(label,cat,unit,low,n,v,detail,season,team)=>{if(!Number.isFinite(v))return;(groups[label]??={label,cat,unit,low,items:[]}).items.push({n,v,detail,season,team})};
+const totals={};const rivalry={};
+for(const h of hist){const y=h.season;const end=Math.min(14,h.through_week);const entries=Object.entries(h.coaches);
+for(const [n,c] of entries){const w=(c.weeks||[]).filter(x=>x.week<=end).sort((a,b)=>a.week-b.week);if(!w.length)continue;const team=c.team;const a=(l,cat,u,low,v,d)=>add(l,cat,u,low,n,v,d,y,team);
+const sum=k=>w.reduce((s,x)=>s+Number(x[k]||0),0);const wins=w.filter(x=>x.result==='W').length, losses=w.filter(x=>x.result==='L').length,ties=w.length-wins-losses;const aw=w.reduce((s,x)=>s+Number(x.all_play?.wins||0),0),al=w.reduce((s,x)=>s+Number(x.all_play?.losses||0),0),at=w.reduce((s,x)=>s+Number(x.all_play?.ties||0),0);
+const t=totals[n]??={wins:0,losses:0,ties:0,points:0,aw:0,al:0,at:0,team};Object.assign(t,{wins:t.wins+wins,losses:t.losses+losses,ties:t.ties+ties,points:t.points+sum('points'),aw:t.aw+aw,al:t.al+al,at:t.at+at,team});
+const span='Weeks 1–'+end;
+if(!career){a('Most head-to-head wins','Season','wins',false,wins,span);a('Most head-to-head losses','Season','losses',false,losses,span);a('Best win percentage','Season','%',false,100*(wins+ties/2)/w.length,span);a('Most fantasy points scored','Season','pts',false,sum('points'),span);a('Fewest fantasy points scored','Heartbreak','pts',true,sum('points'),span);a('Most points allowed','Heartbreak','pts',false,sum('opponent_points'),span);a('Fewest points allowed','Season','pts',true,sum('opponent_points'),span);a('Best point differential','Season','pts',false,sum('points')-sum('opponent_points'),span);a('Worst point differential','Heartbreak','pts',true,sum('points')-sum('opponent_points'),span);a('Highest points per game','Season','pts/game',false,sum('points')/w.length,span);a('Most all-play wins','Season','wins',false,aw,span);if(aw+al+at)a('Best all-play percentage','Season','%',false,100*(aw+at/2)/(aw+al+at),span)}
+for(const [label,test] of [['Longest winning streak',x=>x.result==='W'],['Longest losing streak',x=>x.result==='L'],['Longest 150-point streak',x=>x.points>=150]]){let run=0,best=0,start=0,bestStart=0,prev=0;for(const x of w){if(test(x)){if(!run||x.week!==prev+1){run=0;start=x.week}run++;if(run>best){best=run;bestStart=start}}else run=0;prev=x.week}if(best)a(label,'Streaks','games',false,best,'W'+bestStart+'–W'+(bestStart+best-1))}
+for(const x of w){const p=Number(x.points),o=Number(x.opponent_points);if(!Number.isFinite(p)||!Number.isFinite(o))continue;const opp=entries.filter(([other,oc])=>other!==n&&(oc.weeks||[]).some(z=>z.week===x.week&&Number(z.points)===o&&Number(z.opponent_points)===p));const detail='Week '+x.week+(opp.length===1?' vs '+opp[0][0]:'')+' · '+fmt(p)+'–'+fmt(o);a('Highest score','Weekly','pts',false,p,detail);a('Lowest score','Heartbreak','pts',true,p,detail);if(p>o){a('Lowest score in a win','Heartbreak','pts',true,p,detail);a('Largest margin of victory','Weekly','pts',false,p-o,detail);a('Closest victory','Weekly','pts',true,p-o,detail);a('Highest combined matchup points','Weekly','pts',false,p+o,detail);a('Lowest combined matchup points','Weekly','pts',true,p+o,detail)}if(p<o){a('Highest score in a loss','Heartbreak','pts',false,p,detail);a('Largest margin of defeat','Heartbreak','pts',false,o-p,detail)}if(opp.length===1){const other=opp[0][0];const key=n+'|'+other;const rr=rivalry[key]??={n,other,w:0,l:0,t:0,team};rr[p>o?'w':p<o?'l':'t']++}}
+}}
+if(career)for(const [n,t] of Object.entries(totals)){const a=(l,u,v)=>add(l,'Career',u,false,n,v,'Across verified regular seasons','Career',t.team);a('Career head-to-head wins','wins',t.wins);a('Career head-to-head losses','losses',t.losses);a('Career fantasy points','pts',t.points);a('Career all-play wins','wins',t.aw);if(t.wins+t.losses+t.ties)a('Career win percentage','%',100*(t.wins+t.ties/2)/(t.wins+t.losses+t.ties));if(t.aw+t.al+t.at)a('Best all-play percentage','%',100*(t.aw+t.at/2)/(t.aw+t.al+t.at))}
+for(const rr of Object.values(rivalry))if(rr.w)add('Most wins against one rival','Rivalries','wins',false,rr.n,rr.w,'vs '+rr.other+' · '+rr.w+'–'+rr.l+'–'+rr.t,career?'Career':hist[0]?.season,rr.team);
+for(const g of Object.values(groups)){g.items.sort((a,b)=>g.low?a.v-b.v:b.v-a.v);for(const x of g.items)x.v=Math.round(x.v*100)/100}
+return Object.values(groups)}
+function card(g){const top=g.items[0];const tied=g.items.filter(x=>x.v===top.v);const bad=g.cat==='Heartbreak'||g.label.includes('losing')||g.label.includes('losses');const value=x=>fmt(x.v)+(g.unit==='%'?'%':' '+g.unit);const latest=archives.find(h=>String(h.season)===String(top.season));const isNew=!g.label.includes('Career')&&g.cat!=='Season'&&g.cat!=='Rivalries'&&g.items.length>1&&tied.length===1&&latest&&latest.through_week<=14&&top.detail.startsWith('Week '+latest.through_week+' ·')===false&&new RegExp('^Week '+latest.through_week+'(?: |$)').test(top.detail)&&g.items.some(x=>x.v!==top.v);
+const logo=logos[top.n];const next=g.items.find(x=>x.v!==top.v);const share=(names[g.label]||g.label)+' — '+g.label+': '+value(top)+' · '+tied.map(x=>x.n).join(' / ')+' · Avengers Pregame';
+return '<details class="rb-card" id="rb-'+e(g.label.toLowerCase().replace(/[^a-z0-9]+/g,'-'))+'"><summary><div class="rb-top"><div><span class="rb-kicker">'+e(names[g.label]||g.cat)+'</span><strong>'+e(g.label)+'</strong></div><b class="'+(bad?'rb-bad':'rb-good')+'">'+e(value(top))+'</b></div><div class="rb-holder">'+(logo?'<span class="team-logo team-logo-'+logo+'" aria-hidden="true"></span>':'')+'<div><strong>'+e(tied.map(x=>x.n).join(' / '))+'</strong><small>'+e(tied.map(x=>x.team).join(' / '))+'</small><small>'+e(top.season)+' · '+e(top.detail)+'</small></div></div>'+(isNew?'<span class="rb-new">NEW RECORD</span>':'')+'<span class="rb-expand">View record history</span></summary><div class="rb-detail"><h3>Top performances</h3>'+g.items.slice(0,5).map((x,i)=>'<div class="rb-rank"><span>'+ (i+1)+'. '+e(x.n)+'<small>'+e(x.season)+' · '+e(x.detail)+'</small></span><strong>'+e(value(x))+'</strong></div>').join('')+(tied.length>1?'<p>Shared record: '+e(tied.map(x=>x.n+' ('+x.detail+')').join('; '))+'</p>':'')+(next?'<p>Next ranked performance: '+e(next.n)+' · '+e(fmt(Math.abs(top.v-next.v)))+' '+e(g.unit)+' behind.</p>':'')+'<button type="button" class="rb-share" data-share="'+e(share)+'">Share record</button></div></details>'}
+function render(){const selected=archives.find(h=>String(h.season)===year)||archives[archives.length-1];const hist=tab==='All-Time'?archives:selected?[selected]:[];let groups=build(hist,tab==='All-Time');if(tab!=='All-Time')groups=groups.filter(g=>g.cat===tab);const hero=build(archives,true).find(g=>g.label==='Highest score');root.innerHTML='<a class="back" href="#home">← Main menu</a><h1>League Record Book</h1><div class="rb-shell"><div class="rb-intro"><span class="rb-kicker">AVENGERS PREGAME · OFFICIAL ARCHIVE</span><h2>Legends live here.</h2><p>Greatest performances. Biggest collapses. Records waiting to be broken.</p><small>'+e(selected?selected.season+' · Verified through Week '+selected.through_week+(selected.through_week<14?' · Season in progress':' · Regular season complete'):'Loading verified records')+'</small><small>'+e(selected?.generated_at_utc?'Data updated '+new Date(selected.generated_at_utc).toLocaleString():'')+'</small></div>'+(hero&&tab==='All-Time'?'<div class="rb-hero"><span class="rb-kicker">FEATURED RECORD · THE INFINITY GAUNTLET</span><b>'+fmt(hero.items[0].v)+' PTS</b><strong>Highest single-week score</strong><span>'+e(hero.items[0].n)+' · '+e(hero.items[0].team)+'</span><small>'+e(hero.items[0].season)+' · '+e(hero.items[0].detail)+'</small></div>':'')+'<nav class="rb-tabs" aria-label="Record categories">'+tabs.map(t=>'<button type="button" data-tab="'+t+'" aria-pressed="'+(tab===t)+'">'+t+'</button>').join('')+'</nav>'+(tab!=='All-Time'?'<label class="rb-select">Season <select id="rb-year">'+archives.map(h=>'<option '+(h===selected?'selected':'')+'>'+h.season+'</option>').join('')+'</select></label>':'')+(failed?'<p class="rb-empty">Some archive data could not be verified. Missing results are not estimated.</p>':'')+'<div class="rb-grid">'+(groups.length?groups.map(card).join(''):'<p class="rb-empty">'+(loading?'Loading records…':tab==='Postseason'?'No verified postseason records available yet.':'No verified records available for this category.')+'</p>')+'</div><p class="rb-foot">Regular season: Weeks 1–14. In-progress games excluded. Career totals use available verified season archives. Ties count as half a win for percentages. Rivalries are shown only when opponents can be uniquely matched.</p></div>'}
+root.addEventListener('click',async ev=>{const b=ev.target.closest('button');if(!b)return;if(b.dataset.tab){tab=b.dataset.tab;render()}else if(b.dataset.share){try{const url=new URL(location.href);url.hash='records';if(navigator.share)await navigator.share({title:'Avengers Pregame Record Book',text:b.dataset.share,url:url.href});else if(navigator.clipboard)await navigator.clipboard.writeText(b.dataset.share+' '+url.href);else throw Error('Sharing unavailable');if(!navigator.share)b.textContent='Copied'}catch(err){if(err.name!=='AbortError')b.textContent='Unable to share'}}});
+root.addEventListener('change',ev=>{if(ev.target.id==='rb-year'){year=ev.target.value;render()}});
+async function refresh(){if(loading)return;loading=true;try{const [manifest,current,f]=await Promise.all([get('data/coach-seasons.json'),get('data/coach-history.json'),get('data/record-book.json')]);feed=f;const years=[...new Set([...(manifest?.seasons||[]),current?.season].filter(Boolean))];const fetched=await Promise.all(years.map(y=>get('data/seasons/'+y+'/coach-history.json')));const map=new Map();for(const h of [...fetched,current].filter(valid)){const prior=map.get(h.season);if(!prior||h.through_week>=prior.through_week)map.set(h.season,h)}if(map.size)archives=[...map.values()].sort((a,b)=>a.season-b.season);failed=!archives.length||map.size<years.length||!!(f&&current&&Number(f.verifiedThroughWeek)>Number(current.through_week));if(!year&&archives.length)year=String(archives[archives.length-1].season)}catch(_){failed=true}finally{loading=false;render()}}
+render();refresh();window.addEventListener('pageshow',refresh);window.addEventListener('hashchange',()=>{if(location.hash==='#records')refresh()});
 })();
 </script><script>
 (function(){
