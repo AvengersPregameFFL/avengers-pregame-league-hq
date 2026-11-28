@@ -1,6 +1,6 @@
 /* League HQ: network-first pages, safe offline fallback, bounded same-origin cache. */
-const CACHE='avengers-pregame-hq-v180';
-const CORE=['./','./index.html','./manifest.webmanifest','./icons/icon.svg','./stories/index.html','./stories/archive.html'];
+const CACHE='avengers-pregame-hq-v181';
+const CORE=['./manifest.webmanifest','./icons/icon.svg'];
 const OFFLINE_LIMIT=90;
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(async cache=>{
@@ -36,11 +36,12 @@ self.addEventListener('fetch',event=>{
     try{
       const fresh=request.mode==='navigate'||/\.(html|json|js|css)$/i.test(url.pathname)||url.pathname.endsWith('/');
       const response=await fetch(request,fresh?{cache:'no-store'}:undefined);
-      if(response.ok)event.waitUntil(store(request,response).catch(()=>{}));
+      if(response.ok&&!fresh)event.waitUntil(store(request,response).catch(()=>{}));
       return response;
     }catch(error){
       const cache=await caches.open(CACHE);
-      const hit=await cache.match(request,{ignoreSearch:true});
+      const fresh=request.mode==='navigate'||/\.(html|json|js|css)$/i.test(url.pathname)||url.pathname.endsWith('/');
+      const hit=fresh?null:await cache.match(request);
       if(hit)return hit;
       if(request.mode==='navigate'){
         return new Response('<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><title>League HQ Offline</title><body style="font:16px system-ui;padding:24px;background:#17132b;color:white"><h1>League HQ is offline</h1><p>This page has not been saved for offline use. Reconnect to see current scores and league updates.</p><a style="color:#ffd400" href="./index.html">Return to League HQ</a></body></html>',{status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
