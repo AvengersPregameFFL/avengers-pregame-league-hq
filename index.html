@@ -3872,4 +3872,14 @@ refresh();window.addEventListener('hashchange',()=>{if(location.hash==='#rivalri
 #road-playoffs .eg-link{color:#9ac4ff!important}#road-playoffs [hidden]{display:none!important}
 @media(min-width:700px){#road-playoffs .eg-round:not(:last-child) .eg-match:after{content:'';position:absolute;left:100%;width:11px;top:50%;border-top:1px solid #5576a5}}
 @media(max-width:699px){#road-playoffs .eg-rounds{grid-template-columns:1fr}#road-playoffs .eg-round:not(:last-child){padding-bottom:14px;border-bottom:1px solid #344663}#road-playoffs .eg-round:not(:last-child):after{content:'↓';color:#9ac4ff;text-align:center;font-size:20px}#road-playoffs .eg-team{padding:10px!important}}
-</style></body></html>
+</style><style id="coach-hub-navigation-fix">
+#teams .coach-hub-nav a,#accuracy .coach-hub-nav a{color:#fff!important;background:#17243d!important;position:relative;z-index:2;pointer-events:auto!important;text-shadow:none!important;text-decoration:none!important}
+#teams .coach-hub-nav a[aria-current="page"],#accuracy .coach-hub-nav a[aria-current="page"]{color:#14111f!important;background:#ffd400!important}
+body.ap-coach-analytics-route #accuracy{display:block!important;visibility:visible!important}
+body.ap-coach-analytics-route .page:not(#accuracy){display:none!important}
+body.ap-coach-directory-route #teams{display:block!important;visibility:visible!important}
+body.ap-coach-directory-route .page:not(#teams){display:none!important}
+</style><script id="coach-hub-navigation-route-fix">
+(function(){function sync(){const h=location.hash;document.body.classList.toggle('ap-coach-analytics-route',h==='#accuracy');document.body.classList.toggle('ap-coach-directory-route',h==='#teams');}
+document.addEventListener('click',function(e){const a=e.target.closest('.coach-hub-nav a[href="#accuracy"],.coach-hub-nav a[href="#teams"]');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();e.stopPropagation();const hash=a.getAttribute('href');if(location.hash!==hash)location.hash=hash;sync();window.scrollTo(0,0);},true);window.addEventListener('hashchange',sync);window.addEventListener('pageshow',sync);sync();})();
+</script></body></html>
