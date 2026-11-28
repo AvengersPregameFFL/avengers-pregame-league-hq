@@ -40,14 +40,16 @@ for event in data.get("events", []):
         starts.add(kickoff)
 if not starts:
     print("No NFL kickoff on", day)
+kickoff_errors = False
 for kickoff in sorted(starts):
     minutes = (kickoff - now).total_seconds() / 60
-    if not (2 < minutes <= 180):
+    if not (2 < minutes <= 720):
         continue
     label = kickoff.astimezone(EASTERN).strftime("%A %I:%M %p ET")
     delivery = max(now, kickoff - dt.timedelta(minutes=10))
     payload = {
         "app_id": APP_ID,
+        "target_channel": "push",
         "filters": [
             {"field": "tag", "key": "alert_kickoff", "relation": "not_exists"},
             {"operator": "OR"},
@@ -58,7 +60,7 @@ for kickoff in sorted(starts):
         "url": SITE,
         "name": "NFL kickoff " + kickoff.isoformat(),
         "idempotency_key": str(uuid.uuid5(uuid.NAMESPACE_URL, APP_ID + "/kickoff/" + kickoff.isoformat())),
-        "send_after": delivery.isoformat(),
+        **({"send_after": delivery.isoformat()} if delivery > now else {}),
         "ttl": max(1, int((kickoff - delivery).total_seconds()))
     }
     if DRY_RUN:
@@ -70,11 +72,17 @@ for kickoff in sorted(starts):
         headers={"Authorization": "Key " + KEY, "Content-Type": "application/json", "User-Agent": "AvengersPregameLeagueHQ/1.0"},
         method="POST"
     )
-    with urllib.request.urlopen(req, timeout=25) as resp:
-        result = json.load(resp)
-    if not result.get("id"):
-        raise RuntimeError("OneSignal did not return a notification ID: " + str(result))
-    print("OneSignal accepted", label, result.get("id"), "recipients:", result.get("recipients", "unknown"))
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            result = json.load(resp)
+        if not result.get("id"):
+            print("WARNING: No notification ID for", label, result, file=sys.stderr)
+            kickoff_errors = True
+            continue
+        print("OneSignal accepted", label, result.get("id"), "recipients:", result.get("recipients", "unknown"))
+    except Exception as exc:
+        print("ERROR: Kickoff send failed", label, str(exc), file=sys.stderr)
+        kickoff_errors = True
 
 # Completed-week results, independently of kickoff windows.
 def fetch_json(url):
@@ -116,3 +124,5 @@ def send_final_results():
                 reply=json.load(response)
             print("Final result",week,a["roster_id"],reply.get("id"),reply.get("recipients"))
 send_final_results()
+if kickoff_errors:
+    sys.exit(1)
