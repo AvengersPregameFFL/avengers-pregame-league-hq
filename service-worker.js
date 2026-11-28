@@ -1,5 +1,5 @@
 /* League HQ: network-first pages, safe offline fallback, bounded same-origin cache. */
-const CACHE='avengers-pregame-hq-v181';
+const CACHE='avengers-pregame-hq-v182';
 const CORE=['./manifest.webmanifest','./icons/icon.svg'];
 const OFFLINE_LIMIT=90;
 self.addEventListener('install',event=>{
