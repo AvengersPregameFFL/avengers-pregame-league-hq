@@ -14,15 +14,7 @@ function sheetRowsFrom(id,gid){var url='https://docs.google.com/spreadsheets/d/'
 var reportStatus=null;
 function status(id,message,ok,current){if(reportStatus)reportStatus(id,message,ok,current);var p=document.getElementById('sync-'+id);if(!p){var sec=document.getElementById(id);if(!sec)return;p=el('p','live-sync-status');p.id='sync-'+id;var h=sec.querySelector('h1');(id==='accuracy'&&sec.querySelector('.coach-hub-nav')||h).insertAdjacentElement('afterend',p)}p.textContent=message;p.className='live-sync-status '+(ok?'live-sync-ok':'live-sync-warn')}
 function replace(id,node){var sec=document.getElementById(id);if(!sec)return;
-if(id==='awards'){
-  /* Live sheet is supplementary: do not replace or hide the season graphs or weekly history. */
-  var oldAwards=sec.querySelector('.live-awards-details');if(oldAwards)oldAwards.remove();
-  var drawer=el('details','live-awards-details');
-  drawer.appendChild(el('summary','','LIVE AWARD DEFINITIONS & CURRENT STATUS ↓'));
-  drawer.appendChild(node);sec.appendChild(drawer);
-  sec.querySelectorAll('.award-race-section,.award-history-drawer').forEach(function(part){part.classList.remove('sync-old-hidden')});
-  return;
-}
+if(id==='awards'){sec.querySelectorAll('.live-awards-details,#sync-awards').forEach(function(x){x.remove()});return;}
 if(id==='accuracy'){var oldAccuracy=sec.querySelector('.live-sync-body');if(oldAccuracy)oldAccuracy.remove();var accuracyWrap=el('div','live-sync-body');accuracyWrap.appendChild(node);var accuracyStatus=document.getElementById('sync-accuracy');var tracker=sec.querySelector('#optimal-table');var trackerPanel=tracker&&tracker.closest('.panel');if(trackerPanel){trackerPanel.before(accuracyWrap);accuracyWrap.before(accuracyStatus)}else sec.appendChild(accuracyWrap);Array.from(sec.children).forEach(function(child){child.classList.remove('sync-old-hidden')});return;}
 var old=sec.querySelector('.live-sync-body');if(old)old.remove();var wrap=el('div','live-sync-body');wrap.appendChild(node);var st=document.getElementById('sync-'+id);st.insertAdjacentElement('afterend',wrap);Array.from(sec.children).forEach(function(child){if(child!==wrap&&child!==st&&child.classList&&!child.classList.contains('back')&&child.tagName!=='H1')child.classList.add('sync-old-hidden')})}
 function panel(title){var p=el('div','panel');if(title)p.appendChild(el('h2','',title));return p}
