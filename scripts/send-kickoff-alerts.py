@@ -20,6 +20,32 @@ DRY_RUN = "--dry-run" in sys.argv
 if not KEY and not DRY_RUN:
     print("ERROR: ONESIGNAL_REST_API_KEY is missing; scheduled alerts cannot be delivered.")
     sys.exit(1)
+if "--test" in sys.argv:
+    subscription = os.environ.get("TEST_SUBSCRIPTION", "").strip()
+    try:
+        uuid.UUID(subscription)
+    except ValueError:
+        sys.exit("Invalid subscription ID; no test sent.")
+    payload = {
+        "app_id": APP_ID, "target_channel": "push",
+        "include_subscription_ids": [subscription],
+        "headings": {"en": "Avengers Pregame: Remote Delivery Test"},
+        "contents": {"en": "This notification was sent by the league server, not your device."},
+        "url": SITE, "ttl": 300,
+        "idempotency_key": str(uuid.uuid4())
+    }
+    request = urllib.request.Request(
+        "https://api.onesignal.com/notifications",
+        data=json.dumps(payload).encode(), method="POST",
+        headers={"Authorization": "Key " + KEY, "Content-Type": "application/json"}
+    )
+    with urllib.request.urlopen(request, timeout=25) as response:
+        reply = json.load(response)
+    if not reply.get("id") or reply.get("recipients") == 0:
+        sys.exit("Remote test not accepted or no recipients.")
+    print("Remote test accepted; notification ID:", reply["id"], "recipients:", reply.get("recipients", "unknown"))
+    sys.exit(0)
+
 day = local.date()
 url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=" + day.strftime("%Y%m%d") + "&limit=100"
 try:
@@ -96,7 +122,7 @@ def send_final_results():
     week = int(state["week"])
     season = str(state["season"])
     # Only prior NFL weeks; never infer a final from a live score.
-    if week < 2 or state.get("season_type") != "regular":
+    if week < 2 or week > 15 or state.get("season_type") != "regular":
         return
     week -= 1
     # Avoid sending historical results every day; allow Tuesday/Wednesday retries.
