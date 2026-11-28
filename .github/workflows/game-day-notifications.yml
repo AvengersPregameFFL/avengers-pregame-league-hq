@@ -4,6 +4,14 @@ on:
     # Every day: international, holiday and Saturday games included.
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      test_subscription:
+        description: 'Optional OneSignal push subscription ID for a private remote delivery test'
+        required: false
+        type: string
+concurrency:
+  group: game-day-push-reminders
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
@@ -18,4 +26,10 @@ jobs:
       - name: Send kickoff and completed-week notifications
         env:
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
-        run: python scripts/send-kickoff-alerts.py
+          TEST_SUBSCRIPTION: ${{ inputs.test_subscription }}
+        run: |
+          if [ -n "$TEST_SUBSCRIPTION" ]; then
+            python scripts/send-kickoff-alerts.py --test
+          else
+            python scripts/send-kickoff-alerts.py
+          fi
