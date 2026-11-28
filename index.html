@@ -1820,29 +1820,41 @@ window.addEventListener('pageshow',refreshLatest);
 #records .rb-foot{color:#fff;font-size:12px;padding:8px;line-height:1.5}#records .rb-empty{grid-column:1/-1}
 #records button:focus-visible,#records summary:focus-visible,#records select:focus-visible{outline:3px solid #2f63e0;outline-offset:2px}
 </style><style id="record-book-comic-alignment">
-#records .rb-shell{max-width:100%;min-width:0;overflow:visible}
-#records .rb-intro,#records .rb-hero,#records .rb-card,#records .rb-empty,#records .rb-select{border:3px solid #14111f;border-radius:5px;box-shadow:4px 4px 0 #14111f;background:#fffaf0}
+#records .rb-shell{width:100%;max-width:100%;min-width:0;overflow:hidden;box-sizing:border-box;background:#10182d;color:#f4f7ff;padding:12px;border:2px solid #172033;border-radius:14px;box-shadow:4px 4px 0 #111827;font-family:Arial,sans-serif}
+#records .rb-shell *{box-sizing:border-box}
+#records .rb-intro,#records .rb-hero,#records .rb-card,#records .rb-empty,#records .rb-select{background:#1d2943!important;color:#f4f7ff!important;border:1px solid #344663!important;border-radius:8px;box-shadow:none;min-width:0}
 #records .rb-intro{padding:13px 14px}
-#records .rb-intro h2{font:30px/1 Bangers,Impact,sans-serif!important}
-#records .rb-hero{background:#ffd400;color:#14111f;border-color:#14111f;padding:14px}
-#records .rb-hero .rb-kicker,#records .rb-hero small{color:#403727}
-#records .rb-hero b{color:#a81731;font-size:clamp(42px,9vw,64px)}
-#records .rb-tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 4px 9px;margin:10px -2px;scrollbar-width:thin}
-#records .rb-tabs button{flex:0 0 auto;scroll-snap-align:start;border:2px solid #14111f;border-radius:4px;box-shadow:2px 2px 0 #14111f;font:20px/1 Bangers,Impact,sans-serif;padding:10px 13px}
-#records .rb-tabs button[aria-pressed=true]{background:#ffd400;color:#14111f}
-#records .rb-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+#records .rb-intro h2{font:800 22px/1.15 Arial,sans-serif!important;color:#ffd43b!important;text-shadow:none!important}
+#records .rb-shell p,#records .rb-shell small{color:#bdcbe1!important;font:12px/1.5 Arial,sans-serif!important}
+#records .rb-kicker{color:#bdcbe1!important;letter-spacing:.07em}
+#records .rb-hero{border-left:3px solid #ffd43b!important;padding:14px}
+#records .rb-hero .rb-kicker{color:#ffd43b!important}
+#records .rb-hero b{color:#ffd43b!important;font-size:clamp(42px,9vw,64px)}
+#records .rb-hero strong,#records .rb-hero .rb-holder span{color:#fff}
+#records .rb-tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 0 9px;margin:10px 0;scrollbar-width:thin;scrollbar-color:#526583 #10182d}
+#records .rb-tabs button,#records .rb-share{flex:0 0 auto;scroll-snap-align:start;border:1px solid #526583!important;border-radius:8px;box-shadow:none!important;transform:none!important;background:#202e49!important;color:#fff!important;font:700 12px Arial,sans-serif;min-height:44px;padding:10px 13px}
+#records .rb-tabs button[aria-pressed=true]{background:#ffd43b!important;color:#10182d!important;border-color:#ffd43b!important}
+#records .rb-select select{background:#202e49!important;color:#fff!important;border-color:#526583}
+#records .rb-grid{grid-template-columns:minmax(0,1fr);gap:8px}
 @media(min-width:760px){#records .rb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#records .rb-card{border-left:3px solid #526583!important}
+#records .rb-card[open]{border-color:#526583!important;background:#24324b!important}
 #records .rb-card summary{padding:12px}
-#records .rb-card:nth-child(even){background:#fff0c4}
+#records .rb-top strong,#records .rb-holder strong{color:#f4f7ff!important}
 #records .rb-top b{font-size:27px}
+#records .rb-good{color:#79e3a3!important}#records .rb-bad{color:#ff8996!important}
 #records .rb-holder{margin:9px 0 5px;gap:8px;align-items:center}
 #records .rb-holder>div:last-child{min-width:0;overflow-wrap:anywhere}
 #records .rb-holder .rb-logos{display:flex;gap:4px;flex-wrap:wrap;max-width:96px;flex-shrink:0}
 #records .rb-logos .team-logo{margin:0!important;width:39px!important;height:39px!important;min-width:39px!important;transform:none!important}
-#records .rb-expand{color:#2348a5}
-#records .rb-share{background:#ffd400;border-radius:4px;box-shadow:2px 2px 0 #14111f}
-#records .rb-detail{border-top:2px solid #14111f}
-#records .rb-foot{color:#fff}
+#records .rb-expand{color:#ffd43b!important}
+#records .rb-detail{background:#10182d!important;border-top:1px solid #344663}
+#records .rb-detail h3{color:#ffd43b!important;font:800 15px Arial,sans-serif}
+#records .rb-rank{color:#f4f7ff!important;border-color:#344663}
+#records .rb-rank strong{color:#fff!important}
+#records .rb-new{background:#ffd43b;color:#10182d}
+#records .rb-foot{color:#bdcbe1!important}
+#records button:focus-visible,#records summary:focus-visible,#records select:focus-visible{outline:2px solid #ffd43b;outline-offset:2px}
 </style><script id="live-record-book-renderer">
 (function(){
 const root=document.getElementById('records');if(!root)return;
