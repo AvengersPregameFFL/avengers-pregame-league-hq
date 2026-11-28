@@ -3816,6 +3816,19 @@ controls.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b
 #rivalries .rv-stat b{display:block;color:#f4f7ff;font:800 14px/1.3 Arial,sans-serif;margin-top:4px;overflow-wrap:anywhere}
 #rivalries .rv-share{width:100%}#rivalries [hidden]{display:none!important}
 #rivalries button:focus-visible,#rivalries summary:focus-visible{outline:2px solid #ffd43b;outline-offset:2px}
+</style><style id="rivalry-chronicles-v1">
+#rivalries .rv-chronicles{background:#10182d!important;color:#f4f7ff!important;border:1px solid #344663!important;border-radius:12px;padding:14px;margin:16px 0 4px;box-shadow:none!important}
+#rivalries .rv-chronicles h3{font:800 23px/1.15 Arial,sans-serif!important;color:#f4f7ff!important;margin:5px 0!important;text-transform:none!important}
+#rivalries .rv-chronicle-kicker{font:800 10px/1.4 Arial,sans-serif;color:#ffd43b;letter-spacing:.09em}
+#rivalries .rv-chronicle-list{display:grid;gap:10px;margin-top:12px}
+#rivalries .rv-chronicle-card{display:grid!important;grid-template-columns:minmax(88px,32%) minmax(0,1fr);gap:12px;align-items:center;background:#1d2943!important;color:#f4f7ff!important;border:1px solid #344663!important;border-radius:9px;padding:9px!important;text-decoration:none!important;box-shadow:none!important;transform:none!important;overflow:hidden}
+#rivalries .rv-chronicle-card img{width:100%!important;height:auto!important;max-height:220px;object-fit:contain!important;border-radius:5px;border:0!important;display:block;background:#10182d}
+#rivalries .rv-chronicle-copy{min-width:0;display:grid;gap:5px}
+#rivalries .rv-chronicle-copy small,#rivalries .rv-chronicle-kind{font:700 10px/1.3 Arial,sans-serif!important;color:#a9bad5!important}
+#rivalries .rv-chronicle-copy strong{font:800 15px/1.3 Arial,sans-serif!important;color:#f4f7ff!important;overflow-wrap:anywhere}
+#rivalries .rv-chronicle-copy p{font:400 12px/1.4 Arial,sans-serif!important;color:#c5d1e5!important;margin:0!important}
+#rivalries .rv-chronicle-read{font:800 11px/1.4 Arial,sans-serif!important;color:#ffd43b!important}
+#rivalries .rv-chronicle-card:focus-visible{outline:2px solid #ffd43b;outline-offset:3px}
 </style><script id="rivalry-hq-interactive">
 (function(){
 const root=document.getElementById('rivalries');if(!root)return;const panels=[...root.querySelectorAll('.rivalry-feature')];if(panels.length!==2)return;
@@ -3826,6 +3839,13 @@ const params=new URLSearchParams(location.search);let active=params.get('rivalry
 function select(i){active=i;panels.forEach((p,j)=>p.hidden=i!==j);[...buttons.children].forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)))}
 specs.forEach((s,i)=>{const b=el('button','',s.name);b.type='button';b.appendChild(el('small','',s.a+' vs '+s.b));b.onclick=()=>select(i);buttons.appendChild(b);const p=panels[i];const box=el('div','rv-intel');box.appendChild(el('p','rv-note','Loading verified rivalry intelligence…'));p.querySelector('.rivalry-history').before(box);s.box=box;if(i===1)p.querySelectorAll('.rivalry-contender').forEach((a,j)=>{const logo=window.avengersTeamLogo?.(j?'Travis':'Nick');if(logo){const cls=[...logo.classList].find(c=>c.startsWith('team-logo-'));const existing=cls&&[...document.querySelectorAll('.'+cls+'.sleeper-logo-loaded')].find(x=>!root.contains(x));if(existing?.style.backgroundImage){logo.style.setProperty('background-image',existing.style.backgroundImage,'important');logo.classList.add('sleeper-logo-loaded')}a.prepend(logo)}})});
 select(active);
+// Explicit editorial mapping only: a shared coach is never enough to qualify.
+const rivalryChronicles={
+ shortbus:[{season:2026,week:11,issue:30,kind:'Recap',title:'The Short Bus Showdown: The Wheels of Justice',href:'./stories/week11-short-bus.html',image:'./stories/week11-short-bus.png',summary:'Aaron reclaims the Golden Short Bus Trophy · 125.90–116.76'}],
+ carolina:[{season:2026,week:9,issue:18,kind:'Rivalry debut · Preview',title:'The Carolina Civil War: North vs. South',href:'./stories/carolina-civil-war.html',image:'./stories/EC5BD3DB-07EF-4D9E-AE5D-792F0060A83B.png?v=2',summary:'The official introduction of the North–South rivalry.'},{season:2026,week:9,issue:21,kind:'Recap',title:'The South Shall Rise Again. Just as Soon as Travis Gets His Head Out of His Ass.',href:'./stories/week9-nick-travis.html',image:'./assets/stories/week09-nick-travis-carolina-civil-war.png',summary:'Nick wins the Carolina Civil War · 165.58–146.84'}]
+};
+function renderChronicles(){panels.forEach((p,i)=>{const key=i===0?'shortbus':'carolina',stories=(rivalryChronicles[key]||[]).slice().sort((a,b)=>b.season-a.season||b.week-a.week||b.issue-a.issue);p.querySelector('.rv-chronicles')?.remove();if(!stories.length)return;const section=el('section','rv-chronicles');section.append(el('div','rv-chronicle-kicker','THE PREGAME BUGLE · ARCHIVE'),el('h3','','Rivalry Chronicles'),el('p','rv-note','Original comic stories written specifically about this rivalry.'));const list=el('div','rv-chronicle-list');stories.forEach(st=>{const a=el('a','rv-chronicle-card');a.href=st.href;const img=el('img');img.src=st.image;img.alt='Original comic artwork: '+st.title;img.loading='lazy';const copy=el('div','rv-chronicle-copy');copy.append(el('small','',''+st.season+' · WEEK '+st.week+' · NO. '+String(st.issue).padStart(3,'0')),el('span','rv-chronicle-kind',st.kind),el('strong','',st.title),el('p','',st.summary),el('span','rv-chronicle-read','READ ORIGINAL STORY →'));a.append(img,copy);list.append(a)});section.append(list);p.append(section)})}
+renderChronicles();
 const base='https://api.sleeper.app/v1',lid='1395849826633019392';const get=async p=>{const r=await fetch(base+p,{cache:'no-store'});if(!r.ok)throw Error('Sleeper unavailable');return r.json()};
 const fmt=n=>Number(n).toFixed(2);let busy=false;
 function render(s,games,next,season,partial){const box=s.box;box.replaceChildren();const n=games.length,wa=games.filter(g=>g.a>g.b).length,wb=games.filter(g=>g.b>g.a).length,t=n-wa-wb;const score=el('div','rv-score');[[s.a,wa],[s.b,wb]].forEach(([name,w])=>{const d=el('div');d.append(el('small','',name),el('strong','',w),el('small','','Wins'));score.appendChild(d)});box.appendChild(score);if(n){const meter=el('div','rv-meter');const a=el('i'),b=el('i');a.style.width=(wa/n*100)+'%';b.style.width=(wb/n*100)+'%';meter.append(a,b);box.appendChild(meter)}box.appendChild(el('div','rv-note',n+' completed meetings'+(t?' · '+t+' ties':'')+' · '+(wa===wb?'Series tied':(wa>wb?s.a:s.b)+' leads')+' · '+season));
